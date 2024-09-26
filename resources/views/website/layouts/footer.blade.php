@@ -17,19 +17,19 @@
         <div class="flex space-x-4 align-items-center _social_links">
             <h3 class="font-4 display-14 color-white m-0"> FOLLOW US: </h3>
             <a href="https://www.facebook.com/YourPage" target="_blank" rel="noopener" title="Follow us on Facebook">
-                <img src="{{ asset('assets/images/icons/facebook.svg') }}" alt="Facebook" width="24" height="24" />
+                <img src="{{ asset('/assets/images/icons/facebook.svg') }}" alt="Facebook" width="24" height="24" />
             </a>
             <a href="https://www.twitter.com/YourProfile" target="_blank" rel="noopener" title="Follow us on Twitter">
-                <img src="{{ asset('assets/images/icons/twitter.svg') }}" alt="Twitter" width="24" height="24" />
+                <img src="{{ asset('/assets/images/icons/twitter.svg') }}" alt="Twitter" width="24" height="24" />
             </a>
             <a href="https://www.instagram.com/YourProfile" target="_blank" rel="noopener" title="Follow us on Instagram">
-                <img src="{{ asset('assets/images/icons/instagram.svg') }}" alt="Instagram" width="24" height="24" />
+                <img src="{{ asset('/assets/images/icons/instagram.svg') }}" alt="Instagram" width="24" height="24" />
             </a>
             <a href="https://www.linkedin.com/company/YourCompany" target="_blank" rel="noopener" title="Connect with us on LinkedIn">
-                <img src="{{ asset('assets/images/icons/linkedin.svg') }}" alt="LinkedIn" width="24" height="24" />
+                <img src="{{ asset('/assets/images/icons/linkedin.svg') }}" alt="LinkedIn" width="24" height="24" />
             </a>
             <a href="https://www.linkedin.com/company/YourCompany" target="_blank" rel="noopener" title="Connect with us on LinkedIn">
-                <img src="{{ asset('assets/images/icons/whatsapp.svg') }}" alt="LinkedIn" width="24" height="24" />
+                <img src="{{ asset('/assets/images/icons/whatsapp.svg') }}" alt="LinkedIn" width="24" height="24" />
             </a>
         </div>
     </div>

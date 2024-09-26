@@ -6,10 +6,10 @@
         </div>
         <div class="_slide_buttons">
             <button class="slick-prev-custom" data-slider="slider-1">
-                <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" alt="Arrow left" />
+                <img src="{{ asset('/assets/images/icons/arrow-left.svg') }}" alt="Arrow left" />
             </button>
             <button class="slick-next-custom ml-4" data-slider="slider-1">
-                <img src="{{ asset('assets/images/icons/arrow-right.svg') }}" alt="Arrow right" />
+                <img src="{{ asset('/assets/images/icons/arrow-right.svg') }}" alt="Arrow right" />
             </button>
         </div>
     </div>
@@ -22,7 +22,7 @@
                         <div class="row _tour_guide">
                             <div class="col-md-5 pe-0 image position-relative">
                                 <img src="assets/images/homepage/man-4.png" alt="tour guide" width="100%" />
-                                <p class="_price font-4 display-12 color-white" style="background-image: url({{ asset('assets/images/homepage/price-background.svg') }})">
+                                <p class="_price font-4 display-12 color-white" style="background-image: url({{ asset('/assets/images/homepage/price-background.svg') }})">
                                     50 AED <br/> per hour 
                                 </p>
                             </div>
@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="col-md-6 text-center">
                                         <p class="font-4 display-14 color-blue">Reviews</p>
-                                        <img src="{{ asset('assets/images/icons/stars.svg') }}" alt="Arrow right" class="text-cetner mx-auto pt-2" />
+                                        <img src="{{ asset('/assets/images/icons/stars.svg') }}" alt="Arrow right" class="text-cetner mx-auto pt-2" />
                                     </div>
                                 </div>
                             </div>
