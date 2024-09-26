@@ -1,8 +1,3 @@
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @font-face {
   font-family: "Lexend-ExtraBold";
   src: url("../fonts/Lexend-ExtraBold.ttf") format("truetype");
@@ -560,6 +555,11 @@ input[type="range"] {
     height: 100%;
   }
   
+  ._tour_guide_grid img:first-child {
+    height: 100%;
+    object-fit: cover;
+  }
+  
 }
 
 
@@ -580,6 +580,18 @@ input[type="range"] {
   ._social_links {
     margin: 15px 0px;
   }
+
+  ._tour_guide_profile .col-md-6 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  ._tour_guide_profile .col-md-4 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+
   
 }
 
@@ -702,7 +714,7 @@ input[type="range"] {
     margin-bottom: 16px;
   }
 
-  ._tour_guide {
+  ._tour_guide , ._tour_guide_grid{
     border: 1px solid var(--color-gray);
   }
 
@@ -714,7 +726,7 @@ input[type="range"] {
     height: auto;
   }
 
-  ._tour_guide ._image {
+  ._tour_guide ._image, ._tour_guide_grid .image {
     padding: 0px;
   }
 
@@ -737,6 +749,25 @@ input[type="range"] {
  
   ._popular_destinations .details{
     padding: 15px;
+  }
+
+  ._tour_guide_profile .col-md-6, ._tour_guide_profile .col-md-4 {
+   display: block !important;
+   width: 100%;
+  }
+  
+  ._tour_guide_profile ._location {
+    width: 100%;
+    margin: 20px;
+  }
+
+  .number_of_peopled {
+    display: block !important;
+    margin: 38px 0px;
+  }
+
+  ._tabs, ._tabs button, .detail  {
+    margin: 10px 0px;
   }
 
 }
