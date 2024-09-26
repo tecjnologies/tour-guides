@@ -8,15 +8,17 @@ use Illuminate\View\Component;
 
 class tour-guide extends Component
 {
+    
     public $data;
-   
+    public $options;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($data)
+    public function __construct($data, $options)
     {
         $this->data = $data;
+        $this->options = $options;
     }
 
     /**

@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <x-website.slider :slides="$data">
+    <x-website.slider :options="$options">
         <div class="slick-slider mt-3" id="slider-4">
             @forelse($data as $slide)
                 <div class="slide _popular_destinations">

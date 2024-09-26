@@ -33,7 +33,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
 @endpush
 
-
 <x-website-layout>
     @section('title', 'Tour Guide - Homepage')
     <div class="mx-auto">
@@ -106,20 +105,13 @@
                     text="Lorem Ipsum is simply dummy text of the printing "  
                     imageUrl="{{ asset('assets/images/homepage/payments.svg') }}" />
             </div>
-            
-            {{-- <div class="col-md-4">
-                <x-home.text-with-image 
-                    heading="Trusted Bookings" 
-                    text="Lorem Ipsum is simply dummy text of the printing "  
-                    imageUrl="{{ asset('assets/images/homepage/payments.svg') }}" />
-            </div> --}}
         </div>
         
         <x-home.tour-guide :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto" />
         <div class="spacer py-5"></div>
         <x-home.popular-destinations :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto" />
         <div class="spacer py-5"></div>
-        <x-home.vip-service :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto " />
+        <x-home.vip-service :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto" />
         <div class="spacer py-5"></div>
         <x-home.unforgettable-nature :data="$homeSlider" :options="$sliderOptions"  class="h-12 w-auto " />
         <div class="spacer py-5"></div>

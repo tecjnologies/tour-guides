@@ -8,7 +8,6 @@ use Illuminate\View\Component;
 
 class Slider extends Component
 {
-    public $slides;
     public $options;
 
     /**
@@ -16,9 +15,8 @@ class Slider extends Component
      *
      * @return void
     */
-    public function __construct($slides, $options = [])
+    public function __construct($options = [])
     {
-        $this->slides = $slides;
         $this->options = $options;
     }
 

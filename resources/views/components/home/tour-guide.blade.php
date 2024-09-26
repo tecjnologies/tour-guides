@@ -14,8 +14,8 @@
         </div>
     </div>
 
-    <x-website.slider :slides="$data">
-        <div class="slick-slider mt-4" id="slider-1">
+    <x-website.slider :options="$options">
+        <div class="slick-slider mt-4" id="slider-2">
             @forelse($data as $slide)
                 <div class="slide">
                     <div class="extra-slide-content">
@@ -51,6 +51,5 @@
                 <p>No Data Found!</p>
             @endforelse
         </div>
-
     </x-website.slider>   
 </div>
