@@ -13,13 +13,13 @@
             </button>
         </div>
     </div>
-    <x-website.slider :slides="$data">
+    <x-website.slider :options="$options">
         <div class="slick-slider" id="slider-3">
             @forelse($data as $slide)
                 <div class="slide mt-5">
                     <div class="extra-slide-content">
                         <div class="row">
-                            <div class="col-md-5 p-0 h-10">
+                            <div class="col-md-5 p-0 h-100">
                                 <img src="{{ asset('assets/images/homepage/man-woman.png') }}" alt="vip service"  width="100%"/>
                             </div>
                             <div class="col-md-7 border-top border-bottom border-end rounded-end">

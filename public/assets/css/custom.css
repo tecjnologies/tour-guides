@@ -362,6 +362,186 @@ form select, form input {
 }
 
 
+._tour_guide_grid ._price{
+  position: absolute;
+  height: unset;
+  width: unset;
+  top: unset;
+  bottom: 25px;
+  right: 0;
+  left: unset;
+  right: 0px;
+  text-align: center;
+  background-color: var(--color-primary);
+  padding: 10px 30px;
+}
+
+._pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  padding: 8px 12px;
+}
+
+.page-item.active .page-link {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-radius: 5px;
+}
+
+.page-item.disabled .page-link {
+  color: var(--color-gray);
+}
+
+.range_container {
+  --_marker-border-clr:  var(--color-primary);
+  --_marker-size: 15px;
+  --_track-heigt: 3px;
+
+  --_tooltip-bg-clr: rgba(0, 0, 0, 0.4);
+  --_tooltip-txt-clr: var(--_marker-border-clr);
+    
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sliders_control {
+  position: relative;
+}
+
+.slider-tooltip {
+  position: absolute;
+  top: -3.5rem;
+  left: 0;
+  width: fit-content;
+  background-color: var(--_tooltip-bg-clr);
+  color: var(--_tooltip-txt-clr);
+  font-size: 0.8rem;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  translate: -50% 0;
+}
+
+.slider-tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: -0.25rem;
+  left: 50%;
+  translate: -50% 0;
+  width: .5rem;
+  height: .5rem;
+  rotate: 45deg;
+  z-index: -1;
+  background-color: inherit;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: var(--_marker-size);
+  height: var(--_marker-size);
+  background-color: var(--_marker-border-clr);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--_marker-border-clr);
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: var(--_marker-size);
+  height: var(--_marker-size);
+  background-color: var(--_marker-border-clr);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--_marker-border-clr);
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  background: #f7f7f7;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+  box-shadow: inset 0 0 3px  var(--color-primary), 0 0 9px  var(--color-primary);
+  -webkit-box-shadow: inset 0 0 3px  var(--color-primary), 0 0 9px  var(--color-primary);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: var(--_track-heigt);
+  width: 100%;
+  position: absolute;
+  background-color: var(--color-primary);
+  pointer-events: none;
+}
+
+#fromSlider {
+  height: 0;
+  z-index: 1;
+}
+
+.scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  position: relative;
+  width: calc(100% - var(--_marker-size));
+  margin-inline: auto;
+  font-size: 0.8rem;
+}
+
+.scale div {
+  position: absolute;
+  translate: -50% 0;
+}
+
+.scale div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% -125%;
+  width: 1px;
+  height: 10px;
+  background-color:#666;
+}
+
+.range_container ._input input {
+  border-radius: 5px;
+  border: 1px solid var(--color-gray);
+}
+
+._tabs button {
+  padding: 10px 12px;
+  border: 1px solid var(--color-gray);
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+._tour_guide_profile ._location {
+  width: 30%;
+  margin: 0px 20px;
+}
+
+
+._tabs_with_icon ._tabs a {
+  text-decoration: none;
+}
+
+
 @media only screen and (max-width: 1800px) {
 
 }
