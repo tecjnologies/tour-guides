@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class popular-destinations extends Component
+class PopularDestinations extends Component
 {
     public $data;
    

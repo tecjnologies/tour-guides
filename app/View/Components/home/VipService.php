@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class unforgettable-nature extends Component
+class VipService extends Component
 {
     
     public $data;
@@ -25,6 +25,6 @@ class unforgettable-nature extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.home.unforgettable-nature');
+        return view('components.home.vip-service');
     }
 }

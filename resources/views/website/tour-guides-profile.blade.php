@@ -1,12 +1,8 @@
+@push('css')
+@endpush
 <x-website-layout>
-    @section('title', 'Tour Guide - Tour Guides')
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    Tour Guide Profile 
-                </div>
-            </div>
-        </div>
+    @section('title', 'Tour Guide Profile')
+    <div class="mx-auto">
+        <x-home.tour-guide-grid class="h-12 w-auto" />
     </div>
 </x-website-layout>

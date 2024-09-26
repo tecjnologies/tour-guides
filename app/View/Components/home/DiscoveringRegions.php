@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class tour-guide extends Component
+class DiscoveringRegions extends Component
 {
     public $data;
    
@@ -24,6 +24,6 @@ class tour-guide extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.home.tour-guide');
+        return view('components.home.discovering-regions');
     }
 }
