@@ -12,14 +12,14 @@
   </div>
   <div class="flex">
     <div class="langugae d-flex justify-content-start  align-items-center me-4">
-      <img src="{{ asset('/public/assets/images/icons/language.svg') }}" alt="Language" />
+      <img src="{{ asset('assets/images/icons/language.svg') }}" alt="Language" />
       <select class="border rounded">
         <option value="en"  class="font-5 display-16 color-blue">English</option>
         <option value="ar" class="font-5 display-16 color-blue">Arabic</option>
       </select>
     </div>
     <div class="currency d-flex justify-content-start  align-items-center me-2">
-      <img src="{{ asset('/public/assets/images/icons/currency.svg') }}" alt="currency" />
+      <img src="{{ asset('assets/images/icons/currency.svg') }}" alt="currency" />
       <select class="border rounded">
         <option value="usd" class="font-5 display-16 color-blue">USD</option>
         <option value="eur" class="font-5 display-16 color-blue">EUR</option>

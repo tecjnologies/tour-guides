@@ -4,7 +4,7 @@
         <li class="page-item">
             <a href="#" class="_previous page-link page-link font-2 display-20 color-black" rel="prev">
                 <
-                {{-- <img src="{{ asset('/public/assets/images/tour-guide/previous.svg') }}" alt="previous"/> --}}
+                {{-- <img src="{{ asset('assets/images/tour-guide/previous.svg') }}" alt="previous"/> --}}
             </a>
         </li>
         <li class="page-item active" aria-current="page">
@@ -25,7 +25,7 @@
         <li class="page-item">
             <a href="#" class="page-link font-2 display-20 color-black" rel="next">
               >
-                {{-- <img src="{{ asset('/public/assets/images/tour-guide/next.svg') }}" alt="next"/> --}}
+                {{-- <img src="{{ asset('assets/images/tour-guide/next.svg') }}" alt="next"/> --}}
             </a>
         </li>
    

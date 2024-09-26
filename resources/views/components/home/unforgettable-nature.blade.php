@@ -5,10 +5,10 @@
         </div>
         <div class="_slide_buttons">
             <button class="slick-prev-custom"  data-slider="slider-2">
-                <img src="{{ asset('/public/assets/images/icons/arrow-left.svg') }}" alt="Arrow left" />
+                <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" alt="Arrow left" />
             </button>
             <button class="slick-next-custom ml-4"  data-slider="slider-2">
-                <img src="{{ asset('/public/assets/images/icons/arrow-right.svg') }}" alt="Arrow right" />
+                <img src="{{ asset('assets/images/icons/arrow-right.svg') }}" alt="Arrow right" />
             </button>
         </div>
     </div>
@@ -19,7 +19,7 @@
                     <div class="extra-slide-content">
                         <div class="row p-4 card border-0">
                             <div class="_details pb-4">
-                                <img src="{{ asset('/public/assets/images/homepage/burj-emrates.png') }}" alt="ETGA Logo" width="100%"/>
+                                <img src="{{ asset('assets/images/homepage/burj-emrates.png') }}" alt="ETGA Logo" width="100%"/>
                                 <p class="pt-4 font-4 display-16 color-blue">orem Ipsum has been the industry’s standard dummy text ever since the 1500s. </p>
                             </div>
                         </div>

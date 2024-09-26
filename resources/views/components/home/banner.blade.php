@@ -1,7 +1,7 @@
 @push('css')
-    <link rel="stylesheet" href="{{ asset('/public/assets/css/banner.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/banner.css') }}">
 @endpush
-<section class="relative bg-cover bg-center h-100 _banner py-5 mx-5" style="background-image: url({{ asset('/public/assets/images/homepage/banner-background.png')}});">
+<section class="relative bg-cover bg-center h-100 _banner py-5 mx-5" style="background-image: url({{ asset('assets/images/homepage/banner-background.png')}});">
     <div class="relative flex flex-col items-center justify-center h-full text-white text-center p-5">
         <h2 class="font-2 display-26 color-white mb-3"> "Discover Hidden Gems with Local Experts" </h2>
         <p class="font-5  display-20 color-white"> Experience the Extraordinary in the UAE with Our Expert Guides  </p>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="text-right font-5 display-14 color-blue d-flex justify-content-between align-items-center">
                     Meet local experts
-                    <img src="{{ asset('/public/assets/images/icons/arrow-primary.svg') }}" alt="arrow-right" class="ml-4" />
+                    <img src="{{ asset('assets/images/icons/arrow-primary.svg') }}" alt="arrow-right" class="ml-4" />
                 </div>
             </div>
         </div> 
