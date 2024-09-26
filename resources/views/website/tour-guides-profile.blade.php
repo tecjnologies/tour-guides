@@ -6,3 +6,14 @@
         <x-home.tour-guide-grid class="h-12 w-auto" />
     </div>
 </x-website-layout>
+<<<<<<< .mine
+
+
+
+
+=======
+            </div>
+        </div>
+    </div>
+</x-website-layout>
+>>>>>>> .theirs
