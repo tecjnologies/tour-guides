@@ -9,33 +9,33 @@
             <div class="hidden sm:flex space-x-8">
                 <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('home'))
-                        <img src="{{ asset('/assets/images/menu/home-active.svg') }}" alt="Home Active" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/home-active.svg') }}" alt="Home Active" class="mx-2"/>
                     @else
-                        <img src="{{ asset('/assets/images/menu/home.svg') }}" alt="Home" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/home.svg') }}" alt="Home" class="mx-2"/>
                     @endif
                     Home
                 </x-nav-link>
                 <x-nav-link :href="route('book-your-guide')" :active="request()->routeIs('book-your-guide')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('book-your-guide'))
-                        <img src="{{ asset('/assets/images/menu/book-your-guide-active.svg') }}" alt="Book your guide" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/book-your-guide-active.svg') }}" alt="Book your guide" class="mx-2"/>
                     @else
-                        <img src="{{ asset('/assets/images/menu/book-your-guide.svg') }}" alt="Book your guide" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/book-your-guide.svg') }}" alt="Book your guide" class="mx-2"/>
                     @endif
                     Book your guide
                 </x-nav-link>
                 <x-nav-link :href="route('tour-guides-profile')" :active="request()->routeIs('tour-guides-profile')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('tour-guide-profile'))
-                        <img src="{{ asset('/assets/images/menu/tour-guide-active.svg') }}" alt="Tour Guide Profile Active" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/tour-guide-active.svg') }}" alt="Tour Guide Profile Active" class="mx-2"/>
                     @else
-                        <img src="{{ asset('/assets/images/menu/tour-guide.svg') }}" alt="Tour Guide Profile" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/tour-guide.svg') }}" alt="Tour Guide Profile" class="mx-2"/>
                     @endif
                     Tour Guide Profile
                 </x-nav-link>
                 <x-nav-link :href="route('destinations')" :active="request()->routeIs('destinations')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('destinations'))
-                        <img src="{{ asset('/assets/images/menu/destinations-active.svg') }}" alt="Destinations Active" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/destinations-active.svg') }}" alt="Destinations Active" class="mx-2"/>
                     @else
-                        <img src="{{ asset('/assets/images/menu/destinations.svg') }}" alt="Destinations" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/destinations.svg') }}" alt="Destinations" class="mx-2"/>
                     @endif
 
                     Destinations
@@ -43,35 +43,35 @@
                 
                 <x-nav-link :href="route('join-us')" :active="request()->routeIs('join-us')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('join-us'))
-                        <img src="{{ asset('/assets/images/menu/join-us-active.svg') }}" alt="Join us Active" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/join-us-active.svg') }}" alt="Join us Active" class="mx-2"/>
                     @else
-                        <img src="{{ asset('/assets/images/menu/join-us.svg') }}" alt="Join us" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/join-us.svg') }}" alt="Join us" class="mx-2"/>
                     @endif
                 
                     Join us
                 </x-nav-link>
                 <x-nav-link :href="route('get-help')" :active="request()->routeIs('get-help')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('get-help'))
-                        <img src="{{ asset('/assets/images/menu/get-help-active.svg') }}" alt="Get Help Active" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/get-help-active.svg') }}" alt="Get Help Active" class="mx-2"/>
                     @else
-                        <img src="{{ asset('/assets/images/menu/get-help.svg') }}" alt="Get Help" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/get-help.svg') }}" alt="Get Help" class="mx-2"/>
                     @endif
                 
                     Get Help
                 </x-nav-link>
                 <x-nav-link :href="route('login')" :active="request()->routeIs('login')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('login'))
-                        <img src="{{ asset('/assets/images/menu/login-active.svg') }}" alt="Login Active" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/login-active.svg') }}" alt="Login Active" class="mx-2"/>
                     @else
-                        <img src="{{ asset('/assets/images/menu/login.svg') }}" alt="Login" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/login.svg') }}" alt="Login" class="mx-2"/>
                     @endif
                     Login
                 </x-nav-link>
                 <x-nav-link class="font-4 display-16 color-blue">
                     @if(request()->routeIs('cart'))
-                        <img src="{{ asset('/assets/images/menu/cart-active.svg') }}" alt="My Cart Active" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/cart-active.svg') }}" alt="My Cart Active" class="mx-2"/>
                     @else
-                        <img src="{{ asset('/assets/images/menu/cart.svg') }}" alt="My Cart" class="mx-2"/>
+                        <img src="{{ asset('/public/assets/images/menu/cart.svg') }}" alt="My Cart" class="mx-2"/>
                     @endif
                     My Cart
                 </x-nav-link>

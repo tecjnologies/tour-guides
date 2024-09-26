@@ -6,10 +6,10 @@
         </div>
         <div class="_slide_buttons">
             <button class="slick-prev-custom"  data-slider="slider-3">
-                <img src="{{ asset('/assets/images/icons/arrow-left.svg') }}" alt="Arrow left" />
+                <img src="{{ asset('/public/assets/images/icons/arrow-left.svg') }}" alt="Arrow left" />
             </button>
             <button class="slick-next-custom ml-4"  data-slider="slider-3">
-                <img src="{{ asset('/assets/images/icons/arrow-right.svg') }}" alt="Arrow right" />
+                <img src="{{ asset('/public/assets/images/icons/arrow-right.svg') }}" alt="Arrow right" />
             </button>
         </div>
     </div>
@@ -20,7 +20,7 @@
                     <div class="extra-slide-content">
                         <div class="row">
                             <div class="col-md-5 p-0 h-100">
-                                <img src="{{ asset('/assets/images/homepage/man-woman.png') }}" alt="vip service"  width="100%"/>
+                                <img src="{{ asset('/public/assets/images/homepage/man-woman.png') }}" alt="vip service"  width="100%"/>
                             </div>
                             <div class="col-md-7 border-top border-bottom border-end rounded-end">
                                 <div class="h-100 d-flex justify-content-center algin-items-center flex-column">

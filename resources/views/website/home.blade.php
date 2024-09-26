@@ -1,12 +1,12 @@
 @php 
     
     $homeSlider = [
-        ['image' => asset('/assets/images/homepage/man.png'), 'alt' => 'Slide 1', 'content' => '<h3>Slide 1 Title</h3><p>Some content</p>'],
-        ['image' => asset('/assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
-        ['image' => asset('/assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
-        ['image' => asset('/assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
-        ['image' => asset('/assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
-        ['image' => asset('/assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
+        ['image' => asset('/public/assets/images/homepage/man.png'), 'alt' => 'Slide 1', 'content' => '<h3>Slide 1 Title</h3><p>Some content</p>'],
+        ['image' => asset('/public/assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
+        ['image' => asset('/public/assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
+        ['image' => asset('/public/assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
+        ['image' => asset('/public/assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
+        ['image' => asset('/public/assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
     ];
 
     $sliderOptions = [
@@ -40,19 +40,19 @@
             <div class="text-gray-900">
                 <x-home.banner class="h-12 w-auto" /> 
                 <div class="tour-bar mt-4 px-5">
-                    <div class="row py-3 become-our-partner" style="background-image: url({{ asset('/assets/images/homepage/blue-bar-background.png')}});">
+                    <div class="row py-3 become-our-partner" style="background-image: url({{ asset('/public/assets/images/homepage/blue-bar-background.png')}});">
                         <div class="col-md-4 d-flex justify-content-around align-items-center">
                             <div class="before-after-image">
-                                <img src="{{ asset('/assets/images/homepage/image-before.svg') }}" alt="ETGA Logo" />
+                                <img src="{{ asset('/public/assets/images/homepage/image-before.svg') }}" alt="ETGA Logo" />
                             </div>
                             <div class="guid-profile">
-                                <img src="{{ asset('/assets/images/homepage/man.png') }}" alt="ETGA Logo" />
+                                <img src="{{ asset('/public/assets/images/homepage/man.png') }}" alt="ETGA Logo" />
                             </div>
                             <div class="before-after-image">
-                                <img src="{{ asset('/assets/images/homepage/image-before.svg') }}" alt="ETGA Logo" />
+                                <img src="{{ asset('/public/assets/images/homepage/image-before.svg') }}" alt="ETGA Logo" />
                             </div>
                             <div class="guid-profile">
-                                <img src="{{ asset('/assets/images/homepage/woman.png') }}" alt="ETGA Logo" />
+                                <img src="{{ asset('/public/assets/images/homepage/woman.png') }}" alt="ETGA Logo" />
                             </div>
                         </div>
                         <div class="col-md-4 text-center">
@@ -60,21 +60,21 @@
                             <p class="color-white font-3 display-15">Find trusted tour guides awarded for their Excellent performance</p>
                             <button class="mt-3 pt-2 border-top color-white d-flex justify-content-center align-items-center mx-auto"> 
                                  Meet Our Expert 
-                                <img src="{{ asset('/assets/images/icons/arrow-white.svg') }}" alt="arrow white"  class="ml-3"/>
+                                <img src="{{ asset('/public/assets/images/icons/arrow-white.svg') }}" alt="arrow white"  class="ml-3"/>
                             </button>
                         </div>
                         <div class="col-md-4 d-flex justify-content-around align-items-center">
                             <div class="guid-profile">
-                                <img src="{{ asset('/assets/images/homepage/man-2.png') }}" alt="ETGA Logo" />
+                                <img src="{{ asset('/public/assets/images/homepage/man-2.png') }}" alt="ETGA Logo" />
                             </div>
                             <div class="before-after-image">
-                                <img src="{{ asset('/assets/images/homepage/image-before.svg') }}" alt="ETGA Logo" />
+                                <img src="{{ asset('/public/assets/images/homepage/image-before.svg') }}" alt="ETGA Logo" />
                             </div>
                             <div class="guid-profile">
-                                <img src="{{ asset('/assets/images/homepage/man-1.png') }}" alt="ETGA Logo" />
+                                <img src="{{ asset('/public/assets/images/homepage/man-1.png') }}" alt="ETGA Logo" />
                             </div>
                             <div class="before-after-image">
-                                <img src="{{ asset('/assets/images/homepage/image-before.svg') }}" alt="ETGA Logo" />
+                                <img src="{{ asset('/public/assets/images/homepage/image-before.svg') }}" alt="ETGA Logo" />
                             </div>
                         </div>
                     </div>
@@ -89,21 +89,21 @@
                 <x-home.text-with-image 
                     heading="Trusted Bookings" 
                     text="Lorem Ipsum is simply dummy text of the printing"  
-                    imageUrl="{{ asset('/assets/images/homepage/trust-booking.svg') }}" />
+                    imageUrl="{{ asset('/public/assets/images/homepage/trust-booking.svg') }}" />
             </div>
 
             <div class="col-md-4">
                 <x-home.text-with-image 
                     heading="Trusted Bookings" 
                     text="Lorem Ipsum is simply dummy text of the printing "  
-                    imageUrl="{{ asset('/assets/images/homepage/customer-service.svg') }}" />
+                    imageUrl="{{ asset('/public/assets/images/homepage/customer-service.svg') }}" />
             </div>
 
             <div class="col-md-4">
                 <x-home.text-with-image 
                     heading="Trusted Bookings" 
                     text="Lorem Ipsum is simply dummy text of the printing "  
-                    imageUrl="{{ asset('/assets/images/homepage/payments.svg') }}" />
+                    imageUrl="{{ asset('/public/assets/images/homepage/payments.svg') }}" />
             </div>
         </div>
         

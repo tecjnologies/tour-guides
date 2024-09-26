@@ -3,7 +3,7 @@
 
     $tourGuides = [
         [
-            'image' => asset('/assets/images/tour-guide/0.svg'), 
+            'image' => asset('/public/assets/images/tour-guide/0.svg'), 
             'name' => 'Mohammed Othman',
             'emirate' =>  'Abu Dhabi',
             'Experience' => '14', 
@@ -12,7 +12,7 @@
             'price' => '50', 
         ],
         [
-            'image' => asset('/assets/images/tour-guide/1.svg'), 
+            'image' => asset('/public/assets/images/tour-guide/1.svg'), 
             'name' => 'Mohammed Othman',
             'emirate' =>  'Abu Dhabi',
             'Experience' => '14', 
@@ -21,7 +21,7 @@
             'price' => '50', 
         ],
         [
-            'image' => asset('/assets/images/tour-guide/2.svg'), 
+            'image' => asset('/public/assets/images/tour-guide/2.svg'), 
             'name' => 'Mohammed Othman',
             'emirate' =>  'Abu Dhabi',
             'Experience' => '14', 
@@ -30,7 +30,7 @@
             'price' => '50', 
         ],
         [
-            'image' => asset('/assets/images/tour-guide/3.svg'), 
+            'image' => asset('/public/assets/images/tour-guide/3.svg'), 
             'name' => 'Mohammed Othman',
             'emirate' =>  'Abu Dhabi',
             'Experience' => '14', 
@@ -39,7 +39,7 @@
             'price' => '50', 
         ],
         [
-            'image' => asset('/assets/images/tour-guide/4.svg'), 
+            'image' => asset('/public/assets/images/tour-guide/4.svg'), 
             'name' => 'Mohammed Othman',
             'emirate' =>  'Abu Dhabi',
             'Experience' => '14', 
@@ -48,7 +48,7 @@
             'price' => '50', 
         ],
         [
-            'image' => asset('/assets/images/tour-guide/5.svg'), 
+            'image' => asset('/public/assets/images/tour-guide/5.svg'), 
             'name' => 'Mohammed Othman',
             'emirate' =>  'Abu Dhabi',
             'Experience' => '14', 
@@ -57,7 +57,7 @@
             'price' => '50', 
         ],
         [
-            'image' => asset('/assets/images/tour-guide/6.svg'), 
+            'image' => asset('/public/assets/images/tour-guide/6.svg'), 
             'name' => 'Mohammed Othman',
             'emirate' =>  'Abu Dhabi',
             'Experience' => '14', 
@@ -66,7 +66,7 @@
             'price' => '50', 
         ],
         [
-            'image' => asset('/assets/images/tour-guide/7.svg'), 
+            'image' => asset('/public/assets/images/tour-guide/7.svg'), 
             'name' => 'Mohammed Othman',
             'emirate' =>  'Abu Dhabi',
             'Experience' => '14', 
@@ -75,7 +75,7 @@
             'price' => '50', 
 ],
         [
-            'image' => asset('/assets/images/tour-guide/8.svg'), 
+            'image' => asset('/public/assets/images/tour-guide/8.svg'), 
             'name' => 'Mohammed Othman',
             'emirate' =>  'Abu Dhabi',
             'Experience' => '14', 
@@ -139,23 +139,23 @@
                 <div class="_tabs_with_icon">
                     <div class="_tabs d-flex">
                         <a class="d-flex justify-content-between align-items-center flex-column me-2 font-4 display-14 color-black">
-                            <img src="{{ asset('/assets/images/tour-guide/historic.svg') }}" alt="historic" class="border px-3 py-2 rounded"/>
+                            <img src="{{ asset('/public/assets/images/tour-guide/historic.svg') }}" alt="historic" class="border px-3 py-2 rounded"/>
                             historic 
                         </a>
                         <a class="d-flex justify-content-between align-items-center flex-column me-2 font-4 display-14 color-black"> 
-                            <img src="{{ asset('/assets/images/tour-guide/natural.svg') }}" alt="natural" class="border px-3 py-2 rounded"/>
+                            <img src="{{ asset('/public/assets/images/tour-guide/natural.svg') }}" alt="natural" class="border px-3 py-2 rounded"/>
                             natural 
                         </a>
                         <a class="d-flex justify-content-between align-items-center flex-column me-2 font-4 display-14 color-black"> 
-                            <img src="{{ asset('/assets/images/tour-guide/technology.svg') }}" alt="technology" class="border px-3 py-2 rounded"/>
+                            <img src="{{ asset('/public/assets/images/tour-guide/technology.svg') }}" alt="technology" class="border px-3 py-2 rounded"/>
                             technology
                         </a>
                         <a class="d-flex justify-content-between align-items-center flex-column me-2 font-4 display-14 color-black"> 
-                            <img src="{{ asset('/assets/images/tour-guide/family.svg') }}" alt="family" class="border px-3 py-2 rounded"/>
+                            <img src="{{ asset('/public/assets/images/tour-guide/family.svg') }}" alt="family" class="border px-3 py-2 rounded"/>
                             family
                         </a>
                         <a class="d-flex justify-content-between align-items-center flex-column me-2 font-4 display-14 color-black"> 
-                            <img src="{{ asset('/assets/images/tour-guide/Customize.svg') }}" alt="Customize" class="border px-3 py-2 rounded"/>
+                            <img src="{{ asset('/public/assets/images/tour-guide/Customize.svg') }}" alt="Customize" class="border px-3 py-2 rounded"/>
                             Customize
                         </a>
                 </div>
@@ -191,7 +191,7 @@
                         </div>
                         <div class="col-md-6 text-center">
                             <p class="font-4 display-14 color-blue">Reviews</p>
-                            <img src="{{ asset('/assets/images/icons/stars.svg') }}" alt="Arrow right" class="text-cetner mx-auto pt-2" />
+                            <img src="{{ asset('/public/assets/images/icons/stars.svg') }}" alt="Arrow right" class="text-cetner mx-auto pt-2" />
                         </div>
                     </div>
                 </div>
