@@ -22,10 +22,13 @@ Route::get('/tour-guides-profile', function () {
     return view('website.tour-guides-profile');
 })->name('tour-guides-profile');
 
+Route::get('/tour-guides-details', function () {
+    return view('website.tour-guide-details');
+})->name('tour-guides-details');
+
 Route::get('/destinations', function () {
     return view('website.destinations');
 })->name('destinations');
-
 
 Route::get('/join-us', function () {
     return view('website.join-us');

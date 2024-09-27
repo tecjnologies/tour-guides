@@ -169,13 +169,15 @@
 
 <div class="row px-5">
     @forelse($tourGuides as $guide)
-        <div class="col-md-4 my-4 px-4">
+        <div class="col-md-4 my-4 px-4 pl-0 cursor-pointer" href="route('home')">
             <div class="row _tour_guide_grid">
                 <div class="col-md-5 pe-0 image position-relative">
-                    <img src="{{ $guide['image'] }}" alt="tour guide" width="100%" />
-                    <p class="_price font-4 display-12 color-white">
-                       {{ $guide['price'] }} <br/> per hour 
-                    </p>
+                    <a href="{{ route('tour-guides-details') }}">
+                        <img src="{{ $guide['image'] }}" alt="tour guide" width="100%" />
+                        <p class="_price font-4 display-12 color-white">
+                           {{ $guide['price'] }} <br/> per hour 
+                        </p>
+                    </a>
                 </div>
                 <div class="_tour_content col-md-7 border-top border-end border-bottom rounded-end d-flex justify-content-center align-items-center flex-column">
                     <div class="detail pt-2">

@@ -37,6 +37,12 @@
   --color-black: #000000;
   --color-gray: #F5F5F5;
   --color-blue : #11004A;
+  --color-red : #AA2E26;
+  --color-light-blue : #A8DBFF;
+  --color-light-green : #AFA8FF;
+  --color-lavender : 2500A0;
+  --color-light-pink : #FFA8F8;
+  --color-pink : #AC21A4;
 }
 
 html {
@@ -65,9 +71,21 @@ body {
   color : var(--color-blue);
 }
 
+.color-red {
+  color: var(--color-red);
+}
+
+
 .bg-blue {
   background-color: var(--color-primary);
 }
+
+
+
+.bg-red {
+  background-color: var(--color-red);
+}
+
 
 .bg-orange {
   background-color: var(--color-secondary);
@@ -77,12 +95,33 @@ body {
   background-color : var(--color-gray);
 }
 
+.bg-light-blue{
+  background-color: var(--color-light-blue);
+}
+
+.bg-green{
+  background-color: var(--color-light-green);
+}
+
+.bg-pink{
+  background-color: var(--color-light-pink);
+}
+
 .color-white {
   color: var(--color-white) !important;
 }
 
 .color-black {
   color: var(--color-black);
+}
+
+
+.color-lavender{
+  color: var(--color-lavender);
+}
+
+.color-pink{
+  color: var(--color-pink);
 }
 
 .line-height-normal {
@@ -94,7 +133,6 @@ body {
 }
 
 p {
-  line-height: normal;
   font-family: var(--font-4-font-family);
   margin: 0px;
 }
@@ -234,10 +272,16 @@ span {
 }
 
 .become-our-partner{
-  background-position: center;
+  background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 30px;
+}
+
+.tour-guide-details{
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .footer .nav-item a {
@@ -540,6 +584,30 @@ input[type="range"] {
   text-decoration: none;
 }
 
+.item ._icon {
+  box-shadow: 1px 1px 30px #E6E7F1;
+  border-radius: 12px;
+}
+
+
+
+._top_destinations ._title_content {
+  border: 1px solid var(--color-gray);
+  padding: 30px 5px 20px 8px;
+  margin-top: -18px;
+  border-radius: 9px;
+  z-index: -1;
+}
+
+._sidebar {
+  box-shadow: 1px 1px 15px #dbdbdb;
+  border-radius: 10px;
+}
+
+hr {
+  border-top: 1px #cfcfcf solid !important;
+}
+
 
 @media only screen and (max-width: 1800px) {
 
@@ -629,6 +697,16 @@ input[type="range"] {
   }
   .display-20 {
     font-size: 12px;
+  }
+
+  .col-md-9 , .col-md-3 , .column-me-10, .col-md-2{
+    width: 100% !important;
+    padding: 13px 0px !important;
+  }
+
+  .banner-right-column{
+    display: block !important;
+    padding-left: 3rem;
   }
 
 }
@@ -768,6 +846,10 @@ input[type="range"] {
 
   ._tabs, ._tabs button, .detail  {
     margin: 10px 0px;
+  }
+
+  .detials .button a, .banner-right-column .buttons a {
+    margin: 7px 13px !important;
   }
 
 }
