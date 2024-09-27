@@ -608,6 +608,17 @@ hr {
   border-top: 1px #cfcfcf solid !important;
 }
 
+.icon-list{
+  padding: 0px;
+}
+
+.icon-list li{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
 
 @media only screen and (max-width: 1800px) {
 
@@ -848,7 +859,8 @@ hr {
     margin: 10px 0px;
   }
 
-  .detials .button a, .banner-right-column .buttons a {
+  .detials .button a, .banner-right-column .buttons a
+   {
     margin: 7px 13px !important;
   }
 

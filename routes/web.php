@@ -26,6 +26,13 @@ Route::get('/tour-guides-details', function () {
     return view('website.tour-guide-details');
 })->name('tour-guides-details');
 
+
+Route::get('/destination-details', function () {
+    return view('website.destination-details');
+})->name('destination-details');
+
+
+
 Route::get('/destinations', function () {
     return view('website.destinations');
 })->name('destinations');
