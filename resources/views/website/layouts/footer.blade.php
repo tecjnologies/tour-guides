@@ -6,12 +6,10 @@
             </div>
             <div class="flex space-x-6 _footer_menu">
                 <x-nav-link :href="route('home')" class="font-4 display-14 color-white">Home</x-nav-link>
-                <x-nav-link :href="route('book-your-guide')" class="font-4 display-14 color-white">Book your guide</x-nav-link>
                 <x-nav-link :href="route('tour-guides-profile')" class="font-4 display-14 color-white">Tour Guide Profile</x-nav-link>
-                <x-nav-link :href="route('destinations')" class="font-4 display-14 color-white">Destinations</x-nav-link>
+                <x-nav-link :href="route('destinations')" class="font-4 display-14 color-white">Attractions</x-nav-link>
                 <x-nav-link :href="route('join-us')" class="font-4 display-14 color-white">Join us</x-nav-link>
                 <x-nav-link :href="route('get-help')" class="font-4 display-14 color-white">Get Help</x-nav-link>
-                <x-nav-link :href="route('login')" class="font-4 display-14 color-white">Login</x-nav-link>
             </div>
         </div>
         <div class="flex space-x-4 align-items-center _social_links">

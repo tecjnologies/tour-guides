@@ -15,15 +15,7 @@
                     @endif
                     Home
                 </x-nav-link>
-                <x-nav-link :href="route('book-your-guide')" :active="request()->routeIs('book-your-guide')" class="font-4 display-16 color-blue">
-                    @if(request()->routeIs('book-your-guide'))
-                        <img src="{{ asset('assets/images/menu/book-your-guide-active.svg') }}" alt="Book your guide" class="mx-2"/>
-                    @else
-                        <img src="{{ asset('assets/images/menu/book-your-guide.svg') }}" alt="Book your guide" class="mx-2"/>
-                    @endif
-                    Book your guide
-                </x-nav-link>
-                <x-nav-link :href="route('tour-guides-profile')" :active="request()->routeIs('tour-guides-profile')" class="font-4 display-16 color-blue">
+                 <x-nav-link :href="route('tour-guides-profile')" :active="request()->routeIs('tour-guides-profile')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('tour-guide-profile'))
                         <img src="{{ asset('assets/images/menu/tour-guide-active.svg') }}" alt="Tour Guide Profile Active" class="mx-2"/>
                     @else
@@ -91,9 +83,28 @@
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 Home
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('tour-guides-profile')" :active="request()->routeIs('tour-guides-profile')">
+                Tour Guide Profile
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('destinations')" :active="request()->routeIs('destinations')">
+                Destinations
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('join-us')" :active="request()->routeIs('join-us')">
+                Join us
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('get-help')" :active="request()->routeIs('get-help')">
+                Get Help
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                Login
+            </x-responsive-nav-link>
+            <x-responsive-nav-link>
+                My Cart
+            </x-responsive-nav-link>
         </div>
+        
         <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="mt-3 space-y-1">
+            <div class="mt-2 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
