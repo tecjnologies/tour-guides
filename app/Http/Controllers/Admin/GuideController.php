@@ -111,7 +111,7 @@ class GuideController extends Controller
     public function edit(Guide $guide)
     {
 
-         return view('admin.guide.edit',compact('guide',$guide));
+         return view('admin.guide.edit',compact('guide','guide'));
     }
 
     /**

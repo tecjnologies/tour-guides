@@ -69,7 +69,7 @@ class TypeController extends Controller
      */
     public function edit(Placetype $type)
     {
-       return view('admin.placeType.edit',compact('type',$type));
+       return view('admin.placeType.edit',compact('type','type'));
     }
 
     /**

@@ -67,9 +67,9 @@ class DistrictController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(District $district)
-    {
-
-         return view('admin.district.edit',compact('district',$district));
+    {   
+        $var_name = 'district';
+        return view('admin.district.edit',compact('var_name','district'));
     }
 
     /**

@@ -13,24 +13,87 @@
   <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
 
   @yield('css')
+ 
 </head>
 <body>
-
-  {{-- @include('layouts.frontend.inc.nav') --}}
-  @yield('content')
-
-  {{-- @include('layouts.frontend.inc.footer') --}}
+   @yield('content')
   <script src="{{ asset('frontend/js/jquery-1.12.4.min.js') }}"></script>
-<script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+  <script>
 
-<script>
-  setTimeout(function() {
-      $('#alert').fadeOut('fast');
-  }, 6000);
-</script>
+    setTimeout(function() {
+        $('#alert').fadeOut('fast');
+    }, 6000);
 
 
-@yield('scripts')
+    // <style>
+    //   .btn-left{
+    //     position: absolute;
+    //     transition: .5s all;
+    //     left: 0px;
+    //     right: unset;
+    //     margin-bottom: 30px;
+    //   }
 
+    //   .btn-right{
+    //     position: absolute;
+    //     transition: .5s all;
+    //     right: 0px;
+    //     left: unset;
+    //     margin-bottom: 30px;
+    //   }
+
+    //   </style>
+    // const button = document.getElementById('validatorBtn');
+    // button.addEventListener('mouseover', function () {
+    //   if(!isFormValid()){
+    //     if (button.classList.contains('btn-right')) {
+    //         button.classList.remove('btn-right');
+    //         button.classList.add('btn-left');
+    //       }else if(button.classList.contains('btn-left')){
+    //         button.classList.remove('btn-left');
+    //         button.classList.add('btn-right');
+    //       }else{
+    //         button.classList.add('btn-left');
+    //       }
+    //     }
+    //   });
+
+    // function isFormValid() {
+    //       let isValid = true;
+    //       $('#registerForm').find('input').each(function() {
+    //           if ($(this).val() === '') {
+    //               isValid = false;
+    //               return false; 
+    //           }
+    //       });
+    //       return isValid;
+    //   }
+
+
+    const button = document.getElementById('validatorBtn');
+
+      button.addEventListener('mouseover', function () {
+        const form = document.querySelector('form'); 
+        if (!isFormValid(form)) {
+          button.disabled = true;
+        }else{
+          button.disabled = false;
+        }
+      });
+      function isFormValid(formElement) {
+        let isValid = true;
+        $(formElement).find('input').each(function () {
+          if ($(this).val() === '') {
+            isValid = false;
+            return false;
+          }
+        });
+
+        return isValid;
+    }
+
+  </script>
+  @yield('scripts');
 </body>
 </html>

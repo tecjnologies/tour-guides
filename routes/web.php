@@ -69,17 +69,16 @@ Route::middleware('auth')->group(function () {
 // Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('/', action: [HomeController::class, 'index'])->name('welcome');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/about', 'HomeController@about')->name('about');
-Route::get('/search', 'HomeController@search')->name('search');
-Route::get('/place/details/{id}', 'HomeController@placeDdetails')->name('place.details');
-Route::get('/package/details/{id}', 'HomeController@packageDetails')->name('package.details');
-Route::get('/place-list', 'HomeController@allPlace')->name('all.place');
-Route::get('/package-list', 'HomeController@allPackage')->name('all.package');
-Route::get('/district/{id}', 'HomeController@districtWisePlace')->name('district.wise.place');
-Route::get('/placetype/{id}', 'HomeController@placetypeWisePlace')->name('placetype.wise.place');
-
-Route::get('/package/booking/{id}', 'HomeController@packageBooking')->name('package.booking');
-Route::get('/package/booking', 'HomeController@storeBookingRequest')->name('store.package.booking');
+Route::get('/about', [HomeController::class , 'about'])->name('about');
+Route::get('/search', [HomeController::class,'search'])->name('search');
+Route::get('/place/details/{id}', [HomeController::class, 'placeDdetails'])->name('place.details');
+Route::get('/package/details/{id}', [HomeController::class, 'packageDetails'])->name('package.details');
+Route::get('/place-list', [HomeController::class, 'allPlace'])->name('all.place');
+Route::get('/package-list', [HomeController::class, 'allPackage'])->name('all.package');
+Route::get('/district/{id}', [HomeController::class, 'districtWisePlace'])->name('district.wise.place');
+Route::get('/placetype/{id}', [HomeController::class, 'placetypeWisePlace'])->name('placetype.wise.place');
+Route::get('/package/booking/{id}', [HomeController::class, 'packageBooking'])->name('package.booking');
+Route::get('/package/booking', [HomeController::class, 'storeBookingRequest'])->name('store.package.booking');
 
 
 Auth::routes(['verify' => true]);
