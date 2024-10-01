@@ -164,9 +164,7 @@
         </div>
     </div>
 </div>
-
 <hr/>
-
 <div class="row px-5">
     @forelse($tourGuides as $guide)
         <div class="col-md-4 my-4 px-4 pl-0 cursor-pointer" href="route('home')">

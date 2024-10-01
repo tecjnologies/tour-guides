@@ -159,7 +159,7 @@
                             <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation" class="me-3"/>
                             Lorem Ipsum is simply dummy text of the  </li>
                         <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="exclamation" class="me-3"/>
+                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation" class="me-3"/>
                             Lorem Ipsum is simply dummy text of the  </li>
                         <li class="py-2">  
                             <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="cexclamation" class="me-3"/>

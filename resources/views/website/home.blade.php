@@ -107,7 +107,7 @@
             </div>
         </div>
         
-        <x-home.tour-guide :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto" />
+        <x-home.tour-guide :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto"/>
         <div class="spacer py-5"></div>
         <x-home.popular-destinations :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto" />
         <div class="spacer py-5"></div>
@@ -115,7 +115,7 @@
         <div class="spacer py-5"></div>
         <x-home.unforgettable-nature :data="$homeSlider" :options="$sliderOptions"  class="h-12 w-auto " />
         <div class="spacer py-5"></div>
-        <x-home.discovering-regions :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto" />
+        <x-home.discovering-regions :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto" /> 
     
     </div>
 </x-website-layout>

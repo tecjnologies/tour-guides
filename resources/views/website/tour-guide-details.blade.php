@@ -34,7 +34,7 @@
 @endpush
 
 <x-website-layout>
-    @section('title', 'Tour Guide - Homepage')
+    @section('title', 'Tour Guide - Mohammad')
     <div class="mx-auto">
         <div class="overflow-hidden">
             <div class="text-gray-900">

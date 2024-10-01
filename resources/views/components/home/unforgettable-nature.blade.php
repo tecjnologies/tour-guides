@@ -29,6 +29,5 @@
                 <p>No Data Found!</p>
             @endforelse
         </div>
-
     </x-website.slider>   
 </div>

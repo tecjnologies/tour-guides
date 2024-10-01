@@ -13,7 +13,6 @@
             </button>
         </div>
     </div>
-
     <x-website.slider :options="$options">
         <div class="slick-slider mt-4" id="slider-1">
             @forelse($data as $slide)

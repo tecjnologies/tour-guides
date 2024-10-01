@@ -2,49 +2,38 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Define the routes for the application.
      */
-    public function register(): void
+    public function map(): void
     {
-        //
+        $this->mapApiRoutes();
+        $this->mapWebRoutes();
     }
 
     /**
-     * Bootstrap any application services.
+     * Define the "web" routes for the application.
      */
-    public function boot(): void
+    protected function mapWebRoutes(): void
     {
-        //
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
 
-    // app/Providers/RouteServiceProvider.php
-
-    public function map()
-    {
-        $this->mapApiRoutes();
-
-        $this->mapWebRoutes();
-
-        $this->mapConsoleRoutes();
-    }
-
-    protected function mapApiRoutes()
+    /**
+     * Define the "api" routes for the application.
+     */
+    protected function mapApiRoutes(): void
     {
         Route::prefix('api')
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
-    }
-
-    protected function mapWebRoutes()
-    {
-        Route::middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/web.php'));
     }
 }
