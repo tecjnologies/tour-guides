@@ -3,7 +3,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <h1>Tour Guides</h1>
     <a href="{{ route('tourguides.create') }}" class="btn btn-primary mb-3">Add New Tour Guide</a>
     <table class="table">

@@ -3,7 +3,7 @@
     Tourist Guide - Dashboard
 @endsection
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row pt-5">
         <h2 class="m-auto" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"><strong>Admin Dashboard</strong></h2>
     </div>

@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-<div class="container">
+<div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col-md-6 m-5">
 			<div class="card">

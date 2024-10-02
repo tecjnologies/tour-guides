@@ -3,7 +3,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <h1>ETGA Documents</h1>
         <a href="{{ route('documents.create') }}" class="btn btn-primary mb-3">Add New Document</a>
         <table class="table table-bordered">

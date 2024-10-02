@@ -3,7 +3,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <h1>Add New Document</h1>
         <form action="{{ route('documents.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

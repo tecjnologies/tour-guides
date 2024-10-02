@@ -6,7 +6,7 @@
 
 <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card mt-5">
                     <div class="card-header  bg-dark">
                       <h3 class="card-title float-left"><strong>Create Guide</strong></h3>

@@ -3,7 +3,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <h1>Tour Guide Details</h1>
     <div class="card">
         <div class="card-body">

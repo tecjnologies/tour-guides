@@ -3,7 +3,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <h1>Add New Tour Guide</h1>
     <form action="{{ route('tourguides.store') }}" method="POST">
         @csrf
