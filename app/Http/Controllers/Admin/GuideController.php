@@ -84,6 +84,9 @@ class GuideController extends Controller
     $guide->email = $request->email;
     $guide->contact = $request->contact;
     $guide->address = $request->address;
+    $guide->price = $request->price;
+    $guide->experience = $request->experience;
+    $guide->languages = $request->languages;
     $guide->save();
     return redirect(route('admin.guide.index'))->with('success', 'Guide Inserted Successfully');
 
@@ -110,7 +113,6 @@ class GuideController extends Controller
      */
     public function edit(Guide $guide)
     {
-
          return view('admin.guide.edit',compact('guide','guide'));
     }
 
@@ -130,6 +132,9 @@ class GuideController extends Controller
             'email' => 'required|email|unique:guides,email,'.$guide->id,
             'contact' => 'required|numeric|unique:guides,contact,'.$guide->id,
             'address' => 'required',
+            'price' => 'required',
+            'experience' => 'required',
+            'languages' => 'required',
             'image' => 'mimes:jpeg,png,jpg|image',
             ]);
     
@@ -158,13 +163,15 @@ class GuideController extends Controller
         $imageName = $guide->image;
      }
   
-
     $guide->name = $request->name;
     $guide->nid = $request->nid;
     $guide->image = $imageName;
     $guide->email = $request->email;
     $guide->contact = $request->contact;
     $guide->address = $request->address;
+    $guide->price = $request->price;
+    $guide->experience = $request->experience;
+    $guide->languages = $request->languages;
     $guide->save();
     return redirect(route('admin.guide.index'))->with('success', 'Guide Updated Successfully');
 

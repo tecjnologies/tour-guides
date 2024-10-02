@@ -91,7 +91,9 @@
                     @else 
                       <h2 class="text-center text-info font-weight-bold m-3">0 Running tour right now</h2>
                     @endif
-
+                    {{-- <div class="pagination">
+                      {{ $runningLists->links('pagination::bootstrap-4') }}
+                    </div> --}}
                     <!-- /.card-body -->
                   </div>
                   <!-- /.card -->

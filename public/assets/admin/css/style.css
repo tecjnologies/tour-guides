@@ -82,4 +82,15 @@ background-color:#8E44AD;
 background-color:#803D9B;
 }
 
-/*end dashboard box css*/
+
+.tag-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.tag-item input.form-control {
+    margin: 10px 9px;
+    margin-left: 0px;
+}

@@ -26,7 +26,7 @@
 
 					   
 					          <div class="form-group">
-						          <label for="nid"> Nid: </label>
+						          <label for="nid"> Emirates ID: </label>
 						          <input type="text" class="form-control" placeholder="Enter Guide nid" id="nid" name="nid" 
 						          value="{{old('nid',$guide->nid) }}">
 					        	</div>
@@ -58,6 +58,24 @@
 					          <label for="image"> Old Image</label>
 					          <img src="{{ asset('storage/guide/'.$guide->image) }}" height="80px;" width="60px;">
        						</div>
+
+							   <div class="form-group">
+								<label for="price"> Price: </label>
+								<input type="text" class="form-control" placeholder="Enter price" id="price" name="price"
+								value="{{old('address',$guide->price)}}">
+							</div>
+
+							<div class="form-group">
+								<label for="experience"> Experience (Years): </label>
+								<input type="text" class="form-control" placeholder="Enter experience" id="experience" name="experience"
+								value="{{old('address',$guide->experience)}}">
+							  </div>
+
+							  <div class="form-group">
+								<label for="address"> languages: </label>
+								<input type="text" class="form-control" placeholder="Enter languages" id="languages" name="languages"
+								value="{{old('address',$guide->languages)}}">
+							  </div>
 					      
 
                  <div class="form-group">

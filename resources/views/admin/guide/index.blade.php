@@ -79,8 +79,8 @@
                     @else 
                       <h2 class="text-center text-info font-weight-bold m-3">No Guide Found</h2>
                     @endif
-                    <div class="pagination">
-                      {{ $guides->links() }}
+                    <div class="pagination  d-flex justify-content-center align-items-cetner">
+                      {{ $guides->links('pagination::bootstrap-4') }}
                     </div>
                     <!-- /.card-body -->
                   </div>

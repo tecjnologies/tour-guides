@@ -26,7 +26,7 @@
 					          <input type="text" class="form-control" placeholder="Enter Name" id="name" name="name">
 					        </div>
 					          <div class="form-group">
-					          <label for="nid"> Nid: </label>
+					          <label for="nid"> Emirates ID: </label>
 					          <input type="text" class="form-control" placeholder="Enter Nid" id="nid" name="nid">
 					        </div>
 					          <div class="form-group">
@@ -41,6 +41,23 @@
 					          <label for="address"> Address: </label>
 					          <input type="text" class="form-control" placeholder="Enter Address" id="address" name="address">
 					        </div>
+
+							<div class="form-group">
+								<label for="price"> Price: </label>
+								<input type="text" class="form-control" placeholder="Enter price" id="price" name="price">
+							</div>
+
+							<div class="form-group">
+								<label for="experience"> Experience (Years): </label>
+								<input type="text" class="form-control" placeholder="Enter experience" id="experience" name="experience">
+							  </div>
+
+							  <div class="form-group">
+								<label for="address"> languages: </label>
+								<input type="text" class="form-control" placeholder="Enter languages" id="languages" name="languages">
+							  </div>
+
+
 					         <div class="form-group">
 					          <label for="image"> Image: </label>
 					          <input type="file" class="form-control" id="image" name="image">

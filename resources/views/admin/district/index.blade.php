@@ -8,10 +8,8 @@
 <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-
               	@include('partial.successMessage')
-
-                <div class="card mt-4">
+                <div class="card m-4">
                     <div class="card-header  bg-dark">
                       <h3 class="card-title float-left p-0 m-0"><strong>Manage District ({{ $districtcount }})</strong></h3>
                     <a href="{{route('admin.district.create')}}" class="btn btn-success btn-md float-right c-white">Add New <i class="fa fa-plus"></i></a>
@@ -74,8 +72,8 @@
                     @else 
                       <h2 class="text-center text-info font-weight-bold m-3">No District Found</h2>
                     @endif
-                    <div class="pagination">
-                      {{ $districts->links() }}
+                    <div class="pagination  d-flex justify-content-center align-items-cetner">
+                      {{ $districts->links('pagination::bootstrap-4') }}
                     </div>
                     <!-- /.card-body -->
                   </div>

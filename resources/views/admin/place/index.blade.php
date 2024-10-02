@@ -6,9 +6,7 @@
 <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-
               	@include('partial.successMessage')
-
                 <div class="card my-5 mx-4">
                     <div class="card-header  bg-dark">
                       <h3 class="card-title float-left p-0 m-0"><strong>Manage Place ({{ $placecount }})</strong></h3>
@@ -81,8 +79,9 @@
                     @else 
                       <h2 class="text-center text-info font-weight-bold m-3">No Place Found</h2>
                     @endif
-                    <div class="pagination ml-3">
-                      {{ $places->links() }}
+                    
+                    <div class="_pagination  d-flex justify-content-center align-items-cetner">
+                      {{ $places->links('pagination::bootstrap-4') }}
                     </div>
                     <!-- /.card-body -->
                   </div>

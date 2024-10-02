@@ -9,7 +9,7 @@
              
                @include('partial.successMessage')  
 
-                <div class="card mt-5">
+                <div class="card m-4">
                     <div class="card-header bg-dark">
                       <h3 class="card-title float-left"><strong>Manage Place Type ({{ $typescount }})</strong></h3>
                       
@@ -77,8 +77,8 @@
                  <h2 class="text-center text-info font-weight-bold m-3">No Place Type Found</h2>
               @endif
 
-               <div class="pagination">
-                  {{ $types->links() }}
+               <div class="pagination d-flex justify-content-center align-items-cetner">
+                  {{ $types->links('pagination::bootstrap-4') }}
                 </div>
                    
             </div>

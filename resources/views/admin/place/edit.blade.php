@@ -70,8 +70,41 @@
                                 <label for="image"> Old Image</label>
                                 <img src="{{ asset('storage/place/'.$place->image) }}" height="140px;" width="200px;">  
                             </div>  --}}
+                            <div class="form-group">
+                              <label for="tags">Tags:</label>
+                              <div id="tag-input-wrapper">
+                                  @if(old('tags')) 
+                                      {{-- Populate old tags from validation errors --}}
+                                      @foreach(old('tags') as $key => $tag)
+                                          <div class="tag-item" id="tag-{{ $key }}">
+                                              <input type="text" class="form-control" value="{{ $tag }}" name="tags[]" placeholder="Enter Tag">
+                                              <button type="button" class="btn btn-danger remove-tag" onclick="removeTag({{ $key }})">Remove</button>
+                                          </div>
+                                      @endforeach
+                                  @elseif(isset($place) && $place->tags) 
+                                      {{-- Populate tags when editing an existing place --}}
+                                      @php
+                                          $tags = json_decode($place->tags, true); // Decoding tags from JSON
+                                      @endphp
+                                      @foreach($tags as $key => $tag)
+                                          <div class="tag-item" id="tag-{{ $key }}">
+                                              <input type="text" class="form-control" value="{{ $tag }}" name="tags[]" placeholder="Enter Tag">
+                                              <button type="button" class="btn btn-danger remove-tag" onclick="removeTag({{ $key }})">Remove</button>
+                                          </div>
+                                      @endforeach
+                                  @else
+                                      {{-- Initial case when no tags --}}
+                                      <div class="tag-item" id="tag-0">
+                                          <input type="text" class="form-control" name="tags[]" placeholder="Enter Tag">
+                                          <button type="button" class="btn btn-danger remove-tag" onclick="removeTag(0)">Remove</button>
+                                      </div>
+                                  @endif
+                              </div>
+                              <button type="button" class="btn btn-primary mt-2" onclick="addTag()">Add New Tag</button>
+                          </div>
 
-                           
+                  
+
 
                   <div class="form-group">
                         <button type="submit" class="btn btn-success">Update</button>
@@ -111,6 +144,26 @@
           reader.readAsDataURL(input.files[0]);
       }
    }
+
+   let tagCount = {{ isset($tags) ? count($tags) : 1 }}; // Initialize tag count based on existing tags
+
+  function addTag() {
+      let tagWrapper = document.getElementById('tag-input-wrapper');
+      let newTag = `
+          <div class="tag-item" id="tag-${tagCount}">
+              <input type="text" class="form-control" name="tags[]" placeholder="Enter Tag">
+              <button type="button" class="btn btn-danger remove-tag" onclick="removeTag(${tagCount})">Remove</button>
+          </div>
+      `;
+      tagWrapper.insertAdjacentHTML('beforeend', newTag);
+      tagCount++;
+  }
+
+  function removeTag(tagId) {
+      let tagItem = document.getElementById(`tag-${tagId}`);
+      tagItem.remove(); // Remove the selected tag item
+  }
+
   </script>
 @endsection
 

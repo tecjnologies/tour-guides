@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('oauth_personal_access_clients', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('client_id');
+        Schema::create('banner', function (Blueprint $table) {
+            $table->id();
+            $table->string('title')->nullable(false);
+            $table->string('sub_heading')->nullable(false);
+            $table->string('image')->nullable(false);
+            $table->boolean('isActive')->nullable(false);
             $table->timestamps();
         });
     }
@@ -22,7 +25,7 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void
-    {
-        Schema::dropIfExists('oauth_personal_access_clients');
+    {  
+        Schema::dropIfExists('banner');
     }
 };

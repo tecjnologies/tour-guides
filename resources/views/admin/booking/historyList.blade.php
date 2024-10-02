@@ -69,17 +69,14 @@
                         </tbody>
                       </table>
                     </div>
-
-                
-
-
               
-                      
                     </div>
                     @else 
                       <h2 class="text-center text-info font-weight-bold m-3">No Tour History Found</h2>
                     @endif
-
+                    {{-- <div class="pagination">
+                      {{ $historyList->links('pagination::bootstrap-4') }}
+                    </div> --}}
                     <!-- /.card-body -->
                   </div>
                   <!-- /.card -->

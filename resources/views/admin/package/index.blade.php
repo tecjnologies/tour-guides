@@ -9,7 +9,7 @@
          
            @include('partial.successMessage')  
 
-            <div class="card my-5 mx-4">
+            <div class="card m-4">
                 <div class="card-header bg-dark">
                   <h2 class="card-title float-left"><strong>Our All Package</strong></h2>
                    <a href="{{route('admin.package.create')}}" class="btn btn-success btn-md float-right c-white">Add New Package <i class="fa fa-plus"></i></a>
@@ -24,7 +24,7 @@
     <div class="row">  
         @forelse ($packages as $package)
             <div class="col-md-4 my-3">
-                <div class="card mx-2 my-3" style="border: 2px solid black">
+                <div class="card  m-4" style="border: 2px solid black">
                     <div class="card-header">
                         <img src="{{ asset('storage/packageImage/'.$package->package_image) }}" alt="" class="img-fluid">
                     </div>

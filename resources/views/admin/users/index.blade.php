@@ -79,7 +79,9 @@
                       <h2 class="text-center text-info font-weight-bold m-3">No Users Found</h2>
                     @endif
                     <div class="pagination">
-                      {{ $users->links() }}
+                   
+                      {{ $users->links('pagination::bootstrap-4') }}
+
                     </div>
                     <!-- /.card-body -->
                   </div>

@@ -51,6 +51,8 @@ class PlaceController extends Controller
                 'placetype_id' => 'required',
                 'image' => 'required|mimes:jpeg,png,jpg',
                 'description' => 'required',
+                'tags' => 'required|array',
+                'tags.*' => 'string|max:255',
             ]);
     
             // Get Form Image
@@ -77,6 +79,7 @@ class PlaceController extends Controller
     $place->district_id = $request->district_id;
     $place->placetype_id = $request->placetype_id;
     $place->description = $request->description;
+    $place->tags = is_array($request->tags) ? json_encode($request->tags) : $request->tags;
     $place->image = $imageName;
     $place->save();
     return redirect(route('admin.place.index'))->with('success', 'Guide Inserted Successfully');
@@ -104,6 +107,7 @@ class PlaceController extends Controller
     {
         $districts = District::latest()->get();
         $placetypes = Placetype::latest()->get();
+       
         return view('admin.place.edit',compact('place', 'districts', 'placetypes'));
     }
 
@@ -124,22 +128,22 @@ class PlaceController extends Controller
             'placetype_id' => 'required',
             'image' => 'mimes:jpeg,png,jpg',
             'description' => 'required',
+            'tags' => 'required|array',
+            'tags.*' => 'string|max:255',
+
         ]);
 
-        // Get Form Image
+      
         $image = $request->file('image');
         if (isset($image)) {
-                // Make Unique Name for Image 
-                $currentDate = Carbon::now()->toDateString();
+        
+            $currentDate = Carbon::now()->toDateString();
                 $imageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
         
-        
-                // Check Category Dir is exists
                 if (!Storage::disk('public')->exists('place')) {
                     Storage::disk('public')->makeDirectory('place');
                 }
         
-                // Delete old post image
                 if(Storage::disk('public')->exists('place/'.$place->image)){
                     Storage::disk('public')->delete('place/'.$place->image);
                 }
@@ -154,6 +158,7 @@ class PlaceController extends Controller
         $place->district_id = $request->district_id;
         $place->placetype_id = $request->placetype_id;
         $place->description = $request->description;
+        $place->tags = is_array($request->tags) ? json_encode($request->tags) : $request->tags;
         $place->image = $imageName;
         $place->save();
         return redirect(route('admin.place.index'))->with('success', 'Place Updated Successfully');
