@@ -224,7 +224,7 @@
 
                         <div class="item">
                             <div class="_icon text-cetner p-3">
-                                <img src="{{ asset('assets/images/tour-guide/Fishing.svg') }}" alt="Fishing" class="mx-auto"/>
+                                <img src="{{ asset('assets/images/tour-guide/fishing.svg') }}" alt="Fishing" class="mx-auto"/>
                             </div>
                             <div class="title pt-3 font-4 display-16 color-blue text-center">
                                 Fishing
