@@ -1,8 +1,7 @@
 <div class="flex justify-between items-center auto sm:px-6 _topbar py-3">
   <div>
     <select class="border rounded">
-      <option value="option1" class="font-5 display-16 color-blue">Option 1</option>
-      <option value="option2" class="font-5 display-16 color-blue">Option 2</option>
+      <option value="option1" class="font-5 display-16 color-blue"> CUSTOMER SERVICE  </option>
     </select>
   </div>
  <div class="_more_than">

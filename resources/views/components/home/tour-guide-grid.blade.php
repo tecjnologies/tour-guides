@@ -156,7 +156,7 @@ $tourGuides = [
                             family
                         </a>
                         <a class="d-flex justify-content-between align-items-center flex-column me-2 font-4 display-14 color-black"> 
-                            <img src="{{ asset('assets/images/tour-guide/Customize.svg') }}" alt="Customize" class="border px-3 py-2 rounded"/>
+                            <img src="{{ asset('assets/images/tour-guide/customize.svg') }}" alt="Customize" class="border px-3 py-2 rounded"/>
                             Customize
                         </a>
                 </div>
