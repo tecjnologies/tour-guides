@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\GuideController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\BannerController;
 
 
 
@@ -104,6 +105,7 @@ Route::group([
     Route::resource('district', DistrictController::class);
     Route::resource('type', TypeController::class);
     Route::resource('place', PlaceController::class);
+    Route::resource('banner', BannerController::class);
     Route::resource('about', AboutController::class);
     Route::resource('guide', GuideController::class);
     Route::resource('users', UsersController::class);
