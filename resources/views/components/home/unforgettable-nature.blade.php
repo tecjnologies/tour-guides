@@ -12,6 +12,9 @@
             </button>
         </div>
     </div>
+    @php 
+        $options['slidesToShow'] = 4; 
+    @endphp
     <x-website.slider :options="$options">
         <div class="slick-slider mt-4" id="slider-2">
             @forelse($data as $slide)
@@ -19,8 +22,8 @@
                     <div class="extra-slide-content">
                         <div class="row p-4 card border-0">
                             <div class="_details pb-4">
-                                <img src="{{ asset('assets/images/homepage/burj-emrates.png') }}" alt="ETGA Logo" width="100%"/>
-                                <p class="pt-4 font-4 display-16 color-blue">orem Ipsum has been the industry’s standard dummy text ever since the 1500s. </p>
+                                <img src="{{ $slide['image'] }}" alt="ETGA Logo" width="100%"/>
+                                <p class="pt-4 font-4 display-16 color-blue"> {{ $slide['content'] }} </p>
                             </div>
                         </div>
                     </div>

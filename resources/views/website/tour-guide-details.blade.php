@@ -1,14 +1,34 @@
 @php 
     
-    $homeSlider = [
-        ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 1', 'content' => '<h3>Slide 1 Title</h3><p>Some content</p>'],
-        ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
-        ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
-        ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
-        ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
-        ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
+    $topDestinations = [
+        [
+            'image' => asset('assets/images/destinations/love-lake.svg'), 
+            'title' => 'love lake',
+            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ],
+        [
+            'image' => asset('assets/images/destinations/museum-of-future.svg'), 
+            'title' => 'Museum of the future',
+           'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ],
+        [
+            'image' => asset('assets/images/destinations/burj-khalifa.svg'), 
+            'title' => 'Burj Khalifa',
+            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ],
+            [
+            'image' => asset('assets/images/destinations/hatta.svg'), 
+            'title' => 'Hatta Hub',
+            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ],
+        [
+            'image' => asset('assets/images/destinations/burj-al-arab.svg'), 
+            'title' => 'Burj Al Arab',
+            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ]
     ];
 
+   
     $sliderOptions = [
         'dots' => false,
         'infinite' => false,
@@ -30,7 +50,13 @@
 @endphp
 
 @push('css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+
+    <style>
+        .slick-prev, .slick-next {
+            display: none !important;
+         }
+    </style>
 @endpush
 
 <x-website-layout>
@@ -237,10 +263,10 @@
                     </div>
                 </div>
                 <div class="row pt-3">
-                    <x-tour-guide.top-destination-list :data="$homeSlider" :options="$sliderOptions" class="w-auto" />
+                    <x-tour-guide.top-destination-list :data="$topDestinations" :options="$sliderOptions" class="w-auto" />
                 </div>
                 <div class="row">
-                    <x-tour-guide.recent-reviews :data="$homeSlider" :options="$sliderOptions" class="w-auto" />
+                    <x-tour-guide.recent-reviews :data="$topDestinations" :options="$sliderOptions" class="w-auto" />
                 </div>
             </div>
             <div class="col-md-3">

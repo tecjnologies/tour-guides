@@ -19,16 +19,19 @@
                     <div class="extra-slide-content">
                         <div class="row">
                             <div class="image p-0">
-                                <img src="{{ asset('assets/images/homepage/kalba.png') }}" alt="kalba"  width="100%"/>
+                                <img src="{{ $slide['image'] }}" alt="kalba"  width="100%"/>
                                 <img src="{{ asset('assets/images/icons/favourites.svg') }}" alt="lke-dislike"  class="_like_dislike"/>
                                 <ul class="p-0 d-flex justify-content-start align-items-center _tag">
-                                    <li class="py-3 font-4 display-16 color-black"> indidual </li>
-                                    <li class="py-3 font-4 display-16 color-black"> Group </li>
+                                    
+                                    @forelse($slide['tags'] as $tag)
+                                        <li class="py-3 font-4 display-16 color-black"> {{ $tag }} </li>
+                                    @empty
+                                    @endforelse
                                 </ul>
                             </div>
                             <div class="details">
-                                <h3 class="font-4 display-26 color-black"> Top hanging garden kalba </h3>
-                                <p class="font-4 display-16 color-black">  Alhafia - Sharjah  </p>
+                                <h3 class="font-4 display-26 color-black"> {{ $slide['title'] }} </h3>
+                                <p class="font-4 display-16 color-black">  {{ $slide['location'] }}   </p>
                             </div>
                         </div>
                     </div>

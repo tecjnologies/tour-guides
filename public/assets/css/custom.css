@@ -620,6 +620,10 @@ hr {
 }
 
 
+._tour_guide img:first-child {
+  height: 100%;
+}
+
 @media only screen and (max-width: 1800px) {
 
 }
@@ -628,10 +632,6 @@ hr {
   
   .display-16, .display-14 {
     font-size: 11px;
-  }
-  
-  ._tour_guide img {
-    height: 100%;
   }
   
   ._tour_guide_grid img:first-child {

@@ -23,13 +23,13 @@
                     <div class="extra-slide-content">
                         <div class="row">
                             <div class="image p-0">
-                                <img src="{{ asset('assets/images/homepage/kalba.png') }}" alt="kalba"  width="100%"/>
+                                <img src="{{  $slide['image'] }}" alt="kalba"  width="100%"/>
                             </div>
                             <div class="_title_content">
-                                <h3 class="font-4 display-16 color-black">love lake </h3>
+                                <h3 class="font-4 display-16 color-black"> {{  $slide['title'] }} </h3>
                                 <p class="font-4 display-12 color-black">  
-                                    Lorem Ipsum is simply dummy text 
-                                    of the printing   </p>
+                                    {{  $slide['content'] }}
+                                </p>
                             </div>
                         </div>
                     </div>
