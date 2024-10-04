@@ -33,8 +33,8 @@
                                     </ul>
                                 </div>
                                 <div class="details">
-                                        <h3 class="font-4 display-26 color-black"> {{ $slide->title }} </h3>
-                                        <p class="font-4 display-16 color-black">  {{ $slide->location }}   </p>
+                                        <h3 class="font-4 display-26 color-black"> {{ $slide->name }} </h3>
+                                        <p class="font-4 display-16 color-black">  {{ $slide->district->name }}   </p>
                                 </div>
                             </a>
                         </div>
