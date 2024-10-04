@@ -19,21 +19,23 @@
     <x-website.slider :options="$options">
         <div class="slick-slider mt-3" id="slider-4">
             @forelse($data as $slide)
-                <div class="slide _top_destinations">
-                    <div class="extra-slide-content">
-                        <div class="row">
-                            <div class="image p-0">
-                                <img src="{{  $slide['image'] }}" alt="kalba"  width="100%"/>
-                            </div>
-                            <div class="_title_content">
-                                <h3 class="font-4 display-16 color-black"> {{  $slide['title'] }} </h3>
-                                <p class="font-4 display-12 color-black">  
-                                    {{  $slide['content'] }}
-                                </p>
+            <a href="{{ route('destination-details') }}">
+                    <div class="slide _top_destinations">
+                        <div class="extra-slide-content">
+                            <div class="row">
+                                <div class="image p-0">
+                                    <img src="{{  $slide['image'] }}" alt="kalba"  width="100%"/>
+                                </div>
+                                <div class="_title_content">
+                                    <h3 class="font-4 display-16 color-black"> {{  $slide['title'] }} </h3>
+                                    <p class="font-4 display-12 color-black">  
+                                        {{  $slide['content'] }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             @empty 
                 <p>No Data Found!</p>
             @endforelse
