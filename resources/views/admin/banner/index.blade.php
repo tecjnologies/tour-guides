@@ -19,10 +19,8 @@
                       <table id="dataTableId" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                          <th>Name</th>
-                          <th>Added By</th>
-                           <th>District</th>
-                           <th>Type</th>
+                          <th>Heading</th>
+                          <th> Subheading </th>
                            <th>image</th>
                           <th >Action</th>
                         </tr>
@@ -33,7 +31,7 @@
                           <td>{{ $banner->title }}</td> 
                           <td>{{ $banner->sub_heading }}</td> 
                           <td>
-                            <img style="height: 60px; width: 100px;" class="img-fluid" src="{{ asset('storage/banner/'.$banner->image) }}" alt="image">
+                            <img style="height: 60px; width: 100px;" class="img-fluid" src="{{ $banner->image  }}" alt="image">
                           </td>
                           <td> 
                             <a href="{{ route('admin.banner.edit', $banner->id) }}" class="btn btn-info">Edit</a>

@@ -63,18 +63,13 @@
                             </div>
 
                             <div class="form-group">
-                                <img id="preview_img">
+                                {{$place->imnage}}
+                                <img src="{{ $place->imnage }}" id="preview_img" width="200px">
                             </div>
-                            
-                             {{-- <div class="form-group">
-                                <label for="image"> Old Image</label>
-                                <img src="{{ asset('storage/place/'.$place->image) }}" height="140px;" width="200px;">  
-                            </div>  --}}
                             <div class="form-group">
                               <label for="tags">Tags:</label>
                               <div id="tag-input-wrapper">
                                   @if(old('tags')) 
-                                      {{-- Populate old tags from validation errors --}}
                                       @foreach(old('tags') as $key => $tag)
                                           <div class="tag-item" id="tag-{{ $key }}">
                                               <input type="text" class="form-control" value="{{ $tag }}" name="tags[]" placeholder="Enter Tag">
@@ -82,9 +77,8 @@
                                           </div>
                                       @endforeach
                                   @elseif(isset($place) && $place->tags) 
-                                      {{-- Populate tags when editing an existing place --}}
                                       @php
-                                          $tags = json_decode($place->tags, true); // Decoding tags from JSON
+                                          $tags = json_decode($place->tags, true);
                                       @endphp
                                       @foreach($tags as $key => $tag)
                                           <div class="tag-item" id="tag-{{ $key }}">
@@ -93,7 +87,6 @@
                                           </div>
                                       @endforeach
                                   @else
-                                      {{-- Initial case when no tags --}}
                                       <div class="tag-item" id="tag-0">
                                           <input type="text" class="form-control" name="tags[]" placeholder="Enter Tag">
                                           <button type="button" class="btn btn-danger remove-tag" onclick="removeTag(0)">Remove</button>

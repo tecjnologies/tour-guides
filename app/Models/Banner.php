@@ -15,4 +15,11 @@ class Banner extends Model
         'image' => 'string',
     ];
 
+    
+    public function getImageAttribute($value)
+    {
+        return asset('storage/banner/' . $value);
+    }
+
+
 }

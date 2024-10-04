@@ -1,95 +1,3 @@
-
-@php 
-
-$tourGuides = [
-        [
-            'image' => asset('assets/images/tour-guide/1.svg'), 
-            'name' => 'Mohammed Othman', 
-            'emirates' => 'Abu Dhabi',
-            'experience' => '14',
-            'price' => '50',
-            'reviews_count' => '5',
-            'languages' => 'English, Urdu'
-        ],
-        [
-            'image' => asset('assets/images/tour-guide/2.svg'), 
-            'name' => 'Ranbeer Kapoor', 
-            'emirates' => 'Dubai',
-            'experience' => '5',
-            'price' => '40',
-            'reviews_count' => '8',
-            'languages' => 'English, Hindi'
-        ],
-        [
-            'image' => asset('assets/images/tour-guide/3.svg'), 
-            'name' => 'Husa Chaudhary', 
-            'emirates' => 'Ras al Khaimah',
-            'experience' => '14',
-            'price' => '60',
-            'reviews_count' => '9',
-            'languages' => 'English, Malyalam'
-        ],
-        [
-            'image' => asset('assets/images/tour-guide/4.svg'), 
-            'name' => 'Mazen Ahmed', 
-            'emirates' => 'Fujairah',
-            'experience' => '10',
-            'price' => '50',
-            'reviews_count' => '6',
-            'languages' => 'English, arabic,'
-        ],
-        [
-            'image' => asset('assets/images/tour-guide/5.svg'), 
-            'name' => 'Binshida Jasim', 
-            'emirates' => 'Ajman',
-            'experience' => '5',
-            'price' => '50',
-            'reviews_count' => '8',
-            'languages' => 'English, Hindi'
-        ],
-        [
-            'image' => asset('assets/images/tour-guide/6.svg'), 
-            'name' => 'Jasika Dyne', 
-            'emirates' => 'Umm Al Quwain',
-            'experience' => '7',
-            'price' => '50',
-            'reviews_count' => '7',
-            'languages' => 'English, Arabic'
-        ],
-        [
-            'image' => asset('assets/images/tour-guide/9.svg'), 
-            'name' => 'Jasika Dyne', 
-            'emirates' => 'Umm Al Quwain',
-            'experience' => '9',
-            'price' => '50',
-            'reviews_count' => '8',
-            'languages' => 'English, Arabic'
-        ],
-
-        [
-            'image' => asset('assets/images/tour-guide/7.svg'), 
-            'name' => 'Jasika Dyne', 
-            'emirates' => 'Umm Al Quwain',
-            'experience' => '12',
-            'price' => '50',
-            'reviews_count' => '5',
-            'languages' => 'English, Arabic'
-        ],
-        [
-            'image' => asset('assets/images/tour-guide/8.svg'), 
-            'name' => 'Jasika Dyne', 
-            'emirates' => 'Umm Al Quwain',
-            'experience' => '6',
-            'price' => '50',
-            'reviews_count' => '4',
-            'languages' => 'English, Arabic'
-        ],
-        
-    ];
-
-
-@endphp
-
 <div class="row px-5 _tour_guide_profile">
     <div class="col-md-6 d-flex justify-content-start  align-items-cetner pl-5">
         <div class="_location">
@@ -167,25 +75,25 @@ $tourGuides = [
 </div>
 
 <hr/>
-{{ $tourGuides  }}
+
 <div class="row px-5">
-    @forelse($tourGuides as $guide)
+   @forelse($tourGuides as $guide)
     <div class="col-md-4 my-4 px-4 pl-0 cursor-pointer" href="route('home')">
         <a href="{{ route('tour-guides-details') }}">
             <div class="row _tour_guide_grid">
                 <div class="col-md-5 pe-0 image position-relative">
-                    <img src="{{ $guide->image }}" alt="tour guide" width="100%" />                        
+                    <img src="{{ $guide['image'] }}" alt="tour guide" width="100%" />                        
                     <p class="_price font-4 display-12 color-white">
-                        {{ $guide->price }} <br/> per hour 
+                        {{ $guide['price'] }} <br/> per hour 
                     </p>
                 </div>
                 <div class="_tour_content col-md-7 border-top border-end border-bottom rounded-end d-flex justify-content-center
                              align-items-center flex-column">
                     <div class="detail pt-2">
-                        <h3 class="font-2 display-20 color-blue"> {{ $guide->name }}  </h3>
-                        <p class="font-4 display-14 color-black py-3">Emirate: {{ $guide->emirates }} </p>
-                        <p class="font-4 display-14 color-black">Experience: {{ $guide->experience }}  years</p>
-                        <p class="font-4 display-14 color-black py-3">Languages: {{ $guide->languages }}, +3 Languages</p>
+                        <h3 class="font-2 display-20 color-blue"> {{ $guide['name'] }}  </h3>
+                        <p class="font-4 display-14 color-black py-3">Emirate: {{ $guide['address'] }} </p>
+                        <p class="font-4 display-14 color-black">Experience: {{ $guide['experience'] }}  years</p>
+                        <p class="font-4 display-14 color-black py-3">Languages: {{ $guide['languages'] }}  years</p>
                     </div>
                     <div class="row w-100 border-top ml-2 py-2">
                         <div class="col-md-6 text-center border-end">
@@ -204,7 +112,6 @@ $tourGuides = [
     @empty 
     <p>No Data Found!</p>
     @endforelse
-    <x-pagination/>
 </div>
 
 

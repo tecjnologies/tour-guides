@@ -25,12 +25,14 @@
                           <label for="title"> Sub Heading: </label>
                           <input type="text" class="form-control" value="{{ old('sub_heading', $banner->sub_heading) }}" placeholder="Enter sub_heading" id="sub_heading" name="sub_heading">
                         </div>
+                        
                         <div class="form-group">
                           <label for="image"> Image: </label>
                           <input type="file" class="form-control" id="image" name="image" onchange="loadPreview(this);">
-                          </div>
+                        </div>
+                          
                           <div class="form-group">
-                              <img id="preview_img">
+                              <img src={{ $banner->image }} id="preview_img" width="200px">
                           </div>
                       
                         <div class="form-group">

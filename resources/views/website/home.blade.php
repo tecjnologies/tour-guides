@@ -9,64 +9,7 @@
         ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
     ];
     
-    $tourGuides = [
-        [
-            'image' => asset('assets/images/homepage/man-4.svg'), 
-            'name' => 'Mohammed Othman', 
-            'emirates' => 'Abu Dhabi',
-            'experience' => '14',
-            'price' => '50',
-            'reviews_count' => '5',
-            'languages' => 'English, Urdu'
-        ],
-        [
-            'image' => asset('assets/images/homepage/ranbir.svg'), 
-            'name' => 'Ranbeer Kapoor', 
-            'emirates' => 'Dubai',
-            'experience' => '5',
-            'price' => '40',
-            'reviews_count' => '8',
-            'languages' => 'English, Hindi'
-        ],
-        [
-            'image' => asset('assets/images/homepage/woman-8.svg'), 
-            'name' => 'Husa Chaudhary', 
-            'emirates' => 'Ras al Khaimah',
-            'experience' => '14',
-            'price' => '60',
-            'reviews_count' => '9',
-            'languages' => 'English, Malyalam'
-        ],
-        [
-            'image' => asset('assets/images/homepage/man-6.svg'), 
-            'name' => 'Mazen Ahmed', 
-            'emirates' => 'Fujairah',
-            'experience' => '10',
-            'price' => '50',
-            'reviews_count' => '6',
-            'languages' => 'English, arabic,'
-        ],
-        [
-            'image' => asset('assets/images/homepage/woman-3.svg'), 
-            'name' => 'Binshida Jasim', 
-            'emirates' => 'Ajman',
-            'experience' => '5',
-            'price' => '50',
-            'reviews_count' => '8',
-            'languages' => 'English, Hindi'
-        ],
-        [
-            'image' => asset('assets/images/homepage/woman.svg'), 
-            'name' => 'Jasika Dyne', 
-            'emirates' => 'Umm Al Quwain',
-            'experience' => '7',
-            'price' => '50',
-            'reviews_count' => '7',
-            'languages' => 'English, Arabic'
-        ],
-        
-    ];
-
+   
     $popularDestinations = [
         [
             'image' => asset('assets/images/homepage/kalba.png'), 
@@ -203,9 +146,9 @@
     <div class="mx-auto">
         <div class="overflow-hidden">
             <div class="text-gray-900">
-                <x-home.banner class="h-12 w-auto" /> 
+                <x-home.banner :banner="$banner"  class="h-12 w-auto" /> 
                 <div class="tour-bar mt-4 px-5">
-                    <div class="row py-3 become-our-partner" style="background-image: url({{ asset('assets/images/homepage/blue-bar-background.png')}});">
+                    <div class="row py-3 become-our-partner" style="background-image: url({{ asset('assets/images/homepage/blue-bar-background.png') }});">
                         <div class="col-md-4 d-flex justify-content-around align-items-center">
                             <div class="before-after-image">
                                 <img src="{{ asset('assets/images/homepage/image-before.svg') }}" alt="become guide" />
@@ -273,12 +216,16 @@
         </div>
         
         <x-home.tour-guide :data="$tourGuides" :options="$sliderOptions" class="h-12 w-auto"/>
+        
         <div class="spacer py-5"></div>
-        <x-home.popular-destinations :data="$popularDestinations" :options="$sliderOptions" class="h-12 w-auto" />
+        <x-home.popular-destinations :data="$destinations" :options="$sliderOptions" class="h-12 w-auto" />
+        
         <div class="spacer py-5"></div>
         <x-home.vip-service :data="$vipServices" :options="$sliderOptions" class="h-12 w-auto" />
+        
         <div class="spacer py-5"></div>
         <x-home.unforgettable-nature :data="$unForgettableNature" :options="$sliderOptions"  class="h-12 w-auto " />
+        
         <div class="spacer py-5"></div>
         <x-home.discovering-regions :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto" /> 
     

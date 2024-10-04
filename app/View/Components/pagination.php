@@ -8,14 +8,15 @@ use Illuminate\View\Component;
 
 class pagination extends Component
 {
+
+    public $paginator;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($paginator)
     {
-        //
+        $this->paginator = $paginator;
     }
-
     /**
      * Get the view / contents that represent the component.
      */

@@ -67,6 +67,17 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="{{ route('admin.banner.index') }}" class="nav-link {{ Request::is('admin/banner*') ? 'active' : '' }}">
+              <i class="fa fa-info-circle" aria-hidden="true"></i>
+              <p class="ml-2">
+                Banners
+              </p>
+            </a>
+          </li>
+
+
           <li class="nav-item has-treeview">
             <a href="{{ route('admin.guide.index') }}" class="nav-link {{ Request::is('admin/guide*') ? 'active' : '' }}">
               <i class="fa fa-user" aria-hidden="true"></i>
@@ -145,13 +156,12 @@
             </p>
           </a>
         </li>
-        
-
 
 
           @endif
 
           @if (Request::is('user*'))
+            
             <li class="nav-item has-treeview">
               <a href="{{ route('user.dashboard') }}" class="nav-link {{ Request::is('user/dashboard') ? 'active' : '' }}">
                 <i class="fas fa-tachometer-alt"></i>
@@ -171,6 +181,7 @@
                 </p>
               </a>
             </li>
+
             <li class="nav-item has-treeview">
               <a href="{{ route('user.placetype') }}" class="nav-link {{ Request::is('user/placetypes') ? 'active' : '' }}">
                 <i class="fas fa-atlas"></i>

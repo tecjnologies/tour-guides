@@ -17,4 +17,9 @@ class Place extends Model
     public function packages(){
         return $this->belongsToMany(Package::class);
     }
+
+    public function getImageAttribute($value)
+    {
+        return asset('storage/place/' . $value);
+    }
 }

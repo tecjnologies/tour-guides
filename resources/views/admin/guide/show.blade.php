@@ -13,7 +13,8 @@
 					<table class="table">
 						<tr>
 							<th></th>
-							<td><img class="img-fluid"  style="border-radius: 10%;border:2px solid rgb(110, 110, 110);" src="{{ asset('storage/guide/'.$guide->image) }}" alt="image"></td>
+							<td><img class="img-fluid"  style="border-radius: 10%;border:2px solid rgb(110, 110, 110);" 
+								src="{{ $guide->image }}" alt="image"></td>
 						</tr>
 						<tr>
 							<th>Name</th>

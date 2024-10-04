@@ -2,40 +2,45 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\TourGuideController;
+
+use App\Http\Controllers\{ 
+    HomeController, 
+    TourGuideController
+};
+
+use App\Http\Controllers\User\{
+    DashboardController as UserDashboardController, 
+    BookingController as  UserBookingController 
+} ;
+
+use App\Http\Controllers\Admin\
+{
+    DistrictController,
+    TypeController,
+    PlaceController,
+    AboutController,
+    GuideController,
+    UsersController,
+    PackageController,
+    BookingController,
+    BannerController,
+    DashboardController
+};
 
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\User\DashboardController as UserDashboardController;
-use App\Http\Controllers\User\BookingController as  UserBookingController;
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-use App\Http\Controllers\Admin\DistrictController;
-use App\Http\Controllers\Admin\TypeController;
-use App\Http\Controllers\Admin\PlaceController;
-use App\Http\Controllers\Admin\AboutController;
-use App\Http\Controllers\Admin\GuideController;
-use App\Http\Controllers\Admin\UsersController;
-use App\Http\Controllers\Admin\PackageController;
-use App\Http\Controllers\Admin\BookingController;
-use App\Http\Controllers\Admin\BannerController;
-
-
-
-Route::get('/', function () {
-    return view('website.home');
-})->name('home');
+Route::get('/tour-guides-profile', [TourGuideController::class, 'index'])->name('tour-guides-profile');
 
 Route::get('/book-your-guide', function () {
     return view('website.book-your-guide');
 })->name('book-your-guide');
 
-Route::get('/tour-guides-profile', function () {
-    return view('website.tour-guides-profile');
-})->name('tour-guides-profile');
+
+// Route::get('/tour-guides-profile', function () {
+//     return view('website.tour-guides-profile');
+// })->name('tour-guides-profile');
+
 
 Route::get('/tour-guides-details', function () {
     return view('website.tour-guide-details');
@@ -68,8 +73,8 @@ Route::middleware('auth')->group(function () {
 
 
 // Route::get('/', 'HomeController@index')->name('welcome');
-Route::get('/', action: [HomeController::class, 'index'])->name('welcome');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/', action: [HomeController::class, 'index'])->name('welcome');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class , 'about'])->name('about');
 Route::get('/search', [HomeController::class,'search'])->name('search');
 Route::get('/place/details/{id}', [HomeController::class, 'placeDdetails'])->name('place.details');

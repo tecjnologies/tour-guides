@@ -1,10 +1,10 @@
 @push('css')
     <link rel="stylesheet" href="{{ asset('assets/css/banner.css') }}">
 @endpush
-<section class="relative bg-cover bg-center h-100 _banner py-5 mx-5" style="background-image: url({{ asset('assets/images/homepage/banner-background.png')}});">
+<section class="relative bg-cover bg-center h-100 _banner py-5 mx-5" style="background-image: url({{ $banner->image  }});">
     <div class="relative flex flex-col items-center justify-center h-full text-white text-center p-5">
-        <h2 class="font-2 display-26 color-white mb-3"> "Discover Hidden Gems with Local Experts" </h2>
-        <p class="font-5  display-20 color-white"> Experience the Extraordinary in the UAE with Our Expert Guides  </p>
+        <h2 class="font-2 display-26 color-white mb-3"> {{ $banner->title }} </h2>
+        <p class="font-5  display-20 color-white"> {{ $banner->sub_heading  }} </p>
         <div class="bg-white  rounded shadow-md my-5">
             <form action="#" method="POST" class="p-6">
                 @csrf

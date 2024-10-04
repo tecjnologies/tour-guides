@@ -2,13 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\About;
-use App\Models\Booking;
-use App\Models\District;
-use App\Models\Guide;
-use App\Models\Package;
-use App\Models\Place;
-use App\Models\Placetype;
+use App\Models\{Placetype, Place, Package,Guide , District, Booking, About, Banner};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,11 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $places = Place::all()->take(4);
+        $destinations = Place::all()->take(4);
         $packages = Package::all()->take(3);
         $districts = District::latest()->get();
-
-        return view('website.home', compact('places', 'packages', 'districts'));
+        $tourGuides = Guide::take( 6)->get();
+        $banner = Banner::latest()->first();
+        return view('website.home', compact('banner','tourGuides', 'destinations'));
     }
 
     public function districtWisePlace($id){

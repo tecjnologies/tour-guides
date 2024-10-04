@@ -49,36 +49,25 @@ class GuideController extends Controller
             'email' => 'required|unique:guides|email',
             'contact' => 'required|unique:guides|numeric',
             'address' => 'required',
-            'image' => 'required|mimes:jpeg,png,jpg',
+            'languages' => 'required|sometimes',
+            'image' => 'required|mimes:jpeg,png,jpg,svg',
             
-            ]);
-    
-            // Get Form Image
-          $image = $request->file('image');
-
-         
-          if (isset($image)) {
-                
-            // Make Unique Name for Image 
+        ]);
+            
+        $image = $request->file('image');
+        if (isset($image)) {            
             $currentDate = Carbon::now()->toDateString();
             $imageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-  
-            // Check Category Dir is exists
             if (!Storage::disk('public')->exists('guide')) {
                 Storage::disk('public')->makeDirectory('guide');
             }
-  
             Storage::disk('public')->putFileAs('guide', $image, $imageName);
-  
-     }else{
-      $imageName = "default.png";
-     }
-  
-    $guide = new Guide();
-    //$students->user_id = Auth::id();
-    $guide->name = $request->name;
+        }else{
+            $imageName = "default.png";
+        }
 
-    
+    $guide = new Guide();
+    $guide->name = $request->name;
     $guide->nid = $request->nid;
     $guide->image = $imageName;
     $guide->email = $request->email;
@@ -86,7 +75,7 @@ class GuideController extends Controller
     $guide->address = $request->address;
     $guide->price = $request->price;
     $guide->experience = $request->experience;
-    $guide->languages = $request->languages;
+    $guide->languages = $request->languages ?? 'english';
     $guide->save();
     return redirect(route('admin.guide.index'))->with('success', 'Guide Inserted Successfully');
 
@@ -135,45 +124,45 @@ class GuideController extends Controller
             'price' => 'required',
             'experience' => 'required',
             'languages' => 'required',
-            'image' => 'mimes:jpeg,png,jpg|image',
+            'image' => 'mimes:jpeg,png,jpg,svg|image',
             ]);
     
       
         // Get Form Image
         $image = $request->file('image');
         if (isset($image)) {
-        // Make Unique Name for Image 
-        $currentDate = Carbon::now()->toDateString();
-        $imageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-  
-  
-        // Check Category Dir is exists
-        if (!Storage::disk('public')->exists('guide')) {
-            Storage::disk('public')->makeDirectory('guide');
+            // Make Unique Name for Image 
+            $currentDate = Carbon::now()->toDateString();
+            $imageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+    
+    
+            // Check Category Dir is exists
+            if (!Storage::disk('public')->exists('guide')) {
+                Storage::disk('public')->makeDirectory('guide');
+            }
+    
+            // Delete old post image
+            if(Storage::disk('public')->exists('guide/'.$guide->image)){
+                Storage::disk('public')->delete('guide/'.$guide->image);
+            }
+    
+            Storage::disk('public')->putFileAs('guide', $image, $imageName); 
+    
+        }else{
+            $imageName = basename($guide->image);
         }
-  
-        // Delete old post image
-        if(Storage::disk('public')->exists('guide/'.$guide->image)){
-            Storage::disk('public')->delete('guide/'.$guide->image);
-        }
-  
-        Storage::disk('public')->putFileAs('guide', $image, $imageName); 
-  
-     }else{
-        $imageName = $guide->image;
-     }
-  
-    $guide->name = $request->name;
-    $guide->nid = $request->nid;
-    $guide->image = $imageName;
-    $guide->email = $request->email;
-    $guide->contact = $request->contact;
-    $guide->address = $request->address;
-    $guide->price = $request->price;
-    $guide->experience = $request->experience;
-    $guide->languages = $request->languages;
-    $guide->save();
-    return redirect(route('admin.guide.index'))->with('success', 'Guide Updated Successfully');
+
+        $guide->name = $request->name;
+        $guide->nid = $request->nid;
+        $guide->image = $imageName ;
+        $guide->email = $request->email;
+        $guide->contact = $request->contact;
+        $guide->address = $request->address;
+        $guide->price = $request->price;
+        $guide->experience = $request->experience;
+        $guide->languages = $request->languages ?? 'English';
+        $guide->save();
+        return redirect(route('admin.guide.index'))->with('success', 'Guide Updated Successfully');
 
     }
 

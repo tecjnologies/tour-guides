@@ -155,6 +155,8 @@ class PackageController extends Controller
           
             Storage::disk('public')->putFileAs('packageImage', $image, $imageName); 
             $package->package_image = $imageName;
+        }else{
+            $imageName = basename($package->image);
         }
 
         $package->name = $request->name;

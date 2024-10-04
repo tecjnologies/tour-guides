@@ -35,7 +35,7 @@
                           <td>{{ $guide->email }}</td> 
                            <td>{{ $guide->contact }}</td>
                           <td>
-                            <img style="height: 70px; width: 60px;" class="img-fluid" src="{{ asset('storage/guide/'.$guide->image) }}" alt="image">
+                            <img style="height: 70px; width: 60px;" class="img-fluid" src="{{ $guide->image }}" alt="image">
                           </td>
                           <td> 
                             <a href="{{ route('admin.guide.show', $guide->id) }}" class="btn btn-success">Details</a>

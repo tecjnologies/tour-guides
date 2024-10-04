@@ -20,19 +20,21 @@
                         <div class="row">
                             <a href="{{ route('destination-details') }}">
                                 <div class="image p-0">
-                                    <img src="{{ $slide['image'] }}" alt="kalba"  width="100%"/>
+                                    <img src="{{ $slide->image }}" alt="kalba"  width="100%"/>
                                     <img src="{{ asset('assets/images/icons/favourites.svg') }}" alt="lke-dislike"  class="_like_dislike"/>
                                     <ul class="p-0 d-flex justify-content-start align-items-center _tag">
-                                        
-                                        @forelse($slide['tags'] as $tag)
+                                        @php
+                                              $tagsArray = json_decode($slide->tags, true);
+                                        @endphp
+                                        @forelse($tagsArray as $tag)
                                             <li class="py-3 font-4 display-16 color-black"> {{ $tag }} </li>
                                         @empty
                                         @endforelse
                                     </ul>
                                 </div>
                                 <div class="details">
-                                        <h3 class="font-4 display-26 color-black"> {{ $slide['title'] }} </h3>
-                                        <p class="font-4 display-16 color-black">  {{ $slide['location'] }}   </p>
+                                        <h3 class="font-4 display-26 color-black"> {{ $slide->title }} </h3>
+                                        <p class="font-4 display-16 color-black">  {{ $slide->location }}   </p>
                                 </div>
                             </a>
                         </div>

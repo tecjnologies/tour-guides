@@ -35,7 +35,7 @@
                            <td>{{ $place->district->name }}</td>
                            <td>{{ $place->placetype->name }}</td>
                           <td>
-                            <img style="height: 60px; width: 100px;" class="img-fluid" src="{{ asset('storage/place/'.$place->image) }}" alt="image">
+                            <img style="height: 60px; width: 100px;" class="img-fluid" src="{{ $place->image }}" alt="image">
                           </td>
                           <td> 
                             <a href="{{ route('admin.place.show', $place->id) }}" class="btn btn-success">Details</a>

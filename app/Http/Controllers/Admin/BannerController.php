@@ -58,7 +58,7 @@ class BannerController extends Controller
                 Storage::disk('public')->makeDirectory('place');
             }
 
-            Storage::disk('public')->putFileAs('banner', $image, $imageName);
+            Storage::disk('public')->putFileAs('banner', $image, name: $imageName);
   
         }else{
                 $imageName = "default.png";
@@ -111,7 +111,7 @@ class BannerController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'sub_heading' => 'required',
-            'image' => 'required|mimes:jpeg,png,jpg',
+            'image' => 'required|mimes:jpeg,png,jpg|sometimes',
         ]);
 
       
@@ -132,10 +132,9 @@ class BannerController extends Controller
                 Storage::disk('public')->putFileAs('banner', $image, $imageName);
         
         }else{
-            $imageName = $banner->image;
+            $imageName = basename($banner->image);
         }
 
-        $banner = new Banner();
         $banner->title = $request->title;
         $banner->sub_heading = $request->sub_heading;
         $banner->image = $imageName;

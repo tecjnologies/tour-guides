@@ -151,7 +151,7 @@ class PlaceController extends Controller
                 Storage::disk('public')->putFileAs('place', $image, $imageName);
         
         }else{
-            $imageName = $place->image;
+            $imageName = basename($place->image);
         }
 
         $place->name = $request->name;

@@ -56,7 +56,7 @@
 
 					        <div class="form-group">
 					          <label for="image"> Old Image</label>
-					          <img src="{{ asset('storage/guide/'.$guide->image) }}" height="80px;" width="60px;">
+					          <img src="{{ $guide->image }}" height="80px;" width="60px;">
        						</div>
 
 							   <div class="form-group">
