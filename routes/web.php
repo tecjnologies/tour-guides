@@ -32,6 +32,7 @@ use App\Http\Controllers\Admin\
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/tour-guides-profile', [TourGuideController::class, 'index'])->name('tour-guides-profile');
+Route::get('/tour-guides-profile/{id}', [TourGuideController::class, 'show'])->name('show.tourguide');
 
 Route::get('/book-your-guide', function () {
     return view('website.book-your-guide');
@@ -43,9 +44,9 @@ Route::get('/book-your-guide', function () {
 // })->name('tour-guides-profile');
 
 
-Route::get('/tour-guides-details', function () {
-    return view('website.tour-guide-details');
-})->name('tour-guides-details');
+// Route::get('/tour-guides-details', function () {
+//     return view('website.tour-guide-details');
+// })->name('tour-guides-details');
 
 
 Route::get('/destination-details', function () {

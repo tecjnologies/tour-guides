@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Activity;
+use App\Models\GuideDescription;
 use App\Models\Language;
+use App\Models\Place;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -35,7 +37,8 @@ class GuideController extends Controller
     {
         $activities = Activity::where('isActive', true)->get();
         $languages = Language::all();
-        return view('admin.guide.create',compact('activities','languages') );
+        $places = Place::all();
+        return view('admin.guide.create',compact('activities','languages','places') );
     }
 
     /**
@@ -46,7 +49,7 @@ class GuideController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $this->validate($request, [
             'name' => 'required',
             'nid' => 'required|unique:guides|numeric',
@@ -56,6 +59,10 @@ class GuideController extends Controller
             'languages' => 'required|sometimes|array',
             'activities' => 'required|array|sometimes',
             'image' => 'required|mimes:jpeg,png,jpg,svg',
+            'description' => 'nullable|string',
+            'isCertified' => 'nullable|boolean',
+            'highRatings' => 'nullable|boolean',
+            'responsiveGuide' => 'nullable|boolean',
         ]);
             
         $image = $request->file('image');
@@ -79,12 +86,45 @@ class GuideController extends Controller
             'price' => $request->price,
             'experience' => $request->experience,
         ]);
-
+        $this->createGuideDescription($guide->id ,$request);
         $guide->activities()->sync($request->activities); 
-        $guide->guideLanguages()->sync($request->guideLanguages);
+        $guide->guideLanguages()->sync($request->languages);
+        $guide->privateDestinations()->sync($request->privateDestinations);
+        
     
     return redirect(route('admin.guide.index'))->with('success', 'Guide Inserted Successfully');
 
+    }
+
+
+    public function createGuideDescription($guide_id,$guideDescription){
+        GuideDescription::create(
+            [
+            'guide_id' => $guide_id,
+            'isCertified' => $guideDescription->isCertified ?? false,
+            'highRatings' => $guideDescription->highRatings ?? false,
+            'responsiveGuide' => $guideDescription->responsiveGuide ?? false,
+            'no_of_slots' => $guideDescription->no_of_slots,
+            'response_time' => $guideDescription->response_time,
+            'description' => $guideDescription->description,
+        ]);
+    }
+
+
+    public function updateGuideDescription($guide_id ,$guideDescription){
+        $guideDescriptionData = GuideDescription::where('guide_id', $guide_id)->first();
+        if ($guideDescriptionData) {
+            $guideDescriptionData->update([
+                'isCertified' => $guideDescription->isCertified ?? false,
+                'highRatings' => $guideDescription->highRatings ?? false,
+                'responsiveGuide' => $guideDescription->responsiveGuide ?? false,
+                'no_of_slots' => $guideDescription->no_of_slots,
+                'response_time' => $guideDescription->response_time,
+                'description' => $guideDescription->description,
+            ]);
+        } else {
+            $this->createGuideDescription($guide_id, $guideDescription);
+        }
     }
 
     /**
@@ -110,10 +150,11 @@ class GuideController extends Controller
     {
 
         $guide = Guide::find($guide->id);
-        $guide->load('activities', 'guideLanguages');
+        $guide->load('activities', 'guideLanguages','description','privateDestinations');
         $languages = Language::all();
+        $places = Place::all();
         $activities = Activity::where('isActive' , true)->get();
-        return view('admin.guide.edit',compact('guide','languages', 'activities'));
+        return view('admin.guide.edit',compact('guide','languages', 'activities','places'));
 
     }
 
@@ -165,11 +206,11 @@ class GuideController extends Controller
         $guide->address = $request->address;
         $guide->price = $request->price;
         $guide->experience = $request->experience;
-       
-        $guide->save();
-      
+        $this->updateGuideDescription(  $id , $request);
         $guide->activities()->sync($request->activities);
         $guide->guideLanguages()->sync($request->languages);
+        $guide->privateDestinations()->sync($request->privateDestinations);
+        // $guide->save();
 
         return redirect(route('admin.guide.index'))->with('success', 'Guide Updated Successfully');
 
@@ -189,7 +230,11 @@ class GuideController extends Controller
                 Storage::disk('public')->delete('guide/'.$guide->image);
         }
 
-         $guide->delete();
+        $guide->activities()->detach(); 
+        $guide->guideLanguages()->detach(); 
+        $guide->privateDestinations()->detach();
+        $guide->delete();
+
 
         return redirect(route('admin.guide.index'))->with('success', 'Guide deleted Successfully');
     }

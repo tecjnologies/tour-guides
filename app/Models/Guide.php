@@ -30,4 +30,14 @@ class Guide extends Model
         return $this->belongsToMany(Language::class, 'guide_languages', 'guide_id', 'language_id')->withTimestamps();;
     }
 
+    public function privateDestinations()
+    {
+        return $this->belongsToMany(Place::class, 'guide_private_destinations', 'guide_id', 'place_id')->withTimestamps();
+    }
+
+    public function description()
+    {
+        return $this->hasOne(GuideDescription::class);
+    }
+
 }

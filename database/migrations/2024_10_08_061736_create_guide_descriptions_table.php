@@ -11,12 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('guides', function (Blueprint $table) {
-            $table->boolean('isCertified')->default(false)->after('languages');
+        Schema::create('guide_descriptions', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedInteger('guide_id');
+            $table->boolean('isCertified')->default(false);
             $table->boolean('highRatings')->default(false);
             $table->boolean('responsiveGuide')->default(false);
             $table->boolean('no_of_slots')->default(false);
             $table->boolean('response_time')->default(false);
+            $table->text('description')->nullable();
+            $table->timestamps();
+
+            $table->foreign('guide_id')->references('id')->on('guides')->onDelete('cascade');
+
         });
     }
 
@@ -25,10 +32,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('guides', function (Blueprint $table) {
-            $table->dropColumn('isCertified');
-            $table->dropColumn('highRatings');
-            $table->dropColumn('responsiveGuide');
+        Schema::dropIfExists('guide_descriptions');
+        Schema::table('guide_descriptions', function (Blueprint $table) {
+            $table->dropForeign(['guide_id']);
+            $table->dropColumn('guide_id');
         });
     }
 };

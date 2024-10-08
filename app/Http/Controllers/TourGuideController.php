@@ -35,8 +35,8 @@ class TourGuideController extends Controller
 
     public function show($id)
     {
-        $tourGuide = TourGuide::findOrFail($id);
-        return response()->json($tourGuide);
+        $tourGuide = Guide::with('activities','guideLanguages','description','privateDestinations')->findOrFail($id);
+        return view('website.tour-guide-details', compact('tourGuide'));
     }
 
 

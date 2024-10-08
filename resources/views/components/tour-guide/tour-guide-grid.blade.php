@@ -79,7 +79,7 @@
 <div class="row px-5">
    @forelse($tourGuides as $guide)
     <div class="col-md-4 my-4 px-4 pl-0 cursor-pointer" href="route('home')">
-        <a href="{{ route('tour-guides-details') }}">
+        <a href="{{ route('show.tourguide', $guide->id) }}">
             <div class="row _tour_guide_grid">
                 <div class="col-md-5 pe-0 image position-relative">
                     <img src="{{ $guide['image'] }}" alt="tour guide" width="100%" />                        
