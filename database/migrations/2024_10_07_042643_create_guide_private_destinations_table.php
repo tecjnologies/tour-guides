@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('guide_id');
             $table->unsignedInteger('place_id');
+            $table->boolean('is_private')->default(false);
             $table->timestamps();
 
             $table->foreign('guide_id')->references('id')->on('guides')->onDelete('cascade');
@@ -34,6 +35,8 @@ return new class extends Migration
             
             $table->dropForeign(['place_id']);
             $table->dropColumn('place_id');
+
+            $table->dropColumn('is_private');
 
 
         });

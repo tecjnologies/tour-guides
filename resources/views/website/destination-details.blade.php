@@ -1,32 +1,33 @@
 @php 
     
-    $topDestinations = [
-        [
-            'image' => asset('assets/images/destinations/love-lake.svg'), 
-            'title' => 'love lake',
-            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        ],
-        [
-            'image' => asset('assets/images/destinations/museum-of-future.svg'), 
-            'title' => 'Museum of the future',
-           'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        ],
-        [
-            'image' => asset('assets/images/destinations/burj-khalifa.svg'), 
-            'title' => 'Burj Khalifa',
-            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        ],
-            [
-            'image' => asset('assets/images/destinations/hatta.svg'), 
-            'title' => 'Hatta Hub',
-            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        ],
-        [
-            'image' => asset('assets/images/destinations/burj-al-arab.svg'), 
-            'title' => 'Burj Al Arab',
-            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        ]
-    ];
+    $places = App\models\Place::all();
+    // $topDestinations = [
+    //     [
+    //         'image' => asset('assets/images/destinations/love-lake.svg'), 
+    //         'title' => 'love lake',
+    //         'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    //     ],
+    //     [
+    //         'image' => asset('assets/images/destinations/museum-of-future.svg'), 
+    //         'title' => 'Museum of the future',
+    //        'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    //     ],
+    //     [
+    //         'image' => asset('assets/images/destinations/burj-khalifa.svg'), 
+    //         'title' => 'Burj Khalifa',
+    //         'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    //     ],
+    //         [
+    //         'image' => asset('assets/images/destinations/hatta.svg'), 
+    //         'title' => 'Hatta Hub',
+    //         'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    //     ],
+    //     [
+    //         'image' => asset('assets/images/destinations/burj-al-arab.svg'), 
+    //         'title' => 'Burj Al Arab',
+    //         'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    //     ]
+    // ];
 
     $sliderOptions = [
         'dots' => false,
@@ -192,7 +193,7 @@
                 </div>
             
                 <div class="row pt-3">
-                    <x-tour-guide.top-destination-list :data="$topDestinations" :options="$sliderOptions" class="w-auto" />
+                    <x-tour-guide.top-destination-list :data="$places" :options="$sliderOptions" class="w-auto" />
                 </div>
           
             </div>

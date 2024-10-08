@@ -95,14 +95,28 @@
                                     @endforeach
                                 </select>
                             </div>
+
                             <div class="form-group">
                                 <label> Private Places </label>
-                                <select class="form-control select-places" data-placeholder="Choose Activity"
+                                <select class="form-control select-private" data-placeholder="Choose Activity"
                                     name="privateDestinations[]" multiple>
                                     @foreach ($places as $places)
                                         <option value="{{ $places->id }}"
                                             {{ in_array($places->id, old('privateDestinations', [])) ? 'selected' : '' }}>
                                             {{ $places->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label> Other Places </label>
+                                <select class="form-control select-places" data-placeholder="Choose Activity"
+                                    name="otherDestinations[]" multiple>
+                                    @foreach ($otherDestinations as $otherDestination)
+                                        <option value="{{ $otherDestination->id }}"
+                                            {{ in_array($otherDestination->id, old('otherDestinations', [])) ? 'selected' : '' }}>
+                                            {{ $otherDestination->name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -158,6 +172,8 @@
             $('.select-activitites').chosen();
             $('.select-languages').chosen();
             $('.select-places').chosen();
+            $('.select-private').chosen();
+            
         })
     </script>
 @endsection

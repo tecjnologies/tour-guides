@@ -232,7 +232,7 @@
                     </div>
                 </div>
                 <div class="row pt-3">
-                    <x-tour-guide.top-destination-list :data="$topDestinations" :options="$sliderOptions" class="w-auto" />
+                    <x-tour-guide.top-destination-list :data="$tourGuide->privateDestinations" :options="$sliderOptions" class="w-auto" />
                 </div>
                 <div class="row">
                     <x-tour-guide.recent-reviews :data="$topDestinations" :options="$sliderOptions" class="w-auto" />
@@ -242,7 +242,7 @@
                 <div class="_sidebar p-4">
                     <div class="d-flex justify-content-start align-items-center">
                         <div class="profile-rounded">
-                            <img src="{{ $tourGuide->image }}" alt="mohammad" class="me-3" />
+                            <img src="{{ $tourGuide->image }}" alt="{{ $tourGuide->name }}" class="me-3" />
                         </div>
                         <div class="title">
                             <h3 class="font-2 display-20"> {{ $tourGuide->name }} </h3>
@@ -281,7 +281,7 @@
                         <hr />
                      
                         <div class="notification d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('assets/images/tour-guide/notification.svg') }}" alt="mohammad"
+                            <img src="{{ asset('assets/images/tour-guide/notification.svg') }}" alt="{{ $tourGuide->name }}"
                                 class="me-3" />
                             <span class="color-red font-3 display-16"> {{ \Carbon\Carbon::now()->format('F') }} : Only
                                 {{$tourGuide->description->no_of_slots}} slots left! </span>
@@ -291,18 +291,18 @@
                     <hr />
                     <div class="wrapper d-flex justify-content-start align-items-center py-2">
                         <div class="icon me-2">
-                            <img src="{{ asset('assets/images/menu/destinations.svg') }}" alt="mohammad"
+                            <img src="{{ asset('assets/images/menu/destinations.svg') }}" alt="destinations"
                                 class="me-3" />
                         </div>
                         <div class="title">
-                            <h4 class=" font-2 display-16"> Available Areas </h4>
-                            <p class="font-4 display-16"> Dubai (Living) , Hatta </p>
+                            <h4 class=" font-2 display-16"> Living At </h4>
+                            <p class="font-4 display-16"> {{ $tourGuide->address }} </p>
                         </div>
                     </div>
                     <hr />
                     <div class="wrapper d-flex justify-content-start align-items-center py-2">
                         <div class="icon me-2">
-                            <img src="{{ asset('assets/images/icons/language.svg') }}" alt="mohammad"
+                            <img src="{{ asset('assets/images/icons/language.svg') }}" alt="languages"
                                 class="me-3" />
                         </div>
                         <div class="title">
@@ -318,7 +318,7 @@
                     <hr />
                     <div class="wrapper d-flex justify-content-start align-items-center  py-2">
                         <div class="icon me-2">
-                            <img src="{{ asset('assets/images/tour-guide/response-time.svg') }}" alt="mohammad"
+                            <img src="{{ asset('assets/images/tour-guide/response-time.svg') }}" alt="response time"
                                 class="me-3" />
                         </div>
                         <div class="title">
@@ -330,7 +330,7 @@
 
                     <div class="wrapper d-flex justify-content-start align-items-center  py-2">
                         <div class="icon me-2">
-                            <img src="{{ asset('assets/images/tour-guide/calendar.svg') }}" alt="mohammad"
+                            <img src="{{ asset('assets/images/tour-guide/calendar.svg') }}" alt="calendar"
                                 class="me-3" />
                         </div>
                         <div class="title">

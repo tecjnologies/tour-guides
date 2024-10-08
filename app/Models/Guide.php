@@ -32,7 +32,12 @@ class Guide extends Model
 
     public function privateDestinations()
     {
-        return $this->belongsToMany(Place::class, 'guide_private_destinations', 'guide_id', 'place_id')->withTimestamps();
+        return $this->belongsToMany(Place::class, 'guide_private_destinations', 'guide_id', 'place_id')->withTimestamps()->wherePivot('is_private', true);
+    }
+
+    public function otherDestinations()
+    {
+        return $this->belongsToMany(Place::class, 'guide_private_destinations', 'guide_id', 'place_id')->withTimestamps()->wherePivot('is_private', false);
     }
 
     public function description()

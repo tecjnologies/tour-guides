@@ -154,6 +154,19 @@
                                 </select>
                             </div>
 
+							<div class="form-group">
+                                <label>Choose Other Destinations</label>
+                                <select class="form-control select-places" name="otherDestinations[]" multiple>
+                                    @foreach ($places as $place)
+                                        <option value="{{ $place->id }}"
+                                            @foreach ($guide->otherDestinations as $selectedDestinations) 
+												{{ $selectedDestinations->id == $place->id ? 'selected' : '' }} @endforeach>
+                                            {{ $place->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Update</button>

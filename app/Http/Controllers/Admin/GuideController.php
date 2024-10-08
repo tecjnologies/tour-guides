@@ -38,7 +38,8 @@ class GuideController extends Controller
         $activities = Activity::where('isActive', true)->get();
         $languages = Language::all();
         $places = Place::all();
-        return view('admin.guide.create',compact('activities','languages','places') );
+        $otherDestinations = Place::all();
+        return view('admin.guide.create',compact('activities','languages','places','otherDestinations') );
     }
 
     /**
@@ -49,7 +50,6 @@ class GuideController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'name' => 'required',
             'nid' => 'required|unique:guides|numeric',
@@ -68,15 +68,15 @@ class GuideController extends Controller
         $image = $request->file('image');
         if (isset($image)) {            
             $currentDate = Carbon::now()->toDateString();
-            $imageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            $imageName = $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
             if (!Storage::disk('public')->exists('guide')) {
                 Storage::disk('public')->makeDirectory('guide');
             }
             Storage::disk('public')->putFileAs('guide', $image, $imageName);
-        }else{
+        } else {
             $imageName = "default.png";
         }
-
+        
         $guide = Guide::create([
             'name' => $request->name,
             'nid' => $request->nid,
@@ -85,15 +85,22 @@ class GuideController extends Controller
             'address' => $request->address,
             'price' => $request->price,
             'experience' => $request->experience,
+            'image' => $imageName
         ]);
-        $this->createGuideDescription($guide->id ,$request);
-        $guide->activities()->sync($request->activities); 
-        $guide->guideLanguages()->sync($request->languages);
-        $guide->privateDestinations()->sync($request->privateDestinations);
         
-    
-    return redirect(route('admin.guide.index'))->with('success', 'Guide Inserted Successfully');
+        $this->createGuideDescription($guide->id, $request);
+        $guide->activities()->sync($request->activities);
+        $guide->guideLanguages()->sync($request->languages);
 
+        $guide->privateDestinations()->syncWithoutDetaching(collect($request->privateDestinations)->mapWithKeys(function ($id) {
+            return [$id => ['is_private' => true]];
+        })->toArray());
+
+        $guide->privateDestinations()->syncWithoutDetaching(collect($request->otherDestinations)->mapWithKeys(function ($id) {
+            return [$id => ['is_private' => false]];
+        })->toArray());
+
+        return redirect(route('admin.guide.index'))->with('success', 'Guide Inserted Successfully');
     }
 
 
@@ -150,7 +157,7 @@ class GuideController extends Controller
     {
 
         $guide = Guide::find($guide->id);
-        $guide->load('activities', 'guideLanguages','description','privateDestinations');
+        $guide->load('activities', 'guideLanguages','description','privateDestinations','otherDestinations');
         $languages = Language::all();
         $places = Place::all();
         $activities = Activity::where('isActive' , true)->get();
@@ -168,11 +175,11 @@ class GuideController extends Controller
     public function update(Request $request, $id)
     {
         $guide = Guide::find($id);
-      
-        $validator = $this->validate($request,[
-           'name' => 'required',
+    
+        $this->validate($request, [
+            'name' => 'required',
             'nid' => 'required|numeric',
-            'email' => 'required|email', // Corrected here
+            'email' => 'required|email',
             'contact' => 'required|numeric',
             'address' => 'required',
             'languages' => 'required|array|sometimes',
@@ -182,38 +189,50 @@ class GuideController extends Controller
         $image = $request->file('image');
         if (isset($image)) {
             $currentDate = Carbon::now()->toDateString();
-            $imageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            $imageName = $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
     
             if (!Storage::disk('public')->exists('guide')) {
                 Storage::disk('public')->makeDirectory('guide');
             }
     
-            if(Storage::disk('public')->exists('guide/'.$guide->image)){
-                Storage::disk('public')->delete('guide/'.$guide->image);
+            if (Storage::disk('public')->exists('guide/' . $guide->image)) {
+                Storage::disk('public')->delete('guide/' . $guide->image);
             }
     
             Storage::disk('public')->putFileAs('guide', $image, $imageName); 
-    
-        }else{
+        } else {
             $imageName = basename($guide->image);
         }
-
+    
         $guide->name = $request->name;
         $guide->nid = $request->nid;
-        $guide->image = $imageName ;
+        $guide->image = $imageName;
         $guide->email = $request->email;
         $guide->contact = $request->contact;
         $guide->address = $request->address;
         $guide->price = $request->price;
         $guide->experience = $request->experience;
-        $this->updateGuideDescription(  $id , $request);
+    
+        $this->updateGuideDescription($id, $request);
         $guide->activities()->sync($request->activities);
         $guide->guideLanguages()->sync($request->languages);
-        $guide->privateDestinations()->sync($request->privateDestinations);
-        // $guide->save();
-
+    
+        // Prepare data for private and other destinations with is_private flag
+        $privateDestinations = collect($request->privateDestinations)->mapWithKeys(function ($id) {
+            return [$id => ['is_private' => true]];
+        })->toArray();
+    
+        $otherDestinations = collect($request->otherDestinations)->mapWithKeys(function ($id) {
+            return [$id => ['is_private' => false]];
+        })->toArray();
+    
+        // Sync private and other destinations separately
+        $guide->privateDestinations()->sync($privateDestinations);
+        $guide->otherDestinations()->sync($otherDestinations);
+    
+        $guide->save();
+    
         return redirect(route('admin.guide.index'))->with('success', 'Guide Updated Successfully');
-
     }
 
     /**

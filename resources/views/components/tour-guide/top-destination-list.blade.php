@@ -18,18 +18,18 @@
     @endphp
     <x-website.slider :options="$options">
         <div class="slick-slider mt-3" id="slider-4">
-            @forelse($data as $slide)
+            @forelse($data as $destination)
             <a href="{{ route('destination-details') }}">
                     <div class="slide _top_destinations">
                         <div class="extra-slide-content">
                             <div class="row">
                                 <div class="image p-0">
-                                    <img src="{{  $slide['image'] }}" alt="kalba"  width="100%"/>
+                                    <img src="{{  $destination->image }}" alt="{{ $destination->name }}"  width="100%"/>
                                 </div>
                                 <div class="_title_content">
-                                    <h3 class="font-4 display-16 color-black"> {{  $slide['title'] }} </h3>
+                                    <h3 class="font-4 display-16 color-black"> {{ $destination->name }} </h3>
                                     <p class="font-4 display-12 color-black">  
-                                        {{  $slide['content'] }}
+                                         {{ $destination?->district?->name }} 
                                     </p>
                                 </div>
                             </div>

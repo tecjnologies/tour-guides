@@ -629,6 +629,13 @@ hr {
   height: 100%;
 }
 
+
+._sidebar .profile-rounded img {
+  width: 100px;
+  height: 100px;
+  border-radius: 80%;
+}
+
 @media only screen and (max-width: 1800px) {
 
 }
