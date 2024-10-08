@@ -70,12 +70,35 @@
 								<input type="text" class="form-control" placeholder="Enter experience" id="experience" name="experience"
 								value="{{old('address',$guide->experience)}}">
 							  </div>
-
 							  <div class="form-group">
-								<label for="address"> languages: </label>
-								<input type="text" class="form-control" placeholder="Enter languages" id="languages" name="languages"
-								value="{{old('address',$guide->languages)}}">
-							  </div>
+                                <label>Choose Language</label>
+							    <select class="form-control select-languages" name="languages[]" multiple>
+                                   @foreach ( $languages  as $language)
+									   <option value="{{ $language->id }}"
+                                            @foreach($guide->guideLanguages as $selectedLanguage) 
+                                                {{ $selectedLanguage->id == $language->id ? 'selected' : '' }}
+                                            @endforeach>
+                                            {{ $language->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+					      
+
+							<div class="form-group">
+                                <label>Choose Activites</label>
+                                <select class="form-control select-activitites" name="activities[]" multiple>
+                                    @foreach ($activities as $activity)
+                                        <option value="{{ $activity->id }}"  
+                                            @foreach($guide->activities as $selectedActivities) 
+                                                {{ $selectedActivities->id == $activity->id ? 'selected' : '' }}
+                                            @endforeach
+                                        >
+                                            {{ $activity->title }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
 					      
 
                  <div class="form-group">
@@ -87,11 +110,24 @@
                      
                       
                     </div>
-                   
-                    <!-- /.card-body -->
                   </div>
-                  <!-- /.card -->
             </div>
         </div>
-    </div><!-- /.container -->
+    </div>
  @endsection
+
+ @section('scripts')
+<script src="{{ asset('js/chosen.jquery.min.js') }}"></script>
+<script>
+	
+	$(document).ready(function() {
+		$('.select-activitites').chosen();
+		$('.select-languages').chosen();
+	})
+
+</script>
+@endsection
+
+@section('css')
+<link href="{{ asset('css/chosen.min.css') }}" rel="stylesheet">
+@endsection

@@ -86,6 +86,16 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="{{ route('admin.activity.index') }}" class="nav-link {{ Request::is('admin/activity*') ? 'active' : '' }}">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <p class="ml-2">
+                Activities
+              </p>
+            </a>
+          </li>
+
         @if (Auth::id() == 1)
         <li class="nav-item has-treeview">
           <a href="{{ route('admin.users.index') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">

@@ -24,7 +24,8 @@ use App\Http\Controllers\Admin\
     PackageController,
     BookingController,
     BannerController,
-    DashboardController
+    DashboardController,
+    ActivityController
 };
 
 
@@ -111,6 +112,7 @@ Route::group([
     Route::resource('type', TypeController::class);
     Route::resource('place', PlaceController::class);
     Route::resource('banner', BannerController::class);
+    Route::resource('activity', ActivityController::class);
     Route::resource('about', AboutController::class);
     Route::resource('guide', GuideController::class);
     Route::resource('users', UsersController::class);

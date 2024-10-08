@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Activity;
+use App\Models\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -31,8 +33,9 @@ class GuideController extends Controller
      */
     public function create()
     {
-       
-         return view('admin.guide.create');
+        $activities = Activity::where('isActive', true)->get();
+        $languages = Language::all();
+        return view('admin.guide.create',compact('activities','languages') );
     }
 
     /**
@@ -43,15 +46,16 @@ class GuideController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        
+        $this->validate($request, [
             'name' => 'required',
             'nid' => 'required|unique:guides|numeric',
             'email' => 'required|unique:guides|email',
             'contact' => 'required|unique:guides|numeric',
             'address' => 'required',
-            'languages' => 'required|sometimes',
+            'languages' => 'required|sometimes|array',
+            'activities' => 'required|array|sometimes',
             'image' => 'required|mimes:jpeg,png,jpg,svg',
-            
         ]);
             
         $image = $request->file('image');
@@ -66,17 +70,19 @@ class GuideController extends Controller
             $imageName = "default.png";
         }
 
-    $guide = new Guide();
-    $guide->name = $request->name;
-    $guide->nid = $request->nid;
-    $guide->image = $imageName;
-    $guide->email = $request->email;
-    $guide->contact = $request->contact;
-    $guide->address = $request->address;
-    $guide->price = $request->price;
-    $guide->experience = $request->experience;
-    $guide->languages = $request->languages ?? 'english';
-    $guide->save();
+        $guide = Guide::create([
+            'name' => $request->name,
+            'nid' => $request->nid,
+            'email' => $request->email,
+            'contact' => $request->contact,
+            'address' => $request->address,
+            'price' => $request->price,
+            'experience' => $request->experience,
+        ]);
+
+        $guide->activities()->sync($request->activities); 
+        $guide->guideLanguages()->sync($request->guideLanguages);
+    
     return redirect(route('admin.guide.index'))->with('success', 'Guide Inserted Successfully');
 
     }
@@ -102,7 +108,13 @@ class GuideController extends Controller
      */
     public function edit(Guide $guide)
     {
-         return view('admin.guide.edit',compact('guide','guide'));
+
+        $guide = Guide::find($guide->id);
+        $guide->load('activities', 'guideLanguages');
+        $languages = Language::all();
+        $activities = Activity::where('isActive' , true)->get();
+        return view('admin.guide.edit',compact('guide','languages', 'activities'));
+
     }
 
     /**
@@ -115,33 +127,26 @@ class GuideController extends Controller
     public function update(Request $request, $id)
     {
         $guide = Guide::find($id);
-        $this->validate($request,[
-            'name' => 'required',
-            'nid' => 'required|numeric|unique:guides,nid,'.$guide->id,
-            'email' => 'required|email|unique:guides,email,'.$guide->id,
-            'contact' => 'required|numeric|unique:guides,contact,'.$guide->id,
-            'address' => 'required',
-            'price' => 'required',
-            'experience' => 'required',
-            'languages' => 'required',
-            'image' => 'mimes:jpeg,png,jpg,svg|image',
-            ]);
-    
       
-        // Get Form Image
+        $validator = $this->validate($request,[
+           'name' => 'required',
+            'nid' => 'required|numeric',
+            'email' => 'required|email', // Corrected here
+            'contact' => 'required|numeric',
+            'address' => 'required',
+            'languages' => 'required|array|sometimes',
+            'activities' => 'required|array|sometimes',
+        ]);
+    
         $image = $request->file('image');
         if (isset($image)) {
-            // Make Unique Name for Image 
             $currentDate = Carbon::now()->toDateString();
             $imageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
     
-    
-            // Check Category Dir is exists
             if (!Storage::disk('public')->exists('guide')) {
                 Storage::disk('public')->makeDirectory('guide');
             }
     
-            // Delete old post image
             if(Storage::disk('public')->exists('guide/'.$guide->image)){
                 Storage::disk('public')->delete('guide/'.$guide->image);
             }
@@ -160,8 +165,12 @@ class GuideController extends Controller
         $guide->address = $request->address;
         $guide->price = $request->price;
         $guide->experience = $request->experience;
-        $guide->languages = $request->languages ?? 'English';
+       
         $guide->save();
+      
+        $guide->activities()->sync($request->activities);
+        $guide->guideLanguages()->sync($request->languages);
+
         return redirect(route('admin.guide.index'))->with('success', 'Guide Updated Successfully');
 
     }

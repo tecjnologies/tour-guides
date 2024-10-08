@@ -40,21 +40,6 @@
                             </div>
 
 
-
-                            {{-- <div class="form-group">
-                                <label>Choose Guide</label>
-                                <select class="form-control " name="guide" >
-                                    <option value="">selece any guide</option>
-                                    @foreach ($guides as $guide)
-                                        <option value="{{ $guide->id }}" {{ old('guide') == $guide->id ? 'selected' : '' }}>
-                                            {{ $guide->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div> --}}
-
-
-
                             <div class="form-group">
                                 <label>Choose Places</label>
                                 <select class="form-control select-tags" data-placeholder="Choose places" name="places[]" multiple>
