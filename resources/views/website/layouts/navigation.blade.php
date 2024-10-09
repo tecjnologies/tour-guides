@@ -16,7 +16,7 @@
                     Home
                 </x-nav-link>
                  <x-nav-link :href="route('tour-guides-profile')" :active="request()->routeIs('tour-guides-profile')" class="font-4 display-16 color-blue">
-                    @if(request()->routeIs('tour-guide-profile'))
+                    @if(request()->routeIs('tour-guides-profile'))
                         <img src="{{ asset('assets/images/menu/tour-guide-active.svg') }}" alt="Tour Guide Profile Active" class="mx-2"/>
                     @else
                         <img src="{{ asset('assets/images/menu/tour-guide.svg') }}" alt="Tour Guide Profile" class="mx-2"/>
