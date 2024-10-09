@@ -197,7 +197,18 @@
                             <img src="{{ asset('assets/images/tour-guide/clock.svg') }}" alt="mohammad"
                                 class="me-3" />
                             <h3 class="me-3 font-2 display-16 color-blue mb-0"> Other Guiding Areas: </h3>
-                            <span class="font-5 display-16 color-black"> hatta , khourfakun </span>
+
+                               
+                            @if ($tourGuide->otherDestinations)
+                                @forelse($tourGuide->otherDestinations as  $privateDestination)
+                                    <span class="font-5 display-16 color-black"> {{ $privateDestination->name }} 
+                                        @if (!$loop->last)
+                                            <span> , </span>
+                                        @endif 
+                                    </span>
+                                @empty
+                                @endforelse
+                            @endif
                         </div>
 
                     </div>

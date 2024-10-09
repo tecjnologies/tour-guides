@@ -85,8 +85,10 @@ class GuideController extends Controller
             'address' => $request->address,
             'price' => $request->price,
             'experience' => $request->experience,
-            'image' => $imageName
         ]);
+        
+        $guide->image = $imageName;
+        $guide->save();
         
         $this->createGuideDescription($guide->id, $request);
         $guide->activities()->sync($request->activities);
