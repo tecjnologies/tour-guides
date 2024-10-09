@@ -48,6 +48,7 @@ class BookingController extends Controller
     }
 
     public function runningPackageComplete($id){
+        
        $req = Booking::find($id);
 
         $guide = Guide::find($req->guide_id);

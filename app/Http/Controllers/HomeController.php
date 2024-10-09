@@ -28,7 +28,7 @@ class HomeController extends Controller
         $destinations = Place::with('district')->take(4)->get();
         $packages = Package::all()->take(3);
         $districts = District::latest()->get();
-        $tourGuides = Guide::take( 6)->get();
+        $tourGuides = Guide::with('guideLanguages')->take( 6)->get();
         $banner = Banner::latest()->first();
         return view('website.home', compact('banner','tourGuides', 'destinations'));
     }

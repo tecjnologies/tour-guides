@@ -1,82 +1,16 @@
 @php 
     
     $homeSlider = [
+
         ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 1', 'content' => '<h3>Slide 1 Title</h3><p>Some content</p>'],
         ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
         ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
         ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
         ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
         ['image' => asset('assets/images/homepage/man.png'), 'alt' => 'Slide 2', 'content' => '<h3>Slide 2 Title</h3><p>Some content</p>'],
+    
     ];
     
-   
-    $popularDestinations = [
-        [
-            'image' => asset('assets/images/homepage/kalba.png'), 
-            'title' => 'Top hanging garden kalba',
-            'location' => 'Alhafia - Sharjah',
-            'tags' => ['Individual', 'Group']
-        ],
-        [
-            'image' => asset('assets/images/homepage/hatta.png'), 
-            'title' => 'House of Raminten',
-            'location' => 'Khor Fakkan is a town on the Gulf of Oman',
-            'tags' => ['Individual', 'Group']
-        ],
-        [
-            'image' => asset('assets/images/homepage/mosque.png'), 
-            'title' => 'Sheikh Zayed Grand Mosque',
-            'location' => 'al Rawdah - Abu dhabi',
-            'tags' => ['Individual', 'Group']
-        ],
-        [
-            'image' => asset('assets/images/homepage/tower-2.png'), 
-            'title' => 'Downtown',
-            'location' => 'Bur Dubai - Dubai',
-            'tags' => ['Individual', 'Group']
-        ],
-        [
-            'image' => asset('assets/images/homepage/burj-arab.png'), 
-            'title' => 'Burj  Al Arab',
-            'location' => 'Bur Dubai - Dubai',
-            'tags' => ['Individual', 'Group']
-        ],
-    ];
-
-
-    $popularDestinations = [
-        [
-            'image' => asset('assets/images/homepage/kalba.png'), 
-            'title' => 'Top hanging garden kalba',
-            'location' => 'Alhafia - Sharjah',
-            'tags' => ['Individual', 'Group']
-        ],
-        [
-            'image' => asset('assets/images/homepage/hatta.png'), 
-            'title' => 'House of Raminten',
-            'location' => 'Khor Fakkan is a town on the Gulf of Oman',
-            'tags' => ['Individual', 'Group']
-        ],
-        [
-            'image' => asset('assets/images/homepage/mosque.png'), 
-            'title' => 'Sheikh Zayed Grand Mosque',
-            'location' => 'al Rawdah - Abu dhabi',
-            'tags' => ['Individual', 'Group']
-        ],
-        [
-            'image' => asset('assets/images/destinations/etihad-towers.svg'), 
-            'title' => 'Etihad Towers',
-            'location' => 'Bur Dubai - Dubai',
-            'tags' => ['Individual', 'Group']
-        ],
-        [
-            'image' => asset('assets/images/destinations/future-meseum.svg'), 
-            'title' => 'Burj  Al Arab',
-            'location' => 'Bur Dubai - Dubai',
-            'tags' => ['Individual', 'Group']
-        ],
-    ];
-
     $vipServices = [
         [
             'image' => asset('assets/images/homepage/senior-tourism.svg'), 

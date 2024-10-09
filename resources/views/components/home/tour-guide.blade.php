@@ -21,18 +21,33 @@
                     <div class="extra-slide-content">
                         <div class="row _tour_guide">
                             <div class="col-md-5 pe-0 image position-relative">
-                                <img src="{{ $slide['image']  }}" alt="tour guide" width="100%" />
-                                <p class="_price font-4 display-12 color-white" style="background-image: url({{ asset('assets/images/homepage/price-background.svg') }})">
-                                    {{ $slide['price'] }} AED <br/> per hour 
+                                <img src="{{ $slide->image  }}" alt="tour guide" width="100%" />
+                                <p class="_price font-4 display-12 color-white" 
+                                 style="background-image: url({{ asset('assets/images/homepage/price-background.svg') }})">
+                                    {{ $slide->price }} AED <br/> per hour 
                                 </p>
                             </div>
-                            <div class="_tour_content col-md-7 border-top border-end border-bottom rounded-end d-flex justify-content-center align-items-center flex-column">
+                            <div class="_tour_content col-md-7 border-top border-end border-bottom rounded-end 
+                                        d-flex justify-content-center 
+                                        align-items-center flex-column">
                                 <div class="detail pt-2">
-                                    <h3 class="font-2 display-20 color-blue"> {{ $slide['name'] }} </h3>
-                                    <p class="font-4 display-14 color-black py-3">Emirate: {{ $slide['address'] }}</p>
-                                    <p class="font-4 display-14 color-black">Experience: {{ $slide['experience'] }} years</p>
+                                    <h3 class="font-2 display-20 color-blue"> {{ $slide->name }} </h3>
+                                    <p class="font-4 display-14 color-black py-3">Emirate: {{ $slide->address }}</p>
+                                    <p class="font-4 display-14 color-black">Experience: {{ $slide->experience }} years</p>
                                     <p class="font-4 display-14 color-black py-3">Languages: 
-                                        {{ $slide['languages'] }} 
+                                        @if($slide->guideLanguages)
+                                            @php
+                                                $languages = $slide->guideLanguages;
+                                                $extraLanguagesCount = $languages->count() - 2;
+                                            @endphp
+                                            @foreach($languages->take(2) as $language)
+                                                <span>{{ $language->name }}</span>
+                                            @endforeach
+                                    
+                                            @if($extraLanguagesCount > 0)
+                                                <span>+{{ $extraLanguagesCount }} Languages </span>
+                                            @endif
+                                        @endif
                                     </p>
                                 </div>
                                 <div class="row w-100 border-top ml-2 py-2">

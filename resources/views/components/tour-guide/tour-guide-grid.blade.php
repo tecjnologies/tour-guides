@@ -82,23 +82,37 @@
         <a href="{{ route('show.tourguide', $guide->id) }}">
             <div class="row _tour_guide_grid">
                 <div class="col-md-5 pe-0 image position-relative">
-                    <img src="{{ $guide['image'] }}" alt="tour guide" width="100%" />                        
+                    <img src="{{ $guide->image }}" alt="tour guide" width="100%" />                        
                     <p class="_price font-4 display-12 color-white">
-                        {{ $guide['price'] }} <br/> per hour 
+                        {{ $guide->price }} <br/> per hour 
                     </p>
                 </div>
                 <div class="_tour_content col-md-7 border-top border-end border-bottom rounded-end d-flex justify-content-center
                              align-items-center flex-column">
                     <div class="detail pt-2">
-                        <h3 class="font-2 display-20 color-blue"> {{ $guide['name'] }}  </h3>
-                        <p class="font-4 display-14 color-black py-3">Emirate: {{ $guide['address'] }} </p>
-                        <p class="font-4 display-14 color-black">Experience: {{ $guide['experience'] }}  years</p>
-                        <p class="font-4 display-14 color-black py-3">Languages: {{ $guide['languages'] }}  years</p>
+                        <h3 class="font-2 display-20 color-blue"> {{ $guide->name }}  </h3>
+                        <p class="font-4 display-14 color-black py-3">Emirate: {{ $guide->address }} </p>
+                        <p class="font-4 display-14 color-black">Experience: {{ $guide->experience }}  years</p>
+                        <p class="font-4 display-14 color-black py-3">Languages: 
+                            @if($guide->guideLanguages)
+                                @php
+                                    $languages = $guide->guideLanguages;
+                                    $extraLanguagesCount = $languages->count() - 2;
+                                @endphp
+                                @foreach($languages->take(2) as $language)
+                                    <span>{{ $language->name }}</span>
+                                @endforeach
+                        
+                                @if($extraLanguagesCount > 0)
+                                    <span>+{{ $extraLanguagesCount }} Languages </span>
+                                @endif
+                            @endif
+                        </p>
                     </div>
                     <div class="row w-100 border-top ml-2 py-2">
                         <div class="col-md-6 text-center border-end">
                             <p class="font-4 display-14 color-blue">Reviews</p>
-                            <p class="font-4 display-14 color-secondary pt-2"> {{ $guide['reviews_count'] }} </p>
+                            <p class="font-4 display-14 color-secondary pt-2"> {{ $guide->reviews_count }} </p>
                         </div>
                         <div class="col-md-6 text-center">
                             <p class="font-4 display-14 color-blue">Ratings</p>
