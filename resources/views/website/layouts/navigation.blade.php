@@ -48,17 +48,28 @@
                     @else
                         <img src="{{ asset('assets/images/menu/get-help.svg') }}" alt="Get Help" class="mx-2"/>
                     @endif
-                
                     Get Help
                 </x-nav-link>
-                <x-nav-link :href="route('login')" :active="request()->routeIs('login')" class="font-4 display-16 color-blue">
-                    @if(request()->routeIs('login'))
-                        <img src="{{ asset('assets/images/menu/login-active.svg') }}" alt="Login Active" class="mx-2"/>
-                    @else
-                        <img src="{{ asset('assets/images/menu/login.svg') }}" alt="Login" class="mx-2"/>
-                    @endif
-                    Login
-                </x-nav-link>
+                @if(auth()->check())
+                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('login')" class="font-4 display-16 color-blue">
+                        <div class="d-flex align-items-center">
+                            <img src="{{ asset('storage/profile_photo/' . auth()->user()->image) }}" 
+                                alt="{{ auth()->user()->name }}" 
+                                class="mx-2 rounded-circle" 
+                                style="width: 32px; height: 32px;">
+                            <span class="mx-2">{{ auth()->user()->name }}</span>
+                        </div>
+                    </x-nav-link>
+                @else
+                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')" class="font-4 display-16 color-blue"> 
+                        @if(request()->routeIs('login'))
+                            <img src="{{ asset('assets/images/menu/login-active.svg') }}" alt="Login Active" class="mx-2"/>
+                        @else
+                            <img src="{{ asset('assets/images/menu/login.svg') }}" alt="Login" class="mx-2"/>
+                        @endif
+                        Login
+                    </x-nav-link>
+                @endif
                 <x-nav-link class="font-4 display-16 color-blue">
                     @if(request()->routeIs('cart'))
                         <img src="{{ asset('assets/images/menu/cart-active.svg') }}" alt="My Cart Active" class="mx-2"/>
