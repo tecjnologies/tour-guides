@@ -1,34 +1,6 @@
 @php 
     
     $places = App\models\Place::all();
-    // $topDestinations = [
-    //     [
-    //         'image' => asset('assets/images/destinations/love-lake.svg'), 
-    //         'title' => 'love lake',
-    //         'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    //     ],
-    //     [
-    //         'image' => asset('assets/images/destinations/museum-of-future.svg'), 
-    //         'title' => 'Museum of the future',
-    //        'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    //     ],
-    //     [
-    //         'image' => asset('assets/images/destinations/burj-khalifa.svg'), 
-    //         'title' => 'Burj Khalifa',
-    //         'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    //     ],
-    //         [
-    //         'image' => asset('assets/images/destinations/hatta.svg'), 
-    //         'title' => 'Hatta Hub',
-    //         'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    //     ],
-    //     [
-    //         'image' => asset('assets/images/destinations/burj-al-arab.svg'), 
-    //         'title' => 'Burj Al Arab',
-    //         'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    //     ]
-    // ];
-
     $sliderOptions = [
         'dots' => false,
         'infinite' => false,
@@ -46,7 +18,6 @@
         ]
     ];
 
-    
 @endphp
 
 @push('css')
@@ -62,30 +33,33 @@
     @section('title', 'Tour Guide - Homepage')
     <div class="mx-auto">
         <div class="row px-5">
-            <div class="col-md-9 _about_me pe-4">
-                
+            <div class="col-md-12 _about_me pe-4">
+              
                 <div class="_about_me_text">
-                    <h3 class="font-2 display-20 color-blue py-2"> Love Lake Dubai </h3>
+                    <h3 class="font-2 display-20 color-blue py-2"> {{ $destination->name }} </h3>
                     <p class="font-4 display-16 color-black">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                        {{ $destination->district?->name }}
                     </p>
                 </div>
-
+              
                 <div class="_about_me_text">
                     <div class="row my-4">
                         <div class="col-md-6">
-                            <img src="{{ asset('assets/images/destinations/love-lake-1.svg') }}" alt="check-mark" class="w-100 h-100" />
+                            <img src="  {{ $destination->gallery[0]->image  }}" alt="check-mark" class="w-100 h-100" />
                         </div>
                         <div class="col-3">
-                            <img src="{{ asset('assets/images/destinations/love-lake-2.svg') }}" alt="check-mark" class="w-100 h-100"/>
+                            <img src="{{ $destination->gallery[1]->image  }}" alt="check-mark" class="w-100 h-100"/>
                         </div>
                         <div class="col-md-3">
-                            <img src="{{ asset('assets/images/destinations/love-lake-3.svg') }}" alt="check-mark" class="w-100 h-100"/>
+                            <img src="{{ $destination->gallery[2]->image  }}" alt="check-mark" class="w-100 h-100"/>
                         </div>
                     </div>
                 </div>
 
-                <div class="highlights py-3">
+                
+                {!! $destination->description !!}
+
+                {{-- <div class="highlights py-3">
                     <h3 class="font-2 display-20 color-blue py-2"> Highlights </h3>
                     <p class="font-4 display-16 color-black">
                         <ul class="icon-list">
@@ -190,14 +164,14 @@
                             <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="cexclamation" class="me-3"/>
                             Lorem Ipsum is simply dummy text of the  </li>
                     </ul>
-                </div>
+                </div> --}}
             
                 <div class="row pt-3">
                     <x-tour-guide.top-destination-list :data="$places" :options="$sliderOptions" class="w-auto" />
                 </div>
           
             </div>
-            <div class="col-md-3">
+            {{-- <div class="col-md-3">
                 <div class="_sidebar p-4">
                     <div class="d-flex justify-content-start align-items-center">
                         <div class="profile-rounded">
@@ -283,7 +257,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div> 
     </div>
 </x-website-layout>

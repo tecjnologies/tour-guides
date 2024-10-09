@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\{ 
     HomeController, 
-    TourGuideController
+    TourGuideController,
+    DestinationController
 };
 
 use App\Http\Controllers\User\{
@@ -49,11 +50,13 @@ Route::get('/book-your-guide', function () {
 // })->name('tour-guides-details');
 
 
-Route::get('/destination-details', function () {
-    return view('website.destination-details');
-})->name('destination-details');
+// Route::get('/destination-details', function () {
+//     return view('website.destination-details');
+// })->name('destination-details');
 
 
+Route::get('/destination-details/{id}', [DestinationController::class, 'show'])->name('show.destination');
+Route::delete('/destination-image/{id}', [DestinationController::class, 'destroyImage'])->name('images.destroy');
 
 Route::get('/destinations', function () {
     return view('website.destinations');

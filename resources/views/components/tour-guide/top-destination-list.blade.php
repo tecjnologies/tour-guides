@@ -19,7 +19,7 @@
     <x-website.slider :options="$options">
         <div class="slick-slider mt-3" id="slider-4">
             @forelse($data as $destination)
-            <a href="{{ route('destination-details') }}">
+            <a href="{{ route('show.destination', $destination->id) }}">
                     <div class="slide _top_destinations">
                         <div class="extra-slide-content">
                             <div class="row">

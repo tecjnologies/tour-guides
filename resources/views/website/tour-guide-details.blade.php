@@ -295,7 +295,7 @@
                             <img src="{{ asset('assets/images/tour-guide/notification.svg') }}" alt="{{ $tourGuide->name }}"
                                 class="me-3" />
                             <span class="color-red font-3 display-16"> {{ \Carbon\Carbon::now()->format('F') }} : Only
-                                {{$tourGuide->description->no_of_slots}} slots left! </span>
+                                {{$tourGuide->description?->no_of_slots}} slots left! </span>
                         </div>
                         <button class="btn btn-lg bg-blue color-white w-100 my-2 font-2 display-16"> Book Now </button>
                     </div>
@@ -334,7 +334,7 @@
                         </div>
                         <div class="title">
                             <h4 class=" font-2 display-16"> Response Time </h4>
-                            <p class="font-4 display-16"> {{ $tourGuide->description->response_time }} Hours on average </p>
+                            <p class="font-4 display-16"> {{ $tourGuide->description?->response_time }} Hours on average </p>
                         </div>
                     </div>
                     <hr />

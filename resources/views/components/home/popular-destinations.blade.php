@@ -18,7 +18,7 @@
                 <div class="slide _popular_destinations">
                     <div class="extra-slide-content">
                         <div class="row">
-                            <a href="{{ route('destination-details') }}">
+                            <a href="{{ route('show.destination', $slide->id) }}">
                                 <div class="image p-0">
                                     <img src="{{ $slide->image }}" alt="kalba"  width="100%"/>
                                     <img src="{{ asset('assets/images/icons/favourites.svg') }}" alt="lke-dislike"  class="_like_dislike"/>

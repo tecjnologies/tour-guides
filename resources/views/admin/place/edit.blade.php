@@ -63,9 +63,32 @@
                             </div>
 
                             <div class="form-group">
-                                {{$place->imnage}}
-                                <img src="{{ $place->imnage }}" id="preview_img" width="200px">
+                                <img src="{{ $place->image }}" id="preview_img" width="200px">
                             </div>
+    
+                            <div class="form-group">
+                                <label>Current Images:</label>
+                                <div id="existing-images" class="d-flex flex-wrap">
+                                    @foreach($place->gallery as $image)
+                                        <div class="position-relative m-2" style="width: 100px;">
+                                            <img src="{{ $image->image }}" alt="Image" class="img-thumbnail" 
+                                                style="width: 100px; height: 100px;">
+                                            <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0" 
+                                                onclick="deleteImage({{ $image->id }})">
+                                                &times;
+                                            </button>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="images">Upload New Images:</label>
+                                <input type="file" name="images[]" id="images" class="form-control" multiple>
+                                <small class="text-muted">You can upload multiple images.</small>
+                            </div>
+
+
                             <div class="form-group">
                               <label for="tags">Tags:</label>
                               <div id="tag-input-wrapper">
@@ -136,11 +159,11 @@
    
           reader.readAsDataURL(input.files[0]);
       }
-   }
+    }
 
-   let tagCount = {{ isset($tags) ? count($tags) : 1 }}; // Initialize tag count based on existing tags
+    let tagCount = {{ isset($tags) ? count($tags) : 1 }}; // Initialize tag count based on existing tags
 
-  function addTag() {
+    function addTag() {
       let tagWrapper = document.getElementById('tag-input-wrapper');
       let newTag = `
           <div class="tag-item" id="tag-${tagCount}">
@@ -150,12 +173,56 @@
       `;
       tagWrapper.insertAdjacentHTML('beforeend', newTag);
       tagCount++;
-  }
+    }
 
-  function removeTag(tagId) {
+    function removeTag(tagId) {
       let tagItem = document.getElementById(`tag-${tagId}`);
       tagItem.remove(); // Remove the selected tag item
-  }
+    }
+
+    function previewNewImages(event) {
+        const newImagePreview = document.getElementById('new-image-preview');
+        newImagePreview.innerHTML = '';
+
+        Array.from(event.target.files).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imageContainer = document.createElement('div');
+                imageContainer.classList.add('m-2');
+                imageContainer.style.width = '430px';
+
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.classList.add('img-thumbnail');
+                img.style.width = '200px';
+                img.style.height = '200px';
+
+                imageContainer.appendChild(img);
+                newImagePreview.appendChild(imageContainer);
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    function deleteImage(imageId) {
+        if (confirm('Are you sure you want to delete this image?')) {
+            fetch(`/destination-image/${imageId}`, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.querySelector(`button[onclick="deleteImage(${imageId})"]`).parentElement.remove();
+                } else {
+                    alert('Failed to delete the image. Please try again.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    }
 
   </script>
 @endsection

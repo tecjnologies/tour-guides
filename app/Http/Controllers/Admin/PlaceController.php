@@ -49,40 +49,48 @@ class PlaceController extends Controller
                 'name' => 'required|unique:places',
                 'district_id' => 'required',
                 'placetype_id' => 'required',
-                'image' => 'required|mimes:jpeg,png,jpg',
+                'image' => 'required|mimes:jpeg,png,jpg,svg',
+                'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'description' => 'required',
                 'tags' => 'required|array',
                 'tags.*' => 'string|max:255',
             ]);
     
-            // Get Form Image
             $image = $request->file('image');
-
             if (isset($image)) {
-                // Make Unique Name for Image 
                 $currentDate = Carbon::now()->toDateString();
                 $imageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-                // Check Category Dir is exists
                 if (!Storage::disk('public')->exists('place')) {
-                    Storage::disk('public')->makeDirectory('place');
+                 Storage::disk('public')->makeDirectory('place');
+                } 
+                Storage::disk('public')->putFileAs('place', $image, $imageName);
+            }else{
+                $imageName = "default.png";
             }
-  
-            Storage::disk('public')->putFileAs('place', $image, $imageName);
-  
-     }else{
-            $imageName = "default.png";
-     }
-  
-    $place = new Place();
-    $place->addedBy = Auth::user()->name;
-    $place->name = $request->name;
-    $place->district_id = $request->district_id;
-    $place->placetype_id = $request->placetype_id;
-    $place->description = $request->description;
-    $place->tags = is_array($request->tags) ? json_encode($request->tags) : $request->tags;
-    $place->image = $imageName;
-    $place->save();
-    return redirect(route('admin.place.index'))->with('success', 'Guide Inserted Successfully');
+
+            $place = new Place();
+            $place->addedBy = Auth::user()->name;
+            $place->name = $request->name;
+            $place->district_id = $request->district_id;
+            $place->placetype_id = $request->placetype_id;
+            $place->description = $request->description;
+            $place->tags = is_array($request->tags) ? json_encode($request->tags) : $request->tags;
+            $place->image = $imageName;
+            $place->save();
+           
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $galleryCurrentDate = Carbon::now()->toDateString();
+                    $galleryImageName =$galleryCurrentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+                    if (!Storage::disk('public')->exists('place')) {
+                     Storage::disk('public')->makeDirectory('place');
+                    } 
+                    Storage::disk('public')->putFileAs('place', $image, $galleryImageName);
+                    $place->gallery()->create(['place_id'=>   $place->id,  'image' => $galleryImageName]);
+                }
+            }
+           
+            return redirect(route('admin.place.index'))->with('success', 'Guide Inserted Successfully');
 
     }
 
@@ -107,7 +115,7 @@ class PlaceController extends Controller
     {
         $districts = District::latest()->get();
         $placetypes = Placetype::latest()->get();
-       
+        $place = $place->load('gallery');
         return view('admin.place.edit',compact('place', 'districts', 'placetypes'));
     }
 
@@ -137,7 +145,7 @@ class PlaceController extends Controller
         $image = $request->file('image');
         if (isset($image)) {
         
-            $currentDate = Carbon::now()->toDateString();
+                $currentDate = Carbon::now()->toDateString();
                 $imageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
         
                 if (!Storage::disk('public')->exists('place')) {
@@ -154,6 +162,25 @@ class PlaceController extends Controller
             $imageName = basename($place->image);
         }
 
+        if ($request->hasFile('images')) {
+            
+            foreach ($place->gallery as $galleryImage) {
+                if(Storage::disk('public')->exists('place/'.$galleryImage->image)){
+                    Storage::disk('public')->delete('place/'.$galleryImage->image);
+                }
+            }
+
+            foreach ($request->file('images') as $image) {
+                
+                $currentDate = Carbon::now()->toDateString();
+                $galleryimageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+
+                $path = $image->store('place', 'public');
+                Storage::disk('public')->putFileAs('place', $image, $galleryimageName);
+                $place->gallery()->create(['image' => $galleryimageName]);
+            }
+        }
+
         $place->name = $request->name;
         $place->district_id = $request->district_id;
         $place->placetype_id = $request->placetype_id;
@@ -161,6 +188,7 @@ class PlaceController extends Controller
         $place->tags = is_array($request->tags) ? json_encode($request->tags) : $request->tags;
         $place->image = $imageName;
         $place->save();
+        
         return redirect(route('admin.place.index'))->with('success', 'Place Updated Successfully');
 
     }

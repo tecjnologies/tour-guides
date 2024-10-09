@@ -55,8 +55,18 @@
                               <input type="file" id="file" class="form-control" onchange="loadPreview(this);" name="image">
                               <img id="preview_img">
                           </div>
+ 
+                          <!-- Images Upload -->
+                        <div class="form-group">
+                            <label for="images">Upload Images:</label>
+                            <input type="file" name="images[]" id="images" class="form-control" multiple onchange="previewImages(event)">
+                            <small class="text-muted">You can upload multiple images.</small>
+                        </div>
 
-                          <div class="form-group">
+                        <div id="image-preview" class="d-flex flex-wrap mt-3"></div>
+
+    
+                        <div class="form-group">
                             <label for="tags">Tags:</label>
                             <div id="tag-input-wrapper">
                                 @if (old('tags'))
@@ -126,6 +136,46 @@
       let tagItem = document.getElementById(`tag-${tagId}`);
       tagItem.remove();
   }
+
+  function previewImages(event) {
+      const imagePreview = document.getElementById('image-preview');
+      imagePreview.innerHTML = '';
+      Array.from(event.target.files).forEach((file, index) => {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+              const imageContainer = document.createElement('div');
+              imageContainer.classList.add('m-2', 'position-relative');
+              imageContainer.style.width = '230px';
+              
+              const imageElement = document.createElement('img');
+              imageElement.src = e.target.result;
+              imageElement.alt = 'Image Preview';
+              imageElement.classList.add('img-thumbnail');
+              imageElement.style.width = '200px';
+              imageElement.style.height = '200px';
+  
+              const deleteButton = document.createElement('button');
+              deleteButton.classList.add('btn', 'btn-danger', 'btn-sm', 'position-absolute', 'top-0', 'end-5');
+              deleteButton.innerHTML = '&times;';
+              deleteButton.type = 'button';
+              deleteButton.onclick = function() {
+                  imageContainer.remove();
+                  const dataTransfer = new DataTransfer();
+                  Array.from(event.target.files).forEach((file, i) => {
+                      if (i !== index) dataTransfer.items.add(file);
+                  });
+                  event.target.files = dataTransfer.files;
+              };
+  
+              imageContainer.appendChild(imageElement);
+              imageContainer.appendChild(deleteButton);
+              imagePreview.appendChild(imageContainer);
+          };
+          reader.readAsDataURL(file);
+      });
+  }
+ </script>
+
 
   </script>
 @endsection

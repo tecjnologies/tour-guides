@@ -23,6 +23,11 @@ class Place extends Model
         return $this->belongsToMany(Guide::class, 'guide_private_destinations', 'place_id', 'guide_id');
     }
 
+    public function gallery()
+    {
+        return $this->hasMany(PlacesGallery::class, 'place_id');
+    }
+
     public function getImageAttribute($value)
     {
         return asset('storage/place/' . $value);
