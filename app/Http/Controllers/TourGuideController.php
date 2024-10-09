@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guide;
+use App\Models\Place;
 use App\Models\TourGuide;
 use Illuminate\Http\Request;
 
@@ -36,8 +37,8 @@ class TourGuideController extends Controller
     public function show($id)
     {
         $tourGuide = Guide::with('activities','guideLanguages','description', 'privateDestinations.district','otherDestinations')->findOrFail($id);
-        
-        return view('website.tour-guide-details', compact('tourGuide'));
+        $places = Place::all() ;
+        return view('website.tour-guide-details', compact('tourGuide', 'places'));
     }
 
 

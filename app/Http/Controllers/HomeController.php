@@ -92,40 +92,30 @@ class HomeController extends Controller
     }
 
     public function storeBookingRequest(Request $request){
-        //dd($request->all());
-
+       
         $this->validate($request, [
             'guide' => 'required',
             'date' => 'required',
         ]);
-    
 
-
-        $guide_id = $request->guide;
-        $date = $request->date;
-        $package_id = $request->package_id;
-        $package_name = $request->package_name;
-        $package_price = $request->package_price;
-        $day = $request->day;
-
-
+     
         $book = new Booking();
-        $book->package_name = $package_name;
-        $book->price = $package_price;
-        $book->date = $date;
-        $book->package_id = $package_id;
-        $book->guide_id = $guide_id;
-        $book->day = $day;
+        $book->place_id = $request->place_id;
+        $book->price = $request->price;
+        $book->date = $request->date;
+        $book->guide_id = $request->guide;
+        $book->day = $request->day ?? 1;
+        $book->no_of_adults = $request->no_of_adults;
         $book->tourist_id = Auth::id();
         $book->save();
 
-        $guide = Guide::find($guide_id);
+
+        $guide = Guide::find($request->guide);
         $guide->status = 0;
         $guide->save();
+        
 
         session()->flash('success', 'Your Booking Request Send Successfully, Please wait for admin approval');
         return redirect()->back();
-
-
     }
 }

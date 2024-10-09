@@ -15,14 +15,13 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
-
-            $table->string('package_name');
+            $table->integer('place_id');
             $table->string('price');
             $table->string('date');
             $table->string('day');
-            $table->integer('package_id');
             $table->integer('guide_id');
             $table->integer('tourist_id');
+            $table->integer('no_of_adults');
             $table->string('is_completed')->default('no');
             $table->string('approved_status')->default('no');
             $table->timestamps();

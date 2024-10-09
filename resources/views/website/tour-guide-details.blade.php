@@ -48,6 +48,7 @@
 @endphp
 
 @push('css')
+    <link href="{{ asset('css/flatpickr.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
 
     <style>
@@ -178,19 +179,19 @@
                             <img src="{{ asset('assets/images/tour-guide/ref-number.svg') }}" alt="mohammad"
                                 class="me-3" />
                             <h3 class="me-3 font-2 display-16 color-blue mb-0"> Private Tour Guide in : </h3>
-                            
+
                             @if ($tourGuide->privateDestinations)
                                 @forelse($tourGuide->privateDestinations as  $privateDestination)
-                                    <span class="font-5 display-16 color-black"> {{ $privateDestination->name }} 
+                                    <span class="font-5 display-16 color-black"> {{ $privateDestination->name }}
                                         @if (!$loop->last)
                                             <span> , </span>
-                                        @endif 
+                                        @endif
                                     </span>
                                 @empty
                                 @endforelse
-                             @endif
-                            
-                        
+                            @endif
+
+
                         </div>
 
                         <div class="_ref_number d-flex justify-content-start align-items-center flex-wrap me-5 my-3">
@@ -198,13 +199,13 @@
                                 class="me-3" />
                             <h3 class="me-3 font-2 display-16 color-blue mb-0"> Other Guiding Areas: </h3>
 
-                               
+
                             @if ($tourGuide->otherDestinations)
                                 @forelse($tourGuide->otherDestinations as  $privateDestination)
-                                    <span class="font-5 display-16 color-black"> {{ $privateDestination->name }} 
+                                    <span class="font-5 display-16 color-black"> {{ $privateDestination->name }}
                                         @if (!$loop->last)
                                             <span> , </span>
-                                        @endif 
+                                        @endif
                                     </span>
                                 @empty
                                 @endforelse
@@ -215,7 +216,7 @@
 
                     <div class="_more my-3">
                         <p class="font-4 display-16 color-black">
-                            {!!  $tourGuide->description?->description  !!}
+                            {!! $tourGuide->description?->description !!}
                         </p>
                     </div>
                 </div>
@@ -267,37 +268,61 @@
                     </div>
                     <hr />
                     <div class="wrapper">
-                        <div>
-                            <select name="type_of_places" class="w-full p-2 rounded-md border border-gray-300">
-                                <option value="" class="font-5 displaty-14 color-blue">Type of Places</option>
-                                <option value="beach" class="font-5 displaty-14 color-blue">Beach</option>
-                                <option value="mountain" class="font-5 displaty-14 color-blue">Mountain</option>
-                                <option value="city" class="font-5 displaty-14 color-blue">City</option>
-                            </select>
-                        </div>
-                        <div class="my-3">
-                            <input type="date" name="start_date" required
-                                class="w-full p-2 rounded-md border border-gray-300">
-                        </div>
-                        <div>
-                            <select name="type_of_places" class="w-full p-2 rounded-md border border-gray-300">
-                                <option value="" class="font-5 displaty-14 color-blue">Adults</option>
-                                <option value="beach" class="font-5 displaty-14 color-blue">1</option>
-                                <option value="mountain" class="font-5 displaty-14 color-blue">2</option>
-                                <option value="city" class="font-5 displaty-14 color-blue">3</option>
-                                <option value="city" class="font-5 displaty-14 color-blue">4</option>
-                                <option value="city" class="font-5 displaty-14 color-blue">5</option>
-                            </select>
-                        </div>
-                        <hr />
-                     
-                        <div class="notification d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('assets/images/tour-guide/notification.svg') }}" alt="{{ $tourGuide->name }}"
-                                class="me-3" />
-                            <span class="color-red font-3 display-16"> {{ \Carbon\Carbon::now()->format('F') }} : Only
-                                {{$tourGuide->description?->no_of_slots}} slots left! </span>
-                        </div>
-                        <button class="btn btn-lg bg-blue color-white w-100 my-2 font-2 display-16"> Book Now </button>
+                        @include('partial.errors')
+                        @include('partial.successMessage')
+                        <form action="{{ route('store.package.booking') }}" method="get">
+                            @csrf
+                            <div class="form-group my-3">
+                                <label for="place_id"> Select Place</label>
+                                <select name="place_id"  class="form-control w-full p-2 rounded-md border border-gray-300">
+                                    <option value="" class="font-5 displaty-14 color-blue"> Select Places
+                                    </option>
+                                    @foreach ($places as $place)
+                                        <option value="{{ $place->id }}">{{ $place->name }}</option>
+                                    @endforeach
+                                </select>
+                                </select>
+                            </div>
+
+                            <div class="form-group my-3">
+                                <label for="date">Select a date</label>
+                                <input type="text" name="date" id="date" class="form-control"
+                                    value="{{ old('date') }}">
+                            </div>
+
+                            <div class="form-group my-3">
+                                <label for="no_of_adults"> Select No of Adults </label>
+                                <select name="no_of_adults" class="w-full p-2 rounded-md border border-gray-300">
+                                    <option value="0" class="font-5 displaty-14 color-blue">Adults</option>
+                                    <option value="1" class="font-5 displaty-14 color-blue">1</option>
+                                    <option value="2" class="font-5 displaty-14 color-blue">2</option>
+                                    <option value="3" class="font-5 displaty-14 color-blue">3</option>
+                                    <option value="4" class="font-5 displaty-14 color-blue">4</option>
+                                    <option value="5" class="font-5 displaty-14 color-blue">5</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group my-3">
+                                <label for="day"> No of days </label>
+                                <input type="text" name="day" id="day" class="form-control"
+                                    value="{{ old('day') }}">
+                            </div>
+                            <input type="hidden" name="guide" value="{{ $tourGuide->id }}">
+                            <input type="hidden" name="price" value="{{ $tourGuide->price }}">
+                            <hr />
+                            <div class="notification d-flex justify-content-center align-items-center my-3">
+                                <img src="{{ asset('assets/images/tour-guide/notification.svg') }}"
+                                    alt="{{ $tourGuide->name }}" class="me-3" />
+                                <span class="color-red font-3 display-16"> {{ \Carbon\Carbon::now()->format('F') }} :
+                                    Only
+                                    {{ $tourGuide->description?->no_of_slots }} slots left! </span>
+                            </div>
+                            <div class="form-group my-3">
+                                <button type="submit"
+                                    class="btn btn-lg bg-blue color-white w-100 my-2 font-2 display-16"> Book Now
+                                </button>
+                            </div>
+                        </form>
                     </div>
                     <hr />
                     <div class="wrapper d-flex justify-content-start align-items-center py-2">
@@ -334,7 +359,8 @@
                         </div>
                         <div class="title">
                             <h4 class=" font-2 display-16"> Response Time </h4>
-                            <p class="font-4 display-16"> {{ $tourGuide->description?->response_time }} Hours on average </p>
+                            <p class="font-4 display-16"> {{ $tourGuide->description?->response_time }} Hours on
+                                average </p>
                         </div>
                     </div>
                     <hr />
@@ -353,4 +379,15 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+        <script src="{{ asset('js/flatpickr.js') }}"></script>
+        <script>
+            flatpickr('#date', {
+                minDate: "today",
+                dateFormat: "F d, Y",
+            })
+        </script>
+    @endpush
+
 </x-website-layout>

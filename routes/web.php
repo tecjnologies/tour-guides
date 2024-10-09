@@ -39,22 +39,6 @@ Route::get('/book-your-guide', function () {
     return view('website.book-your-guide');
 })->name('book-your-guide');
 
-
-// Route::get('/tour-guides-profile', function () {
-//     return view('website.tour-guides-profile');
-// })->name('tour-guides-profile');
-
-
-// Route::get('/tour-guides-details', function () {
-//     return view('website.tour-guide-details');
-// })->name('tour-guides-details');
-
-
-// Route::get('/destination-details', function () {
-//     return view('website.destination-details');
-// })->name('destination-details');
-
-
 Route::get('/destination-details/{id}', [DestinationController::class, 'show'])->name('show.destination');
 Route::delete('/destination-image/{id}', [DestinationController::class, 'destroyImage'])->name('images.destroy');
 
@@ -66,7 +50,8 @@ Route::get('/join-us', function () {
     return view('website.join-us');
 })->name('join-us');
 
-Route::get('/get-help', function () {
+Route::get('/
+-help', function () {
     return view('website.get-help');
 })->name('get-help');
 
@@ -76,10 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-// Route::get('/', 'HomeController@index')->name('welcome');
-// Route::get('/', action: [HomeController::class, 'index'])->name('welcome');
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class , 'about'])->name('about');
 Route::get('/search', [HomeController::class,'search'])->name('search');
 Route::get('/place/details/{id}', [HomeController::class, 'placeDdetails'])->name('place.details');
@@ -90,13 +71,7 @@ Route::get('/district/{id}', [HomeController::class, 'districtWisePlace'])->name
 Route::get('/placetype/{id}', [HomeController::class, 'placetypeWisePlace'])->name('placetype.wise.place');
 Route::get('/package/booking/{id}', [HomeController::class, 'packageBooking'])->name('package.booking');
 Route::get('/package/booking', [HomeController::class, 'storeBookingRequest'])->name('store.package.booking');
-
-
 Auth::routes(['verify' => true]);
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-
 
 Route::group([
     'as' => 'admin.',

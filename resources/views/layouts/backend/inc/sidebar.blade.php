@@ -257,7 +257,7 @@
             </li>
 
             <li class="nav-item has-treeview">
-              <a href="{{ route('welcome') }}" class="nav-link">
+              <a href="{{ route('home') }}" class="nav-link">
                 <i class="fas fa-pager"></i>
                   <p class="ml-2">
                       Home Page
