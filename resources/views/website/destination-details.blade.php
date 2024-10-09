@@ -1,6 +1,4 @@
 @php 
-    
-    $places = App\models\Place::all();
     $sliderOptions = [
         'dots' => false,
         'infinite' => false,

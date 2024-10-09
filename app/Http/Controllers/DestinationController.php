@@ -20,8 +20,9 @@ class DestinationController extends Controller
     public function show($id)
     {
         $destination = Place::with('district','gallery')->findOrFail($id);
+        $places = Place::whereNot('id', $id)->get();
+        return view('website.destination-details', compact('destination', 'places'));
 
-        return view('website.destination-details', compact('destination'));
     }
 
     public function destroyImage($imageId)
