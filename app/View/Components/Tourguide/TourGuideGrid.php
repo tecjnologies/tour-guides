@@ -12,13 +12,20 @@ class TourGuideGrid extends Component
 
 
     public $tourGuides;
+    public $places;
+    public $languages;
+    public $placeTypes;
+    
     /**
      * Create a new component instance.
      */
     
-     public function __construct($tourGuides)
+     public function __construct($tourGuides,$places, $languages, $placeTypes)
     {
         $this->tourGuides = $tourGuides;
+        $this->places = $places;
+        $this->languages = $languages;
+        $this->placeTypes = $placeTypes;
     }
     
     /**
@@ -28,7 +35,10 @@ class TourGuideGrid extends Component
     public function render(): View|Closure|string
     {
         return view('components.tour-guide.tour-guide-grid', [
-            'tourGuides' => $this->tourGuides
+            'tourGuides' => $this->tourGuides,
+            'places' => $this->places,
+            'languages' => $this->languages,
+            'placeTypes' => $this->placeTypes,
         ]);
     }
 }

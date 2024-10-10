@@ -315,13 +315,15 @@
                                     alt="{{ $tourGuide->name }}" class="me-3" />
                                 <span class="color-red font-3 display-16"> {{ \Carbon\Carbon::now()->format('F') }} :
                                     Only
-                                    {{ $tourGuide->description?->no_of_slots }} slots left! </span>
+                                    {{ $tourGuide->description?->no_of_slots ?? 0 }} slots left! </span>
                             </div>
-                            <div class="form-group my-3">
-                                <button type="submit"
-                                    class="btn btn-lg bg-blue color-white w-100 my-2 font-2 display-16"> Book Now
-                                </button>
-                            </div>
+                            @if($tourGuide->description > 0)
+                                <div class="form-group my-3">
+                                    <button type="submit"
+                                        class="btn btn-lg bg-blue color-white w-100 my-2 font-2 display-16"> Book Now
+                                    </button>
+                                </div>
+                            @endif
                         </form>
                     </div>
                     <hr />

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guide;
+use App\Models\Language;
 use App\Models\Place;
+use App\Models\Placetype;
 use App\Models\TourGuide;
 use Illuminate\Http\Request;
 
@@ -13,8 +15,12 @@ class TourGuideController extends Controller
 
     public function index()
     {
-        $tourGuides = Guide::latest()->paginate(9);
-        return view('website.tour-guides-profile', compact('tourGuides'));
+        $tourGuides = Guide::with('description')->latest()->paginate(9);
+        $places = Place::select('id','name')->get();
+        $languages = Language::select('id','name')->get();
+        $placeTypes = Placetype::select('id','name')->get();
+        $maxPrice = Guide::max('price');
+        return view('website.tour-guides-profile', compact('tourGuides','places','languages','placeTypes'));
     }
     
     public function store(Request $request)
@@ -39,6 +45,61 @@ class TourGuideController extends Controller
         $tourGuide = Guide::with('activities','guideLanguages','description', 'privateDestinations.district','otherDestinations')->findOrFail($id);
         $places = Place::all() ;
         return view('website.tour-guide-details', compact('tourGuide', 'places'));
+    }
+
+
+    public function search(Request $request)
+    {
+        $placeId = $request->input('place_id');
+        $languageId = $request->input('language_id');
+        $minPrice = $request->input('min_price');
+        $maxPrice = $request->input('max_price');
+        $noOfPeople = $request->input('no_of_people');
+        $placeType = $request->input('place_type');
+    
+        $query = Guide::with(['description', 'places', 'guideLanguages', 'places.placeType']);
+    
+        if ($minPrice) {
+            $query->where('price', '>=', $minPrice);
+        }
+    
+        if ($maxPrice) {
+            $query->where('price', '<=', $maxPrice);
+        }
+
+         // if ($noOfPeople) {
+        //     $query->where('no_of_people', $noOfPeople);
+        // }
+
+
+        if ($languageId) {
+            $query->whereHas('guideLanguages', function($q) use ($languageId) {
+                $q->where('languages.id', $languageId);
+            });
+        }
+        
+        if ($placeId) {
+            $query->whereHas('places', function($q) use ($placeId) {
+                $q->where('places.id', $placeId);
+            });
+        }
+
+    
+        if ($placeType) {
+            $query->whereHas('places.placeType', function($q) use ($placeType) {
+                $q->where('placetypes.id', $placeType);
+            });
+        }
+    
+
+        $tourGuides = $query->latest()->paginate(9);
+    
+        $places = Place::all();
+        $languages = Language::all();
+        $placeTypes = Placetype::all();
+        $maxPrice = Guide::max('price');
+
+        return view('website.tour-guides-profile', compact('tourGuides', 'places', 'languages','placeTypes'));
     }
 
 

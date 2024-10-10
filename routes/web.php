@@ -34,10 +34,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/tour-guides-profile', [TourGuideController::class, 'index'])->name('tour-guides-profile');
 Route::get('/tour-guides-profile/{id}', [TourGuideController::class, 'show'])->name('show.tourguide');
+Route::post('/tour-guides-profile/search', [TourGuideController::class, 'search'])->name('search.tour-guide');
 
-Route::get('/book-your-guide', function () {
-    return view('website.book-your-guide');
-})->name('book-your-guide');
+
+// Route::get('/book-your-guide', function () {
+//     return view('website.book-your-guide');
+// })->name('book-your-guide');
 
 Route::get('/destination-details/{id}', [DestinationController::class, 'show'])->name('show.destination');
 Route::delete('/destination-image/{id}', [DestinationController::class, 'destroyImage'])->name('images.destroy');
@@ -62,7 +64,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/about', [HomeController::class , 'about'])->name('about');
-Route::get('/search', [HomeController::class,'search'])->name('search');
+Route::get('/search', [HomeController::class,'search'])->name('searc`           `h');
 Route::get('/place/details/{id}', [HomeController::class, 'placeDdetails'])->name('place.details');
 Route::get('/package/details/{id}', [HomeController::class, 'packageDetails'])->name('package.details');
 Route::get('/place-list', [HomeController::class, 'allPlace'])->name('all.place');
@@ -70,7 +72,8 @@ Route::get('/package-list', [HomeController::class, 'allPackage'])->name('all.pa
 Route::get('/district/{id}', [HomeController::class, 'districtWisePlace'])->name('district.wise.place');
 Route::get('/placetype/{id}', [HomeController::class, 'placetypeWisePlace'])->name('placetype.wise.place');
 Route::get('/package/booking/{id}', [HomeController::class, 'packageBooking'])->name('package.booking');
-Route::get('/package/booking', [HomeController::class, 'storeBookingRequest'])->name('store.package.booking');
+Route::get('/package/booking', [HomeController::class, 'storeBookingRequest'])->name('store.package.booking')->middleware('auth');;
+
 Auth::routes(['verify' => true]);
 
 Route::group([

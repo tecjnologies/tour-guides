@@ -28,12 +28,11 @@
 
 @endphp
  
-
-
 <x-website-layout>
     @section('title', 'Tour Guide Profile')
     <div class="mx-auto">
-        <x-tour-guide.tour-guide-grid :tourGuides="$tourGuides" class="h-12 w-auto"/>
+        <x-tour-guide.tour-guide-grid :tourGuides="$tourGuides" :places="$places" :languages="$languages" :placeTypes="$placeTypes" 
+          class="h-12 w-auto"/>
         <div class="spacer py-5"></div>
         <x-home.discovering-regions :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto" />
     </div>

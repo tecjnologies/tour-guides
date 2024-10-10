@@ -636,6 +636,22 @@ hr {
   border-radius: 80%;
 }
 
+
+.no_people, .place_type {
+  background-color: var(--color-gray);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.no_people.selected, .place_type.selected {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+
+
+
 @media only screen and (max-width: 1800px) {
 
 }

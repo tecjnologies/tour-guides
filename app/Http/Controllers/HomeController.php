@@ -98,7 +98,6 @@ class HomeController extends Controller
             'date' => 'required',
         ]);
 
-     
         $book = new Booking();
         $book->place_id = $request->place_id;
         $book->price = $request->price;
@@ -109,12 +108,10 @@ class HomeController extends Controller
         $book->tourist_id = Auth::id();
         $book->save();
 
-
         $guide = Guide::find($request->guide);
         $guide->status = 0;
         $guide->save();
-        
-
+    
         session()->flash('success', 'Your Booking Request Send Successfully, Please wait for admin approval');
         return redirect()->back();
     }

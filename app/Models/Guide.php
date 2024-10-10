@@ -30,9 +30,14 @@ class Guide extends Model
         return $this->belongsToMany(Language::class, 'guide_languages', 'guide_id', 'language_id')->withTimestamps();;
     }
 
+    public function places()
+    {
+        return $this->belongsToMany(Place::class, 'guide_private_destinations', 'guide_id', relatedPivotKey: 'place_id')->withTimestamps();
+    }
+
     public function privateDestinations()
     {
-        return $this->belongsToMany(Place::class, 'guide_private_destinations', 'guide_id', 'place_id')->withTimestamps()->wherePivot('is_private', true);
+        return $this->belongsToMany(Place::class, 'guide_private_destinations', 'guide_id', relatedPivotKey: 'place_id')->withTimestamps()->wherePivot('is_private', true);
     }
 
     public function otherDestinations()
