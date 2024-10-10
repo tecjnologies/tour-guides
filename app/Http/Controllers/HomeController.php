@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\{Placetype, Place, Package,Guide , District, Booking, About, Banner};
+use App\Models\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +31,12 @@ class HomeController extends Controller
         $districts = District::latest()->get();
         $tourGuides = Guide::with('guideLanguages')->take( 6)->get();
         $banner = Banner::latest()->first();
-        return view('website.home', compact('banner','tourGuides', 'destinations'));
+
+
+        $places = Place::all();
+        $placeTypes = Placetype::all();
+
+        return view('website.home', compact('banner','tourGuides', 'destinations','places','placeTypes'));
     }
 
     public function districtWisePlace($id){

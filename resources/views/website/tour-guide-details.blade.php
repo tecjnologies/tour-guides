@@ -317,13 +317,22 @@
                                     Only
                                     {{ $tourGuide->description?->no_of_slots ?? 0 }} slots left! </span>
                             </div>
-                            @if($tourGuide->description > 0)
-                                <div class="form-group my-3">
-                                    <button type="submit"
-                                        class="btn btn-lg bg-blue color-white w-100 my-2 font-2 display-16"> Book Now
-                                    </button>
-                                </div>
-                            @endif
+
+                            @auth
+                                @if($tourGuide?->description?->id > 0)
+                                    <div class="form-group my-3">
+                                        <button type="submit"
+                                            class="btn btn-lg bg-blue color-white w-100 my-2 font-2 display-16"> Book Now
+                                        </button>
+                                    </div>
+                                @endif
+                            @else
+                                <button class="btn btn-lg bg-blue color-black border w-100 my-2 font-2 display-16" disabled
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Please login to book the trip">
+                                    Login for bookig !
+                                </button>
+                            @endauth
+
                         </form>
                     </div>
                     <hr />

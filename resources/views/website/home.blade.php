@@ -80,7 +80,7 @@
     <div class="mx-auto">
         <div class="overflow-hidden">
             <div class="text-gray-900">
-                <x-home.banner :banner="$banner"  class="h-12 w-auto" /> 
+                <x-home.banner :banner="$banner" :places="$places" :placeTypes="$placeTypes"  class="h-12 w-auto" /> 
                 <div class="tour-bar mt-4 px-5">
                     <div class="row py-3 become-our-partner" style="background-image: url({{ asset('assets/images/homepage/blue-bar-background.png') }});">
                         <div class="col-md-4 d-flex justify-content-around align-items-center">
@@ -100,10 +100,10 @@
                         <div class="col-md-4 text-center">
                             <h2 class="color-white font-2 display-26"> Become a tour guide </h2>
                             <p class="color-white font-3 display-15">Find trusted tour guides awarded for their Excellent performance</p>
-                            <button class="mt-3 pt-2 border-top color-white d-flex justify-content-center align-items-center mx-auto"> 
+                            <a href="{{route('tour-guides-profile')}}" class="mt-3 pt-2 border-top color-white d-flex justify-content-center align-items-center mx-auto"> 
                                  Meet Our Expert 
                                 <img src="{{ asset('assets/images/icons/arrow-white.svg') }}" alt="arrow white"  class="ml-3"/>
-                            </button>
+                            </a>
                         </div>
                         <div class="col-md-4 d-flex justify-content-around align-items-center">
                             <div class="guid-profile">
@@ -164,4 +164,5 @@
         <x-home.discovering-regions :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto" /> 
     
     </div>
+
 </x-website-layout>

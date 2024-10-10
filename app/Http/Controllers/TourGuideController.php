@@ -50,7 +50,10 @@ class TourGuideController extends Controller
 
     public function search(Request $request)
     {
+
         $placeId = $request->input('place_id');
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
         $languageId = $request->input('language_id');
         $minPrice = $request->input('min_price');
         $maxPrice = $request->input('max_price');

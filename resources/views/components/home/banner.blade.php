@@ -6,7 +6,9 @@
         <h2 class="font-2 display-26 color-white mb-3"> {{ $banner->title }} </h2>
         <p class="font-5  display-20 color-white"> {{ $banner->sub_heading  }} </p>
         <div class="bg-white  rounded shadow-md my-5">
-            <form action="#" method="POST" class="p-6">
+            @include('partial.errors')
+            @include('partial.successMessage')
+            <form action="{{ route('search.tour-guide') }}" method="post" class="p-6">
                 @csrf
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                     <div class="flex border rounded _form_hourly_day_toggle">
@@ -14,10 +16,18 @@
                         <button type="button" class="toggle-btn flex-1 rounded-r-md font-5 displaty-14 color-blue">Per Day</button>
                     </div>
                     <div>
-                        <input type="text" name="destination" placeholder="Where to go?" required class="w-full p-2 rounded-md border border-gray-300">
+                        <select name="place_id"  class="form-control w-full p-2 rounded-md border border-gray-300">
+                        @if ($places)
+                            <option value="null" class="font-5 display-16 color-blue"> Where to go ? </option>
+                            @forelse($places as  $place)
+                                <option value="{{ $place->id }}" class="font-5 display-16 color-blue"> {{ $place->name }} </option>
+                            @empty
+                            @endforelse
+                        @endif
+                        </select>
                     </div>
                     <div>
-                        <select name="passengers" class="w-full p-2 rounded-md border border-gray-300">
+                        <select name="no_of_people" class="w-full p-2 rounded-md border border-gray-300">
                             <option value="" class="font-5 displaty-14 color-blue">Select Passengers</option>
                             <option value="1" class="font-5 displaty-14 color-blue">1</option>
                             <option value="2" class="font-5 displaty-14 color-blue">2</option>
@@ -28,11 +38,13 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                     <div>
-                        <select name="type_of_places" class="w-full p-2 rounded-md border border-gray-300">
-                            <option value="" class="font-5 displaty-14 color-blue">Type of Places</option>
-                            <option value="beach" class="font-5 displaty-14 color-blue">Beach</option>
-                            <option value="mountain" class="font-5 displaty-14 color-blue">Mountain</option>
-                            <option value="city" class="font-5 displaty-14 color-blue">City</option>
+                        <select name="place_type"  class="form-control w-full p-2 rounded-md border border-gray-300">
+                            @if ($places)
+                            @forelse($placeTypes as  $placeType)
+                                    <option value="{{ $placeType->id }}" class="font-5 display-16 color-blue"> {{ $placeType->name }} </option>
+                                @empty
+                                @endforelse
+                            @endif
                         </select>
                     </div>
                     <div>
@@ -50,10 +62,10 @@
                 <div class="text-left font-5 display-14 color-blue">
                     A unique experience that will not be repeated
                 </div>
-                <div class="text-right font-5 display-14 color-blue d-flex justify-content-between align-items-center">
+                <a class="text-right font-5 display-14 color-blue d-flex justify-content-between align-items-center" href="{{route('tour-guides-profile')}}">
                     Meet local experts
                     <img src="{{ asset('assets/images/icons/arrow-primary.svg') }}" alt="arrow-right" class="ml-4" />
-                </div>
+                </a>
             </div>
         </div> 
     </div>
@@ -74,6 +86,10 @@
                 }
             });
         });
+    
+    
+    
+
     </script>
 
 @endpush

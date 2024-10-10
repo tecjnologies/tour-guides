@@ -649,7 +649,9 @@ hr {
   color: var(--color-white);
 }
 
-
+.btn.bg-blue:hover {
+  background-color: var(--color-secondary);
+}
 
 
 @media only screen and (max-width: 1800px) {
