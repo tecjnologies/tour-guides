@@ -13,7 +13,10 @@
             </button>
         </div>
     </div>
-    <x-website.slider :options="$options">
+    @php 
+        $sliderWithDotsOptions = array_merge($options, ['dots' => true]);
+    @endphp
+    <x-website.slider :options="$sliderWithDotsOptions">
         <div class="slick-slider mt-4" id="slider-1">
             @forelse($data as $slide)
             <a  href="{{ route('show.tourguide', $slide->id) }}">

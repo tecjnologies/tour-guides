@@ -12,7 +12,10 @@
             </button>
         </div>
     </div>
-    <x-website.slider :options="$options">
+     @php 
+          $sliderWithDotsOptions = array_merge($options, ['dots' => false]);
+    @endphp
+    <x-website.slider :options="$sliderWithDotsOptions">
         <div class="slick-slider mt-3" id="slider-4">
             @forelse($data as $slide)
                 <div class="slide _popular_destinations">

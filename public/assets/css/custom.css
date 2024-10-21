@@ -653,6 +653,27 @@ hr {
   background-color: var(--color-secondary);
 }
 
+.slick-slider .slick-dots {
+  display: flex;
+  width: 100%;
+  padding: 0px;
+  margin-top: 50px;
+}
+
+.slick-slider .slick-dots li {
+  width: 100%;
+  background-color: #ddd8d8;
+  height: 5px;
+}
+
+.slick-slider .slick-dots li.slick-active {
+  background-color: var(--color-primary);
+}
+
+.slick-slider .slick-dots li button{
+  display: none;
+}
+
 
 @media only screen and (max-width: 1800px) {
 
