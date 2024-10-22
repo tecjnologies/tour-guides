@@ -1,4 +1,4 @@
-<div class="_wrapper bg-gray py-5 px-5">
+<div class="_wrapper bg-gray py-5 px-5 _popular_destinations _dotted_nav_slider">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
             <h2 class="font-2 display-26 color-blue"> Popular Destinations Right Now </h2>
@@ -18,7 +18,7 @@
     <x-website.slider :options="$sliderWithDotsOptions">
         <div class="slick-slider mt-3" id="slider-4">
             @forelse($data as $slide)
-                <div class="slide _popular_destinations">
+                <div class="slide ">
                     <div class="extra-slide-content">
                         <div class="row">
                             <a href="{{ route('show.destination', $slide->id) }}">

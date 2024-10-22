@@ -1,4 +1,4 @@
-<div class="_wrapper px-5">
+<div class="_wrapper px-5 _tour_guide">
     <div class="heading-buttons pt-5 d-flex justify-content-between align-items-center">
         <div class="_headings">
             <h2 class="font-2 display-26 color-blue"> Tour guide </h2>

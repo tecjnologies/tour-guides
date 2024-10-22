@@ -1,4 +1,4 @@
-<div class="_wrapper pb-4 px-5">
+<div class="_wrapper _descovering_regions pb-4 px-5 _dotted_nav_slider">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
             <h2 class="font-2 display-26 color-blue"> Discovering Regions through Local Eyes </h2>
@@ -14,11 +14,11 @@
         </div>
     </div>
     <x-website.slider :options="$options">
-        <div class="slick-slider11 mt-5" id="slider-5">
+        <div class="slick-slider11 _discovering_regions mt-5" id="slider-5">
             {{-- @forelse($data as $slide) --}}
                 <div class="slide">
                     <div class="extra-slide-content">
-                        <div class="row _descovering_regions">
+                        <div class="row">
                             <div class="col-md-3 position-relative">
                                 <img src="{{ asset('assets/images/homepage/meseum.png') }}" alt="Museum of the Future" width="100%" />
                                 <h3 class="font-2 display-20 color-white _title">Museum of the Future</h3>

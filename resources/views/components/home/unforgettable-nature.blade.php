@@ -1,4 +1,4 @@
-<div class="_wrapper py-5 px-5 bg-gray">  
+<div class="_wrapper py-5 px-5 bg-gray _unforgettable_slider _dotted_nav_slider">  
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
             <h2 class="font-2 display-26 color-blue"> Unforgettable nature experiences in uae </h2>
