@@ -111,13 +111,13 @@
                         <div class="col-lg-4 col-md-6 d-flex justify-content-between align-items-center flex-column banner-right-column">
                             <h2 class="color-white font-2 display-20"> TruTour guide </h2>
                             <div class="buttons d-flex justify-content-start align-items-center flex-wrap">
-                                <a href="#"
+                                <button id="shareButton"
                                     class="font-4 display-16  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
-                                text-decoration-none me-3 px-3 py-2 rounded">
+                                    text-decoration-none me-3 px-3 py-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/share.svg') }}" alt="mohammad"
                                         class="me-3" />
                                     Share Profile
-                                </a>
+                                </button>
                                 <a href="tel:{{ $tourGuide->contact }}"
                                     class="font-4 display-16  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
                                 text-decoration-none me-3 px-3 py-2 rounded">
@@ -402,8 +402,46 @@
             flatpickr('#date', {
                 minDate: "today",
                 dateFormat: "F d, Y",
-            })
+            });
+
+
+
+            document.getElementById('shareButton').addEventListener('click', function() {
+                // Get the current profile URL
+                const profileUrl = window.location.href;
+
+                // Check if the browser supports the Web Share API (useful for mobile devices)
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Check out this Tour Guide Profile!',
+                        text: 'Check out this amazing tour guide profile:',
+                        url: profileUrl,
+                    })
+                    .then(() => console.log('Profile shared successfully!'))
+                    .catch((error) => console.error('Error sharing profile:', error));
+                } else {
+                    // Fallback for browsers that don't support the Web Share API
+                    copyToClipboard(profileUrl);
+                    alert('Profile URL copied to clipboard: ' + profileUrl);
+                }
+            });
+
+            // Function to copy text to the clipboard
+            function copyToClipboard(text) {
+                const tempInput = document.createElement('input');
+                tempInput.style.position = 'absolute';
+                tempInput.style.left = '-9999px';
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+            }
+
+
         </script>
+
+        
     @endpush
 
 </x-website-layout>
