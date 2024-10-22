@@ -780,7 +780,6 @@ hr {
 
   .banner-right-column{
     display: block !important;
-    padding-left: 3rem;
   }
   
   ._title{
@@ -997,17 +996,13 @@ hr {
     margin: 10px 0px;
   }
 
-  .banner-right-column{
-    padding-left: 0px;
-  }
-
   ._about_me_text.py-3 {
     padding-left: 8px !important;
   }
 
   .detials .button a, .banner-right-column .buttons a
    {
-    margin: 7px 13px !important;
+    margin: 7px 0px !important;
   }
 
   ._discovering_regions  ._title{

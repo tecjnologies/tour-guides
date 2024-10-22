@@ -109,7 +109,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 d-flex justify-content-between align-items-center flex-column banner-right-column">
-                            <h2 class="color-white font-2 display-20"> TruTour guide </h2>
+                            <h2 class="color-white font-2 display-20 d-none d-md-block"> TruTour guide </h2>
                             <div class="buttons d-flex justify-content-start align-items-center flex-wrap">
                                 <button id="shareButton"
                                     class="font-4 display-16  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
