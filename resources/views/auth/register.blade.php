@@ -14,8 +14,7 @@
                             <div class="col-md-6">
                                 <label for="name" class="col-md-12 col-form-label">{{ __('Name') }}</label>
                                 <div class="col-md-12">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-    
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>  
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -37,6 +36,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <label for="contact" class="col-md-12 col-form-label">{{ __('Contact') }}</label>
@@ -88,7 +88,7 @@
                         
                         <div class="form-group row px-4 text-right">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary" id="validatorBtn">
+                                <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
                             </div>

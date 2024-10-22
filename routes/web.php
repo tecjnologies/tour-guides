@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/tour-guides-profile', [TourGuideController::class, 'index'])->name('tour-guides-profile');
 Route::get('/tour-guides-profile/{id}', [TourGuideController::class, 'show'])->name('show.tourguide');
