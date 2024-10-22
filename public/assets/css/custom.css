@@ -787,6 +787,14 @@ hr {
     display: block !important;
     padding-left: 3rem;
   }
+  
+  ._title{
+    bottom: 100px;
+  }
+
+  ._title.display-20{
+    font-size: 20px; 
+  }
 
 }
 
@@ -796,6 +804,19 @@ hr {
      padding: 0px 10px !important;
   }
  
+  ._banner{
+    padding: 0px 13px;
+  }
+
+  ._banner ._call_to_action {
+    display: block !important;
+    padding: 13px !important;
+  }
+
+  .tour-bar.px-5 {
+    padding: 0px !important;
+  }
+
   ._more_than{
     display: none;
   }
@@ -810,16 +831,28 @@ hr {
 
   ._topbar {
     padding: 11px 10px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
 
   ._logos_list {
-    padding: 0px 23px !important;
+    padding: 0 0px 30px 23px !important;
   }
   
   ._logos_list ._logo {
-    width: 38%;
-    margin: 10px;
+    width: 33%;
+    margin: 22px;
+  }
+
+  .py-5.px-5._popular_destinations {
+    padding: 30px 11px !important;
+  }
+
+  .heading-buttons {
+    display: block !important;
   }
   
   ._info_boxes .row {
@@ -845,6 +878,15 @@ hr {
     font-size: 14px;
   }
 
+  .display-26 {
+    font-size: 18px;
+  }
+
+  .px-5 {
+    padding-right: 2rem !important;
+    padding-left: 2rem !important;
+  }
+
   ._descovering_regions .col-md-3, ._descovering_regions .im {
     margin-bottom: 30px;
   }
@@ -857,10 +899,15 @@ hr {
     font-size: 16px;
   }
 
+  .display-20 {
+    font-size: 20px;
+  }
+
   ._slide_buttons{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    margin-top: 30px;
   }
 
   ._wrapper p {
@@ -911,16 +958,30 @@ hr {
   
   ._tour_guide_profile ._location {
     width: 100%;
-    margin: 20px;
+    margin: 15px 0px;
+    padding: 0px;
+  }
+
+  ._location._place_type.mx-3, ._location._place_type ._tabs  {
+    padding: 0px !important;
+    margin: 15px 0px !important;
   }
 
   .number_of_peopled {
     display: block !important;
-    margin: 38px 0px;
+    margin: 0px;
   }
 
   ._tabs, ._tabs button, .detail  {
     margin: 10px 0px;
+  }
+
+  .banner-right-column{
+    padding-left: 0px;
+  }
+
+  ._about_me_text.py-3 {
+    padding-left: 8px !important;
   }
 
   .detials .button a, .banner-right-column .buttons a
@@ -930,6 +991,37 @@ hr {
 
   ._discovering_regions  ._title{
     bottom: 30px;
+  }
+
+  .slick-slider .slick-dots{
+    margin-top: 0px;
+  }
+
+  ._dotted_nav_slider ._explorer  button{
+    padding: 10px 10px !important;
+    margin-bottom: 15px;
+  }
+
+  .become-our-partner.py-3{
+    display: block;
+    padding: 48px 0px !important;
+  }
+
+
+  .banner-right-column h2 {
+    background-color: var(--color-primary);
+    margin-top: 20px;
+    padding: 19px;
+    font-size: 20px;
+    border-radius: 3px;
+  }
+
+  ._about_me_text ._more ._ref_number span {
+    padding-top: 11px;
+  }
+
+  .item {
+    margin: 45px 0px;
   }
 
 }

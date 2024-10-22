@@ -45,7 +45,7 @@
                         <div class="col-md-6">
                             <img src="  {{ $destination->gallery[0]->image  }}" alt="check-mark" class="w-100 h-100" />
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <img src="{{ $destination->gallery[1]->image  }}" alt="check-mark" class="w-100 h-100"/>
                         </div>
                         <div class="col-md-3">

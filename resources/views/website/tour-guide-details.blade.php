@@ -28,21 +28,23 @@
         ],
     ];
 
+
+
     $sliderOptions = [
         'dots' => false,
-        'infinite' => false,
-        'autoplay' => false,
+        'infinite' => true,
+        'autoplay' => true,
         'arrows' => false,
         'centerMode' => false,
         'centerPadding' => '0px',
         'autoplaySpeed' => 3000,
         'slidesToShow' => 3,
-        'slidesToScroll' => 3,
+        'slidesToScroll' => 1,
         'responsive' => [
             ['breakpoint' => 1024, 'settings' => ['slidesToShow' => 2, 'slidesToScroll' => 2]],
             ['breakpoint' => 768, 'settings' => ['slidesToShow' => 1, 'slidesToScroll' => 1]],
             ['breakpoint' => 480, 'settings' => ['slidesToShow' => 1, 'slidesToScroll' => 1]],
-        ],
+        ]
     ];
 
 @endphp
@@ -329,7 +331,7 @@
                             @else
                                 <button class="btn btn-lg bg-blue color-black border w-100 my-2 font-2 display-16" disabled
                                         data-bs-toggle="tooltip" data-bs-placement="top" title="Please login to book the trip">
-                                    Login for bookig !
+                                    Login for booking !
                                 </button>
                             @endauth
 

@@ -14,8 +14,8 @@
     </div>
     <hr />
     @php 
-        $options['slidesToShow'] = 4; 
-        $options = array_merge($options, ['dots' => true]);
+        $options['dots'] = true; 
+        // $options = array_merge($options, ['dots' => true]);
     @endphp
     <x-website.slider :options="$options">
         <div class="slick-slider mt-3" id="slider-4">

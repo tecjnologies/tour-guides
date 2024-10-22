@@ -114,12 +114,12 @@
             </x-responsive-nav-link>
         </div>
         
-        <div class="pt-4 pb-1 border-t border-gray-200">
+        {{-- <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="mt-2 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
             </div>
-        </div>
+        </div> --}}
     </div>
 </nav>

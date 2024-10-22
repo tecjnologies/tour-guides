@@ -47,7 +47,7 @@
                 <p>No Data Found!</p>
             @endforelse
         </div>
-        <div class="button text-center mt-4">
+        <div class="button text-center mt-4 _explorer">
             <button class="btn btn-md bg-blue color-white px-5 py-3"> Explore More </button>
         </div>
     </x-website.slider>   

@@ -58,7 +58,7 @@
                     Search
                 </button>
             </form>
-            <div class="mt-3 bg-gray d-flex justify-content-between align-items-center px-3 py-3 rounded">
+            <div class="mt-3 bg-gray d-flex justify-content-between align-items-center px-3 py-3 rounded _call_to_action">
                 <div class="text-left font-5 display-14 color-blue">
                     A unique experience that will not be repeated
                 </div>
