@@ -176,7 +176,7 @@
                     <div class="_more d-flex justify-content-start align-items-center  flex-wrap">
 
                         <div class="_ref_number d-flex justify-content-start align-items-center flex-wrap me-5 my-3">
-                            <img src="{{ asset('assets/images/tour-guide/ref-number.svg') }}" alt="mohammad"
+                            <img src="{{ asset('assets/images/tour-guide/map-active.svg') }}" alt="mohammad"
                                 class="me-3" />
                             <h3 class="me-3 font-2 display-16 color-blue mb-0"> Private Tour Guide in : </h3>
 
@@ -195,7 +195,7 @@
                         </div>
 
                         <div class="_ref_number d-flex justify-content-start align-items-center flex-wrap me-5 my-3">
-                            <img src="{{ asset('assets/images/tour-guide/clock.svg') }}" alt="mohammad"
+                            <img src="{{ asset('assets/images/tour-guide/map-active.svg') }}" alt="mohammad"
                                 class="me-3" />
                             <h3 class="me-3 font-2 display-16 color-blue mb-0"> Other Guiding Areas: </h3>
 

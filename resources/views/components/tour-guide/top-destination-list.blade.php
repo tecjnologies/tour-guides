@@ -1,4 +1,4 @@
-<div class="_wrapper py-5 ">
+<div class="_wrapper py-5 _dotted_nav_slider">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
             <h2 class="font-2 display-20 color-blue"> Top Destinations </h2>
@@ -15,6 +15,7 @@
     <hr />
     @php 
         $options['slidesToShow'] = 4; 
+        $options = array_merge($options, ['dots' => true]);
     @endphp
     <x-website.slider :options="$options">
         <div class="slick-slider mt-3" id="slider-4">
