@@ -420,7 +420,7 @@ form select, form input {
   height: unset;
   width: unset;
   top: unset;
-  bottom: 25px;
+  bottom: 0px;
   right: 0;
   left: unset;
   right: 0px;

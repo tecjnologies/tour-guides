@@ -5,7 +5,7 @@
     
     <form id="tour-guide-form" action="{{ route('search.tour-guide') }}" method="post">
         @csrf
-        <div class="border-bottom d-flex justify-content-start align-items-center py-3 my-4">
+        <div class="border-bottom d-flex justify-content-start align-items-center pb-3 mb-4">
             <h4 class="mb-2 font-2 display-20 color-blue me-3">Filters</h4>
             <button id="resetBtn" type="button" class="rounded px-5 py-2 my-3 color-secondary border-secondary"> 
                 Reset all
