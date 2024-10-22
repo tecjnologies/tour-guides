@@ -4,8 +4,8 @@
     <form action="{{ route('search.tour-guide') }}" method="post">
         @csrf
         <div class="row">
-            <div class="col-md-6 d-flex justify-content-start  align-items-cetner pl-5">
-                <div class="_location">
+
+                <div class="col-md _location">
                     <h4 class="mb-2 font-2 display-20 color-blue">Location</h4>
                     <select name="place_id" class="border rounded w-100">
                         @if ($places)
@@ -17,7 +17,7 @@
                     </select>
                 </div>
         
-                <div class="_location">
+                <div class="col-md _location">
                     <h4 class="mb-2 font-2 display-20 color-blue">Language</h4>
                     <select name="language_id" class="border rounded w-100">
                         @if ($languages)
@@ -28,10 +28,11 @@
                         @endif
                     </select>
                 </div>
+
                 @php 
                     $maxPrice = App\Models\Guide::max('price');
                 @endphp
-                <div class="_location">
+                <div class="col-md _location">
                     <h4 class="mb-2 font-2 display-20 color-blue"> Price </h4>
                     <div class="range_container">
                         <div class="_input w-100 d-flex justify-content-start align-items-center">
@@ -46,47 +47,43 @@
                         <div id="scale" class="scale" data-steps="50"></div>
                     </div>
                 </div>
-        
-            </div>
-            <div class="col-md-6 d-flex">
-                <div class="row">
-                    <div class="col-md-5 _no_of_people">
-                        <h4 class="mb-2 font-2 display-20 color-blue"> Number of people </h4>
-                        <div class="number_of_peopled d-flex justify-content-start align-items-start">
-                            <div class="_tabs me-2">
-                                <button type="button" class="m-2 no_people font-4 display-16 color-black" data-value="1">Individual</button>
-                                <button type="button" class="m-2 no_people font-4 display-16 color-black" data-value="2">2 People</button>
-                                <button type="button" class="m-2 no_people font-4 display-16 color-black" data-value="3">Group</button>
-                                <button type="button" class="m-2 no_people font-4 display-16 color-black" data-value="4">Couple</button>
-                                <input type="hidden" name="no_of_people" id="selectedNoofPeople" value="">
-                            </div>
-                        </div>
+                
+                <div class="col-md _location _no_of_people">
+                    <h4 class="mb-2 font-2 display-20 color-blue"> Number of people </h4>
+                    <div class="number_of_peopled">
+                        <select name="place_id" class="border rounded w-100">
+                            <option value="1" class="font-5 display-16 color-blue"> Individual </option>
+                            <option value="2" class="font-5 display-16 color-blue"> People </option>
+                            <option value="3" class="font-5 display-16 color-blue"> Group </option>
+                            <option value="4" class="font-5 display-16 color-blue"> Couple </option>
+                        </select>
                     </div>
-                    <div class="col-md-6 _tabs_with_icon m-2">
-                        <h4 class="mb-2 font-2 display-20 color-blue"> Place Type </h4>
-                        <div class="_tabs d-flex">
-                            <div class="_tabs me-2">
+                </div>
+
+                <div class="col-md _location _place_type mx-3">
+                    <h4 class="mb-2 font-2 display-20 color-blue"> Place Type </h4>
+                    <div class="_tabs">
+                        <div class="_tabs me-2">
+
+                            <select name="place_id" class="border rounded w-100">
                                 @if ($placeTypes)
                                     @forelse($placeTypes as  $placeType)
-                                        <button type="button" 
-                                            class="m-2 place_type font-4 display-16 color-black" 
-                                            data-value="{{ $placeType->id }}">
-                                            {{ $placeType->name }}
-                                        </button>
+                                        <option value="{{ $placeType->id }}" class="font-5 display-16 color-blue"> {{ $placeType->name }} </option>
                                     @empty
                                     @endforelse
                                 @endif
-                                <input type="hidden" name="place_type" id="selectedPlaceType" value="">
-                            </div>
+                            </select>
+                            <input type="hidden" name="place_type" id="selectedPlaceType" value="">
                         </div>
                     </div>
                 </div>
 
-            </div>
+                <div class="">
+                    <button  type="submit" class="rounded px-5 py-2 bg-blue color-white d-flex justify-content-center align-items-center ml-auto"> 
+                        search
+                   </button>
+                </div>
         </div>
-        <button  type="submit" class="rounded px-5 py-2 bg-blue color-white d-flex justify-content-center align-items-center ml-auto"> 
-            search
-       </button>
     </form>
 </div>
 <hr/>
@@ -98,7 +95,7 @@
                 <div class="col-md-5 pe-0 image position-relative">
                     <img src="{{ $guide->image }}" alt="tour guide" width="100%" />                        
                     <p class="_price font-4 display-12 color-white">
-                        {{ $guide->price }} <br/> per hour 
+                        {{ $guide->price }} AED <br/> per hour 
                     </p>
                 </div>
                 <div class="_tour_content col-md-7 border-top border-end border-bottom rounded-end d-flex justify-content-center
