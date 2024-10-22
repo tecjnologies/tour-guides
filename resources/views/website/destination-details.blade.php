@@ -42,15 +42,17 @@
               
                 <div class="_about_me_text">
                     <div class="row my-4">
-                        <div class="col-lg-6 col-md-12 my-md-3">
-                            <img src="  {{ $destination->gallery[0]->image  }}" alt="check-mark" class="w-100 h-100" />
-                        </div>
-                        <div class="col-lg-3 col-md-12 my-md-3">
-                            <img src="{{ $destination->gallery[1]->image  }}" alt="check-mark" class="w-100 h-100"/>
-                        </div>
-                        <div class="col-lg-3 col-md-12 my-md-3">
-                            <img src="{{ $destination->gallery[2]->image  }}" alt="check-mark" class="w-100 h-100"/>
-                        </div>
+                        @isset($destination->gallery)
+                            @forelse ($destination->gallery as $index => $gallery)
+                                <div class="{{ $loop->first ? 'col-lg-6 col-md-12 my-md-3' : 'col-lg-3 col-md-12 my-md-3' }}">
+                                    <img src="{{ $gallery->image }}" alt="check-mark" class="w-100 h-100" />
+                                </div>
+                            @empty
+                                <p class="font-4 display-16 color-red">
+                                    No gallery found.
+                                </p>
+                            @endforelse
+                        @endisset
                     </div>
                 </div>
 
