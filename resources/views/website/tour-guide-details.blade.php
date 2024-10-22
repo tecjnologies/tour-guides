@@ -67,9 +67,9 @@
         <div class="overflow-hidden">
             <div class="text-gray-900">
                 <div class="tour-guide-banner px-5">
-                    <div class="row py-3 tour-guide-details pt-5"
+                    <div class="row py-3 tour-guide-details pt-lg-5 pt-md-4"
                         style="background-image: url({{ asset('assets/images/homepage/blue-bar-background.png') }});">
-                        <div class="col-md-8  d-flex justify-content-start align-items-end flex-wrap pt-3">
+                        <div class="col-lg-8 col-md-6  d-flex justify-content-start align-items-end flex-wrap pt-3">
                             <div class="profile-iamge me-4">
                                 <img src="{{ $tourGuide->image }}" alt="{{ $tourGuide->name }}" />
                             </div>
@@ -108,8 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="col-md-4 d-flex justify-content-between align-items-center flex-column banner-right-column">
+                        <div class="col-lg-4 col-md-6 d-flex justify-content-between align-items-center flex-column banner-right-column">
                             <h2 class="color-white font-2 display-20"> TruTour guide </h2>
                             <div class="buttons d-flex justify-content-start align-items-center flex-wrap">
                                 <a href="#"
@@ -128,7 +127,7 @@
                                 </a>
                                 <a href="mailto:{{ $tourGuide->email }}"
                                     class="font-4 display-16  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
-                                text-decoration-none me-3 px-3 py-2 rounded">
+                                text-decoration-none me-3  my-md-4 px-3 py-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/email.svg') }}" alt="mohammad"
                                         class="me-3" />
                                     Email
@@ -169,6 +168,9 @@
                             @if ($tourGuide->guideLanguages)
                                 @forelse($tourGuide->guideLanguages as  $language)
                                     <span class="font-5 display-16 color-black"> {{ $language->name }} </span>
+                                    @if (!$loop->last)
+                                            <span> , </span>
+                                    @endif
                                 @empty
                                 @endforelse
                             @endif
@@ -186,7 +188,7 @@
                                 @forelse($tourGuide->privateDestinations as  $privateDestination)
                                     <span class="font-5 display-16 color-black"> {{ $privateDestination->name }}
                                         @if (!$loop->last)
-                                            <span> , </span>
+                                            <span> &nbsp; , &nbsp; </span>
                                         @endif
                                     </span>
                                 @empty
@@ -206,7 +208,7 @@
                                 @forelse($tourGuide->otherDestinations as  $privateDestination)
                                     <span class="font-5 display-16 color-black"> {{ $privateDestination->name }}
                                         @if (!$loop->last)
-                                            <span> , </span>
+                                            <span> &nbsp; , &nbsp; </span>
                                         @endif
                                     </span>
                                 @empty
@@ -260,6 +262,7 @@
                         </div>
                         <div class="title">
                             <h3 class="font-2 display-20"> {{ $tourGuide->name }} </h3>
+                            <h3 class="font-4 display-10"> <span class="font-2 display-20  color-secondary"> {{ $tourGuide->price }} </span>  AED per hour </h3>
                             <div class="reviews d-flex justify-content-start align-items-center">
                                 <img src="{{ asset('assets/images/icons/stars.svg') }}" alt="Arrow right"
                                     class="me-3" />

@@ -12,7 +12,7 @@
             </button>
         </div>        
         <div class="row">
-                <div class="col-md _location">
+                <div class="col-lg _location">
                     <h4 class="mb-2 font-2 display-20 color-blue">Location</h4>
                     <select name="place_id" class="border rounded w-100">
                         @if ($places)
@@ -23,8 +23,7 @@
                         @endif
                     </select>
                 </div>
-        
-                <div class="col-md _location">
+                <div class="col-lg _location">
                     <h4 class="mb-2 font-2 display-20 color-blue">Language</h4>
                     <select name="language_id" class="border rounded w-100">
                         @if ($languages)
@@ -35,11 +34,10 @@
                         @endif
                     </select>
                 </div>
-
                 @php 
                     $maxPrice = App\Models\Guide::max('price');
                 @endphp
-                <div class="col-md _location">
+                <div class="col-lg _location">
                     <h4 class="mb-2 font-2 display-20 color-blue"> Price </h4>
                     <div class="range_container">
                         <div class="_input w-100 d-flex justify-content-start align-items-center">
@@ -54,8 +52,7 @@
                         <div id="scale" class="scale" data-steps="50"></div>
                     </div>
                 </div>
-                
-                <div class="col-md _location _no_of_people">
+                <div class="col-lg _location _no_of_people">
                     <h4 class="mb-2 font-2 display-20 color-blue"> Number of people </h4>
                     <div class="number_of_peopled">
                         <select name="place_id" class="border rounded w-100">
@@ -66,8 +63,7 @@
                         </select>
                     </div>
                 </div>
-
-                <div class="col-md _location _place_type mx-3">
+                <div class="col-lg _location _place_type mx-3">
                     <h4 class="mb-2 font-2 display-20 color-blue"> Place Type </h4>
                     <div class="_tabs">
                         <div class="_tabs me-2">
@@ -84,7 +80,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="">
                     <button  type="submit" class="rounded px-5 py-2 bg-blue color-white d-flex justify-content-center align-items-center ml-auto"> 
                         search
@@ -96,7 +91,7 @@
 <hr/>
 <div class="row px-5">
    @forelse($tourGuides as $guide)
-    <div class="col-md-4 my-4 px-4 pl-0 cursor-pointer" href="route('home')">
+    <div class="col-lg-4 col-md-6 my-4 px-4 pl-0 cursor-pointer" href="route('home')">
         <a href="{{ route('show.tourguide', $guide->id) }}">
             <div class="row _tour_guide_grid">
                 <div class="col-md-5 pe-0 image position-relative">

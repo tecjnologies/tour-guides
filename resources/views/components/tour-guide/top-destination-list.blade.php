@@ -15,6 +15,7 @@
     <hr />
     @php 
         $options['dots'] = true; 
+        $options['slidesToShow'] = 3;
         // $options = array_merge($options, ['dots' => true]);
     @endphp
     <x-website.slider :options="$options">
