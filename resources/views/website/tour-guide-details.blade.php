@@ -127,7 +127,7 @@
                                 </a>
                                 <a href="mailto:{{ $tourGuide->email }}"
                                     class="font-4 display-16  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
-                                text-decoration-none me-3  my-md-4 px-3 py-2 rounded">
+                                text-decoration-none me-3  my-md-4  my-lg-0 px-3 py-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/email.svg') }}" alt="mohammad"
                                         class="me-3" />
                                     Email
