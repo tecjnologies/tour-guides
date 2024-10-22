@@ -129,6 +129,11 @@ a {
   color: var(--color-pink);
 }
 
+.border-secondary {
+  border-color : unset !important;
+  border : 1px solid var(--color-secondary);
+}
+
 .line-height-normal {
   line-height: normal;
 }
@@ -624,11 +629,10 @@ hr {
 
 }
 
-
+._tour_guide_grid img:first-child,
 ._tour_guide img:first-child {
   height: 100%;
 }
-
 
 ._sidebar .profile-rounded img {
   width: 100px;
@@ -800,10 +804,6 @@ hr {
     padding: 0rem !important;
   }
   
-  .px-5 {
-    padding: 30px !important;
-  }
-
   .mx-5, .mt-5{
     margin: 0px !important;
   }
@@ -926,6 +926,10 @@ hr {
   .detials .button a, .banner-right-column .buttons a
    {
     margin: 7px 13px !important;
+  }
+
+  ._discovering_regions  ._title{
+    bottom: 30px;
   }
 
 }

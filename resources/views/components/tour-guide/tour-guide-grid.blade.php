@@ -1,10 +1,17 @@
 <div class="row px-5 _tour_guide_profile">
     @include('partial.errors')
     @include('partial.successMessage')
-    <form action="{{ route('search.tour-guide') }}" method="post">
+    
+    
+    <form id="tour-guide-form" action="{{ route('search.tour-guide') }}" method="post">
         @csrf
+        <div class="border-bottom d-flex justify-content-start align-items-center py-3 my-4">
+            <h4 class="mb-2 font-2 display-20 color-blue me-3">Filters</h4>
+            <button id="resetBtn" type="button" class="rounded px-5 py-2 my-3 color-secondary border-secondary"> 
+                Reset all
+            </button>
+        </div>        
         <div class="row">
-
                 <div class="col-md _location">
                     <h4 class="mb-2 font-2 display-20 color-blue">Location</h4>
                     <select name="place_id" class="border rounded w-100">
@@ -247,7 +254,12 @@
             });
         });
 
-        
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            var form = document.getElementById('tour-guide-form');
+            form.reset();
+            document.getElementById('fromSlider').value = 0;
+            document.getElementById('toSlider').value = {{ $maxPrice }};
+        });
 
     </script>
 @endpush
