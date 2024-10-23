@@ -22,7 +22,7 @@
                       <table id="dataTableId" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                          <th>Package</th>
+                          <th>Place</th>
                           <th>Price</th>
                           <th>Tour Date</th>
                           <th>Booking Date</th>
@@ -36,7 +36,7 @@
                         @foreach ($pendinglists as $list)
                         <tr>
                           <td>
-                            {{ $list->package_name }}
+                            {{ $list->place_name }}
                           </td>
                           <td>{{ $list->price }}</td>
                           <td>{{ $list->date }}</td>
@@ -50,7 +50,7 @@
                               
                           </td>
                           <td>{{ $list->tourist->name }}</td>
-                          <td>{{ $list->tourist->contact }}</td>
+                          <td>{{ $list->tourist->contact ??  'Not available' }}</td>
                           <td> 
                             <button type="submit" onclick="handleApprove( {{ $list->id }}) " class="btn btn-info btn-sm mb-1">Approve</button>
 

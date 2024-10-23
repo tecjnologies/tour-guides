@@ -950,11 +950,7 @@ hr {
     padding: 0px;
   }
 
-  ._tour_guide ._tour_content{
-    display: block !important;
-  }
-
-  ._tour_guide .detail{
+   ._tour_guide .detail{
     padding-bottom: 10px;
   }
 

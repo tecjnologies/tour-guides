@@ -45,13 +45,14 @@ class PackageController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
-            'price' => 'required|numeric|integer',
-            'day' => 'required|numeric|integer',
-            'people' => 'required|numeric|integer',
-            'package_image' => 'required|mimes:jpeg,png,jpg',
-            'description' => 'required',
-            'places' => 'required',
+           'name' => 'required|string|max:255|unique:packages,name', 
+            'price' => 'required|numeric|min:0', 
+            'day' => 'required|integer|min:1', 
+            'people' => 'required|integer|min:1', 
+            'package_image' => 'required|mimes:jpeg,png,jpg|max:2048', 
+            'description' => 'required|string|max:1000', 
+            'places' => 'required|array|min:1', 
+            'places.*' => 'string', 
         ]);
 
        // Get Form Image

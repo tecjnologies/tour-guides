@@ -12,9 +12,17 @@ use Illuminate\Http\Request;
 class BookingController extends Controller
 {
     public function pendingBookingList(){
-        $pendinglists = Booking::where('approved_status', 'no')->get();
+        $pendinglists = Booking::where('approved_status', 'no')
+            ->with('place') // Eager load the place relationship
+            ->get();
+    
+        foreach($pendinglists as $list){
+            $list->place_name = $list->place ? $list->place->name : 'No Place Assigned';
+        }
+    
         return view('admin.booking.pendinglist', compact('pendinglists'));
     }
+
 
     public function bookingApprove($id){
         $req = Booking::find($id);

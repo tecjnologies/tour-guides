@@ -68,8 +68,8 @@ class AboutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(About $about)
-    {
-         return view('admin.about.edit',compact('about',$about));
+    {   
+         return view('admin.about.edit',compact('about'));
     }
 
     /**

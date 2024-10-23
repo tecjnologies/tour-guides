@@ -23,7 +23,7 @@
                 <div class="slide">
                     <div class="extra-slide-content">
                         <div class="row _tour_guide">
-                            <div class="col-md-5 pe-0 image position-relative">
+                            <div class="col-md-5 p-0 image position-relative">
                                 <img src="{{ $slide->image  }}" alt="tour guide" width="100%" />
                                 <p class="_price font-4 display-12 color-white" 
                                  style="background-image: url({{ asset('assets/images/homepage/price-background.svg') }})">

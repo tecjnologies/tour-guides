@@ -40,11 +40,12 @@ class DashboardController extends Controller
 
 
     public function updateProfile(Request $request){
+        
         $profile = Auth::id();
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => 'required|email|unique:users,email,'. $profile,
-            'contact' => 'required|numeric|unique:users,contact,'. $profile,
+            'email' => ['required','email','regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/', 'unique:users,email,' . $profile],
+            'contact' => ['required', 'numeric', 'regex:/^9715\d{8}$/', 'unique:users,contact,' . $profile],
             'image' => 'mimes:jpeg,png,jpg',
         ]);
 

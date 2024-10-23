@@ -153,7 +153,7 @@
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Create</button>
-                                <a href="{{ URL::previous() }}" class="btn btn-danger wave-effect">Back</a>
+                                <a href="{{ route('admin.guide.index') }}"  class="btn btn-danger wave-effect">Back</a>
                             </div>
                         </form>
                     </div>

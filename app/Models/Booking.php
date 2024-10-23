@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
+    
     public function tourist(){
         return $this->belongsTo(User::class, 'tourist_id');
     }
@@ -16,5 +17,9 @@ class Booking extends Model
 
     public function package(){
         return $this->belongsTo(Package::class, 'package_id');
+    }
+
+    public function place(){
+        return $this->belongsTo(Package::class, 'place_id');
     }
 }

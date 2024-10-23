@@ -94,13 +94,13 @@
     <div class="col-lg-4 col-md-6 my-4 px-4 pl-0 cursor-pointer" href="route('home')">
         <a href="{{ route('show.tourguide', $guide->id) }}">
             <div class="row _tour_guide_grid">
-                <div class="col-md-5 pe-0 image position-relative">
+                <div class="col-5 pe-0 image position-relative">
                     <img src="{{ $guide->image }}" alt="tour guide" width="100%" />                        
                     <p class="_price font-4 display-12 color-white">
                         {{ $guide->price }} AED <br/> per hour 
                     </p>
                 </div>
-                <div class="_tour_content col-md-7 border-top border-end border-bottom rounded-end d-flex justify-content-center
+                <div class="_tour_content col-7 border-top border-end border-bottom rounded-end d-flex justify-content-center
                              align-items-center flex-column">
                     <div class="detail pt-2">
                         <h3 class="font-2 display-20 color-blue"> {{ $guide->name }}  </h3>
