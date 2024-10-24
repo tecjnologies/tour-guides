@@ -11,6 +11,7 @@
         <script src="{{ asset('assets/plugins/slick/slick.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="{{asset('assets/css/custom.css') }}">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @stack('css')
     </head>
     <body>
@@ -22,6 +23,16 @@
             </main>
         </div>
         @include('website.layouts.footer')
+        @if (session('status'))
+        <script>
+            Swal.fire({
+                title: 'Success!',
+                text: '{{ session('status') }}',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        </script>
+        @endif
         @stack('scripts')
     </body>
 </html>

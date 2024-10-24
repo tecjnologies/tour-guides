@@ -14,7 +14,7 @@
                 </div>
 				<div class="card-body pl-5">
                     <div class="row mb-4">
-                        <img  class="img-fluid" src="{{ asset('storage/place/'.$place->image) }}" alt="image">
+                        <img  class="img-fluid" src="{{ $place->image }}" alt="image">
                     </div>
                     <div class="row">
                         <h4> <span class="text-primary">Place:</span>  <strong>{{ $place->name }}</strong></h4>  <span style="color: grey"> - Added By <span style="color: rgb(60, 43, 158); font-weight: bold">{{ $place->addedBy }}</span> on {{ $place->created_at->diffForHumans() }}</span>
