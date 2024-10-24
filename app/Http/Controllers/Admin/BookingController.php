@@ -13,7 +13,7 @@ class BookingController extends Controller
 {
     public function pendingBookingList(){
         $pendinglists = Booking::where('approved_status', 'no')
-            ->with('place') // Eager load the place relationship
+            ->with('place')
             ->get();
     
         foreach($pendinglists as $list){

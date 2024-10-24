@@ -692,9 +692,19 @@ hr {
 }
 
 
+
+
 @media only screen and (max-width: 1800px) {
 
 }
+
+
+@media only screen and (max-width: 1366px) {
+  .display-16 {
+    font-size: 12px;
+  }
+}
+
 
 @media only screen and (max-width: 1440px) {
  
@@ -713,8 +723,7 @@ hr {
   }
 
   ._main_menu a {
-    margin-left: 0px !important;
-    margin: 3px 10px !important;
+    margin: 3px !important;
   }
   
   footer ._footer_wrapper {
@@ -734,8 +743,43 @@ hr {
     width: 50%;
   }
 
-
+  .display-16 {
+    font-size: 18px;
+  }
   
+}
+
+@media only screen and (max-width: 991px) {
+  .display-16 {
+      font-size: 14px;
+  }
+
+  .col-md-6, .col-md-4  {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .become-our-partner .col-md-4,  ._info_boxes .col-md-4 {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  ._info_boxes {
+    text-align: center;
+  }
+
+  ._logo {
+    width: 50%;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  ._tour_guide_profile ._location {
+    margin: 22px;
+    margin-left: 0px;
+  }
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -750,12 +794,6 @@ hr {
   
   .become-our-partner {
     display: block;
-  }
-
-  .become-our-partner .col-md-4,  ._info_boxes .col-md-4 {
-    flex: 0 0 auto;
-    width: 100%;
-    margin-bottom: 30px;
   }
 
   ._footer_menu {
@@ -814,7 +852,7 @@ hr {
 
 }
 
-@media only screen and (max-width: 525px) {
+@media only screen and (max-width: 550px) {
 
 
   .banner-right-column .buttons {
@@ -995,10 +1033,9 @@ hr {
   ._about_me_text.py-3 {
     padding-left: 8px !important;
   }
-
-  .detials .button a, .banner-right-column .buttons a
-   {
-    margin: 7px 0px !important;
+  
+  ._about_me_text ._gallery ._item {
+    margin: 10px 0px;
   }
 
   ._discovering_regions  ._title{

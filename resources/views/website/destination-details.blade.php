@@ -41,11 +41,11 @@
                 </div>
               
                 <div class="_about_me_text">
-                    <div class="row my-4">
+                    <div class="row my-4 _gallery">
                         @isset($destination->gallery)
                             @forelse ($destination->gallery as $index => $gallery)
-                                <div class="{{ $loop->first ? 'col-lg-6 col-md-12 my-md-3' : 'col-lg-3 col-md-12 my-md-3' }}">
-                                    <img src="{{ $gallery->image }}" alt="check-mark" class="w-100 h-100" />
+                                <div class="{{ $loop->first ? 'col-lg-6 col-md-12 my-md-3 _item' : 'col-lg-3 col-md-12 my-md-3 _item' }}">
+                                    <img src="{{ $gallery->image }}" alt="check-mark" class="w-100 h-100 " />
                                 </div>
                             @empty
                                 <p class="font-4 display-16 color-red">

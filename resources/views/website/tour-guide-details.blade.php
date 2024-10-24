@@ -59,7 +59,7 @@
                 <div class="tour-guide-banner px-5">
                     <div class="row py-3 tour-guide-details pt-lg-5 pt-md-4"
                         style="background-image: url({{ asset('assets/images/homepage/blue-bar-background.png') }});">
-                        <div class="col-lg-8 col-md-6  d-flex justify-content-start align-items-end flex-wrap pt-3">
+                        <div class="col-xl-8 col-md-6  d-flex justify-content-start align-items-end flex-wrap pt-3">
                             <div class="profile-iamge me-4">
                                 <img src="{{ $tourGuide->image }}" alt="{{ $tourGuide->name }}" />
                             </div>
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 d-flex justify-content-between align-items-center flex-column banner-right-column">
+                        <div class="col-xl-4 col-md-6 d-flex justify-content-between align-items-center flex-column banner-right-column">
                             <h2 class="color-white font-2 display-20 d-none d-md-block"> TruTour guide </h2>
                             <div class="buttons d-flex justify-content-start align-items-center flex-wrap">
                                 <button id="shareButton"
@@ -130,7 +130,7 @@
             </div>
         </div>
         <div class="row px-5">
-            <div class="col-md-9 _about_me pe-4">
+            <div class="col-xl-9 _about_me pe-4">
                 <div class="_about_me_text">
                     <h3 class="font-2 display-20 color-blue"> About me </h3>
                     <hr />
@@ -244,7 +244,7 @@
                     <x-tour-guide.recent-reviews :data="$topDestinations" :options="$sliderOptions" class="w-auto" />
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-xl-3">
                 <div class="_sidebar p-4">
                     <div class="d-flex justify-content-start align-items-center">
                         <div class="profile-rounded">

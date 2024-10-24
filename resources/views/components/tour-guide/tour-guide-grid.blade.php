@@ -91,7 +91,7 @@
 <hr/>
 <div class="row px-5">
    @forelse($tourGuides as $guide)
-    <div class="col-lg-4 col-md-6 my-4 px-4 pl-0 cursor-pointer" href="route('home')">
+    <div class="col-xl-4 col-lg-4 col-md-6 my-4 px-4 pl-0 cursor-pointer" href="route('home')">
         <a href="{{ route('show.tourguide', $guide->id) }}">
             <div class="row _tour_guide_grid">
                 <div class="col-5 pe-0 image position-relative">
