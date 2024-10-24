@@ -1,8 +1,8 @@
 @extends('layouts.frontend.master')
 @section('content')
-<div class="container-fluid login-register-image">
-    <div class="row justify-content-center" style="padding-top: 180px; padding-bottom: 105px;">
-        <div class="col-md-4">
+<div class="container-fluid login-register-image d-flex justify-content-center  align-items-center">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
             <div class="card p-4 rounded">
                 <div class="_logo text-center">
                     <a href="{{ route('home') }}">

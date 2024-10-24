@@ -7,6 +7,7 @@
 <div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col-md-6 m-5">
+			@include('partial.successMessage')
 			<div class="card">
 				<div class="card-header bg-info"><strong>Your Profile</strong></div>
 				<div class="card-body">

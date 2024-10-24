@@ -78,5 +78,6 @@ class DashboardController extends Controller
 
         session()->flash('success', 'Profile Updated Successfully');
         return redirect(route('admin.profile.show'));
+        
     }
 }
