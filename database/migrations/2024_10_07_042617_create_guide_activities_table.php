@@ -12,15 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('guide_activities', function (Blueprint $table) {
-        
             $table->id();
-            $table->unsignedInteger('guide_id');
-            $table->unsignedInteger('activity_id');
+            $table->foreignId('guide_id')->constrained('guides')->onDelete('cascade');
+            $table->foreignId('activity_id')->constrained('activities')->onDelete('cascade');
             $table->timestamps();
-
-            $table->foreign('guide_id')->references('id')->on('guides')->onDelete('cascade');
-            $table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');
-        
         });
     }
 
@@ -30,14 +25,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('guide_activities', function (Blueprint $table) {
-            
+            // Dropping foreign keys before dropping the columns
             $table->dropForeign(['guide_id']);
-            $table->dropColumn('guide_id');
-            
             $table->dropForeign(['activity_id']);
-            $table->dropColumn('activity_id');
-
-
         });
+
+        Schema::dropIfExists('guide_activities'); // Drop the table itself
     }
 };

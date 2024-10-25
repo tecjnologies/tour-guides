@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $destinations = Place::with('district')->get();
+        $destinations = Place::with('district')->latest()->get();
         $packages = Package::all()->take(3);
         $districts = District::latest()->get();
         $tourGuides = Guide::with('guideLanguages')->get();
