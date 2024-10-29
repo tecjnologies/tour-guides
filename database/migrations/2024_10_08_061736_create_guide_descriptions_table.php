@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('guide_descriptions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('guide_id');
+            $table->unsignedBigInteger('guide_id'); // Change to unsignedBigInteger
             $table->boolean('isCertified')->default(false);
             $table->boolean('highRatings')->default(false);
             $table->boolean('responsiveGuide')->default(false);
@@ -23,7 +23,6 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('guide_id')->references('id')->on('guides')->onDelete('cascade');
-
         });
     }
 
@@ -32,10 +31,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guide_descriptions');
         Schema::table('guide_descriptions', function (Blueprint $table) {
-            $table->dropForeign(['guide_id']);
-            $table->dropColumn('guide_id');
+            $table->dropForeign(['guide_id']); // Drop foreign key first
         });
+
+        Schema::dropIfExists('guide_descriptions'); // Then drop the table
     }
 };

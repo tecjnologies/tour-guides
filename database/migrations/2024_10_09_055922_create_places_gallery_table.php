@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('places_gallery', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('place_id');
+            $table->unsignedBigInteger('place_id'); 
             $table->string('image');
             $table->timestamps();
 
@@ -26,6 +26,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('places_gallery', function (Blueprint $table) {
+            $table->dropForeign(['place_id']);
+        });
+
         Schema::dropIfExists('places_gallery');
     }
 };

@@ -21,6 +21,7 @@ class UsersTableSeeder extends Seeder
             'contact' => '01670605075',
             'password' => bcrypt('rootadmin'),
             'created_at' => '2020-09-01 21:18:10',
+            'email_verified_at' => '2020-09-01 21:18:10',
             'updated_at' => '2020-09-01 21:18:10',
         ]);
 
@@ -31,6 +32,7 @@ class UsersTableSeeder extends Seeder
             'contact' => '01712121212',
             'password' => bcrypt('rootuser'),
             'created_at' => '2020-09-01 21:18:10',
+            'email_verified_at' => '2020-09-01 21:18:10',
             'updated_at' => '2020-09-01 21:18:10',
         ]);
     }

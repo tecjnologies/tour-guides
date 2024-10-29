@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('guide_private_destinations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('guide_id');
-            $table->unsignedInteger('place_id');
+            $table->unsignedBigInteger('guide_id');
+            $table->unsignedBigInteger('place_id');
             $table->boolean('is_private')->default(false);
             $table->timestamps();
 
@@ -29,7 +29,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('guide_private_destinations', function (Blueprint $table) {
-            
             $table->dropForeign(['guide_id']);
             $table->dropColumn('guide_id');
             
@@ -37,8 +36,6 @@ return new class extends Migration
             $table->dropColumn('place_id');
 
             $table->dropColumn('is_private');
-
-
         });
     }
 };
