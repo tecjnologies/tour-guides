@@ -103,7 +103,8 @@
                 <div class="_tour_content col-7 border-start rounded-end  d-flex justify-content-center
                              align-items-center flex-column">
                     <div class="detail pt-2">
-                        <h3 class="font-2 display-20 color-blue"> {{ $guide->name }}  </h3>
+                        {{-- <h3 class="font-2 display-20 color-blue"> {{ $guide->name }}  </h3> --}}
+                        <h3 class="font-2 display-20 color-blue"> {{ substr($slide->name, 0, 20) }} </h3>
                         <p class="font-4 display-14 color-black py-3">Emirate: {{ $guide->address }} </p>
                         <p class="font-4 display-14 color-black">Experience: {{ $guide->experience }}  years</p>
                         <p class="font-4 display-14 color-black py-3">Languages: 

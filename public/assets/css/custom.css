@@ -630,7 +630,7 @@ hr {
 }
 
 ._tour_guide_grid img:first-child,
-._tour_guide img:first-child {
+._tour_guide img:second-child {
   height: 234px;
 }
 
