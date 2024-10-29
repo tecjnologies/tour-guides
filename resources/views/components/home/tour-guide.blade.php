@@ -35,7 +35,7 @@
                                         align-items-center flex-column">
                                 <div class="detail pt-2">
                                     {{-- <h3 class="font-2 display-20 color-blue"> {{ $slide->name }} </h3> --}}
-                                    <h3 class="font-2 display-20 color-blue"> {{ substr($slide->name, 0, 20) }} </h3>
+                                    <h3 class="font-2 display-20 color-blue"> {{ substr($slide->name, 0, 15) }} </h3>
                                     <p class="font-4 display-14 color-black py-3">Emirate: {{ $slide->address }}</p>
                                     <p class="font-4 display-14 color-black">Experience: {{ $slide->experience }} years</p>
                                     <p class="font-4 display-14 color-black py-3">Languages: 

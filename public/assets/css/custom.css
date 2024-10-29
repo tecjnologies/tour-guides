@@ -641,10 +641,17 @@ hr {
 
 }
 
-._tour_guide_grid .image:first-child,
-._tour_guide image:second-child {
-  height: 234px;
+._tour_guide_grid .image,
+._tour_guide .image {
+  height: 252px;
 }
+
+
+._tour_guide_grid .image img,
+._tour_guide .image img{
+  height: 100%;
+}
+
 
 ._sidebar .profile-rounded img {
   width: 100px;
