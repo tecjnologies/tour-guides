@@ -36,7 +36,8 @@
                                     </ul>
                                 </div>
                                 <div class="details">
-                                        <h3 class="font-4 display-22 color-black"> {{ $slide->name }} </h3>
+                                        {{-- <h3 class="font-4 display-22 color-black"> {{ $slide->name }} </h3> --}}
+                                        <h3 class="font-2 display-20 color-blue"> {{ substr($slide->name, 0, 20) }} </h3>
                                         <p class="font-4 display-16 color-black">  {{ $slide->district->name }}   </p>
                                 </div>
                             </a>

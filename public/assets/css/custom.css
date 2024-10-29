@@ -364,6 +364,11 @@ form select, form input {
 ._popular_destinations .image{
   position: relative;
 }
+
+._popular_destinations .slick-slide .image img:first-child {
+  height: 365px;
+}
+
 ._popular_destinations ._like_dislike {
   position: absolute;
   top: 0;
