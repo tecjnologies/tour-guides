@@ -26,7 +26,8 @@ use App\Http\Controllers\Admin\
     BookingController,
     BannerController,
     DashboardController,
-    ActivityController
+    ActivityController,
+    TourTypeController
 };
 
 
@@ -53,8 +54,7 @@ Route::get('/join-us', function () {
     return view('website.join-us');
 })->name('join-us');
 
-Route::get('/
--help', function () {
+Route::get('/get-help', function () {
     return view('website.get-help');
 })->name('get-help');
 
@@ -93,6 +93,7 @@ Route::group([
 
     Route::resource('district', DistrictController::class);
     Route::resource('type', TypeController::class);
+    Route::resource('tourtype', TourTypeController::class);
     Route::resource('place', PlaceController::class);
     Route::resource('banner', BannerController::class);
     Route::resource('activity', ActivityController::class);

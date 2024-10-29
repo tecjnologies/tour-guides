@@ -88,6 +88,15 @@
           </li>
 
           <li class="nav-item has-treeview">
+            <a href="{{ route('admin.tourtype.index') }}" class="nav-link {{ Request::is('admin/tourtype*') ? 'active' : '' }}">
+              <i class="fas fa-atlas"></i>
+              <p class="ml-2">
+                Tour Type
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview">
             <a href="{{ route('admin.activity.index') }}" class="nav-link {{ Request::is('admin/activity*') ? 'active' : '' }}">
               <i class="fa fa-user" aria-hidden="true"></i>
               <p class="ml-2">

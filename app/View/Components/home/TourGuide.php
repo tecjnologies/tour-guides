@@ -2,6 +2,7 @@
 
 namespace App\View\Components\home;
 
+use App\Models\Tourtype;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -20,6 +21,10 @@ class TourGuide extends Component
     {
         $this->data = $data;
         $this->options = $options; // Assign options to the class property
+    }
+
+    public function tourtype(){
+        return $this->belongsTo(Tourtype::class);
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Models\Activity;
 use App\Models\GuideDescription;
 use App\Models\Language;
 use App\Models\Place;
+use App\Models\Tourtype;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -38,8 +39,9 @@ class GuideController extends Controller
         $activities = Activity::where('isActive', true)->get();
         $languages = Language::all();
         $places = Place::all();
+        $tourtypes = Tourtype::all();
         $otherDestinations = Place::all();
-        return view('admin.guide.create',compact('activities','languages','places','otherDestinations') );
+        return view('admin.guide.create',compact('activities','languages','places','otherDestinations', 'tourtypes') );
     }
 
     /**
@@ -85,6 +87,8 @@ class GuideController extends Controller
             'address' => $request->address,
             'price' => $request->price,
             'experience' => $request->experience,
+            'itinerary' => $request->itinerary,
+            'customized' => $request->customized,
         ]);
         
         $guide->image = $imageName;
@@ -92,6 +96,7 @@ class GuideController extends Controller
         
         $this->createGuideDescription($guide->id, $request);
         $guide->activities()->sync($request->activities);
+        $guide->tourTypes()->sync($request->tourtypes);
         $guide->guideLanguages()->sync($request->languages);
 
         $guide->privateDestinations()->syncWithoutDetaching(collect($request->privateDestinations)->mapWithKeys(function ($id) {
@@ -159,11 +164,12 @@ class GuideController extends Controller
     {
 
         $guide = Guide::find($guide->id);
-        $guide->load('activities', 'guideLanguages','description','privateDestinations','otherDestinations');
+        $guide->load('activities', 'guideLanguages','description','privateDestinations','otherDestinations','tourTypes');
         $languages = Language::all();
         $places = Place::all();
+        $tourtypes = Tourtype::all();
         $activities = Activity::where('isActive' , true)->get();
-        return view('admin.guide.edit',compact('guide','languages', 'activities','places'));
+        return view('admin.guide.edit',compact('guide','languages', 'activities','places','tourtypes'));
 
     }
 
@@ -214,10 +220,13 @@ class GuideController extends Controller
         $guide->address = $request->address;
         $guide->price = $request->price;
         $guide->experience = $request->experience;
+        $guide->itinerary = $request->itinerary ?? null;
+        $guide->customized = $request->customized ?? null;
     
         $this->updateGuideDescription($id, $request);
         $guide->activities()->sync($request->activities);
         $guide->guideLanguages()->sync($request->languages);
+        $guide->tourTypes()->sync($request->tourtypes);
     
         // Prepare data for private and other destinations with is_private flag
         $privateDestinations = collect($request->privateDestinations)->mapWithKeys(function ($id) {

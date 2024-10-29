@@ -20,6 +20,12 @@ class Guide extends Model
         return asset('storage/guide/' . $value);
     }
 
+   
+    public function tourTypes()
+    {
+        return $this->belongsToMany(Tourtype::class, 'guide_tourtypes', 'guide_id', 'tourtype_id');
+    }
+
     public function activities()
     {
         return $this->belongsToMany(Activity::class, 'guide_activities', 'guide_id', 'activity_id');

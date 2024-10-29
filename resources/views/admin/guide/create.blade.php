@@ -71,6 +71,27 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="itinerary"> Itinerary Sample </label>
+                                <input id="itinerary" type="hidden" name="itinerary" value="{{ old('itinerary') }}">
+                                <trix-editor input="itinerary"></trix-editor>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="isCustomized" name="isCustomized"
+                                           {{ old('isCustomized', $model->isCustomized ?? false) ? 'checked' : '' }}>
+                                    Is Customized Tour
+                                </label>
+                            </div>
+                            
+                            <div class="form-group" id="customizedTourGroup" style="display: none;">
+                                <label for="customized">Feel free to add any additional comments or details about the customization options you provide </label>
+                                <input id="customized" type="hidden" name="customized" value="{{ old('customized', $model->customized ?? '') }}">
+                                <trix-editor input="customized"></trix-editor>
+                            </div>
+
+                            <div class="form-group">
                                 <label>Languages</label>
                                 <select class="form-control select-languages" data-placeholder="Choose Language"
                                     name="languages[]" multiple>
@@ -91,6 +112,19 @@
                                         <option value="{{ $activity->id }}"
                                             {{ in_array($activity->id, old('activities', [])) ? 'selected' : '' }}>
                                             {{ $activity->title }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Choose Tour Types</label>
+                                <select class="form-control select-activitites" data-placeholder="Choose Tourtype"
+                                    name="tourtypes[]" multiple>
+                                    @foreach ($tourtypes as $tourtype)
+                                        <option value="{{ $tourtype->id }}"
+                                            {{ in_array($tourtype->id, old('tourtypes', [])) ? 'selected' : '' }}>
+                                            {{ $tourtype->name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -175,6 +209,17 @@
             $('.select-private').chosen();
             
         })
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const isCustomizedCheckbox = document.getElementById('isCustomized');
+            const customizedTourGroup = document.getElementById('customizedTourGroup');
+
+            customizedTourGroup.style.display = isCustomizedCheckbox.checked ? 'block' : 'none';
+
+            isCustomizedCheckbox.addEventListener('change', function () {
+                customizedTourGroup.style.display = this.checked ? 'block' : 'none';
+            });
+         });
     </script>
 @endsection
 
