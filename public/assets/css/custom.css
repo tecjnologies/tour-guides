@@ -367,6 +367,13 @@ form select, form input {
 
 ._popular_destinations .slick-slide .image img:first-child {
   height: 365px;
+  border-radius: 10px
+}
+
+
+._top_destinations .image img:first-child {
+  height: 365px;
+  border-radius: 10px;
 }
 
 ._popular_destinations ._like_dislike {
@@ -634,8 +641,8 @@ hr {
 
 }
 
-._tour_guide_grid img:first-child,
-._tour_guide img:second-child {
+._tour_guide_grid .image:first-child,
+._tour_guide image:second-child {
   height: 234px;
 }
 
