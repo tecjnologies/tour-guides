@@ -13,15 +13,23 @@ return new class extends Migration
     {
         Schema::create('guide_languages', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('guide_id');
-            $table->unsignedBigInteger('language_id');
+            $table->bigInteger('guide_id')->unsigned(); // Use `bigInteger` and `unsigned` to match `guides->id`
+            $table->bigInteger('language_id')->unsigned(); // Use `bigInteger` and `unsigned` to match `languages->id`
             $table->timestamps();
-
-            $table->foreign('guide_id')->references('id')->on('guides')->onDelete('cascade');
-            $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
+    
+            // Foreign key constraints
+            $table->foreign('guide_id')
+                  ->references('id')
+                  ->on('guides')
+                  ->onDelete('cascade');
+    
+            $table->foreign('language_id')
+                  ->references('id')
+                  ->on('languages')
+                  ->onDelete('cascade');
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */
