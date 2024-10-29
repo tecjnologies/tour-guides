@@ -6,40 +6,28 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+   
     public function up(): void
-{
-    Schema::create('guide_languages', function (Blueprint $table) {
-        $table->id();
-        $table->unsignedBigInteger('guide_id'); // Ensure unsignedBigInteger
-        $table->unsignedBigInteger('language_id'); // Ensure unsignedBigInteger
-        $table->timestamps();
-
-        // Adding the foreign key constraints
-        $table->foreign('guide_id')
-              ->references('id')
-              ->on('guides')
-              ->onDelete('cascade');
-
-        $table->foreign('language_id')
-              ->references('id')
-              ->on('languages')
-              ->onDelete('cascade');
-    });
+    {
+        Schema::create('guide_languages', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('guide_id')->constrained('guides')->onDelete('cascade');
+            $table->foreignId('language_id')->constrained('languages')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-       Schema::table('guide_languages', function (Blueprint $table) {
+        Schema::table('guide_languages', function (Blueprint $table) {
+            // Dropping foreign keys before dropping the columns
             $table->dropForeign(['guide_id']);
             $table->dropForeign(['language_id']);
-            
-            $table->dropColumn('guide_id');
-            $table->dropColumn('language_id');
         });
+
+        Schema::dropIfExists('guide_languages'); // Drop the table itself
     }
 };
