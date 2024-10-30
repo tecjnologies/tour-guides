@@ -365,7 +365,7 @@ form select, form input {
   position: relative;
 }
 
-._popular_destinations .image ._place_image:second-child {
+._popular_destinations .image ._place_image {
   height: 365px;
   border-radius: 10px
 }
