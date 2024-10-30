@@ -62,6 +62,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/package/booking', [HomeController::class, 'storeBookingRequest'])->name('store.package.booking');
+    Route::match(['get', 'post'], '/favorite/{placeId}', [HomeController::class, 'toggleFavorite'])->name('toggle-favourites');
 });
 
 Route::get('/about', [HomeController::class , 'about'])->name('about');
@@ -73,7 +75,7 @@ Route::get('/package-list', [HomeController::class, 'allPackage'])->name('all.pa
 Route::get('/district/{id}', [HomeController::class, 'districtWisePlace'])->name('district.wise.place');
 Route::get('/placetype/{id}', [HomeController::class, 'placetypeWisePlace'])->name('placetype.wise.place');
 Route::get('/package/booking/{id}', [HomeController::class, 'packageBooking'])->name('package.booking');
-Route::get('/package/booking', [HomeController::class, 'storeBookingRequest'])->name('store.package.booking')->middleware('auth');;
+
 
 Auth::routes(['verify' => true]);
 

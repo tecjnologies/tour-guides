@@ -365,7 +365,7 @@ form select, form input {
   position: relative;
 }
 
-._popular_destinations .slick-slide .image img:first-child {
+._popular_destinations .image ._place_image:second-child {
   height: 365px;
   border-radius: 10px
 }

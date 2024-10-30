@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Placetype, Place, Package,Guide , District, Booking, About, Banner};
-use App\Models\Language;
+use App\Models\{Placetype, Place, Package,Guide , District, Booking, About, Banner, Favorite};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class HomeController extends Controller
 {
     /**
@@ -31,8 +29,6 @@ class HomeController extends Controller
         $districts = District::latest()->get();
         $tourGuides = Guide::with('guideLanguages')->get();
         $banner = Banner::latest()->first();
-
-
         $places = Place::all();
         $placeTypes = Placetype::all();
 
@@ -120,5 +116,21 @@ class HomeController extends Controller
     
         session()->flash('success', 'Your Booking Request Send Successfully, Please wait for admin approval');
         return redirect()->back();
+    }
+
+    public function toggleFavorite($placeId)
+    {
+        $user = Auth::user();
+        $favorite = Favorite::where('user_id', $user->id)->where('place_id', $placeId)->first();
+        if ($favorite) {
+            $favorite->delete();
+            return response()->json(['message' => 'Place removed from favorites']);
+        } else {
+            Favorite::create([
+                'user_id' => $user->id,
+                'place_id' => $placeId
+            ]);
+            return response()->json(['message' => 'Place added to favorites']);
+        }
     }
 }

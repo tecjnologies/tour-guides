@@ -31,6 +31,7 @@
                 icon: 'success',
                 confirmButtonText: 'OK'
             });
+
         </script>
         @endif
         @stack('scripts')

@@ -3,9 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+
 
 class Place extends Model
 {
+
+    protected $appends = ['is_favorite'];
+ 
     public function placetype(){
         return $this->belongsTo(Placetype::class);
     }
@@ -31,5 +36,17 @@ class Place extends Model
     public function getImageAttribute($value)
     {
         return asset('storage/place/' . $value);
+    }
+
+    public function favoritedBy()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+    
+
+    public function getIsFavoriteAttribute()
+    {
+        $userId = Auth::id();
+        return $this->favoritedBy->contains('user_id', $userId);
     }
 }
