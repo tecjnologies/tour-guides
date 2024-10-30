@@ -14,6 +14,11 @@ use App\Http\Controllers\User\{
     BookingController as  UserBookingController 
 } ;
 
+use App\Http\Middleware\{
+    RoleMiddleware,
+    Authenticate
+};
+
 use App\Http\Controllers\Admin\
 {
     DistrictController,
@@ -31,41 +36,20 @@ use App\Http\Controllers\Admin\
 };
 
 
+Route::get('/test-role', function () {
+    return 'This is a test route.';
+})->middleware(RoleMiddleware::class . ':admin');
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index']);
-
 Route::get('/tour-guides-profile', [TourGuideController::class, 'index'])->name('tour-guides-profile');
 Route::get('/tour-guides-profile/{id}', [TourGuideController::class, 'show'])->name('show.tourguide');
 Route::post('/tour-guides-profile/search', [TourGuideController::class, 'search'])->name('search.tour-guide');
-
-
-// Route::get('/book-your-guide', function () {
-//     return view('website.book-your-guide');
-// })->name('book-your-guide');
-
 Route::get('/destination-details/{id}', [DestinationController::class, 'show'])->name('show.destination');
 Route::delete('/destination-image/{id}', [DestinationController::class, 'destroyImage'])->name('images.destroy');
-
-Route::get('/destinations', function () {
-    return view('website.destinations');
-})->name('destinations');
-
-Route::get('/join-us', function () {
-    return view('website.join-us');
-})->name('join-us');
-
-Route::get('/get-help', function () {
-    return view('website.get-help');
-})->name('get-help');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/package/booking', [HomeController::class, 'storeBookingRequest'])->name('store.package.booking');
-    Route::match(['get', 'post'], '/favorite/{placeId}', [HomeController::class, 'toggleFavorite'])->name('toggle-favourites');
-});
-
+Route::get('/destinations', function () {  return view('website.destinations'); })->name('destinations');
+Route::get('/join-us', function () {  return view('website.join-us');})->name('join-us');
+Route::get('/get-help', function () { return view('website.get-help');})->name('get-help');
 Route::get('/about', [HomeController::class , 'about'])->name('about');
 Route::get('/search', [HomeController::class,'search'])->name('searc`           `h');
 Route::get('/place/details/{id}', [HomeController::class, 'placeDdetails'])->name('place.details');
@@ -76,23 +60,21 @@ Route::get('/district/{id}', [HomeController::class, 'districtWisePlace'])->name
 Route::get('/placetype/{id}', [HomeController::class, 'placetypeWisePlace'])->name('placetype.wise.place');
 Route::get('/package/booking/{id}', [HomeController::class, 'packageBooking'])->name('package.booking');
 
-
 Auth::routes(['verify' => true]);
 
-Route::group([
-    'as' => 'admin.',
-    'prefix' => 'admin',
-    'middleware' => [
-        'auth',
-        'verified',
-    ]
-], function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/package/booking', [HomeController::class, 'storeBookingRequest'])->name('store.package.booking');
+    Route::match(['get', 'post'], '/favorite/{placeId}', [HomeController::class, 'toggleFavorite'])->name('toggle-favourites');
+});
 
+Route::group(['as' => 'admin.', 'prefix' => 'admin','middleware' => [ Authenticate::class , 'verified', RoleMiddleware::class . ':admin' ]], function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('profile-info', [DashboardController::class, 'showProfile'])->name('profile.show');
     Route::get('profile-info/edit/{id}', [DashboardController::class, 'editProfile'])->name('profile.edit');
     Route::post('profile-info/update', [DashboardController::class, 'updateProfile'])->name('profile.update');
-
     Route::resource('district', DistrictController::class);
     Route::resource('type', TypeController::class);
     Route::resource('tourtype', TourTypeController::class);
@@ -104,7 +86,6 @@ Route::group([
     Route::resource('users', UsersController::class);
     Route::resource('package', PackageController::class);
     Route::get('list', [UsersController::class, 'adminList'])->name('list');
-
     Route::get('booking-request/list', [BookingController::class, 'pendingBookingList'])->name('pending.booking');
     Route::post('booking-request/approve/{id}', [BookingController::class, 'bookingApprove'])->name('booking.approve');
     Route::post('booking-request/remove/{id}', [BookingController::class, 'bookingRemoveByAdmin'])->name('booking.remove');
@@ -113,37 +94,14 @@ Route::group([
     Route::get('tour-history/list', [BookingController::class, 'tourHistory'])->name('tour.history');
 });
 
-Route::group([
-    'as' => 'user.',
-    'prefix' => 'user',
-    'middleware' => [
-        'auth',
-        'verified',
-    ]
-], function () {
+Route::group(['as' => 'user.','prefix' => 'user','middleware' => [ 'auth','verified', RoleMiddleware::class . ':user']], function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
     Route::get('profile-info', [UserDashboardController::class, 'showProfile'])->name('profile.show');
     Route::get('profile-info/edit/{id}', [UserDashboardController::class, 'editProfile'])->name('profile.edit');
     Route::post('profile-info/update', [UserDashboardController::class, 'updateProfile'])->name('profile.update');
-
-    Route::get('districts', [UserDashboardController::class, 'getDistrict'])->name('district');
-    Route::get('placetypes', [UserDashboardController::class, 'getPlaceType'])->name('placetype');
-    
-    Route::get('places', [UserDashboardController::class, 'getPlaces'])->name('place');
-    Route::get('places/{id}', [UserDashboardController::class, 'getPlaceDetails'])->name('place.show');
-
-    Route::get('guides', [UserDashboardController::class, 'getGuides'])->name('guide');
-    Route::get('guide/{id}', [UserDashboardController::class, 'getGuideDetails'])->name('guide.show');
-
-    Route::get('packages', [UserDashboardController::class, 'getPackage'])->name('package');
-    Route::get('packages/{id}', [UserDashboardController::class, 'getPackageDetails'])->name('package.show');
-
-    Route::get('tour-history/list', [UserBookingController::class, 'tourHistory'])->name('tour.history');
     Route::get('booking-request/list', [UserBookingController::class, 'pendingBookingList'])->name('pending.booking');
     Route::post('booking-request/cancel/{id}', [UserBookingController::class, 'canceLBookingRequest'])->name('booking.cancel');
 });
-
-
 
 View::composer('layouts.frontend.inc.footer', function($view){
     $placetypes = App\Models\Placetype::all();

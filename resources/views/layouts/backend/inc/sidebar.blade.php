@@ -180,7 +180,8 @@
           @endif
 
           @if (Request::is('user*'))
-            
+          
+          {{--             
             <li class="nav-item has-treeview">
               <a href="{{ route('user.dashboard') }}" class="nav-link {{ Request::is('user/dashboard') ? 'active' : '' }}">
                 <i class="fas fa-tachometer-alt"></i>
@@ -189,37 +190,37 @@
                  
                 </p>
               </a>
-            </li>
+            </li> --}}
 
 
-            <li class="nav-item has-treeview">
+            {{-- <li class="nav-item has-treeview">
               <a href="{{ route('user.district') }}" class="nav-link {{ Request::is('user/districts') ? 'active' : '' }}">
                 <i class="fas fa-chart-area"></i>
                 <p class="ml-2">
                   District
                 </p>
               </a>
-            </li>
+            </li> --}}
 
-            <li class="nav-item has-treeview">
+            {{-- <li class="nav-item has-treeview">
               <a href="{{ route('user.placetype') }}" class="nav-link {{ Request::is('user/placetypes') ? 'active' : '' }}">
                 <i class="fas fa-atlas"></i>
                 <p class="ml-2">
                   Place Type
                 </p>
               </a>
-            </li>
+            </li> --}}
 
-            <li class="nav-item has-treeview">
+            {{-- <li class="nav-item has-treeview">
               <a href="{{ route('user.place') }}" class="nav-link {{ Request::is('user/places*') ? 'active' : '' }}">
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                 <p class="ml-2">
                   Places
                 </p>
               </a>
-            </li>
+            </li> --}}
 
-            <li class="nav-item has-treeview">
+            {{-- <li class="nav-item has-treeview">
               <a href="{{ route('user.guide') }}" class="nav-link {{ Request::is('user/guide*') ? 'active' : '' }}">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <p class="ml-2">
@@ -235,7 +236,7 @@
                       Packages
                 </p>
               </a>
-            </li>
+            </li> --}}
 
             <li class="nav-item has-treeview">
               <a href="{{ route('user.profile.show') }}" class="nav-link {{ Request::is('user/profile-info*') ? 'active' : '' }}">
@@ -256,15 +257,55 @@
             </li>
     
 
-            <li class="nav-item has-treeview">
+            {{-- <li class="nav-item has-treeview">
               <a href="{{ route('user.tour.history') }}" class="nav-link {{ Request::is('user/tour-history/list') ? 'active' : '' }}">
                 <i class="fas fa-history"></i>
                   <p class="ml-2">
                       Tour History
                 </p>
               </a>
+            </li> --}}
+
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="fas fa-pager"></i>
+                  <p class="ml-2">
+                    Terms & Conditions
+                </p>
+              </a>
             </li>
 
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="fas fa-pager"></i>
+                  <p class="ml-2">
+                    Privacy Policy
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="fas fa-pager"></i>
+                  <p class="ml-2">
+                    Refund Policy
+                </p>
+              </a>
+            </li>
+
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="fas fa-pager"></i>
+                  <p class="ml-2">
+                   My Favourites
+                </p>
+              </a>
+            </li>
+
+
+            
             <li class="nav-item has-treeview">
               <a href="{{ route('home') }}" class="nav-link">
                 <i class="fas fa-pager"></i>
@@ -273,7 +314,6 @@
                 </p>
               </a>
             </li>
-
 
           @endif
         </ul>

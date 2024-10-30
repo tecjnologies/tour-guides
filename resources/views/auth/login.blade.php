@@ -67,6 +67,11 @@
                             <div class="mt-3 text-center mx-auto">
                                 <a href="{{ route('register') }}" class="float-right">Don't have account? Please sign up</a>
                             </div>
+
+                            <div class="mt-3 text-center mx-auto">
+                                <a href="{{ url()->previous() }}" class="btn bg-orange border rounded color-white w-100"> Back </a>
+                            </div>
+                            
                         </div>
                     </form>
                 </div>

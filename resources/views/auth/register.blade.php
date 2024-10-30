@@ -86,12 +86,18 @@
                             </div>
                         </div>
                         
-                        <div class="form-group row px-4 text-right">
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary">
+                        <div class="form-group row d-flex justify-content-end align-items-center px-4 mt-3">
+                            <div class="d-flex mr-3">
+                                <button type="submit" class="btn btn-primary px-4">
                                     {{ __('Register') }}
                                 </button>
                             </div>
+
+                            <div class="d-flex">
+                                <a href="{{ url()->previous() }}" class="btn bg-orange border rounded color-white px-4"> Back </a>
+                            </div>
+
+
                         </div>
                     </form>
                 </div>
