@@ -251,7 +251,7 @@
               <a href="{{ route('user.pending.booking') }}" class="nav-link {{ Request::is('user/booking-request/list') ? 'active' : '' }}">
                 <i class="fas fa-chalkboard"></i>
                   <p class="ml-2">
-                      Pending Request
+                    Bookings
                 </p>
               </a>
             </li>
