@@ -2,6 +2,7 @@
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          colors="true"
+          error_reporting="E_ALL"
 >
     <testsuites>
         <testsuite name="Unit">
