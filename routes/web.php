@@ -35,6 +35,10 @@ use App\Http\Controllers\Admin\
     TourTypeController
 };
 
+use Illuminate\Auth\Notifications\VerifyEmail;
+
+
+Auth::routes(['verify' => true]);
 
 Route::get('/test-role', function () {
     return 'This is a test route.';
@@ -60,7 +64,7 @@ Route::get('/district/{id}', [HomeController::class, 'districtWisePlace'])->name
 Route::get('/placetype/{id}', [HomeController::class, 'placetypeWisePlace'])->name('placetype.wise.place');
 Route::get('/package/booking/{id}', [HomeController::class, 'packageBooking'])->name('package.booking');
 
-Auth::routes(['verify' => true]);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
