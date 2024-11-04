@@ -12,11 +12,11 @@ class banner extends Component
     public $banner;
     public $places;
     public $placeTypes;
-    public $emirates;
+    public $emirates = [];
     /**
      * Create a new component instance.
      */
-    public function __construct($banner, $places , $placeTypes, $districts=[])
+    public function __construct($banner, $places , $placeTypes, $districts)
     {
         
         $this->banner = $banner;
