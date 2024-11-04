@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Favorite extends Model
 {
+
     use HasFactory;
 
     protected $table = "user_favourite";

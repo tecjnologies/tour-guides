@@ -54,7 +54,8 @@ Route::delete('/destination-image/{id}', [DestinationController::class, 'destroy
 Route::get('/destinations', function () {  return view('website.destinations'); })->name('destinations');
 Route::get('/join-us', function () {  return view('website.join-us');})->name('join-us');
 Route::get('/get-help', function () { return view('website.get-help');})->name('get-help');
-Route::get('/about', [HomeController::class , 'about'])->name('about');
+Route::get('/about-us', [HomeController::class , 'about'])->name('about-us');
+Route::get('/favourites', [HomeController::class , 'favourites'])->name('favourites');
 Route::get('/search', [HomeController::class,'search'])->name('searc`           `h');
 Route::get('/place/details/{id}', [HomeController::class, 'placeDdetails'])->name('place.details');
 Route::get('/package/details/{id}', [HomeController::class, 'packageDetails'])->name('package.details');

@@ -18,11 +18,11 @@
             @forelse($data as $slide)
                 <div class="slide mt-5">
                     <div class="extra-slide-content">
-                        <div class="row">
+                        <div class="row border  rounded p-3">
                             <div class="col-md-5 p-0 h-100">
                                 <img src="{{ $slide['image'] }}" alt="vip service"  width="100%"/>
                             </div>
-                            <div class="col-md-7 border-top border-bottom border-end rounded-end">
+                            <div class="col-md-7">
                                 <div class="h-100 d-flex justify-content-center algin-items-center flex-column">
                                     <h3 class="font-2 display-24 color-blue"> {{ $slide['title'] }} </h3>
                                     <p class="font-4 display-14 color-black"> {{ $slide['content'] }} </p>

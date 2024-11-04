@@ -15,6 +15,15 @@
                     @endif
                     Home
                 </x-nav-link>
+
+                <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')" class="font-4 display-16 color-blue">
+                    @if(request()->routeIs('about-us'))
+                        <img src="{{ asset('assets/images/menu/about-active.svg') }}" alt="about-us Active" class="mx-2"/>
+                    @else
+                        <img src="{{ asset('assets/images/menu/about.svg') }}" alt="about-us" class="mx-2"/>
+                    @endif
+                    About us
+                </x-nav-link>
                  <x-nav-link :href="route('tour-guides-profile')" :active="request()->routeIs('tour-guides-profile')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('tour-guides-profile'))
                         <img src="{{ asset('assets/images/menu/tour-guide-active.svg') }}" alt="Tour Guide Profile Active" class="mx-2"/>
@@ -23,15 +32,27 @@
                     @endif
                     Tour Guide Profile
                 </x-nav-link>
+                
+                
                 <x-nav-link :href="route('destinations')" :active="request()->routeIs('destinations')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('destinations'))
                         <img src="{{ asset('assets/images/menu/destinations-active.svg') }}" alt="Destinations Active" class="mx-2"/>
                     @else
                         <img src="{{ asset('assets/images/menu/destinations.svg') }}" alt="Destinations" class="mx-2"/>
                     @endif
-
                     Destinations
                 </x-nav-link>
+                
+                <x-nav-link :href="route('favourites')" :active="request()->routeIs('favourites')" class="font-4 display-16 color-blue">
+                    @if(request()->routeIs('favourites'))
+                        <img src="{{ asset('assets/images/menu/favourites-active.svg') }}" alt="favourites Active" class="mx-2"/>
+                    @else
+                        <img src="{{ asset('assets/images/menu/favourites.svg') }}" alt="favourites" class="mx-2"/>
+                    @endif
+                    Favorites
+                </x-nav-link>
+
+
                 
                 <x-nav-link :href="route('join-us')" :active="request()->routeIs('join-us')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('join-us'))
@@ -70,14 +91,14 @@
                         Login
                     </x-nav-link>
                 @endif
-                <x-nav-link class="font-4 display-16 color-blue">
+                {{-- <x-nav-link class="font-4 display-16 color-blue">
                     @if(request()->routeIs('cart'))
                         <img src="{{ asset('assets/images/menu/cart-active.svg') }}" alt="My Cart Active" class="mx-2"/>
                     @else
                         <img src="{{ asset('assets/images/menu/cart.svg') }}" alt="My Cart" class="mx-2"/>
                     @endif
                     My Cart
-                </x-nav-link>
+                </x-nav-link> --}}
             </div>
             <div class="-me-2 flex items-center md:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">

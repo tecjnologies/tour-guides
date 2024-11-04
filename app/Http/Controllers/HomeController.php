@@ -51,10 +51,26 @@ class HomeController extends Controller
     {
         if(About::all()->count() > 0){
             $about = About::all()->first();
-            return view('about', compact('about'));
+            return view('website.about', compact('about'));
+        }else{
+            $about = new About();
+            return view('website.about', compact('about'));
         }
-        return view('about');
     }
+
+    public function favourites()
+    {
+        $favourites = collect();
+        $favorite = Favorite::where('user_id', Auth::id())->get();
+        
+        if ($favorite->count() > 0) {
+            $favourites = $favorite; 
+        }
+        
+        return view('website.favourites', compact('favourites'));
+    }
+
+    
 
     public function placeDdetails($id)
     {

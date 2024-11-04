@@ -4,13 +4,13 @@
             <div class="flex justify-center">
                 <x-website.application-light-logo class="h-12 w-auto" />
             </div>
-            <div class="flex space-x-6 _footer_menu">
+            {{-- <div class="flex space-x-6 _footer_menu">
                 <x-nav-link :href="route('home')" class="font-4 display-14 color-white">Home</x-nav-link>
                 <x-nav-link :href="route('tour-guides-profile')" class="font-4 display-14 color-white">Tour Guide Profile</x-nav-link>
                 <x-nav-link :href="route('destinations')" class="font-4 display-14 color-white">Attractions</x-nav-link>
                 <x-nav-link :href="route('join-us')" class="font-4 display-14 color-white">Join us</x-nav-link>
                 <x-nav-link :href="route('get-help')" class="font-4 display-14 color-white">Get Help</x-nav-link>
-            </div>
+            </div> --}}
         </div>
         <div class="flex space-x-4 align-items-center _social_links">
             <h3 class="font-4 display-14 color-white m-0"> FOLLOW US: </h3>

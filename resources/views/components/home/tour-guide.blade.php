@@ -22,17 +22,17 @@
             <a  href="{{ route('show.tourguide', $slide->id) }}">
                 <div class="slide">
                     <div class="extra-slide-content">
-                        <div class="row _tour_guide border border-rounded">
-                            <div class="col-md-5 p-0 image position-relative">
+                        <div class="row _tour_guide border border-rounded p-3 rounded">
+                            <div class="col-md-5 image position-relative">
                                 <img src="{{ $slide->image  }}" alt="tour guide" width="100%" />
                                 <p class="_price font-4 display-12 color-white" 
                                  style="background-image: url({{ asset('assets/images/homepage/price-background.svg') }})">
                                     {{ $slide->price }} AED <br/> per hour 
                                 </p>
                             </div>
-                            <div class="_tour_content col-md-7 border-start rounded-end 
-                                        d-flex justify-content-center 
-                                        align-items-center flex-column">
+                            <div class="_tour_content col-md-7 
+                                    d-flex justify-content-center 
+                                    flex-column pl-0 pl-md-2">
                                 <div class="detail pt-2">
                                     {{-- <h3 class="font-2 display-20 color-blue"> {{ $slide->name }} </h3> --}}
                                     <h3 class="font-2 display-20 color-blue"> {{ substr($slide->name, 0, 15) }} </h3>

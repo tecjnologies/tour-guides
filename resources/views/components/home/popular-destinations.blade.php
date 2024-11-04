@@ -26,11 +26,12 @@
                                     <img src="{{ $slide->image }}" alt="kalba" width="100%" class="_place_image" />
                                     <a href="javascript:void(0);" class="toggle-favorite"
                                         data-place-id="{{ $slide->id }}">
+                                        
                                         @if ($slide->is_favorite)
                                             <img src="{{ asset('assets/images/icons/favourites.svg') }}"
                                                 alt="like-dislike" class="_like_dislike" />
                                         @else
-                                            <img src="{{ asset('assets/images/icons/heart.svg') }}" alt="like-dislike"
+                                            <img src="{{ asset('assets/images/icons/favourites-gray.svg') }}" alt="like-dislike"
                                                 class="_like_dislike" />
                                         @endif
                                     </a>
@@ -87,7 +88,7 @@
                     });
 
                     if ($icon.attr('src') === '{{ asset('assets/images/icons/favourites.svg') }}') {
-                    $icon.attr('src', '{{ asset('assets/images/icons/heart.svg') }}');
+                        $icon.attr('src', '{{ asset('assets/images/icons/favourites-gray.svg') }}');
                     } else {
                         $icon.attr('src', '{{ asset('assets/images/icons/favourites.svg') }}');
                     }
