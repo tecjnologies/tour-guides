@@ -12,14 +12,17 @@ class banner extends Component
     public $banner;
     public $places;
     public $placeTypes;
+    public $emirates;
     /**
      * Create a new component instance.
      */
-    public function __construct($banner, $places , $placeTypes)
+    public function __construct($banner, $places , $placeTypes, $districts)
     {
+        
         $this->banner = $banner;
         $this->places = $places;
         $this->placeTypes = $placeTypes;
+        $this->emirates = $districts;
     }
 
     /**
@@ -31,6 +34,7 @@ class banner extends Component
             'banner'=> $this->banner,
             'places'=> $this->places,
             'placeTypes'=> $this->placeTypes,
+            'emirates' => $this->emirates
         ]);
     }
 }

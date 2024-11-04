@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Activity;
+use App\Models\District;
 use App\Models\GuideDescription;
 use App\Models\Language;
 use App\Models\Place;
@@ -40,8 +41,9 @@ class GuideController extends Controller
         $languages = Language::all();
         $places = Place::all();
         $tourtypes = Tourtype::all();
+        $emirates = District::all();
         $otherDestinations = Place::all();
-        return view('admin.guide.create',compact('activities','languages','places','otherDestinations', 'tourtypes') );
+        return view('admin.guide.create',compact('activities','languages','places','otherDestinations', 'tourtypes','emirates') );
     }
 
     /**
@@ -52,6 +54,7 @@ class GuideController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'name' => 'required',
             'nid' => 'required|unique:guides|numeric',
@@ -121,6 +124,7 @@ class GuideController extends Controller
             'no_of_slots' => $guideDescription->no_of_slots,
             'response_time' => $guideDescription->response_time,
             'description' => $guideDescription->description,
+            'emirates_id' => $guideDescription->emirates_id
         ]);
     }
 
@@ -135,6 +139,7 @@ class GuideController extends Controller
                 'no_of_slots' => $guideDescription->no_of_slots,
                 'response_time' => $guideDescription->response_time,
                 'description' => $guideDescription->description,
+                'emirates_id' => $guideDescription->emirates_id
             ]);
         } else {
             $this->createGuideDescription($guide_id, $guideDescription);
@@ -168,8 +173,9 @@ class GuideController extends Controller
         $languages = Language::all();
         $places = Place::all();
         $tourtypes = Tourtype::all();
+        $emirates = District::all();
         $activities = Activity::where('isActive' , true)->get();
-        return view('admin.guide.edit',compact('guide','languages', 'activities','places','tourtypes'));
+        return view('admin.guide.edit',compact('guide','languages', 'activities','places','tourtypes','emirates'));
 
     }
 

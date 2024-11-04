@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{ 
     HomeController, 
     TourGuideController,
-    DestinationController
+    DestinationController,
+    PlaceController as WebsitePlaceController
 };
 
 use App\Http\Controllers\User\{
@@ -56,7 +57,7 @@ Route::get('/join-us', function () {  return view('website.join-us');})->name('j
 Route::get('/get-help', function () { return view('website.get-help');})->name('get-help');
 Route::get('/about-us', [HomeController::class , 'about'])->name('about-us');
 Route::get('/favourites', [HomeController::class , 'favourites'])->name('favourites');
-Route::get('/search', [HomeController::class,'search'])->name('searc`           `h');
+Route::get('/search', [HomeController::class,'search'])->name('search');
 Route::get('/place/details/{id}', [HomeController::class, 'placeDdetails'])->name('place.details');
 Route::get('/package/details/{id}', [HomeController::class, 'packageDetails'])->name('package.details');
 Route::get('/place-list', [HomeController::class, 'allPlace'])->name('all.place');
@@ -64,6 +65,7 @@ Route::get('/package-list', [HomeController::class, 'allPackage'])->name('all.pa
 Route::get('/district/{id}', [HomeController::class, 'districtWisePlace'])->name('district.wise.place');
 Route::get('/placetype/{id}', [HomeController::class, 'placetypeWisePlace'])->name('placetype.wise.place');
 Route::get('/package/booking/{id}', [HomeController::class, 'packageBooking'])->name('package.booking');
+Route::get('/places/{placeTypeId}', [WebsitePlaceController::class, 'getPlacesByType']);
 
 
 

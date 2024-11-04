@@ -19,10 +19,17 @@ class GuideDescription extends Model
         'no_of_slots',
         'response_time',
         'description',
+        'description',
+        'emirates_id'
     ];
 
     public function guide()
     {
         return $this->belongsTo(Guide::class);
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
     }
 }

@@ -55,10 +55,12 @@ class TourGuideController extends Controller
         $startDate = $request->input('start_date');
         $endDate = $request->input('end_date');
         $languageId = $request->input('language_id');
+        $experience = $request->input('experience');
         $minPrice = $request->input('min_price');
         $maxPrice = $request->input('max_price');
         $noOfPeople = $request->input('no_of_people');
         $placeType = $request->input('place_type');
+        $emirates_id = $request->input('emirates_id');
     
         $query = Guide::with(['description', 'places', 'guideLanguages', 'places.placeType']);
     
@@ -74,7 +76,16 @@ class TourGuideController extends Controller
         //     $query->where('no_of_people', $noOfPeople);
         // }
 
+        if (!is_null($experience)) {
+            $query->where('experience', '<=', $experience);
+        }
 
+        if ($emirates_id) {
+            $query->whereHas('description', function($q) use ($emirates_id) {
+                $q->where('emirates_id', $emirates_id);
+            });
+        }
+     
         if ($languageId) {
             $query->whereHas('guideLanguages', function($q) use ($languageId) {
                 $q->where('languages.id', $languageId);

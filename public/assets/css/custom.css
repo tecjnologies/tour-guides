@@ -711,6 +711,47 @@ hr {
 }
 
 
+#bannerFormTab{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  background: var(--color-white);
+  padding: 10px 31px;
+  border-radius: 10px;
+  margin: 0px auto;
+  margin-top: -45px;
+  color : var(--color-blue);
+}
+
+.nav-tabs .nav-link{
+  color : var(--color-blue);
+  opacity: 0.4;
+}
+.nav-tabs .nav-link.active{
+  color : var(--color-blue);
+  background-color: unset;
+  border: unset;
+  opacity: 1;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
+  border: unset;
+}
+
+._banner_tabs li {
+  position: relative;
+}
+
+._banner_tabs li+li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 17%;
+  height: 25px;
+  border-left: 1px solid;
+}
+
 
 
 @media only screen and (max-width: 1800px) {

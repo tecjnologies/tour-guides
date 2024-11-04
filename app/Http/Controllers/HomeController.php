@@ -31,8 +31,7 @@ class HomeController extends Controller
         $banner = Banner::latest()->first();
         $places = Place::all();
         $placeTypes = Placetype::all();
-
-        return view('website.home', compact('banner','tourGuides', 'destinations','places','placeTypes'));
+        return view('website.home', compact('banner','tourGuides', 'destinations','places','placeTypes','districts'));
     }
 
     public function districtWisePlace($id){

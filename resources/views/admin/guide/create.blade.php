@@ -34,6 +34,18 @@
                                 <input type="number" class="form-control" placeholder="Enter Contact" id="contact"
                                     value="{{ old('contact') }}" name="contact">
                             </div>
+                            
+                            <div class="form-group">
+                                <label>Emirates</label>
+                                <select class="form-control select-activities" data-placeholder="Choose Emirate" name="emirates_id">
+                                    @foreach ($emirates as $emirate)
+                                        <option value="{{ $emirate->id }}" {{ old('emirates_id') ? 'selected' : '' }}>
+                                            {{ $emirate->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="form-group">
                                 <label for="address"> Address: </label>
                                 <input type="text" class="form-control" placeholder="Enter Address" id="address"
@@ -132,7 +144,7 @@
 
                             <div class="form-group">
                                 <label> Private Places </label>
-                                <select class="form-control select-private" data-placeholder="Choose Activity"
+                                <select class="form-control select-private" data-placeholder="Choose Private Places"
                                     name="privateDestinations[]" multiple>
                                     @foreach ($places as $places)
                                         <option value="{{ $places->id }}"
@@ -145,7 +157,7 @@
 
                             <div class="form-group">
                                 <label> Other Places </label>
-                                <select class="form-control select-places" data-placeholder="Choose Activity"
+                                <select class="form-control select-places" data-placeholder="Choose Other Places"
                                     name="otherDestinations[]" multiple>
                                     @foreach ($otherDestinations as $otherDestination)
                                         <option value="{{ $otherDestination->id }}"

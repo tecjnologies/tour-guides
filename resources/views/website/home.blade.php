@@ -80,7 +80,7 @@
     <div class="mx-auto">
         <div class="overflow-hidden">
             <div class="text-gray-900">
-                <x-home.banner :banner="$banner" :places="$places" :placeTypes="$placeTypes"  class="h-12 w-auto" /> 
+                <x-home.banner :banner="$banner" :places="$places" :placeTypes="$placeTypes" :districts="$districts"  class="h-12 w-auto" /> 
                 <div class="tour-bar mt-4">
                     <div class="row py-3 become-our-partner mx-5" style="background-image: url({{ asset('assets/images/homepage/blue-bar-background.png') }});">
                         <div class="col-md-4 d-flex justify-content-around align-items-center">

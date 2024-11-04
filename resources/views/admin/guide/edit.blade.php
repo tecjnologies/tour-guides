@@ -42,6 +42,18 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Emirates</label>
+                                <select class="form-control select-activities" data-placeholder="Choose Emirate" name="emirates_id">
+                                    @foreach ($emirates as $emirate)
+                                        <option value="{{ $emirate->id }}"
+                                            {{ $emirate->id == old('emirates_id', $guide?->description?->emirates_id) ? 'selected' : '' }}>
+                                            {{ $emirate->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="address"> Address : </label>
                                 <input type="text" class="form-control" placeholder="Enter address" id="address"
                                     name="address" value="{{ old('address', $guide->address) }}">
