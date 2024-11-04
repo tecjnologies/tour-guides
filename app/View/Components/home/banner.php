@@ -29,12 +29,13 @@ class banner extends Component
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
-    {
+    {   
+        \Log::info($this->emirates);
         return view('components..home.banner',[
             'banner'=> $this->banner,
             'places'=> $this->places,
             'placeTypes'=> $this->placeTypes,
-            'emirates' => $this->emirates
+            'districts' => $this->emirates
         ]);
     }
 }

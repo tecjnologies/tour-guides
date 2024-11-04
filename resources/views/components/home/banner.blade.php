@@ -93,12 +93,12 @@
                               
                                 <div>
                                     <select name="place_type"  class="form-control w-full p-2 rounded-md border border-gray-300">
-                                        @if ($emirates)
-                                        @forelse($emirates as  $emirate)
+                                        {{-- @isset($districts)
+                                            @forelse($districts as  $emirate)
                                                 <option value="{{ $emirate->id }}" class="font-5 display-16 color-blue"> {{ $emirate->name }} </option>
                                             @empty
                                             @endforelse
-                                        @endif
+                                        @endif --}}
                                     </select>
                                 </div>
                                 <div>
