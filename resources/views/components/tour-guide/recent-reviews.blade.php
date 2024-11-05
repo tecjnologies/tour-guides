@@ -19,7 +19,10 @@
     @endphp
     
     <x-website.slider :options="$options">
-        <div class="slick-slider mt-5" id="slider-6" dir="{{session('locale') === 'en' ? 'rtl' : 'ltr'}}">
+        <div class="slick-slider mt-5" id="slider-6" 
+            @if(session('locale') === 'ar')
+                dir="ltr"
+            @endif>
             @forelse($data as $slide)
                 <div class="slide border rounded">
                     <div class="extra-slide-content">

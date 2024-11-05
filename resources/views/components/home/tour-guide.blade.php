@@ -19,6 +19,11 @@
     <x-website.slider :options="$sliderWithDotsOptions">
         <div class="slick-slider mt-4" id="slider-1">
             @forelse($data as $slide)
+
+            @php
+                  $currentCurrency = session('currency', config('currency.default'));
+                  $priceInCurrency = \App\Helpers\CurrencyHelper::convert($slide->price, $currentCurrency);
+            @endphp
             <a  href="{{ route('show.tourguide', $slide->id) }}">
                 <div class="slide">
                     <div class="extra-slide-content">
@@ -27,18 +32,17 @@
                                 <img src="{{ $slide->image  }}" alt="tour guide" width="100%" />
                                 <p class="_price font-4 display-12 color-white" 
                                  style="background-image: url({{ asset('assets/images/homepage/price-background.svg') }})">
-                                    {{ $slide->price }} AED <br/> per hour 
+                                    {{ \App\Helpers\CurrencyHelper::format($slide->price, $currentCurrency) }} <br/> {{ __('website.LABELS.PER_HOUR') }}
                                 </p>
                             </div>
                             <div class="_tour_content col-md-7 
                                     d-flex justify-content-center 
                                     flex-column pl-0 pl-md-2">
                                 <div class="detail pt-2">
-                                    {{-- <h3 class="font-2 display-20 color-blue"> {{ $slide->name }} </h3> --}}
                                     <h3 class="font-2 display-20 color-blue"> {{ substr($slide->name, 0, 15) }} </h3>
-                                    <p class="font-4 display-14 color-black py-3">Emirate: {{ $slide->address }}</p>
-                                    <p class="font-4 display-14 color-black">Experience: {{ $slide->experience }} years</p>
-                                    <p class="font-4 display-14 color-black py-3">Languages: 
+                                    <p class="font-4 display-14 color-black py-3">{{ trans_choice('website.LABELS.EMIRATE', 1) }} : {{ $slide->address }}</p>
+                                    <p class="font-4 display-14 color-black">{{ __('website.LABELS.EXPERIENCE') }}: {{ $slide->experience }} {{ trans_choice('website.LABELS.YEAR', 2) }}</p>
+                                    <p class="font-4 display-14 color-black py-3">{{ trans_choice('website.LABELS.LANGUAGE', 2) }}: 
                                         @if($slide->guideLanguages)
                                             @php
                                                 $languages = $slide->guideLanguages;
@@ -49,18 +53,18 @@
                                             @endforeach
                                     
                                             @if($extraLanguagesCount > 0)
-                                                <span>+{{ $extraLanguagesCount }} Languages </span>
+                                                <span>+{{ $extraLanguagesCount }} {{ trans_choice('website.LABELS.LANGUAGE', 2) }} </span>
                                             @endif
                                         @endif
                                     </p>
                                 </div>
                                 <div class="row w-100 border-top ml-2 py-2">
                                     <div class="col-md-6 text-center border-end">
-                                        <p class="font-4 display-14 color-blue">Reviews</p>
+                                        <p class="font-4 display-14 color-blue">{{ trans_choice('website.LABELS.REVIEW', 2) }}</p>
                                         <p class="font-4 display-14 color-secondary pt-2">  08 </p>
                                     </div>
                                     <div class="col-md-6 text-center">
-                                        <p class="font-4 display-14 color-blue"> Ratings </p>
+                                        <p class="font-4 display-14 color-blue"> {{ trans_choice('website.LABELS.RATING', 2) }} </p>
                                         <img src="{{ asset('assets/images/icons/stars.svg') }}" alt="Arrow right" class="text-cetner mx-auto pt-2" />
                                     </div>
                                 </div>

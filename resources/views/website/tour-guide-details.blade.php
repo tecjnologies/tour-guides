@@ -253,7 +253,14 @@
                         </div>
                         <div class="title">
                             <h3 class="font-2 display-20"> {{ $tourGuide->name }} </h3>
-                            <h3 class="font-4 display-10"> <span class="font-2 display-20  color-secondary"> {{ $tourGuide->price }} </span>  AED  {{ __('website.LABELS.PER_HOUR') }}</h3>
+                            <h3 class="font-4 display-10"> 
+                                <span class="font-2 display-20  color-secondary"> 
+                                @php
+                                    $currentCurrency = session('currency', config('currency.default'));
+                                    $priceInCurrency = \App\Helpers\CurrencyHelper::convert($tourGuide->price, $currentCurrency);
+                                @endphp
+                                {{ \App\Helpers\CurrencyHelper::format($tourGuide->price, $currentCurrency) }} </span> {{ __('website.LABELS.PER_HOUR') }}
+                            </h3>
                             <div class="reviews d-flex justify-content-start align-items-center">
                                 <img src="{{ asset('assets/images/icons/stars.svg') }}" alt="Arrow right"
                                     class="me-3" />

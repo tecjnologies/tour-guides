@@ -90,13 +90,18 @@
 <hr/>
 <div class="row px-5">
    @forelse($tourGuides as $guide)
+
+    @php
+        $currentCurrency = session('currency', config('currency.default'));
+        $priceInCurrency = \App\Helpers\CurrencyHelper::convert($guide->price, $currentCurrency);
+    @endphp
     <div class="col-xl-4 col-lg-4 col-md-6 my-4 px-4 pl-0 cursor-pointer" href="route('home')">
         <a href="{{ route('show.tourguide', $guide->id) }}">
             <div class="row _tour_guide_grid border rounded p-2">
                 <div class="col-5 px-0 image position-relative">
                     <img src="{{ $guide->image }}" alt="tour guide" width="100%" />                        
                     <p class="_price font-4 display-12 color-white">
-                        {{ $guide->price }} AED <br/> {{ __('website.LABELS.PER_HOUR') }}
+                        {{ \App\Helpers\CurrencyHelper::format($guide->price, $currentCurrency) }} <br/> {{ __('website.LABELS.PER_HOUR') }}
                     </p>
                 </div>
                 <div class="_tour_content col-7  d-flex justify-content-center

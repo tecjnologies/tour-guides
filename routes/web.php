@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -54,10 +55,15 @@ Route::middleware([SetLocale::class])->group(function () {
     })->name('language.switch');
 });
 
-
-Route::get('/test-role', function () {
-    return 'This is a test route.';
-})->middleware(RoleMiddleware::class . ':admin');
+Route::post('/set-currency', function (Request $request)     {
+    
+    $currency = $request->input('currency');
+    if (in_array($currency, ['USD', 'AED'])) {
+        session(['currency' => $currency]);
+        return response()->json(['success' => true], 200);
+    }
+    return response()->json(['success' => false], 400);
+});
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index']);

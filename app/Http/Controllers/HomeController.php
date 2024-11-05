@@ -148,4 +148,15 @@ class HomeController extends Controller
             return response()->json(['message' => 'Place added to favorites']);
         }
     }
+
+    // public function setCurrency($currency)
+    // {
+    //     $availableCurrencies = config('currency.currencies');
+        
+    //     if (array_key_exists($currency, $availableCurrencies)) {
+    //         session(['currency' => $currency]);
+    //     }
+
+    //     return redirect()->back();
+    // }
 }
