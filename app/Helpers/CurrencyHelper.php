@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Helpers;
+use Illuminate\Support\Facades\Session;
 
 class CurrencyHelper
 {
@@ -17,7 +18,14 @@ class CurrencyHelper
     public static function format($amount, $currency = 'USD')
     {
         $capitalizeCurrency = strtoupper($currency);
-        $symbol = config("currency.currencies.$capitalizeCurrency.symbol");
-        return $symbol . number_format($amount, 2);
+        $locale = Session::get('locale');
+        $symbol = config("currency.currencies.$capitalizeCurrency.symbol"); 
+
+        if ($locale === 'ar' && $capitalizeCurrency === 'AED') {
+            $symbol = 'د.إ'; 
+        } elseif ($locale !== 'ar' && $capitalizeCurrency === 'AED') {
+            $symbol = 'AED';
+        }
+        return $symbol . ' ' . number_format($amount, 2);
     }
 }
