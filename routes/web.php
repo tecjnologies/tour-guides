@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 use App\Http\Controllers\{ 
     HomeController, 
@@ -40,6 +44,16 @@ use Illuminate\Auth\Notifications\VerifyEmail;
 
 
 Auth::routes(['verify' => true]);
+
+Route::middleware([SetLocale::class])->group(function () {
+    Route::get('language/{locale}', function ($locale) {
+        if (in_array($locale, ['en', 'ar'])) {
+            Session::put('locale', $locale);
+        }
+        return Redirect::back();
+    })->name('language.switch');
+});
+
 
 Route::get('/test-role', function () {
     return 'This is a test route.';

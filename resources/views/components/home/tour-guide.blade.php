@@ -1,8 +1,8 @@
 <div class="_wrapper px-5 _tour_guide">
     <div class="heading-buttons pt-5 d-flex justify-content-between align-items-center">
         <div class="_headings">
-            <h2 class="font-2 display-26 color-blue"> Tour guide </h2>
-            <p class="font-4 display-16 color-blue"> Find trusted tour guides awarded for their Excellent performance </p>
+            <h2 class="font-2 display-26 color-blue"> {{ trans_choice('website.HEADINGS.TOUR_GUIDE', 1) }} </h2>
+            <p class="font-4 display-16 color-blue"> {{ __('website.TEXT.TOUR_GUIDE') }} </p>
         </div>
         <div class="_slide_buttons">
             <button class="slick-prev-custom" data-slider="slider-1">

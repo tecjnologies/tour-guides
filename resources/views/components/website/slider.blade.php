@@ -5,7 +5,7 @@
 @push('scripts')
     <script>
         
-        $(document).ready(function() {
+        $(window.onload = function() {
             $('.slick-slider').slick(@json($options));
         });
         

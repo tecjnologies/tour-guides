@@ -13,7 +13,7 @@
             </div> --}}
         </div>
         <div class="flex space-x-4 align-items-center _social_links">
-            <h3 class="font-4 display-14 color-white m-0"> FOLLOW US: </h3>
+            <h3 class="font-4 display-14 color-white m-0">  {{ __('website.LABELS.FOLLOW_US') }}: </h3>
             <a href="https://www.facebook.com/YourPage" target="_blank" rel="noopener" title="Follow us on Facebook">
                 <img src="{{ asset('assets/images/icons/facebook.svg') }}" alt="Facebook" width="24" height="24" />
             </a>

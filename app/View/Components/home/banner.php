@@ -30,7 +30,6 @@ class banner extends Component
      */
     public function render(): View|Closure|string
     {   
-        \Log::info($this->emirates);
         return view('components..home.banner',[
             'banner'=> $this->banner,
             'places'=> $this->places,

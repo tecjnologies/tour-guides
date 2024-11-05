@@ -6,14 +6,14 @@
     <form id="tour-guide-form" action="{{ route('search.tour-guide') }}" method="post">
         @csrf
         <div class="border-bottom d-flex justify-content-start align-items-center pb-3 mb-4">
-            <h4 class="mb-2 font-2 display-20 color-blue me-3">Filters</h4>
+            <h4 class="mb-2 font-2 display-20 color-blue me-3"> {{ __('website.LABELS.FILTERS') }} </h4>
             <button id="resetBtn" type="button" class="rounded px-5 py-2 my-3 color-secondary border-secondary"> 
-                Reset all
+                {{ __('website.LABELS.RESET_ALL') }}
             </button>
         </div>        
         <div class="row">
                 <div class="col-lg _location">
-                    <h4 class="mb-2 font-2 display-20 color-blue">Location</h4>
+                    <h4 class="mb-2 font-2 display-20 color-blue"> {{ __('website.LABELS.LOCATION') }} </h4>
                     <select name="place_id" class="border rounded w-100">
                         @if ($places)
                             @forelse($places as  $place)
@@ -24,7 +24,7 @@
                     </select>
                 </div>
                 <div class="col-lg _location">
-                    <h4 class="mb-2 font-2 display-20 color-blue">Language</h4>
+                    <h4 class="mb-2 font-2 display-20 color-blue"> {{ trans_choice('website.LABELS.LANGUAGE', 1) }} </h4>
                     <select name="language_id" class="border rounded w-100">
                         @if ($languages)
                             @forelse($languages as  $language)
@@ -38,7 +38,7 @@
                     $maxPrice = App\Models\Guide::max('price');
                 @endphp
                 <div class="col-lg _location">
-                    <h4 class="mb-2 font-2 display-20 color-blue"> Price </h4>
+                    <h4 class="mb-2 font-2 display-20 color-blue"> {{ __('website.LABELS.PRICE') }} </h4>
                     <div class="range_container">
                         <div class="_input w-100 d-flex justify-content-start align-items-center">
                             <input type="number" id="min-value" min="0" placeholder="0 AED"  value="0" class="w-100 mr-4" name="min_price">
@@ -53,18 +53,17 @@
                     </div>
                 </div>
                 <div class="col-lg _location _no_of_people">
-                    <h4 class="mb-2 font-2 display-20 color-blue"> Number of people </h4>
+                    <h4 class="mb-2 font-2 display-20 color-blue">{{ __('website.LABELS.NO_OF_PEOPLE') }}  </h4>
                     <div class="number_of_peopled">
                         <select name="place_id" class="border rounded w-100">
                             <option value="1" class="font-5 display-16 color-blue"> Individual </option>
-                            <option value="2" class="font-5 display-16 color-blue"> People </option>
+                            <option value="2" class="font-5 display-16 color-blue"> Couple </option>
                             <option value="3" class="font-5 display-16 color-blue"> Group </option>
-                            <option value="4" class="font-5 display-16 color-blue"> Couple </option>
                         </select>
                     </div>
                 </div>
                 <div class="col-lg _location _place_type mx-3">
-                    <h4 class="mb-2 font-2 display-20 color-blue"> Place Type </h4>
+                    <h4 class="mb-2 font-2 display-20 color-blue">{{ __('website.LABELS.PLACE_TYPE') }} </h4>
                     <div class="_tabs">
                         <div class="_tabs me-2">
 
@@ -82,7 +81,7 @@
                 </div>
                 <div class="">
                     <button  type="submit" class="rounded px-5 py-2 bg-blue color-white d-flex justify-content-center align-items-center ml-auto"> 
-                        search
+                        {{ __('website.BUTTONS.SEARCH') }}
                    </button>
                 </div>
         </div>
@@ -97,7 +96,7 @@
                 <div class="col-5 px-0 image position-relative">
                     <img src="{{ $guide->image }}" alt="tour guide" width="100%" />                        
                     <p class="_price font-4 display-12 color-white">
-                        {{ $guide->price }} AED <br/> per hour 
+                        {{ $guide->price }} AED <br/> {{ __('website.LABELS.PER_HOUR') }}
                     </p>
                 </div>
                 <div class="_tour_content col-7  d-flex justify-content-center
@@ -105,9 +104,9 @@
                     <div class="detail pt-2">
                         {{-- <h3 class="font-2 display-20 color-blue"> {{ $guide->name }}  </h3> --}}
                         <h3 class="font-2 display-20 color-blue"> {{ substr($guide->name, 0, 20) }} </h3>
-                        <p class="font-4 display-14 color-black py-3">Emirate: {{ $guide->address }} </p>
-                        <p class="font-4 display-14 color-black">Experience: {{ $guide->experience }}  years</p>
-                        <p class="font-4 display-14 color-black py-3">Languages: 
+                        <p class="font-4 display-14 color-black py-3"> {{ trans_choice('website.LABELS.EMIRATE', 1) }} : {{ $guide->address }} </p>
+                        <p class="font-4 display-14 color-black">{{ __('website.LABELS.EXPERIENCE') }} : {{ $guide->experience }}  {{ trans_choice('website.LABELS.YEAR', 2) }}</p>
+                        <p class="font-4 display-14 color-black py-3">{{ trans_choice('website.LABELS.LANGUAGE', 2) }} : 
                             @if($guide->guideLanguages)
                                 @php
                                     $languages = $guide->guideLanguages;
@@ -118,18 +117,18 @@
                                 @endforeach
                         
                                 @if($extraLanguagesCount > 0)
-                                    <span>+{{ $extraLanguagesCount }} Languages </span>
+                                    <span>+{{ $extraLanguagesCount }}  {{ trans_choice('website.LABELS.LANGUAGE', 2) }} </span>
                                 @endif
                             @endif
                         </p>
                     </div>
                     <div class="row w-100 border-top ml-2 py-2">
                         <div class="col-md-6 text-center border-end">
-                            <p class="font-4 display-14 color-blue">Reviews</p>
+                            <p class="font-4 display-14 color-blue">{{ trans_choice('website.LABELS.REVIEW', 2) }}</p>
                             <p class="font-4 display-14 color-secondary pt-2"> {{ $guide->reviews_count }} </p>
                         </div>
                         <div class="col-md-6 text-center">
-                            <p class="font-4 display-14 color-blue">Ratings</p>
+                            <p class="font-4 display-14 color-blue">{{ trans_choice('website.LABELS.RATING', 2) }}</p>
                             <img src="{{ asset('assets/images/icons/stars.svg') }}" alt="Arrow right" class="text-cetner mx-auto pt-2" />
                         </div>
                     </div>

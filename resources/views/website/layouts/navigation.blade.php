@@ -13,7 +13,7 @@
                     @else
                         <img src="{{ asset('assets/images/menu/home.svg') }}" alt="Home" class="mx-2"/>
                     @endif
-                    Home
+                    {{ __('website.MENU.HOME') }}
                 </x-nav-link>
 
                 <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')" class="font-4 display-16 color-blue">
@@ -22,7 +22,7 @@
                     @else
                         <img src="{{ asset('assets/images/menu/about.svg') }}" alt="about-us" class="mx-2"/>
                     @endif
-                    About us
+                    {{ __('website.MENU.ABOUT_US') }}
                 </x-nav-link>
                  <x-nav-link :href="route('tour-guides-profile')" :active="request()->routeIs('tour-guides-profile')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('tour-guides-profile'))
@@ -30,7 +30,7 @@
                     @else
                         <img src="{{ asset('assets/images/menu/tour-guide.svg') }}" alt="Tour Guide Profile" class="mx-2"/>
                     @endif
-                    Tour Guide Profile
+                    {{ __('website.MENU.TOURGUIDE_PROFILE') }}
                 </x-nav-link>
                 
                 
@@ -40,7 +40,7 @@
                     @else
                         <img src="{{ asset('assets/images/menu/destinations.svg') }}" alt="Destinations" class="mx-2"/>
                     @endif
-                    Destinations
+                    {{ __('website.MENU.DESTINATIONS') }}
                 </x-nav-link>
                 
                 <x-nav-link :href="route('favourites')" :active="request()->routeIs('favourites')" class="font-4 display-16 color-blue">
@@ -49,7 +49,7 @@
                     @else
                         <img src="{{ asset('assets/images/menu/favourites.svg') }}" alt="favourites" class="mx-2"/>
                     @endif
-                    Favorites
+                    {{ __('website.MENU.FAVOURITES') }}
                 </x-nav-link>
 
 
@@ -60,8 +60,7 @@
                     @else
                         <img src="{{ asset('assets/images/menu/join-us.svg') }}" alt="Join us" class="mx-2"/>
                     @endif
-                
-                    Join us
+                    {{ __('website.MENU.JOIN_US') }}
                 </x-nav-link>
                 <x-nav-link :href="route('get-help')" :active="request()->routeIs('get-help')" class="font-4 display-16 color-blue">
                     @if(request()->routeIs('get-help'))
@@ -69,7 +68,7 @@
                     @else
                         <img src="{{ asset('assets/images/menu/get-help.svg') }}" alt="Get Help" class="mx-2"/>
                     @endif
-                    Get Help
+                    {{ __('website.MENU.GET_HELP') }}
                 </x-nav-link>
                 @if(auth()->check())
                     <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('login')" class="font-4 display-16 color-blue">
@@ -88,7 +87,7 @@
                         @else
                             <img src="{{ asset('assets/images/menu/login.svg') }}" alt="Login" class="mx-2"/>
                         @endif
-                        Login
+                        {{ __('website.MENU.LOGIN') }}
                     </x-nav-link>
                 @endif
                 {{-- <x-nav-link class="font-4 display-16 color-blue">
@@ -112,27 +111,38 @@
     </div>
     <div :class="{'block': open, 'hidden': ! open}" class="hidden md:hidden">
         <div class="pt-2 pb-3 space-y-1">
+
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                Home
+                {{ __('website.MENU.HOME') }}
             </x-responsive-nav-link>
+           
+            <x-responsive-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')">
+                {{ __('website.MENU.ABOUT_US') }}
+            </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('tour-guides-profile')" :active="request()->routeIs('tour-guides-profile')">
-                Tour Guide Profile
+                {{ __('website.MENU.TOURGUIDE_PROFILE') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('destinations')" :active="request()->routeIs('destinations')">
-                Destinations
+                {{ __('website.MENU.DESTINATIONS') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('favourites')" :active="request()->routeIs('favourites')">
+                {{ __('website.MENU.FAVOURITES') }}
+            </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('join-us')" :active="request()->routeIs('join-us')">
-                Join us
+                {{ __('website.MENU.JOIN_US') }}
             </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('get-help')" :active="request()->routeIs('get-help')">
-                Get Help
+                {{ __('website.MENU.GET_HELP') }}
             </x-responsive-nav-link>
+            
             <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                Login
+                {{ __('website.MENU.LOGIN') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link>
-                My Cart
-            </x-responsive-nav-link>
+        
         </div>
         
         {{-- <div class="pt-4 pb-1 border-t border-gray-200">

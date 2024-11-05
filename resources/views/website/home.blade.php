@@ -14,18 +14,18 @@
     $vipServices = [
         [
             'image' => asset('assets/images/homepage/senior-tourism.svg'), 
-            'title' => 'Seniors’ tourism',
-            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            'title' => session('locale') === 'en' ? 'Seniors’ tourism' : 'السياحة لكبار السن',
+            'content' =>   session('locale') === 'en' ? 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' : 'لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد.',
         ],
         [
             'image' => asset('assets/images/homepage/business-tourism.svg'), 
-            'title' => 'Business tourism',
-           'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            'title' => session('locale') === 'en' ? 'Business tourism' : 'سياحة الأعمال',
+            'content' =>   session('locale') === 'en' ? 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' : 'لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد.',
         ],
         [
             'image' => asset('assets/images/homepage/adventure-tourism.svg'), 
-            'title' => 'Adventure tourism',
-            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            'title' => session('locale') === 'en' ? 'Adventure tourism' : 'السياحة المغامرات',
+            'content' =>   session('locale') === 'en' ? 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' : 'لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد.',
         ]
     ];
 
@@ -57,6 +57,7 @@
         'autoplay' => true,
         'arrows' => false,
         'centerMode' => false,
+        'rtl' => session('locale') === 'en' ? false : true,
         'centerPadding' => '0px',
         'autoplaySpeed' => 3000,
         'slidesToShow' => 3,
@@ -98,11 +99,11 @@
                             </div>
                         </div>
                         <div class="col-md-4 text-center">
-                            <h2 class="color-white font-2 display-26"> Become a tour guide </h2>
-                            <p class="color-white font-3 display-15">Find trusted tour guides awarded for their Excellent performance</p>
+                            <h2 class="color-white font-2 display-26">  {{ __('website.LABELS.BECOME_TOUR_GUIDE_HEADING') }} </h2>
+                            <p class="color-white font-3 display-15">   {{ __('website.LABELS.BECOME_TOUR_GUIDE_PARAGRAPH') }}  </p>
                             <a href="{{route('tour-guides-profile')}}" class="mt-3 pt-2 border-top color-white d-flex justify-content-center align-items-center mx-auto"> 
-                                 Meet Our Expert 
-                                <img src="{{ asset('assets/images/icons/arrow-white.svg') }}" alt="arrow white"  class="ml-3"/>
+                                {{ __('website.BUTTONS.MEET_LOCAL_EXPERT') }}
+                                <img src="{{ asset('assets/images/icons/arrow-white.svg') }}" alt="arrow white"  class="arrow-white ml-3"/>
                             </a>
                         </div>
                         <div class="col-md-4 d-flex justify-content-around align-items-center">
@@ -129,22 +130,22 @@
         <div class="row px-5 _info_boxes">
             <div class="col-md-4">
                 <x-home.text-with-image 
-                    heading="Trusted Bookings" 
-                    text="Lorem Ipsum is simply dummy text of the printing"  
+                    heading="{{ __('website.TRUSTED_SECTION.HEADING_1') }}" 
+                    text="{{ __('website.TRUSTED_SECTION.TEXT_1') }}"  
                     imageUrl="{{ asset('assets/images/homepage/trust-booking.svg') }}" />
             </div>
 
             <div class="col-md-4">
                 <x-home.text-with-image 
-                    heading="Trusted Bookings" 
-                    text="Lorem Ipsum is simply dummy text of the printing "  
+                    heading="{{ __('website.TRUSTED_SECTION.HEADING_2') }}" 
+                    text="{{ __('website.TRUSTED_SECTION.TEXT_2') }}"  
                     imageUrl="{{ asset('assets/images/homepage/customer-service.svg') }}" />
             </div>
 
             <div class="col-md-4">
                 <x-home.text-with-image 
-                    heading="Trusted Bookings" 
-                    text="Lorem Ipsum is simply dummy text of the printing "  
+                    heading="{{ __('website.TRUSTED_SECTION.HEADING_3') }}" 
+                    text="{{ __('website.TRUSTED_SECTION.TEXT_3') }}"  
                     imageUrl="{{ asset('assets/images/homepage/payments.svg') }}" />
             </div>
         </div>
@@ -165,4 +166,4 @@
     
     </div>
 
-</x-website-layout>
+</x-website-layout> 

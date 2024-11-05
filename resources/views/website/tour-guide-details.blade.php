@@ -25,6 +25,7 @@
         'infinite' => true,
         'autoplay' => true,
         'arrows' => false,
+        'rtl' => session('locale') === 'en' ? true : false,
         'centerMode' => false,
         'centerPadding' => '0px',
         'autoplaySpeed' => 3000,
@@ -73,7 +74,7 @@
                                     align-items-center text-decoration-none me-3 px-3 py-2 rounded">
                                             <img src="{{ asset('assets/images/tour-guide/certified.svg') }}"
                                                 alt="mohammad" class="me-3" />
-                                            Certified
+                                        {{ __('website.LABELS.CERTIFIED') }}
                                         </a>
                                     @endif
                                     @if ($tourGuide->description?->highRatings)
@@ -82,7 +83,7 @@
                                         text-decoration-none me-3 px-3 py-2 rounded">
                                             <img src="{{ asset('assets/images/tour-guide/high-rates.svg') }}"
                                                 alt="mohammad" class="me-3" />
-                                            High Ratings
+                                                {{ __('website.LABELS.HIGH_RATINGS') }}
                                         </a>
                                     @endif
                                     @if ($tourGuide->description?->responsiveGuide)
@@ -91,7 +92,7 @@
                                      px-3 py-2 rounded">
                                             <img src="{{ asset('assets/images/tour-guide/responsive-tour-guide.svg') }}"
                                                 alt="mohammad" class="me-3" />
-                                            Responsive Tourist Guide
+                                                {{ __('website.LABELS.RESPONSIVE_TOURIST_GUIDE') }}
                                         </a>
                                     @endif
 
@@ -106,21 +107,21 @@
                                     text-decoration-none me-3 px-3 py-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/share.svg') }}" alt="mohammad"
                                         class="me-3" />
-                                    Share Profile
+                                        {{ __('website.LABELS.SHARE_PROFILE') }}
                                 </button>
                                 <a href="tel:{{ $tourGuide->contact }}"
                                     class="font-4 display-16  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
                                 text-decoration-none me-3 px-3 py-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/call.svg') }}" alt="mohammad"
                                         class="me-3" />
-                                    Call
+                                        {{ __('website.LABELS.CALL') }}
                                 </a>
                                 <a href="mailto:{{ $tourGuide->email }}"
                                     class="font-4 display-16  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
                                 text-decoration-none me-3  my-md-4  my-lg-0 px-3 py-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/email.svg') }}" alt="mohammad"
                                         class="me-3" />
-                                    Email
+                                        {{ __('website.LABELS.EMAIL') }}
                                 </a>
                             </div>
                         </div>
@@ -132,21 +133,21 @@
         <div class="row px-5">
             <div class="col-xl-9 _about_me pe-4">
                 <div class="_about_me_text">
-                    <h3 class="font-2 display-20 color-blue"> About me </h3>
+                    <h3 class="font-2 display-20 color-blue">  {{ __('website.LABELS.ABOUT_ME') }} </h3>
                     <hr />
                     <div class="_more d-flex justify-content-start align-items-center  flex-wrap">
 
                         <div class="_ref_number d-flex justify-content-start align-items-center flex-wrap me-5 my-3">
                             <img src="{{ asset('assets/images/tour-guide/ref-number.svg') }}" alt="mohammad"
                                 class="me-3" />
-                            <h3 class="me-3 font-2 display-16 color-blue mb-0"> Reference Number : </h3>
+                            <h3 class="me-3 font-2 display-16 color-blue mb-0"> {{ __('website.LABELS.REFERENCE_NUMBER') }} : </h3>
                             <span class="font-5 display-16 color-black"> TG - 00{{ $tourGuide->id }} </span>
                         </div>
 
                         <div class="_ref_number d-flex justify-content-start align-items-center flex-wrap me-5 my-3">
                             <img src="{{ asset('assets/images/tour-guide/clock.svg') }}" alt="mohammad"
                                 class="me-3" />
-                            <h3 class="me-3 font-2 display-16 color-blue mb-0"> Start time: </h3>
+                            <h3 class="me-3 font-2 display-16 color-blue mb-0">  {{ __('website.LABELS.START_TIME') }}: </h3>
                             <span class="font-5 display-16 color-black"> {{ $tourGuide->created_at->format('Y') }}
                             </span>
                         </div>
@@ -154,7 +155,7 @@
                         <div class="_ref_number d-flex justify-content-start align-items-center flex-wrap me-5 my-3">
                             <img src="{{ asset('assets/images/tour-guide/language.svg') }}" alt="mohammad"
                                 class="me-3" />
-                            <h3 class="me-3 font-2 display-16 color-blue mb-0">Languages: </h3>
+                            <h3 class="me-3 font-2 display-16 color-blue mb-0">{{ trans_choice('website.LABELS.LANGUAGE', 2) }}: </h3>
                             @if ($tourGuide->guideLanguages)
                                 @forelse($tourGuide->guideLanguages as  $language)
                                     <span class="font-5 display-16 color-black"> {{ $language->name }} </span>
@@ -172,7 +173,7 @@
                         <div class="_ref_number d-flex justify-content-start align-items-center flex-wrap me-5 my-3">
                             <img src="{{ asset('assets/images/tour-guide/map-active.svg') }}" alt="mohammad"
                                 class="me-3" />
-                            <h3 class="me-3 font-2 display-16 color-blue mb-0"> Private Tour Guide in : </h3>
+                            <h3 class="me-3 font-2 display-16 color-blue mb-0"> {{ __('website.LABELS.PRIVATE_TOUR_GUIDE') }}: </h3>
 
                             @if ($tourGuide->privateDestinations)
                                 @forelse($tourGuide->privateDestinations as  $privateDestination)
@@ -191,7 +192,7 @@
                         <div class="_ref_number d-flex justify-content-start align-items-center flex-wrap me-5 my-3">
                             <img src="{{ asset('assets/images/tour-guide/map-active.svg') }}" alt="mohammad"
                                 class="me-3" />
-                            <h3 class="me-3 font-2 display-16 color-blue mb-0"> Other Guiding Areas: </h3>
+                            <h3 class="me-3 font-2 display-16 color-blue mb-0"> {{ __('website.LABELS.OTHER_GUIDING_AREAS') }}: </h3>
 
 
                             @if ($tourGuide->otherDestinations)
@@ -216,7 +217,7 @@
                 </div>
                 <div class="row">
                     <div class="_about_me_text  py-3">
-                        <h3 class="font-2 display-20 color-blue"> Top Activities</h3>
+                        <h3 class="font-2 display-20 color-blue"> {{ __('website.LABELS.TOP_ACTIVITIES') }} </h3>
                         <hr />
                     </div>
                     <div class="items d-flex justify-content-between align-items-center flex-wrap">
@@ -252,11 +253,11 @@
                         </div>
                         <div class="title">
                             <h3 class="font-2 display-20"> {{ $tourGuide->name }} </h3>
-                            <h3 class="font-4 display-10"> <span class="font-2 display-20  color-secondary"> {{ $tourGuide->price }} </span>  AED per hour </h3>
+                            <h3 class="font-4 display-10"> <span class="font-2 display-20  color-secondary"> {{ $tourGuide->price }} </span>  AED  {{ __('website.LABELS.PER_HOUR') }}</h3>
                             <div class="reviews d-flex justify-content-start align-items-center">
                                 <img src="{{ asset('assets/images/icons/stars.svg') }}" alt="Arrow right"
                                     class="me-3" />
-                                <p class="fotn-4 display-12 m-0"> 5.0 / 5 <span class="color-blue"> (2 reviews)
+                                <p class="fotn-4 display-12 m-0"> 5.0 / 5 <span class="color-blue"> (2 {{ trans_choice('website.LABELS.REVIEW', 2) }})
                                     </span> </p>
                             </div>
                         </div>
@@ -268,9 +269,9 @@
                         <form action="{{ route('store.package.booking') }}" method="get">
                             @csrf
                             <div class="form-group my-3">
-                                <label for="place_id"> Select Place</label>
+                                <label for="place_id"> {{ __('website.LABELS.SELECT_PLACE') }} </label>
                                 <select name="place_id"  class="form-control w-full p-2 rounded-md border border-gray-300">
-                                    <option value="" class="font-5 displaty-14 color-blue"> Select Places
+                                    <option value="" class="font-5 displaty-14 color-blue"> {{ __('website.LABELS.SELECT_PLACE') }}
                                     </option>
                                     @foreach ($places as $place)
                                         <option value="{{ $place->id }}">{{ $place->name }}</option>
@@ -280,13 +281,13 @@
                             </div>
 
                             <div class="form-group my-3">
-                                <label for="date">Select a date</label>
+                                <label for="date"> {{ __('website.LABELS.SELECT_DATE') }} </label>
                                 <input type="text" name="date" id="date" class="form-control"
                                     value="{{ old('date') }}">
                             </div>
 
                             <div class="form-group my-3">
-                                <label for="no_of_adults"> Select No of Adults </label>
+                                <label for="no_of_adults"> {{ __('website.LABELS.SELECT_NO_OF_ADULTS') }} </label>
                                 <select name="no_of_adults" class="w-full p-2 rounded-md border border-gray-300">
                                     <option value="0" class="font-5 displaty-14 color-blue">Adults</option>
                                     <option value="1" class="font-5 displaty-14 color-blue">1</option>
@@ -298,7 +299,7 @@
                             </div>
 
                             <div class="form-group my-3">
-                                <label for="day"> No of days </label>
+                                <label for="day"> {{ __('website.LABELS.NO_OF_DAYS') }} </label>
                                 <input type="text" name="day" id="day" class="form-control"
                                     value="{{ old('day') }}">
                             </div>
@@ -309,22 +310,22 @@
                                 <img src="{{ asset('assets/images/tour-guide/notification.svg') }}"
                                     alt="{{ $tourGuide->name }}" class="me-3" />
                                 <span class="color-red font-3 display-16"> {{ \Carbon\Carbon::now()->format('F') }} :
-                                    Only
-                                    {{ $tourGuide->description?->no_of_slots ?? 0 }} slots left! </span>
+                                    {{ __('website.LABELS.ONLY') }}
+                                    {{ $tourGuide->description?->no_of_slots ?? 0 }} {{ __('website.LABELS.SLOTS_LEFT') }} </span>
                             </div>
 
                             @auth
                                 @if($tourGuide?->description?->id > 0)
                                     <div class="form-group my-3">
                                         <button type="submit"
-                                            class="btn btn-lg bg-blue color-white w-100 my-2 font-2 display-16"> Book Now
+                                            class="btn btn-lg bg-blue color-white w-100 my-2 font-2 display-16"> {{ __('website.LABELS.BOOK_NOW') }}
                                         </button>
                                     </div>
                                 @endif
                             @else
                                 <button class="btn btn-lg bg-blue color-black border w-100 my-2 font-2 display-16" disabled
                                         data-bs-toggle="tooltip" data-bs-placement="top" title="Please login to book the trip">
-                                    Login for booking !
+                                        {{ __('website.LABELS.LOGIN_FOR_BOOKING') }}
                                 </button>
                             @endauth
 
@@ -337,7 +338,7 @@
                                 class="me-3" />
                         </div>
                         <div class="title">
-                            <h4 class=" font-2 display-16"> Living At </h4>
+                            <h4 class=" font-2 display-16">  {{ __('website.LABELS.LIVING_AT') }} </h4>
                             <p class="font-4 display-16"> {{ $tourGuide->address }} </p>
                         </div>
                     </div>
@@ -348,7 +349,7 @@
                                 class="me-3" />
                         </div>
                         <div class="title">
-                            <h4 class=" font-2 display-16"> Languages </h4>
+                            <h4 class=" font-2 display-16"> {{ trans_choice('website.LABELS.LANGUAGE', 2) }} </h4>
                             @if ($tourGuide->guideLanguages)
                                 @forelse($tourGuide->guideLanguages as  $language)
                                     <p class="font-4 display-16"> {{ $language->name }} </p>
@@ -364,9 +365,8 @@
                                 class="me-3" />
                         </div>
                         <div class="title">
-                            <h4 class=" font-2 display-16"> Response Time </h4>
-                            <p class="font-4 display-16"> {{ $tourGuide->description?->response_time }} Hours on
-                                average </p>
+                            <h4 class=" font-2 display-16"> {{ __('website.LABELS.RESPONSE_TIME') }} </h4>
+                            <p class="font-4 display-16"> {{ $tourGuide->description?->response_time }} {{ __('website.LABELS.HOURS_ON_AVERAGE') }}  </p>
                         </div>
                     </div>
                     <hr />
@@ -377,7 +377,7 @@
                                 class="me-3" />
                         </div>
                         <div class="title">
-                            <h4 class=" font-2 display-16">Availability Updated </h4>
+                            <h4 class=" font-2 display-16"> {{ __('website.LABELS.AVAILABILITY_UPDATED') }} </h4>
                             <p class="font-4 display-16"> - </p>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 <div class="_wrapper mb-4 _dotted_nav_slider">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
-            <h2 class="font-2 display-20 color-blue"> Recent Reviews </h2>
+            <h2 class="font-2 display-20 color-blue"> {{ __('website.LABELS.RECENT_REVIEWS') }}  </h2>
         </div>
         {{-- <div class="_slide_buttons">
             <button class="slick-prev-custom" data-slider="slider-4">
@@ -19,7 +19,7 @@
     @endphp
     
     <x-website.slider :options="$options">
-        <div class="slick-slider mt-5" id="slider-6">
+        <div class="slick-slider mt-5" id="slider-6" dir="{{session('locale') === 'en' ? 'rtl' : 'ltr'}}">
             @forelse($data as $slide)
                 <div class="slide border rounded">
                     <div class="extra-slide-content">
@@ -27,7 +27,7 @@
                             <div class="_title_content">
                                 <h3 class="font-4 display-20 color-blue">sara alghamian </h3>
                                 <p class="font-4 display-16 color-black">  
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                    {{ __('website.LABELS.RECENT_REVIEWS') }}
                                 </p>
                                 <hr />
                                 <img src="{{ asset('assets/images/icons/stars.svg') }}" alt="stars" class="pt-2" />

@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Lexend-ExtraBold";
+  src: url("../fonts/Lexend-ExtraBold.ttf") format("truetype");
+}
+
+:root {
+  --font-1-font-family : "Lexend-ExtraBold";
+}
+
+
+body{
+  direction: rtl;
+}
+
+._slide_buttons {
+  display: flex;
+  direction: ltr;
+}
+
+._price {
+  right: -80px;
+  left: 0;
+}
+
+._banner_tabs li+li:before{
+  left : unset;
+  right: 0;
+}
+
+.become-our-partner img.arrow-white, ._call_to_action img{
+  transform: rotate(180deg);
+  margin: 0px 10px;
+}
+
+
+@media only screen and (max-width: 1800px) {
+
+}
+
+
+@media only screen and (max-width: 1366px) {
+
+}
+
+
+@media only screen and (max-width: 1440px) {
+  
+}
+
+
+@media only screen and (max-width: 1024px) {
+  
+}
+
+@media only screen and (max-width: 991px) {
+ 
+}
+
+@media only screen and (max-width: 768px) {
+  
+}
+
+@media only screen and (max-width: 550px) {
+
+}

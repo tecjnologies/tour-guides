@@ -18,7 +18,6 @@ use Intervention\Image\Facades\Image;
 class DashboardController extends Controller
 {
     public function index(){
-        \Log::info("inside dashbaord index .....");
         $districts = District::latest()->get();
         $placetypes = Placetype::latest()->get();
         $places = Place::latest()->get();

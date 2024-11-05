@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ Session::get('locale') === 'ar' ? 'rtl' : 'ltr'  }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +11,14 @@
         <script src="{{ asset('assets/plugins/slick/slick.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="{{asset('assets/css/custom.css') }}">
+        @if (session('locale') === 'ar')
+         <link rel="stylesheet" href="{{ asset('assets/css/custom-ar.css') }}">
+        @endif
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @stack('css')
     </head>
     <body>
-        <div class="min-h-screen">
+        <div class="min-h-screen ">
             @include('website.layouts.topbar')
             @include('website.layouts.navigation')
             <main>

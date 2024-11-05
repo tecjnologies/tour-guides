@@ -1,7 +1,7 @@
 <div class="_wrapper py-5 _dotted_nav_slider _top_destinations">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
-            <h2 class="font-2 display-20 color-blue"> Top Destinations </h2>
+            <h2 class="font-2 display-20 color-blue"> {{ __('website.LABELS.TOP_DESTINATIONS') }}</h2>
         </div>
         {{-- <div class="_slide_buttons">
             <button class="slick-prev-custom" data-slider="slider-4">

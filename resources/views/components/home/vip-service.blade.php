@@ -1,8 +1,8 @@
 <div class="wrapper px-5 _vip_services _dotted_nav_slider">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
-            <h2 class="font-2 display-26 color-blue"> VIP Service </h2>
-            <p class="font-4 display-16 color-blue"> VIP tourism is a high level services of all spheres of tourism. </p>
+            <h2 class="font-2 display-26 color-blue">{{ __('website.HEADINGS.VIP_SERVICE') }}</h2>
+            <p class="font-4 display-16 color-blue"> {{ __('website.TEXT.VIP_SERVICE') }}</p>
         </div>
         <div class="_slide_buttons">
             <button class="slick-prev-custom"  data-slider="slider-3">

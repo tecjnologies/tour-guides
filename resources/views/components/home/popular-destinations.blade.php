@@ -1,7 +1,7 @@
 <div class="_wrapper bg-gray py-5 px-5 _popular_destinations _dotted_nav_slider">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
-            <h2 class="font-2 display-26 color-blue"> Popular Destinations Right Now </h2>
+            <h2 class="font-2 display-26 color-blue">{{ __('website.HEADINGS.POPULAR_DESTINATION') }}</h2>
         </div>
         <div class="_slide_buttons">
             <button class="slick-prev-custom" data-slider="slider-4">

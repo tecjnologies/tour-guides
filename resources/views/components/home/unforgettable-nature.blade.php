@@ -1,7 +1,7 @@
 <div class="_wrapper py-5 px-5 bg-gray _unforgettable_slider _dotted_nav_slider">  
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
-            <h2 class="font-2 display-26 color-blue"> Unforgettable nature experiences in uae </h2>
+            <h2 class="font-2 display-26 color-blue"> {{ __('website.HEADINGS.UNFORGETTABLE_NATURE') }} </h2>
         </div>
         <div class="_slide_buttons">
             <button class="slick-prev-custom"  data-slider="slider-2">
@@ -16,7 +16,7 @@
         $options['slidesToShow'] = 4; 
     @endphp
     <x-website.slider :options="$options">
-        <div class="slick-slider mt-4" id="slider-2">
+        <div class="slick-slider mt-4" id="slider-2" >
             @forelse($data as $slide)
                 <div class="slide">
                     <div class="extra-slide-content">

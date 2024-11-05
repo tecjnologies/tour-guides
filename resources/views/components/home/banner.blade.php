@@ -13,14 +13,14 @@
                         <button class="nav-link active border-0 d-flex align-items-center" id="byPlace-tab" data-bs-toggle="tab" data-bs-target="#byPlace" type="button" role="tab" 
                             aria-controls="byPlace" aria-selected="true"> 
                             <img src="{{ asset('assets/images/icons/by-place.svg') }}" alt="Search By Place" class="me-3" />
-                            By Place
+                            {{ __('website.BUTTONS.BY_PLACE') }}
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link d-flex align-items-center border-0" id="byTourGuide-tab" data-bs-toggle="tab" data-bs-target="#byTourGuide" type="button" role="tab" 
                             aria-controls="byTourGuide" aria-selected="false"> 
                             <img src="{{ asset('assets/images/icons/by-tour-guide.svg') }}" alt="search by tour guide" class="me-3" />
-                            By Tour guide
+                            {{ __('website.BUTTONS.BY_TOUR_GUIDE') }}
                         </button>
                     </li>
                 </ul>
@@ -59,7 +59,7 @@
                                     <input type="date" name="end_date" required class="w-full p-2 rounded-md border border-gray-300">
                                 </div>
                                 <button type="submit" class="w-100 py-2 rounded-md font-4 display-16 color-white bg-blue">
-                                    Search
+                                    {{ __('website.BUTTONS.SEARCH') }}
                                 </button>
                             </div>
                         </form>
@@ -110,7 +110,7 @@
                             </div>
                             <div >
                                 <button type="submit" class="w-100 py-2 rounded-md font-4 display-16 color-white bg-blue">
-                                    Search
+                                    {{ __('website.BUTTONS.SEARCH') }}
                                 </button>
                             </div>
                         </form>
@@ -118,11 +118,11 @@
                 </div>
             <div class="mt-3 bg-gray d-flex justify-content-between align-items-center px-3 py-3 rounded _call_to_action">
                 <div class="text-left font-5 display-14 color-blue">
-                    A unique experience that will not be repeated
+                    {{ __('website.LABELS.MEET_EXPORTS_LABEL') }}
                 </div>
                 <a class="text-right font-5 display-14 color-blue d-flex justify-content-between align-items-center" href="{{route('tour-guides-profile')}}">
-                    Meet local experts
-                    <img src="{{ asset('assets/images/icons/arrow-primary.svg') }}" alt="arrow-right" class="ml-4" />
+                    {{ __('website.LABELS.MEET_EXPORTS') }}
+                    <img src="{{ asset('assets/images/icons/arrow-primary.svg') }}" alt="arrow-right" class="arrow-white ml-4" />
                 </a>
             </div>
         </div> 
