@@ -31,7 +31,7 @@ class HomeController extends Controller
         $banner = Banner::latest()->first();
         $places = Place::all();
         $placeTypes = Placetype::all();
-    return view('website.home', compact('banner','tourGuides', 'destinations','places','placeTypes','districts'));
+        return view('website.home', compact('banner','tourGuides', 'destinations','places','placeTypes','districts'));
     }
 
     public function districtWisePlace($id){
@@ -133,20 +133,35 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-    public function toggleFavorite($placeId)
+    public function toggleFavorite(Request $request)
     {
-        $user = Auth::user();
-        $favorite = Favorite::where('user_id', $user->id)->where('place_id', $placeId)->first();
-        if ($favorite) {
-            $favorite->delete();
-            return response()->json(['message' => 'Place removed from favorites']);
-        } else {
-            Favorite::create([
-                'user_id' => $user->id,
-                'place_id' => $placeId
+            $user = Auth::user();
+            
+            $request->validate([
+                'place_id' => 'nullable|exists:places,id',
+                'guide_id' => 'nullable|exists:guides,id',
             ]);
-            return response()->json(['message' => 'Place added to favorites']);
-        }
+    
+            $placeId = $request->place_id;
+            $guideId = $request->guide_id;
+    
+            $favorite = Favorite::where('user_id', $user->id)
+                ->where('place_id', $placeId)
+                ->where('guide_id', $guideId)
+                ->first();
+    
+            if ($favorite) {
+                $favorite->delete();
+                return response()->json(['message' => 'Removed from favorites.']);
+            } else {
+                Favorite::create([
+                    'user_id' => $user->id,
+                    'place_id' => $placeId,
+                    'guide_id' => $guideId,
+                ]);
+                return response()->json(['message' => 'Added to favorites.']);
+            }
+        
     }
 
     // public function setCurrency($currency)

@@ -26,7 +26,7 @@
             @endphp
             <a  href="{{ route('show.tourguide', $slide->id) }}">
                 <div class="slide">
-                    <div class="extra-slide-content">
+                    <div class="extra-slide-content ">
                         <div class="row _tour_guide border border-rounded p-3 rounded">
                             <div class="col-md-5 image position-relative">
                                 <img src="{{ $slide->image  }}" alt="tour guide" width="100%" />
@@ -35,11 +35,11 @@
                                     {{ \App\Helpers\CurrencyHelper::format($slide->price, $currentCurrency) }} <br/> {{ __('website.LABELS.PER_HOUR') }}
                                 </p>
                             </div>
-                            <div class="_tour_content col-md-7 
-                                    d-flex justify-content-center 
-                                    flex-column pl-0 pl-md-2">
+                            <div class="_tour_content col-md-7 position-relative d-flex justify-content-center flex-column pl-0 pl-md-2">
                                 <div class="detail pt-2">
-                                    <h3 class="font-2 display-20 color-blue"> {{ substr($slide->name, 0, 15) }} </h3>
+                                    <h3 class="font-2 display-20 color-blue"> 
+                                        {{ substr($slide->name, 0, 15) }} 
+                                    </h3>
                                     <p class="font-4 display-14 color-black py-3">{{ trans_choice('website.LABELS.EMIRATE', 1) }} : {{ $slide->address }}</p>
                                     <p class="font-4 display-14 color-black">{{ __('website.LABELS.EXPERIENCE') }}: {{ $slide->experience }} {{ trans_choice('website.LABELS.YEAR', 2) }}</p>
                                     <p class="font-4 display-14 color-black py-3">{{ trans_choice('website.LABELS.LANGUAGE', 2) }}: 
@@ -68,8 +68,17 @@
                                         <img src="{{ asset('assets/images/icons/stars.svg') }}" alt="Arrow right" class="text-cetner mx-auto pt-2" />
                                     </div>
                                 </div>
+                                <button href="javascript:void(0);" class="toggle-favorite" data-guide-id="{{ $slide->id }}">
+                                    @if ($slide->is_favoriteGuide)
+                                        <img src="{{ asset('assets/images/icons/favourites.svg') }}"
+                                            alt="like-dislike" class="_like_dislike" />
+                                    @else
+                                        <img src="{{ asset('assets/images/icons/favourites-gray.svg') }}" alt="like-dislike"
+                                            class="_like_dislike" />
+                                    @endif
+                                </button>
                             </div>
-                        </div>
+                         </div>
                     </div>
                 </div>
             </a>

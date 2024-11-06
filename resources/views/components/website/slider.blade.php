@@ -10,8 +10,8 @@
         });
         
         $('.slick-prev-custom').on('click', function() {
-                const sliderId = $(this).data('slider');
-        $('#' + sliderId).slick('slickPrev');
+            const sliderId = $(this).data('slider');
+            $('#' + sliderId).slick('slickPrev');
         });
 
         $('.slick-next-custom').on('click', function() {

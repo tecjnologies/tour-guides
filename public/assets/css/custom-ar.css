@@ -1,15 +1,61 @@
 @font-face {
-  font-family: "Lexend-ExtraBold";
-  src: url("../fonts/Lexend-ExtraBold.ttf") format("truetype");
+  font-family: "Tajawal-ExtraBold";
+  src: url("../fonts/Tajawal-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Tajawal-Bold";
+  src: url("../fonts/Tajawal-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Tajawal-Medium";
+  src: url("../fonts/Tajawal-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Tajawal-Regular";
+  src: url("../fonts/Tajawal-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Tajawal-Light";
+  src: url("../fonts/Tajawal-Light.ttf") format("truetype");
 }
 
 :root {
-  --font-1-font-family : "Lexend-ExtraBold";
+  --font-1-font-family : "Tajawal-ExtraBold";
+  --font-2-font-family: "Tajawal-Bold";
+  --font-3-font-family: "Tajawal-Medium";
+  --font-4-font-family: "Tajawal-Regular";
+  --font-5-font-family: "Tajawal-Light";
+}
+
+
+.font-1 {
+  font-family: var(--font-1-font-family);
+}
+
+.font-2 {
+  font-family: var(--font-2-font-family);
+}
+
+.font-3 {
+  font-family: var(--font-3-font-family);
+}
+
+.font-4 {
+  font-family: var(--font-4-font-family);
+}
+
+.font-5 {
+  font-family: var(--font-5-font-family);
 }
 
 
 body{
   direction: rtl;
+  font-family: var(--font-1-font-family) !important;
 }
 
 ._slide_buttons {
@@ -18,8 +64,7 @@ body{
 }
 
 ._price {
-  right: -80px;
-  left: 0;
+  right: unset !important;
 }
 
 ._banner_tabs li+li:before{
@@ -30,6 +75,15 @@ body{
 .become-our-partner img.arrow-white, ._call_to_action img{
   transform: rotate(180deg);
   margin: 0px 10px;
+}
+
+.slick-slider{
+  direction: ltr;
+}
+
+
+.tour-guide-details .buttons a {
+  margin: 20px;
 }
 
 

@@ -94,7 +94,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/package/booking', [HomeController::class, 'storeBookingRequest'])->name('store.package.booking');
-    Route::match(['get', 'post'], '/favorite/{placeId}', [HomeController::class, 'toggleFavorite'])->name('toggle-favourites');
+    Route::post('/toggle-favorite', [HomeController::class, 'toggleFavorite'])->name('toggle-favorite');
 });
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin','middleware' => [ Authenticate::class , 'verified', RoleMiddleware::class . ':admin' ]], function () {

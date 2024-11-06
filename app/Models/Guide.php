@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Language;
+use Illuminate\Support\Facades\Auth;
 
 class Guide extends Model
 {
     // Declare the fillable property
     protected $fillable = ["name", 'nid', 'email', 'contact', 'address', 'price', 'experience'];
+
+    protected $appends = ['is_favoriteGuide'];
 
     public function bookings()
     {
@@ -54,6 +57,17 @@ class Guide extends Model
     public function description()
     {
         return $this->hasOne(GuideDescription::class);
+    }
+
+    public function favoritedBy()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function getIsFavoriteGuideAttribute()
+    {
+        $userId = Auth::id();
+        return $this->favoritedBy->contains('user_id', $userId);
     }
 
 }

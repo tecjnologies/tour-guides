@@ -752,7 +752,11 @@ hr {
   border-left: 1px solid;
 }
 
-
+._tour_content .toggle-favorite{
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
 
 @media only screen and (max-width: 1800px) {
 

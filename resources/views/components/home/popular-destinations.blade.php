@@ -26,7 +26,6 @@
                                     <img src="{{ $slide->image }}" alt="kalba" width="100%" class="_place_image" />
                                     <a href="javascript:void(0);" class="toggle-favorite"
                                         data-place-id="{{ $slide->id }}">
-                                        
                                         @if ($slide->is_favorite)
                                             <img src="{{ asset('assets/images/icons/favourites.svg') }}"
                                                 alt="like-dislike" class="_like_dislike" />
@@ -68,16 +67,16 @@
     <script>
         $(document).on('click', '.toggle-favorite', function(e) {
             e.preventDefault();
-            console.log('button clicked');
-            const placeId = $(this).data('place-id');
-            const url = `{{ route('toggle-favourites', ':placeId') }}`.replace(':placeId', placeId);
+            const placeId = $(this).data('place-id') || null;
+            const guideId = $(this).data('guide-id') || null;
             const $icon = $(this).find('img');
-
             $.ajax({
-                url: url,
+                url: "{{ route('toggle-favorite') }}",
                 type: 'POST',
                 data: {
-                    _token: '{{ csrf_token() }}'
+                    _token: '{{ csrf_token() }}',
+                    place_id: placeId,
+                    guide_id: guideId
                 },
                 success: function(response) {
                     Swal.fire({
@@ -96,13 +95,14 @@
                 error: function(xhr) {
                     if (xhr.status === 401) {
                         window.location.href = "{{ route('login') }}";
-                    } 
-                    Swal.fire({
-                        title: 'Error!',
-                        text: xhr.responseJSON?.message || 'Something went wrong',
-                        icon: 'error',
-                        confirmButtonText: 'Cancel'
-                    });
+                    } else {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: xhr.responseJSON?.message || 'Something went wrong',
+                            icon: 'error',
+                            confirmButtonText: 'Cancel'
+                        });
+                    }
                 }
             });
         });

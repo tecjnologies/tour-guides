@@ -14,18 +14,18 @@
     $vipServices = [
         [
             'image' => asset('assets/images/homepage/senior-tourism.svg'), 
-            'title' => session('locale') === 'en' ? 'Seniors’ tourism' : 'السياحة لكبار السن',
-            'content' =>   session('locale') === 'en' ? 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' : 'لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد.',
+            'title' =>  'Seniors’ tourism',
+            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         ],
         [
             'image' => asset('assets/images/homepage/business-tourism.svg'), 
-            'title' => session('locale') === 'en' ? 'Business tourism' : 'سياحة الأعمال',
-            'content' =>   session('locale') === 'en' ? 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' : 'لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد.',
+            'title' =>  'Business tourism',
+            'content' =>   'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         ],
         [
             'image' => asset('assets/images/homepage/adventure-tourism.svg'), 
-            'title' => session('locale') === 'en' ? 'Adventure tourism' : 'السياحة المغامرات',
-            'content' =>   session('locale') === 'en' ? 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' : 'لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد.',
+            'title' =>  'Adventure tourism',
+            'content' =>  'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         ]
     ];
 
@@ -57,7 +57,6 @@
         'autoplay' => true,
         'arrows' => false,
         'centerMode' => false,
-        'rtl' => session('locale') === 'en' ? false : true,
         'centerPadding' => '0px',
         'autoplaySpeed' => 3000,
         'slidesToShow' => 3,

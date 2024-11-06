@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="hidden md:flex space-x-8">
-                <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="font-4 display-16 color-blue">
+                <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="me-3 font-4 display-16 color-blue">
                     @if(request()->routeIs('home'))
                         <img src="{{ asset('assets/images/menu/home-active.svg') }}" alt="Home Active" class="mx-2"/>
                     @else
