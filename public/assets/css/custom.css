@@ -764,9 +764,15 @@ hr {
 
 
 @media only screen and (max-width: 1366px) {
+  
   .display-16 {
     font-size: 12px;
   }
+  
+  .display-14 {
+    font-size: 11px;
+  }
+  
 }
 
 
@@ -807,8 +813,8 @@ hr {
     width: 50%;
   }
 
-  .display-16 {
-    font-size: 18px;
+  .display-14 {
+    font-size: 11px;
   }
   
 }
@@ -848,8 +854,8 @@ hr {
 
 @media only screen and (max-width: 768px) {
   
-  nav .display-16{
-    font-size: 12px;
+  nav     .display-14 {
+    font-size: 7px;
   }
 
   ._main_menu a{

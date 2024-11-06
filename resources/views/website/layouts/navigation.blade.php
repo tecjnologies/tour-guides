@@ -6,8 +6,8 @@
                     <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                 </a>
             </div>
-            <div class="hidden md:flex space-x-8">
-                <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="me-3 font-4 display-16 color-blue">
+            <div class="hidden md:flex space-x-4">
+                <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="me-3 font-4 display-14 color-blue">
                     @if(request()->routeIs('home'))
                         <img src="{{ asset('assets/images/menu/home-active.svg') }}" alt="Home Active" class="mx-2"/>
                     @else
@@ -16,7 +16,7 @@
                     {{ __('website.MENU.HOME') }}
                 </x-nav-link>
 
-                <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')" class="font-4 display-16 color-blue">
+                <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')" class="font-4 display-14 color-blue">
                     @if(request()->routeIs('about-us'))
                         <img src="{{ asset('assets/images/menu/about-active.svg') }}" alt="about-us Active" class="mx-2"/>
                     @else
@@ -24,7 +24,7 @@
                     @endif
                     {{ __('website.MENU.ABOUT_US') }}
                 </x-nav-link>
-                 <x-nav-link :href="route('tour-guides-profile')" :active="request()->routeIs('tour-guides-profile')" class="font-4 display-16 color-blue">
+                 <x-nav-link :href="route('tour-guides-profile')" :active="request()->routeIs('tour-guides-profile')" class="font-4 display-14 color-blue">
                     @if(request()->routeIs('tour-guides-profile'))
                         <img src="{{ asset('assets/images/menu/tour-guide-active.svg') }}" alt="Tour Guide Profile Active" class="mx-2"/>
                     @else
@@ -34,7 +34,7 @@
                 </x-nav-link>
                 
                 
-                <x-nav-link :href="route('destinations')" :active="request()->routeIs('destinations')" class="font-4 display-16 color-blue">
+                <x-nav-link :href="route('destinations')" :active="request()->routeIs('destinations')" class="font-4 display-14 color-blue">
                     @if(request()->routeIs('destinations'))
                         <img src="{{ asset('assets/images/menu/destinations-active.svg') }}" alt="Destinations Active" class="mx-2"/>
                     @else
@@ -43,7 +43,7 @@
                     {{ __('website.MENU.DESTINATIONS') }}
                 </x-nav-link>
                 
-                <x-nav-link :href="route('favourites')" :active="request()->routeIs('favourites')" class="font-4 display-16 color-blue">
+                <x-nav-link :href="route('favourites')" :active="request()->routeIs('favourites')" class="font-4 display-14 color-blue">
                     @if(request()->routeIs('favourites'))
                         <img src="{{ asset('assets/images/menu/favourites-active.svg') }}" alt="favourites Active" class="mx-2"/>
                     @else
@@ -54,7 +54,7 @@
 
 
                 
-                <x-nav-link :href="route('join-us')" :active="request()->routeIs('join-us')" class="font-4 display-16 color-blue">
+                <x-nav-link :href="route('join-us')" :active="request()->routeIs('join-us')" class="font-4 display-14 color-blue">
                     @if(request()->routeIs('join-us'))
                         <img src="{{ asset('assets/images/menu/join-us-active.svg') }}" alt="Join us Active" class="mx-2"/>
                     @else
@@ -62,7 +62,7 @@
                     @endif
                     {{ __('website.MENU.JOIN_US') }}
                 </x-nav-link>
-                <x-nav-link :href="route('get-help')" :active="request()->routeIs('get-help')" class="font-4 display-16 color-blue">
+                <x-nav-link :href="route('get-help')" :active="request()->routeIs('get-help')" class="font-4 display-14 color-blue">
                     @if(request()->routeIs('get-help'))
                         <img src="{{ asset('assets/images/menu/get-help-active.svg') }}" alt="Get Help Active" class="mx-2"/>
                     @else
@@ -71,7 +71,7 @@
                     {{ __('website.MENU.GET_HELP') }}
                 </x-nav-link>
                 @if(auth()->check())
-                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('login')" class="font-4 display-16 color-blue">
+                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('login')" class="font-4 display-14 color-blue">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('storage/profile_photo/' . auth()->user()->image) }}" 
                                 alt="{{ auth()->user()->name }}" 
@@ -81,7 +81,7 @@
                         </div>
                     </x-nav-link>
                 @else
-                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')" class="font-4 display-16 color-blue"> 
+                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')" class="font-4 display-14 color-blue"> 
                         @if(request()->routeIs('login'))
                             <img src="{{ asset('assets/images/menu/login-active.svg') }}" alt="Login Active" class="mx-2"/>
                         @else
