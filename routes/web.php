@@ -1,30 +1,23 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Middleware\SetLocale;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Redirect;
-
+use Illuminate\Support\Facades\{Route, App, Session,  Redirect };
 use App\Http\Controllers\{ 
     HomeController, 
     TourGuideController,
     DestinationController,
-    PlaceController as WebsitePlaceController
+    PlaceController as WebsitePlaceController,
+    ProfileController
 };
-
 use App\Http\Controllers\User\{
     DashboardController as UserDashboardController, 
     BookingController as  UserBookingController 
-} ;
-
+};
 use App\Http\Middleware\{
     RoleMiddleware,
-    Authenticate
+    Authenticate,
+    SetLocale
 };
-
 use App\Http\Controllers\Admin\
 {
     DistrictController,
@@ -40,9 +33,6 @@ use App\Http\Controllers\Admin\
     ActivityController,
     TourTypeController
 };
-
-use Illuminate\Auth\Notifications\VerifyEmail;
-
 
 Auth::routes(['verify' => true]);
 
@@ -87,8 +77,6 @@ Route::get('/placetype/{id}', [HomeController::class, 'placetypeWisePlace'])->na
 Route::get('/package/booking/{id}', [HomeController::class, 'packageBooking'])->name('package.booking');
 Route::get('/places/{placeTypeId}', [WebsitePlaceController::class, 'getPlacesByType']);
 
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -128,9 +116,4 @@ Route::group(['as' => 'user.','prefix' => 'user','middleware' => [ 'auth','verif
     Route::post('profile-info/update', [UserDashboardController::class, 'updateProfile'])->name('profile.update');
     Route::get('booking-request/list', [UserBookingController::class, 'pendingBookingList'])->name('pending.booking');
     Route::post('booking-request/cancel/{id}', [UserBookingController::class, 'canceLBookingRequest'])->name('booking.cancel');
-});
-
-View::composer('layouts.frontend.inc.footer', function($view){
-    $placetypes = App\Models\Placetype::all();
-    $view->with('placetypes', $placetypes);
 });
