@@ -49,7 +49,7 @@ class HomeController extends Controller
     public function about()
     {
         if(About::all()->count() > 0){
-            $about = About::all()->first();
+            $about = About::first();
             return view('website.about', compact('about'));
         }else{
             $about = new About();
