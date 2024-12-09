@@ -90,7 +90,7 @@ return [
     
     'HEADINGS' =>
         [
-            'TOUR_GUIDE' => 'مرشد سياحي | مرشدون سياحيون',
+            'TOUR_GUIDE' => 'مرشد سياحي بتقييم عالٍ',
             'POPULAR_DESTINATION' => 'وجهات شهيرة حاليًا',
             'VIP_SERVICE' => 'خدمة كبار الشخصيات',
             'UNFORGETTABLE_NATURE' => 'تجارب طبيعية لا تُنسى في الإمارات العربية المتحدة',

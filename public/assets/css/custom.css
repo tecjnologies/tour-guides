@@ -336,7 +336,12 @@ form select, form input {
 
 
 ._form_hourly_day_toggle{
-  padding: 4px;
+  padding: 6px;
+}
+
+form input::placeholder {
+  font-family: 'Lexend-Light';
+  color: var(--color-primary);
 }
 
 .slick-slider .slide {

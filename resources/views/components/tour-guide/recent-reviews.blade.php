@@ -13,12 +13,8 @@
         </div> --}}
     </div>
     <hr />
-
-    @php
-        $options['slidesToShow'] = 4;
-    @endphp
-    
-    <x-website.slider :options="$options">
+  
+    <div class="slider-container">
         <div class="slick-slider mt-5" id="slider-6" 
             @if(session('locale') === 'ar')
                 dir="ltr"
@@ -42,5 +38,56 @@
                 <p>No Data Found!</p>
             @endforelse
         </div>
-    </x-website.slider>   
+    </div>
 </div>
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            
+            $('.slick-slider').slick({
+                dots: false,
+                infinite: true,
+                autoplay: true,
+                arrows: false,
+                centerMode: false,
+                centerPadding: '0px',
+                autoplaySpeed: 3000,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                responsive: [{
+                        breakpoint: 1290,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+            $('.slick-prev-custom').on('click', function() {
+                const sliderId = $(this).data('slider');
+                $('#' + sliderId).slick('slickPrev');
+            });
+
+            $('.slick-next-custom').on('click', function() {
+                const sliderId = $(this).data('slider');
+                $('#' + sliderId).slick('slickNext');
+            });
+        });
+    </script>
+@endpush

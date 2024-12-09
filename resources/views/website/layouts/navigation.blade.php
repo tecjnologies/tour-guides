@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" class="_main_menu px-4 py-4">
     <div class="width-7xl mx-auto px-4 sm:px-12 lg:px-12">
         <div class="flex justify-between items-center h-16">
-            <div class="flex items-center">
+            <div class="flex items-center me-md-4">
                 <a href="{{ route('home') }}">
                     <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                 </a>

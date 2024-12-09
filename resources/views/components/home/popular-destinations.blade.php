@@ -15,8 +15,8 @@
     @php
         $sliderWithDotsOptions = array_merge($options, ['dots' => false]);
     @endphp
-    <x-website.slider :options="$sliderWithDotsOptions">
-        <div class="slick-slider mt-3" id="slider-4">
+    <div class="slider-container">
+        <div class="popular-destinations mt-3" id="slider-4">
             @forelse($data as $slide)
                 <div class="slide ">
                     <div class="extra-slide-content">
@@ -30,8 +30,8 @@
                                             <img src="{{ asset('assets/images/icons/favourites.svg') }}"
                                                 alt="like-dislike" class="_like_dislike" />
                                         @else
-                                            <img src="{{ asset('assets/images/icons/favourites-gray.svg') }}" alt="like-dislike"
-                                                class="_like_dislike" />
+                                            <img src="{{ asset('assets/images/icons/favourites-gray.svg') }}"
+                                                alt="like-dislike" class="_like_dislike" />
                                         @endif
                                     </a>
                                     <ul class="p-0 d-flex justify-content-start align-items-center _tag">
@@ -60,11 +60,58 @@
         <div class="button text-center mt-4 _explorer">
             <button class="btn btn-md bg-blue color-white px-5 py-3"> Explore More </button>
         </div>
-    </x-website.slider>
+    </div>
 </div>
 
 @push('scripts')
     <script>
+        $(document).ready(function() {
+
+            $('.popular-destinations').slick({
+                dots: false,
+                infinite: true,
+                autoplay: true,
+                arrows: false,
+                centerMode: false,
+                centerPadding: '0px',
+                autoplaySpeed: 3000,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                responsive: [{
+                        breakpoint: 1290,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+            $('.slick-prev-custom').on('click', function() {
+                const sliderId = $(this).data('slider');
+                $('#' + sliderId).slick('slickPrev');
+            });
+
+            $('.slick-next-custom').on('click', function() {
+                const sliderId = $(this).data('slider');
+                $('#' + sliderId).slick('slickNext');
+            });
+        });
+
         $(document).on('click', '.toggle-favorite', function(e) {
             e.preventDefault();
             const placeId = $(this).data('place-id') || null;

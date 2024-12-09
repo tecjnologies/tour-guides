@@ -5,22 +5,22 @@
             <p class="font-4 display-16 color-blue"> {{ __('website.TEXT.VIP_SERVICE') }}</p>
         </div>
         <div class="_slide_buttons">
-            <button class="slick-prev-custom"  data-slider="slider-3">
+            <button class="slick-prev-custom" data-slider="slider-3">
                 <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" alt="Arrow left" />
             </button>
-            <button class="slick-next-custom ml-4"  data-slider="slider-3">
+            <button class="slick-next-custom ml-4" data-slider="slider-3">
                 <img src="{{ asset('assets/images/icons/arrow-right.svg') }}" alt="Arrow right" />
             </button>
         </div>
     </div>
-    <x-website.slider :options="$options">
-        <div class="slick-slider" id="slider-3">
+    <div class="slider-container">
+        <div class="vipservices-slider" id="slider-3">
             @forelse($data as $slide)
                 <div class="slide mt-5">
                     <div class="extra-slide-content">
                         <div class="row border  rounded p-3">
                             <div class="col-md-5 p-0 h-100">
-                                <img src="{{ $slide['image'] }}" alt="vip service"  width="100%"/>
+                                <img src="{{ $slide['image'] }}" alt="vip service" width="100%" />
                             </div>
                             <div class="col-md-7">
                                 <div class="h-100 d-flex justify-content-center algin-items-center flex-column">
@@ -31,10 +31,62 @@
                         </div>
                     </div>
                 </div>
-            @empty 
+            @empty
                 <p>No Data Found!</p>
             @endforelse
         </div>
 
-    </x-website.slider>   
+    </div>
 </div>
+
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+
+            $('.vipservices-slider').slick({
+                dots: false,
+                infinite: true,
+                autoplay: true,
+                arrows: false,
+                centerMode: false,
+                centerPadding: '0px',
+                autoplaySpeed: 3000,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                responsive: [{
+                        breakpoint: 1290,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+            $('.slick-prev-custom').on('click', function() {
+                const sliderId = $(this).data('slider');
+                $('#' + sliderId).slick('slickPrev');
+            });
+
+            $('.slick-next-custom').on('click', function() {
+                const sliderId = $(this).data('slider');
+                $('#' + sliderId).slick('slickNext');
+            });
+        });
+    </script>
+@endpush

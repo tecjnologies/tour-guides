@@ -92,7 +92,7 @@ return [
     
     'HEADINGS' =>
         [
-            'TOUR_GUIDE' => 'Tour guide | Tour guides',
+            'TOUR_GUIDE' => 'Top-rated tour guide ',
             'POPULAR_DESTINATION' => 'Popular Destinations Right Now',
             'VIP_SERVICE' => 'VIP Service',
             'UNFORGETTABLE_NATURE' => 'Unforgettable nature experiences in uae',
