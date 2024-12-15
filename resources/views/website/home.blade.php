@@ -13,17 +13,32 @@
     
     $vipServices = [
         [
-            'image' => asset('assets/images/homepage/senior-tourism.svg'), 
+            'image' => asset('assets/images/vip-services/senior-tourism.png'), 
             'title' =>  'Seniors’ tourism',
             'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         ],
         [
-            'image' => asset('assets/images/homepage/business-tourism.svg'), 
+            'image' => asset('assets/images/vip-services/business-tourism.png'), 
             'title' =>  'Business tourism',
             'content' =>   'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         ],
         [
-            'image' => asset('assets/images/homepage/adventure-tourism.svg'), 
+            'image' => asset('assets/images/vip-services/adventures-tourism.png'), 
+            'title' =>  'Adventure tourism',
+            'content' =>  'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ],
+        [
+            'image' => asset('assets/images/vip-services/senior-tourism.png'), 
+            'title' =>  'Seniors’ tourism',
+            'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ],
+        [
+            'image' => asset('assets/images/vip-services/business-tourism.png'), 
+            'title' =>  'Business tourism',
+            'content' =>   'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        ],
+        [
+            'image' => asset('assets/images/vip-services/adventures-tourism.png'), 
             'title' =>  'Adventure tourism',
             'content' =>  'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         ]
@@ -32,19 +47,43 @@
     $unForgettableNature = [
         
         [
-            'image' => asset('assets/images/homepage/jumerah.svg'), 
+            'image' => asset('assets/images/homepage/aya-universe.svg'), 
+            'title' =>  'Aya Universe UAE',
             'content' => 'lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.',
         ],
         [
-            'image' => asset('assets/images/homepage/burj-al-arab.svg'), 
+            'image' => asset('assets/images/homepage/dubai-miracle-garden.svg'), 
+            'title' =>  'Dubai Miracle Garden',
            'content' => 'lorem Ipsum has been the industry’s standard dummy text ever since the 1500s. ',
         ],
         [
-            'image' => asset('assets/images/homepage/etihad-towers.svg'), 
+            'image' => asset('assets/images/homepage/louver-abu-dhabi.svg'), 
+            'title' =>  'louver abu dhabi',
             'content' => 'lorem Ipsum has been the industry’s standard dummy text ever since the 1500s. ',
         ],
         [
-            'image' => asset('assets/images/homepage/desert.svg'), 
+            'image' => asset('assets/images/homepage/madame-tussauds.svg'), 
+            'title' =>  'Madame Tussauds',
+            'content' => 'lorem Ipsum has been the industry’s standard dummy text ever since the 1500s. ',
+        ],
+        [
+            'image' => asset('assets/images/homepage/aya-universe.svg'), 
+            'title' =>  'Aya Universe UAE',
+            'content' => 'lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.',
+        ],
+        [
+            'image' => asset('assets/images/homepage/dubai-miracle-garden.svg'), 
+            'title' =>  'Dubai Miracle Garden',
+           'content' => 'lorem Ipsum has been the industry’s standard dummy text ever since the 1500s. ',
+        ],
+        [
+            'image' => asset('assets/images/homepage/louver-abu-dhabi.svg'), 
+            'title' =>  'louver abu dhabi',
+            'content' => 'lorem Ipsum has been the industry’s standard dummy text ever since the 1500s. ',
+        ],
+        [
+            'image' => asset('assets/images/homepage/madame-tussauds.svg'), 
+            'title' =>  'Madame Tussauds',
             'content' => 'lorem Ipsum has been the industry’s standard dummy text ever since the 1500s. ',
         ]
 
@@ -159,10 +198,7 @@
         
         <div class="spacer py-5"></div>
         <x-home.unforgettable-nature :data="$unForgettableNature" :options="$sliderOptions"  class="h-12 w-auto " />
-        
-        <div class="spacer py-5"></div>
-        <x-home.discovering-regions :data="$homeSlider" :options="$sliderOptions" class="h-12 w-auto" /> 
-    
+      
     </div>
 
 </x-website-layout> 

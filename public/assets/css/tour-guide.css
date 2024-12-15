@@ -1,0 +1,96 @@
+.tourguide-slider .overlay {
+	display: none;
+}
+
+.tourguide-slider .title {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 11px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	background: #ffffffe6;
+	margin: 0px 33px;
+	padding: 13px 12px;
+	border-radius: 6px;
+
+}
+
+.tourguide-slider .toggle-favorite {
+	position: absolute;
+	top: 12px;
+	right: 24px;
+	left: 0;
+	display: flex;
+	justify-content: end;
+	align-items: flex-start;
+	z-index: 1;
+}
+
+/* ._wrapper{
+	position: relative;
+} */
+
+._wrapper .title h3 {
+	font-size: 14px;
+	font-weight: 400;
+	color: var(--color-primary);
+	font-family: 'Lexend-Light';
+	margin: 0px;
+}
+
+.slick-slide ._wrapper:hover .overlay {
+	position: absolute;
+	top: 0;
+	bottom: 00;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	background: var(--color-secondary);
+	opacity: 0.9;
+	border-radius: 12px;
+	margin: 0px 10px;
+}
+
+.slick-slide ._wrapper:hover .image{
+	margin: 0px 10px;
+}
+
+._wrapper:hover .title-hover {
+	background: transparent;
+	border: 1px solid var(--color-white);
+	padding: 13px 17px;
+}
+
+._wrapper:hover .title {
+	display: none
+}
+
+._wrapper:hover .overlay .title {
+	display: block;
+	z-index: 1;
+	background: unset;
+	border: 1px solid var(--color-white);
+	text-align: center;
+}
+
+._wrapper:hover .overlay .title h3{
+	font-family: var(--font-family-2);
+	font-size : 20px;
+	color: var(--color-white);
+}
+
+._wrapper:hover .overlay ._content {
+	text-align: center;
+	margin-top: 50px;
+}
+
+._wrapper:hover .overlay ._button {
+	border: 1px solid var(--color-white);
+	padding: 8px 15px;
+	border-radius: 6px;
+}

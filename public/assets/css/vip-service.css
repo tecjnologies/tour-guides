@@ -1,0 +1,12 @@
+._vip_services .slick-current .card, 
+._vip_services .slick-current + .slick-active .card{
+	margin-right: 30px; 
+}
+
+._vip_services .slick-current + .slick-active + .slick-active .card{
+	margin-right: 3px; 
+}
+
+._vip_services .card{
+	box-shadow: 2px 2px 60px #efefef;
+}

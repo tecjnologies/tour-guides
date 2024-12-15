@@ -1,4 +1,4 @@
-<div class="_wrapper bg-gray py-5 px-5 _popular_destinations _dotted_nav_slider">
+<div class="_wrapper py-5 px-5 _popular_destinations _dotted_nav_slider">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
             <h2 class="font-2 display-26 color-blue">{{ __('website.HEADINGS.POPULAR_DESTINATION') }}</h2>
@@ -24,7 +24,7 @@
                             <a href="{{ route('show.destination', $slide->id) }}">
                                 <div class="image p-0">
                                     <img src="{{ $slide->image }}" alt="kalba" width="100%" class="_place_image" />
-                                    <a href="javascript:void(0);" class="toggle-favorite"
+                                    {{-- <a href="javascript:void(0);" class="toggle-favorite"
                                         data-place-id="{{ $slide->id }}">
                                         @if ($slide->is_favorite)
                                             <img src="{{ asset('assets/images/icons/favourites.svg') }}"
@@ -33,8 +33,8 @@
                                             <img src="{{ asset('assets/images/icons/favourites-gray.svg') }}"
                                                 alt="like-dislike" class="_like_dislike" />
                                         @endif
-                                    </a>
-                                    <ul class="p-0 d-flex justify-content-start align-items-center _tag">
+                                    </a> --}}
+                                    {{-- <ul class="p-0 d-flex justify-content-start align-items-center _tag">
                                         @php
                                             $tagsArray = json_decode($slide->tags, true);
                                         @endphp
@@ -42,12 +42,15 @@
                                             <li class="py-3 font-4 display-16 color-black"> {{ $tag }} </li>
                                         @empty
                                         @endforelse
-                                    </ul>
+                                    </ul> --}}
                                 </div>
                                 <div class="details">
-                                    {{-- <h3 class="font-4 display-22 color-black"> {{ $slide->name }} </h3> --}}
-                                    <h3 class="font-2 display-20 color-blue"> {{ substr($slide->name, 0, 20) }} </h3>
-                                    <p class="font-4 display-16 color-black"> {{ $slide->district->name }} </p>
+                                    <h3 class="font-5 display-16 color-blue"> {{ substr($slide->name, 0, 20) }} </h3>
+                                    {{-- <p class="font-4 display-16 color-black"> {{ $slide->district->name }} </p> --}}
+                                    <p class="font-5 display-16 color-black"> 
+                                        {{-- {{ $slide->district->name }}  --}}
+                                        Lorem Ipsum is simply dummy text of the printing 
+                                    </p>
                                 </div>
                             </a>
                         </div>
@@ -57,9 +60,9 @@
                 <p>No Data Found!</p>
             @endforelse
         </div>
-        <div class="button text-center mt-4 _explorer">
+        {{-- <div class="button text-center mt-4 _explorer">
             <button class="btn btn-md bg-blue color-white px-5 py-3"> Explore More </button>
-        </div>
+        </div> --}}
     </div>
 </div>
 
@@ -75,26 +78,26 @@
                 centerMode: false,
                 centerPadding: '0px',
                 autoplaySpeed: 3000,
-                slidesToShow: 3,
-                slidesToScroll: 1,
+                slidesToShow: 6,
+                slidesToScroll: 6,
                 responsive: [{
                         breakpoint: 1290,
                         settings: {
-                            slidesToShow: 2,
+                            slidesToShow: 4,
                             slidesToScroll: 1
                         }
                     },
                     {
                         breakpoint: 768,
                         settings: {
-                            slidesToShow: 1,
+                            slidesToShow: 3,
                             slidesToScroll: 1
                         }
                     },
                     {
                         breakpoint: 480,
                         settings: {
-                            slidesToShow: 1,
+                            slidesToShow: 2,
                             slidesToScroll: 1
                         }
                     }

@@ -18,6 +18,7 @@ return [
             'JOIN_US' => 'Join us',
             'GET_HELP' => 'Get Help',
             'LOGIN' => 'Login',
+            'TERMSANDCONDITIONS' => 'Terms and Conditions',
         ],
 
     'LABELS' =>
@@ -27,6 +28,7 @@ return [
             'BECOME_TOUR_GUIDE_HEADING' => 'Become a tour guide',
             'BECOME_TOUR_GUIDE_PARAGRAPH' => 'Find trusted tour guides awarded for their Excellent performance',
             'FOLLOW_US' => 'FOLLOW US',
+            'LETSCONNECT' => 'Lets Connect',
             'RESET_ALL' => 'Reset all',
             'FILTERS' => 'Filters',
             'PLACE_TYPE' => 'Place Type',

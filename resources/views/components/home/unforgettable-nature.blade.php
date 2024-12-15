@@ -18,9 +18,10 @@
                 <div class="slide">
                     <div class="extra-slide-content">
                         <div class="row p-4 card border-0">
-                            <div class="_details pb-4">
+                            <div class="_details pb-3">
                                 <img src="{{ $slide['image'] }}" alt="ETGA Logo" width="100%"/>
-                                <p class="pt-4 font-4 display-16 color-blue"> {{ $slide['content'] }} </p>
+                                <p class="pt-3 font-2 display-16 color-blue"> {{ $slide['title'] }} </p>
+                                <p class="pt-3 font-4 display-16 color-blue"> {{ $slide['content'] }} </p>
                             </div>
                         </div>
                     </div>
@@ -45,8 +46,8 @@
                 centerMode: false,
                 centerPadding: '0px',
                 autoplaySpeed: 3000,
-                slidesToShow: 3,
-                slidesToScroll: 1,
+                slidesToShow: 4,
+                slidesToScroll: 4,
                 responsive: [{
                         breakpoint: 1290,
                         settings: {

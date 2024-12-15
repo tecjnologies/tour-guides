@@ -82,8 +82,7 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <div
-                                    class="_start_end_date d-flex justify-content-between align-items-center p-2 rounded-md border border-gray-300">
+                                <div  class="_start_end_date d-flex justify-content-between align-items-center p-2 rounded-md border border-gray-300">
                                     <label for="datepicker">
                                         <input type="text" id="start_datepicker1" placeholder="start date"
                                             autocomplete="off" name="start_date"

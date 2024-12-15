@@ -1,3 +1,7 @@
+@push('css')
+    <link rel="stylesheet" href="{{ asset('assets/css/vip-service.css') }}">
+@endpush
+
 <div class="wrapper px-5 _vip_services _dotted_nav_slider">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
@@ -13,44 +17,29 @@
             </button>
         </div>
     </div>
-    <div class="slider-container">
-        <div class="vipservices-slider" id="slider-3">
-            @forelse($data as $slide)
-                <div class="slide mt-5">
-                    <div class="extra-slide-content">
-                        <div class="row border  rounded p-3">
-                            <div class="col-md-5 p-0 h-100">
-                                <img src="{{ $slide['image'] }}" alt="vip service" width="100%" />
-                            </div>
-                            <div class="col-md-7">
-                                <div class="h-100 d-flex justify-content-center algin-items-center flex-column">
-                                    <h3 class="font-2 display-24 color-blue"> {{ $slide['title'] }} </h3>
-                                    <p class="font-4 display-14 color-black"> {{ $slide['content'] }} </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @empty
-                <p>No Data Found!</p>
-            @endforelse
-        </div>
-
+    <div class="spacer mt-3"></div>
+    <div class="vipservices-slider" id="slider-3">
+        @forelse($data as $index => $slide)
+            <div class="image-with-text-{{$index}}">
+                <x-home.text-with-image
+                    heading="{{ $slide['title'] }}" 
+                    text="{{ $slide['content'] }}"  
+                    imageUrl="{{ $slide['image'] }}" />
+            </div>
+        @empty
+            <p>No Data Found!</p>
+        @endforelse
     </div>
 </div>
-
 
 @push('scripts')
     <script>
         $(document).ready(function() {
-
             $('.vipservices-slider').slick({
                 dots: false,
                 infinite: true,
-                autoplay: true,
+                autoplay: false,
                 arrows: false,
-                centerMode: false,
-                centerPadding: '0px',
                 autoplaySpeed: 3000,
                 slidesToShow: 3,
                 slidesToScroll: 1,
