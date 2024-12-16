@@ -245,7 +245,9 @@
                                     </div>                                    
                                 </div>
                                 <div class="headings">
-                                    <h3 class="font-2 display-20"> {{ $tourGuide->name }} </h3>
+                                    <h3 class="font-2 display-20"> 
+                                        {{ \Illuminate\Support\Str::limit($tourGuide->name, 20, '...') }}
+                                    </h3>
                                     <p class="fotn-4 display-12 m-0"> Specialized in tourist guides  </p>
                                 </div>
                             </div>

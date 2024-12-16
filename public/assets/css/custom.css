@@ -366,8 +366,10 @@ form input::placeholder {
 }
 
 ._popular_destinations .image ._place_image {
-  height: 250px;  
+  height: 277px;
   border-radius: 10px 10px 0px 0px;
+  width: 95%;
+  margin: 0 auto;
 }
 
 
@@ -407,8 +409,9 @@ form input::placeholder {
   background-color: white;
   border-radius: 0px 0px 13px 13px;
   padding: 15px;
-  margin-top: -10px;
   border: 1px solid #9c999994;
+  margin: 0px 6px;
+  margin-top: -4px;
 }
 
 ._title {
