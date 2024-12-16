@@ -17,7 +17,7 @@
 
 <footer class="_footer px-5" style="background-image: url({{ asset('assets/images/footer/background.svg') }})">
     <div class="spacer py-4"></div>
-    <x-home.discovering-regions class="h-12 w-auto" /> 
+    <x-home.discovering-regions /> 
     <div class="spacer py-5"></div>
     <div class="row">
         <div class="col-md-4">

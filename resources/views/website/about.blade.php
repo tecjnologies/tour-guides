@@ -10,6 +10,10 @@
     }
 </style>
 
+@push('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+@endpush
+
 <x-website-layout>
     @section('title', 'Tour Guide - About Us')
     <div class="container-fluid">
@@ -24,7 +28,6 @@
                 <p class="font-4 display-16 color-black mb-3"> At TourGuides.me, we believe in providing more than just sightseeing. We create personalized journeys that allow you to immerse yourself in the traditions, flavors, and stories that make the UAE unique. Our guides are knowledgeable locals who bring every destination to life with fascinating insights and a deep love for their homeland. </p>
                 <p class="font-4 display-16 color-black mb-3"> With years of experience, our team is dedicated to ensuring that your visit to the UAE is seamless, enjoyable, and full of adventure. Whether you’re seeking luxury, adventure, history, or relaxation, we have a tour for you. </p>
                 <p class="font-4 display-16 color-black mb-3">  Let us take you beyond the typical tourist paths and help you explore the true essence of the UAE. Join us on a journey that will leave you with cherished memories and a deeper appreciation for this dynamic and diverse country. </p>
-
             </div>
         </div>
     </div>

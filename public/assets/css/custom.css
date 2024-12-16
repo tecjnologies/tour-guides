@@ -422,9 +422,9 @@ form input::placeholder {
 }
 
 
-._descovering_regions img {
+/* ._descovering_regions img {
   height: 100%;
-}
+} */
 
 
 ._tour_guide_grid ._price{
@@ -596,12 +596,6 @@ input[type="range"] {
   margin-right: 1rem;
 }
 
-._tour_guide_profile ._location {
-  width: 30%;
-  margin: 0px 20px;
-}
-
-
 ._tabs_with_icon ._tabs a {
   text-decoration: none;
 }
@@ -610,8 +604,6 @@ input[type="range"] {
   box-shadow: 1px 1px 30px #E6E7F1;
   border-radius: 12px;
 }
-
-
 
 ._top_destinations ._title_content {
   border: 1px solid var(--color-gray);
