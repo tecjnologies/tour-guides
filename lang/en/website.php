@@ -44,7 +44,7 @@ return [
             'PER_HOUR' => 'per hour',
             'CERTIFIED' => 'Certified',
             'HIGH_RATINGS' => 'High Ratings',
-            'RESPONSIVE_TOURIST_GUIDE' => ' Responsive Tourist Guide',
+            'RESPONSIVE_TOURIST_GUIDE' => 'Responds quickly',
             'SHARE_PROFILE' => 'Share Profile',
             'CALL' => 'Call',
             'EMAIL' => 'Email',

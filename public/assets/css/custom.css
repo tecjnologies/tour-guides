@@ -648,9 +648,9 @@ hr {
 
 
 ._sidebar .profile-rounded img {
-  width: 100px;
-  height: 100px;
-  border-radius: 80%;
+  width: 125px;
+  height: 125px;
+  border-radius: 6px;
 }
 
 
