@@ -17,7 +17,7 @@
                     @foreach ($placeTypes as $type)
                         @if ($type->places->isNotEmpty())
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link {{ !$activeTabSet ? 'active' : '' }}" 
+                                <button class="nav-link font-4 display-16 color-black {{ !$activeTabSet ? 'active' : '' }}" 
                                     id="type-{{ $type->id }}-tab" 
                                     data-bs-toggle="tab" 
                                     data-bs-target="#type-{{ $type->id }}" 
@@ -39,7 +39,7 @@
                 {{-- Emirates Filter --}}
                 <div class="emirates d-flex justify-content-between align-items-center rounded-md px-3 py-2 border border-gray-300 me-md-3">
                     <img src="{{ asset('assets/images/icons/sort.svg') }}" alt="sort-icon" class="sort-icon me-2" />
-                    <select id="emirates" name="emirates" class="w-full border-0">
+                    <select id="emirates" name="emirates" class="w-full border-0 font-4 display-16 color-black">
                         <option value="">All Emirate</option>
                         <option value="abu_dhabi">Abu Dhabi</option>
                         <option value="dubai">Dubai</option>
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-
+        <div class="spcaer my-4"></div>
         {{-- Tab Content --}}
         <div class="col-md-12">
             <div class="tab-content" id="destinationsTabContent">
@@ -73,7 +73,14 @@
                              role="tabpanel" 
                              aria-labelledby="type-{{ $type->id }}-tab">
                             @foreach ($type->places as $place)
-                                <div>{{ $place->name }}</div>
+                                <div class="col-md-3 mb-5">
+                                    <div class="place">
+                                        <img src="{{ $place->image }}" alt="{{ $place->name }}" class="place-image" />
+                                        <div class="spacer my-3"></div>
+                                        <h3 class="font-2 display-20"> {{ $place->name }} </h3>
+                                        <p> {{ $place?->district?->name }} </p>
+                                    </div>
+                                </div>
                             @endforeach
                         </div>
                         @php $activePaneSet = true; @endphp

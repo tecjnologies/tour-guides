@@ -14,7 +14,7 @@ class DestinationController extends Controller
     
     public function index()
     {
-        $placeTypes = Placetype::with('places')->latest()->paginate(9);
+        $placeTypes = Placetype::with('places.district')->latest()->paginate(9);
         return view('website.destinations', compact('placeTypes'));
     }
     
