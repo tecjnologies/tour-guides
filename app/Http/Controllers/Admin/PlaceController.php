@@ -52,8 +52,8 @@ class PlaceController extends Controller
                 'image' => 'required|mimes:jpeg,png,jpg,svg',
                 'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'description' => 'required',
-                'tags' => 'required|array',
-                'tags.*' => 'string|max:255',
+                'tags' => 'sometimes|array',
+                'tags.*' => 'nullable|string|max:255',
             ]);
     
             $image = $request->file('image');
@@ -136,8 +136,8 @@ class PlaceController extends Controller
             'placetype_id' => 'required',
             'image' => 'mimes:jpeg,png,jpg',
             'description' => 'required',
-            'tags' => 'required|array',
-            'tags.*' => 'string|max:255',
+            'tags' => 'sometimes|array',
+            'tags.*' => 'nullable|string|max:255'
 
         ]);
 

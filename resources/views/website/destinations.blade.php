@@ -4,6 +4,25 @@
         --tw-ring-color: unset !important;
         --tw-ring-shadow: unset !important;
     }
+
+    .place img.place-image {
+        width: 95%;
+        height: 100%;
+    }
+
+    .place {
+        max-height: 275px;
+        min-height: 275px;
+        height: 275px;
+    }
+
+
+    .tab-content>.active{
+        display: flex !important;
+    }
+
+
+
 </style>
 
 <x-website-layout>
