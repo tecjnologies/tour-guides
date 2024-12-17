@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guide;
 use App\Models\Place;
 use App\Models\PlacesGallery;
 use App\Models\Placetype;
@@ -22,7 +23,16 @@ class DestinationController extends Controller
     {
         $destination = Place::with('district','gallery')->findOrFail($id);
         $places = Place::whereNot('id', $id)->get();
-        return view('website.destination-details', compact('destination', 'places'));
+        $guides = Guide::limit(6)->get();
+        return view('website.destination-details', compact('destination', 'places', 'guides'));
+
+    }
+
+    public function showTourDestinations($id)
+    {
+        $destination = Place::with('district','gallery')->findOrFail($id);
+        $places = Place::whereNot('id', $id)->get();
+        return view('website.tour-destination-details', compact('destination', 'places'));
 
     }
 

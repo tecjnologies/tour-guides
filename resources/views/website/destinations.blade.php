@@ -6,14 +6,9 @@
     }
 
     .place img.place-image {
-        width: 95%;
-        height: 100%;
-    }
-
-    .place {
-        max-height: 275px;
-        min-height: 275px;
-        height: 275px;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        object-fit: contain;
     }
 
 
@@ -22,10 +17,6 @@
         flex-wrap: wrap;
         row-gap: 112px;
     }
-
-    
-
-
 
 </style>
 
@@ -97,12 +88,14 @@
                              aria-labelledby="type-{{ $type->id }}-tab">
                             @foreach ($type->places as $place)
                                 <div class="col-md-3 mb-5">
-                                    <div class="place">
-                                        <img src="{{ $place->image }}" alt="{{ $place->name }}" class="place-image" />
-                                        <div class="spacer my-3"></div>
-                                        <h3 class="font-2 display-20"> {{ $place->name }} </h3>
-                                        <p> {{ $place?->district?->name }} </p>
-                                    </div>
+                                    <a href="{{ route('show.destination', $place->id) }}">
+                                        <div class="place">
+                                            <img src="{{ $place->image }}" alt="{{ $place->name }}" class="place-image" />
+                                            <div class="spacer my-3"></div>
+                                            <h3 class="font-2 display-20 {{ $loop->first ? '' :  'ps-4'}}"> {{ $place->name }} </h3>
+                                            <p class="{{ $loop->first ? '' :  'ps-4'}}"> {{ $place?->district?->name }} </p>
+                                        </div>
+                                    </a>
                                 </div>
                             @endforeach
                         </div>

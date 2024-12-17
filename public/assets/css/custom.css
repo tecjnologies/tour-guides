@@ -767,6 +767,17 @@ hr {
 }
 
 
+.banner{
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+
 @media only screen and (max-width: 1800px) {
 
 }

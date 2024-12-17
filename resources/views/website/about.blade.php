@@ -1,13 +1,5 @@
 <style>
-    .banner{
-        background-position: center center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 70vh;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-start;
-    }
+   
 </style>
 
 @push('css')
@@ -18,7 +10,7 @@
     @section('title', 'Tour Guide - About Us')
     <div class="container-fluid">
         <div class="row px-5" >
-            <div class="banner flex-column p-5" style="background-image: url({{ asset('assets/images/about/about-banner.svg') }})">
+            <div class="banner flex-column p-5" style="background-image: url({{ asset('assets/images/about/about-banner.png') }})">
                 <h3 class="font-3 display-36 color-white">“Explore More, Discover Deeper
                    <br/>  Your Journey Begins Here!”</h3>
             </div>

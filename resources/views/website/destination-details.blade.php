@@ -1,263 +1,130 @@
-@php 
-    $sliderOptions = [
-        'dots' => false,
-        'infinite' => false,
-        'autoplay' => false,
-        'arrows' => false,
-        'centerMode' => false,
-        'centerPadding' => '0px',
-        'autoplaySpeed' => 3000,
-        'slidesToShow' => 3,
-        'slidesToScroll' => 3,
-        'responsive' => [
-            ['breakpoint' => 1024, 'settings' => ['slidesToShow' => 2, 'slidesToScroll' => 2]],
-            ['breakpoint' => 768, 'settings' => ['slidesToShow' => 1, 'slidesToScroll' => 1]],
-            ['breakpoint' => 480, 'settings' => ['slidesToShow' => 1, 'slidesToScroll' => 1]],
-        ]
-    ];
+<style>
 
-@endphp
+.destination-guides .guide-image {
+    aspect-ratio: 1 / 1;
+    border-radius: 71px;
+    margin: 3px;
+    object-fit: contain;
+    width: 55px;
+    height: 55px;
+}
 
-@push('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
-    <style>
-        .slick-prev, .slick-next {
-            display: none !important;
-         }
-    </style>
-@endpush
+</style>
 
 <x-website-layout>
-    @section('title', 'Tour Guide - Homepage')
-    <div class="mx-auto">
-        <div class="row px-5">
-            <div class="col-md-12 _about_me pe-4">
-              
-                <div class="_about_me_text">
-                    <h3 class="font-2 display-20 color-blue py-2"> {{ $destination->name }} </h3>
-                    <p class="font-4 display-16 color-black">
-                        {{ $destination->district?->name }}
-                    </p>
-                </div>
-              
-                <div class="_about_me_text">
-                    <div class="row my-4 _gallery">
-                        @isset($destination->gallery)
-                            @forelse ($destination->gallery as $index => $gallery)
-                                <div class="{{ $loop->first ? 'col-lg-6 col-md-12 my-md-3 _item' : 'col-lg-3 col-md-12 my-md-3 _item' }}">
-                                    <img src="{{ $gallery->image }}" alt="check-mark" class="w-100 h-100 " />
-                                </div>
-                            @empty
-                                <p class="font-4 display-16 color-red">
-                                    No gallery found.
-                                </p>
-                            @endforelse
-                        @endisset
-                    </div>
-                </div>
-
-                
-                {!! $destination->description !!}
-
-                {{-- <div class="highlights py-3">
-                    <h3 class="font-2 display-20 color-blue py-2"> Highlights </h3>
-                    <p class="font-4 display-16 color-black">
-                        <ul class="icon-list">
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3" />
-                                Lorem Ipsum is simply dummy text of the  </li>
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                                Lorem Ipsum is simply dummy text of the  </li>
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark"  class="me-3"/>
-                                Lorem Ipsum is simply dummy text of the  </li>
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                                Lorem Ipsum is simply dummy text of the  </li>
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                                Lorem Ipsum is simply dummy text of the  </li>
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                                Lorem Ipsum is simply dummy text of the  </li>
-                        </ul>
-                    </p>
-                </div>
-
-                <div class="_about_me_text py-3">
-                    <h3 class="font-2 display-20 color-blue py-2"> Descriptions </h3>
-                    <p class="font-4 display-16 color-black">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry,  
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    </p>
-                </div>
-
-                <div class="_about_me_text py-3">
-                    <h3 class="font-2 display-20 color-blue py-2"> What's Included </h3>
-                    <ul class="icon-list">
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3" />
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark"  class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                    </ul>
-
-                </div>
-
-                <div class="_about_me_text py-3">
-                    <h3 class="font-2 display-20 color-blue py-2"> What's Excluded </h3>
-                   <ul  class="icon-list">
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error" class="me-3" />
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error" class="me-3"/>
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error"  class="me-3"/>
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error" class="me-3"/>
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error" class="me-3"/>
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error" class="me-3"/>
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    </ul>
-                </div>
-
-                <div class="_about_me_text py-3">
-                    <h3 class="font-2 display-20 color-blue py-2"> Know before you go. </h3>
-                    <ul  class="icon-list">
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation" class="me-3" />
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation"  class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="cexclamation" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                    </ul>
-                </div> --}}
-            
-                <div class="row pt-3">
-                    <x-tour-guide.top-destination-list :data="$places" :options="$sliderOptions" class="w-auto" />
-                </div>
-          
+    @section('title', 'Destination -  Details')
+    <div class="container-fluid">
+        <div class="row px-5" >
+            <div class="banner flex-column p-5" style="background-image: url({{ asset('assets/images/destinations/banner.png') }})">
+                <h3 class="font-3 display-36 color-white">“Explore More, Discover Deeper
+                   <br/>  Your Journey Begins Here!”</h3>
             </div>
-            {{-- <div class="col-md-3">
-                <div class="_sidebar p-4">
-                    <div class="d-flex justify-content-start align-items-center">
-                        <div class="profile-rounded">
-                            <img src="{{ asset('assets/images/tour-guide/mohammad-rounded.svg') }}" alt="mohammad" class="me-3"/>
-                        </div>
-                        <div class="title">
-                            <h3 class="font-2 display-20"> Mohammed Othman </h3>
-                            <div class="reviews d-flex justify-content-start align-items-center">
-                                <img src="{{ asset('assets/images/icons/stars.svg') }}" alt="Arrow right" class="me-3"/>
-                                <p class="fotn-4 display-12 m-0"> 5.0 / 5  <span class="color-blue"> (2 reviews) </span> </p>
-                            </div>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="wrapper">
-                         <div>
-                            <select name="type_of_places" class="w-full p-2 rounded-md border border-gray-300">
-                                <option value="" class="font-5 displaty-14 color-blue">Type of Places</option>
-                                <option value="beach" class="font-5 displaty-14 color-blue">Beach</option>
-                                <option value="mountain" class="font-5 displaty-14 color-blue">Mountain</option>
-                                <option value="city" class="font-5 displaty-14 color-blue">City</option>
-                            </select>
-                        </div>
-                        <div class="my-3">
-                            <input type="date" name="start_date" required class="w-full p-2 rounded-md border border-gray-300">
-                        </div>
-                        <div>
-                            <select name="type_of_places" class="w-full p-2 rounded-md border border-gray-300">
-                                <option value="" class="font-5 displaty-14 color-blue">Adults</option>
-                                <option value="beach" class="font-5 displaty-14 color-blue">1</option>
-                                <option value="mountain" class="font-5 displaty-14 color-blue">2</option>
-                                <option value="city" class="font-5 displaty-14 color-blue">3</option>
-                                <option value="city" class="font-5 displaty-14 color-blue">4</option>
-                                <option value="city" class="font-5 displaty-14 color-blue">5</option>
-                            </select>
-                        </div>
-                        <hr />
-                        <div class="notification d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('assets/images/tour-guide/notification.svg') }}" alt="mohammad" class="me-3"/>
-                            <span class="color-red font-3 display-16"> September: Only 13 slots left! </span>
-                        </div>
-                        <button class="btn btn-lg bg-blue color-white w-100 my-2 font-2 display-16"> Book  Now </button>
-                    </div>
-                    <hr/>                    
-                    <div class="wrapper d-flex justify-content-start align-items-center py-2">
-                        <div class="icon me-2">
-                            <img src="{{ asset('assets/images/menu/destinations.svg') }}" alt="mohammad" class="me-3"/>
-                        </div>
-                        <div class="title">
-                           <h4 class=" font-2 display-16"> Available Areas </h4>
-                           <p class="font-4 display-16"> Dubai (Living) , Hatta  </p> 
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="wrapper d-flex justify-content-start align-items-center py-2">
-                        <div class="icon me-2">
-                            <img src="{{ asset('assets/images/icons/language.svg') }}" alt="mohammad" class="me-3"/>
-                        </div>
-                        <div class="title">
-                           <h4 class=" font-2 display-16"> Languages </h4>
-                           <p class="font-4 display-16"> English , arabic (Native)  </p> 
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="wrapper d-flex justify-content-start align-items-center  py-2">
-                        <div class="icon me-2">
-                            <img src="{{ asset('assets/images/tour-guide/response-time.svg') }}" alt="mohammad" class="me-3"/>
-                        </div>
-                        <div class="title">
-                           <h4 class=" font-2 display-16"> Response Time  </h4>
-                           <p class="font-4 display-16"> 7 Hours on average  </p> 
-                        </div>
-                    </div>
-                    <hr/>
+           
+        </div>
 
-                    <div class="wrapper d-flex justify-content-start align-items-center  py-2">
-                        <div class="icon me-2">
-                            <img src="{{ asset('assets/images/tour-guide/calendar.svg') }}" alt="mohammad" class="me-3"/>
-                        </div>
+        <div class="row me-3">
+            <div class="col-md-9">
+                <div class="text p-5">
+                    <p class="font-4 display-16 color-black mb-3"> As Abu Dhabi is the capital of the UAE, it’s loaded with thousands of incredible-looking scenes, advanced technology features, and thousands of breathtaking activities. It’s one of the most visited and admired places in the country as it boasts the rich culture and history of the UAE. At the same time, it’s home to many artistic and cultural sites. Every single detail about this area is remarkably on point. 
+                       <br>  If you’re seeking some quality time with your beloved ones, this site is the perfect spot to visit. Not only does it present the Emirati culture, but it collects artistic features from all around the world in every location. For example, you can take a few hours to explore The Louvre museum there and watch the world’s most creative artworks!
+                        </p>
+                    <p class="font-4 display-16 color-black mb-3"> <b> Free Up Some Time, Fill Your Soul With Art </b> </p>
+                    <p class="font-4 display-16 color-black mb-3">  The great Louvre overs a significant experience for you to admire. As it includes the most astonishing artworks created by the greatest minds in the art world, this site is admired by every UAE visitor. Despite how fascinating this place is, it also enhances Abu Dhabi’s status in the UAE by putting it in the spotlight in the art world. </p>
+                    <p class="font-4 display-16 color-black mb-3"> <b>  When to Visit </b> </p>
+                    <p class="font-4 display-16 color-black mb-3"> This charming museum welcomes thousands of visitors every single month. As it opens its doors every day, except on Mondays, you get to enjoy a lovely adventure anytime you like between 10 am & 8 pm on Saturdays, Tuesdays, and Sundays, and between 10 am & 10 pm on Thursdays and Fridays. Even though this place doesn’t offer any children’s activities, it’s never a waste to help your kids grow knowing what art is like by taking them to this novel place. At the same time, its charming and artistic vibes are perfectly on point to enjoy some time and strengthen your bond with your beloved ones. </p>
+                    <p class="font-4 display-16 color-black mb-3"> <b>  Related to Louvre Paris  </b> </p>
+                    <p class="font-4 display-16 color-black mb-3"> With the world developing every day, you don’t need to go to Paris to see the Charming Louvre. Now you can see that same breathtaking experience in the UAE. The Abu Dhabi Louvre results from 30 years of cooperation between Abu Dhabi and the French. This 260,000 square foot includes the definition of art within every corner. It provides half of the French Louvre’s artworks. At the same time, it has 13 French cultural institutions. This place is an artwork itself. </p>
+                    <p class="font-4 display-16 color-black mb-3">  <b>  The First, second, & Third Exhibitions: </b> </p>
+                    <p class="font-4 display-16 color-black mb-3"> In 2009, Talking Art, the first exhibition, was held remarkably, and the Louvre Abu Dhabi’ took place at one of the Emirates Palace Hotel. Birth of a Museum, the second exhibition, featured over 130 works and was held in Manarat Al Saadiyat’s exhibition space. Birth of a Museum, the third exhibition, featured several new acquisitions. For example, the astonishing Chirisei Kyubiki by the Japanese artist Kazuo Shiraga.  </p>
+                    <p class="font-4 display-16 color-black mb-3"> <b>   All About UAE Louvre  </b> </p>
+                    <p class="font-4 display-16 color-black mb-3"> This incredible place is one of the UAE’s most charming places. It offers a beautiful and artistic experience that you would admire at a glance. If that’s what you’re seeking, this place is remarkable for you to have some quality time and relaxation with your family and friends. </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="_sidebar mt-5">
+                    <div class="wrapper d-flex justify-content-start align-items-center py-2 p-4">
                         <div class="title">
-                           <h4 class=" font-2 display-16">Availability Updated </h4>
-                           <p class="font-4 display-16">  - </p> 
+                            <h4 class=" font-2 display-16"> Louvre Abu Dhabi Museum </h4>
                         </div>
                     </div>
+                    <hr />
+                    <div class="wrapper d-flex justify-content-start align-items-center py-2 p-4">
+                        <div class="icon me-2">
+                            <img src="{{ asset('assets/images/menu/destinations.svg') }}" alt="destinations"
+                                class="me-3" />
+                        </div>
+                        <div class="title">
+                            <h4 class=" font-2 display-16">  Location </h4>
+                            <p class="font-4 display-16"> Abu Dhabi </p>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="wrapper d-flex justify-content-start align-items-center py-2 p-4">
+                        <div class="icon me-2">
+                            <img src="{{ asset('assets/images/icons/language.svg') }}" alt="languages"
+                                class="me-3" />
+                        </div>
+                        <div class="title">
+                            <h4 class=" font-2 display-16">  Trip type</h4>
+                            <p class="font-4 display-16"> Art& Culture </p>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="wrapper d-flex justify-content-start align-items-center  py-2 p-4">
+                        <div class="icon me-2">
+                            <img src="{{ asset('assets/images/tour-guide/response-time.svg') }}" alt="response time"
+                                class="me-3" />
+                        </div>
+                        <div class="title">
+                            <h4 class=" font-2 display-16"> working hours </h4>
+                            <p class="font-4 display-16"> 9 AM–6 PMe </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="wrapper d-flex justify-content-start align-items-center p-4  py-2">
+                        <div class="icon me-2">
+                            <img src="{{ asset('assets/images/tour-guide/calendar.svg') }}" alt="calendar"
+                                class="me-3" />
+                        </div>
+                        <div class="title">
+                            <h4 class=" font-2 display-16"> {{ __('website.LABELS.AVAILABILITY_UPDATED') }} </h4>
+                            <p class="font-4 display-16"> Available all year  </p>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="wrapper d-flex justify-content-start align-items-center p-4  py-2">
+                        <div class="icon me-2">
+                            <img src="{{ asset('assets/images/tour-guide/calendar.svg') }}" alt="calendar"
+                                class="me-3" />
+                        </div>
+                        <div class="title">
+                            <h4 class=" font-2 display-16"> Age </h4>
+                            <p class="font-4 display-16"> from kids to senior  </p>
+                        </div>
+                    </div>
+                
                 </div>
-            </div> --}}
-        </div> 
+
+
+                <div class="_sidebar mt-4 p-4">
+                    <div class="wrapper d-flex justify-content-start align-items-center py-2 p-4">
+                        <div class="title">
+                            <h4 class=" font-2 display-16"> Discover a tour guides in this destination </h4>
+                        </div>
+                    </div>
+                    <div class="wrapper destination-guides d-flex justify-content-start align-items-center py-2 p-4">
+                        @forelse ($guides as $guide)
+                            <img src="{{$guide->image}}" alt="{{$guide}}" class="guide-image">
+                        @empty
+                            
+                        @endforelse
+                    </div>
+                    
+                </div>
+
+
+            </div>
+        </div>
     </div>
 </x-website-layout>

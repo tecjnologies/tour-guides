@@ -21,7 +21,7 @@
                 <div class="slide ">
                     <div class="extra-slide-content">
                         <div class="row">
-                            <a href="{{ route('show.destination', $slide->id) }}">
+                            <a href="{{ route('show.tourdestination', $slide->id) }}">
                                 <div class="image p-0">
                                     <img src="{{ $slide->image }}" alt="kalba" width="100%" class="_place_image" />
                                     {{-- <a href="javascript:void(0);" class="toggle-favorite"
