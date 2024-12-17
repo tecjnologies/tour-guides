@@ -19,7 +19,10 @@
 
     .tab-content>.active{
         display: flex !important;
+        flex-wrap: wrap;
     }
+
+    
 
 
 
