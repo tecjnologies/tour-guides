@@ -20,6 +20,7 @@
     .tab-content>.active{
         display: flex !important;
         flex-wrap: wrap;
+        row-gap: 112px;
     }
 
     
