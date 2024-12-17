@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-3">
                 <div class="_sidebar mt-5">
-                    <div class="wrapper d-flex justify-content-start align-items-center py-2 p-4">
+                    <div class="wrapper d-flex justify-content-start align-items-center pt-4 px-4">
                         <div class="title">
                             <h4 class=" font-2 display-16"> Louvre Abu Dhabi Museum </h4>
                         </div>
