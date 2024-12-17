@@ -222,8 +222,7 @@
                 <a class="text-right font-5 display-14 color-blue d-flex justify-content-between align-items-center"
                     href="{{ route('tour-guides-profile') }}">
                     {{ __('website.LABELS.MEET_EXPORTS') }}
-                    <img src="{{ asset('assets/images/icons/arrow-primary.svg') }}" alt="arrow-right"
-                        class="arrow-white ml-4" />
+                    <img src="{{ asset('assets/images/icons/arrow-primary.svg') }}" alt="arrow-right"  class="arrow-white ml-4" />
                 </a>
             </div>
         </div>

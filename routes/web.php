@@ -62,7 +62,7 @@ Route::get('/tour-guides-profile/{id}', [TourGuideController::class, 'show'])->n
 Route::post('/tour-guides-profile/search', [TourGuideController::class, 'search'])->name('search.tour-guide');
 Route::get('/destination-details/{id}', [DestinationController::class, 'show'])->name('show.destination');
 Route::delete('/destination-image/{id}', [DestinationController::class, 'destroyImage'])->name('images.destroy');
-Route::get('/destinations', function () {  return view('website.destinations'); })->name('destinations');
+Route::get('/destinations',  [DestinationController::class, 'index'])->name('destinations');
 Route::get('/join-us', function () {  return view('website.join-us');})->name('join-us');
 Route::get('/get-help', function () { return view('website.get-help');})->name('get-help');
 Route::get('/terms-and-conditions', function () { return view('website.terms-and-conditions');})->name('terms-and-conditions');

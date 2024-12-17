@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Place;
 use App\Models\PlacesGallery;
+use App\Models\Placetype;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
@@ -13,8 +14,8 @@ class DestinationController extends Controller
     
     public function index()
     {
-        $tourGuides = Place::latest()->paginate(9);
-        return view('website.tour-guides-profile', compact('tourGuides'));
+        $placeTypes = Placetype::with('places')->latest()->paginate(9);
+        return view('website.destinations', compact('placeTypes'));
     }
     
     public function show($id)
