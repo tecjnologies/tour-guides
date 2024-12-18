@@ -22,7 +22,7 @@
 
 <x-website-layout>
     @section('title', 'Tour Guide - Destinations')
-    <div class="row px-5">
+    <div class="row px-5 _popular_destinations">
         <div class="col-md-12 d-flex justify-content-between align-items-center">
             {{-- Tabs --}}
             <div class="tabs">
@@ -89,8 +89,18 @@
                             @foreach ($type->places as $place)
                                 <div class="col-md-3 mb-5">
                                     <a href="{{ route('show.destination', $place->id) }}">
-                                        <div class="place">
-                                            <img src="{{ $place->image }}" alt="{{ $place->name }}" class="place-image" />
+                                        <div class="place image">
+                                            <img src="{{ $place->image }}" alt="{{ $place->name }}" class="_place_image" />
+                                            <a href="javascript:void(0);" class="toggle-favorite"
+                                                data-place-id="{{ $place->id }}">
+                                                @if ($place->is_favorite)
+                                                    <img src="{{ asset('assets/images/icons/favourites.svg') }}"
+                                                        alt="like-dislike" class="_like_dislike" />
+                                                @else
+                                                    <img src="{{ asset('assets/images/icons/favourites-gray.svg') }}"
+                                                        alt="like-dislike" class="_like_dislike" />
+                                                @endif
+                                            </a> 
                                             <div class="spacer my-3"></div>
                                             <h3 class="font-2 display-20 {{ $loop->first ? '' :  'ps-4'}}"> {{ $place->name }} </h3>
                                             <p class="{{ $loop->first ? '' :  'ps-4'}}"> {{ $place?->district?->name }} </p>
@@ -105,4 +115,50 @@
             </div>
         </div>
     </div>
+    
+    @push('scripts')
+        <script>
+            $(document).on('click', '.toggle-favorite', function(e) {
+                e.preventDefault();
+                const placeId = $(this).data('place-id') || null;
+                const guideId = $(this).data('guide-id') || null;
+                const $icon = $(this).find('img');
+                $.ajax({
+                    url: "{{ route('toggle-favorite') }}",
+                    type: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        place_id: placeId,
+                        guide_id: guideId
+                    },
+                    success: function(response) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.message,
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        });
+    
+                        if ($icon.attr('src') === '{{ asset('assets/images/icons/favourites.svg') }}') {
+                            $icon.attr('src', '{{ asset('assets/images/icons/favourites-gray.svg') }}');
+                        } else {
+                            $icon.attr('src', '{{ asset('assets/images/icons/favourites.svg') }}');
+                        }
+                    },
+                    error: function(xhr) {
+                        if (xhr.status === 401) {
+                            window.location.href = "{{ route('login') }}";
+                        } else {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: xhr.responseJSON?.message || 'Something went wrong',
+                                icon: 'error',
+                                confirmButtonText: 'Cancel'
+                            });
+                        }
+                    }
+                });
+            });
+        </script>
+    @endpush
 </x-website-layout>

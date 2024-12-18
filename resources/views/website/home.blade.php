@@ -191,7 +191,7 @@
         <x-home.tour-guide :data="$tourGuides" :options="$sliderOptions" class="h-12 w-auto"/>
         
         <div class="spacer py-5"></div>
-        <x-home.popular-destinations :data="$destinations" :options="$sliderOptions" class="h-12 w-auto" />
+    <x-home.popular-destinations :data="$destinations" :options="$sliderOptions" class="h-12 w-auto" />
         
         <div class="spacer py-5"></div>
         <x-home.vip-service :data="$vipServices" :options="$sliderOptions" class="h-12 w-auto" />

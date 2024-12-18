@@ -71,7 +71,7 @@ Route::get('/join-us', function () {  return view('website.join-us');})->name('j
 Route::get('/get-help', function () { return view('website.get-help');})->name('get-help');
 Route::get('/terms-and-conditions', function () { return view('website.terms-and-conditions');})->name('terms-and-conditions');
 Route::get('/about-us', [HomeController::class , 'about'])->name('about-us');
-Route::get('/favourites', [HomeController::class , 'favourites'])->name('favourites');
+
 Route::get('/search', [HomeController::class,'search'])->name('search');
 Route::get('/place/details/{id}', [HomeController::class, 'placeDdetails'])->name('place.details');
 Route::get('/package/details/{id}', [HomeController::class, 'packageDetails'])->name('package.details');
@@ -88,6 +88,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/package/booking', [HomeController::class, 'storeBookingRequest'])->name('store.package.booking');
     Route::post('/toggle-favorite', [HomeController::class, 'toggleFavorite'])->name('toggle-favorite');
+    Route::get('/favourites', [HomeController::class , 'favourites'])->name('favourites');
 });
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin','middleware' => [ Authenticate::class , 'verified', RoleMiddleware::class . ':admin' ]], function () {

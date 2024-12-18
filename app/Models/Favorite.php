@@ -20,11 +20,12 @@ class Favorite extends Model
 
     public function place()
     {
-        return $this->belongsTo(Place::class);
+        return $this->belongsTo(Place::class, 'place_id');
     }
-
+    
     public function guide()
     {
-        return $this->belongsTo(Guide::class);
+        return $this->belongsTo(Guide::class, 'guide_id');
     }
+
 }

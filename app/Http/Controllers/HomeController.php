@@ -59,14 +59,12 @@ class HomeController extends Controller
 
     public function favourites()
     {
-        $favourites = collect();
-        $favorite = Favorite::where('user_id', Auth::id())->get();
-        
-        if ($favorite->count() > 0) {
-            $favourites = $favorite; 
-        }
-        
-        return view('website.favourites', compact('favourites'));
+        $user = Auth::user();
+
+        $favouriteGuides= $user->favouriteGuides;
+        $favouritePlaces= $user->favouritePlaces;
+    
+        return view('website.favourites', compact('favouriteGuides','favouritePlaces'));
     }
 
     

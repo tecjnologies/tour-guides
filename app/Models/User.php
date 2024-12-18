@@ -55,7 +55,19 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Favorite::class);
     }
-
     
+    public function favouritePlaces()
+    {
+        return $this->hasMany(Favorite::class)
+                    ->whereNotNull('place_id')
+                    ->with('place'); // Eager load Place
+    }
+
+    public function favouriteGuides()
+    {
+        return $this->hasMany(Favorite::class)
+                    ->whereNotNull('guide_id')
+                    ->with('guide'); // Eager load Guide
+    }
 }
 
