@@ -317,10 +317,19 @@ span {
 ._main_menu a, footer a {
   text-decoration: none;
   border: unset;
+  position: relative;
 }
 
-._main_menu a.active, footer a.active{
+/* ._main_menu a.active, footer a.active{
   color: var(--color-secondary);
+} */
+
+._main_menu a.active:before {
+  content: ' ';
+  border-bottom: 2px solid var(--color-primary);
+  width: 100%;
+  position: absolute;
+  bottom: -40%;
 }
 
 form select, form input {
@@ -368,15 +377,9 @@ form input::placeholder {
 ._popular_destinations .image ._place_image {
   height: 277px;
   border-radius: 10px 10px 0px 0px;
-  width: 95%;
+  width: 96%;
   margin: 0 auto;
 }
-
-
-/* ._top_destinations .image img:first-child {
-  height: 365px;
-  border-radius: 10px;
-} */
 
 ._popular_destinations ._like_dislike {
   position: absolute;
@@ -409,8 +412,8 @@ form input::placeholder {
   border-radius: 0px 0px 13px 13px;
   padding: 15px;
   border: 1px solid #9c999994;
-  margin: 0px 6px;
-  margin-top: -4px;
+  margin: 0px 7px;
+  margin-top: -6px;
 }
 
 ._title {
@@ -615,10 +618,11 @@ input[type="range"] {
   z-index: -1;
 }
 
-._sidebar {
+._card {
   box-shadow: 1px 1px 15px #dbdbdb;
   border-radius: 10px;
 }
+
 
 hr {
   border-top: 1px #cfcfcf solid !important;
@@ -775,6 +779,39 @@ hr {
   align-items: flex-start;
 }
 
+.background-image img {
+  height: 90px;
+}
+
+._profile_details{
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+}
+
+.guide_info {
+  position: absolute;
+  bottom: -64px;
+  left: 25px;
+}
+
+._breadcrum {
+  border-bottom: 3px solid;
+  padding-bottom: 1rem;
+}
+
+._personalized_offer ._image ._image_rounded {
+  border-radius: 54%;
+  width: 120px;
+  height: 120px;
+}
+
+.unforgettable-slider ._details {
+  background-color: white;
+  padding: 16px;
+  border-radius: 4px;
+}
 
 @media only screen and (max-width: 1800px) {
 

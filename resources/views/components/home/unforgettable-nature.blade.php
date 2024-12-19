@@ -17,7 +17,7 @@
             @forelse($data as $slide)
                 <div class="slide">
                     <div class="extra-slide-content">
-                        <div class="row p-4 card border-0">
+                        <div class="row p-4 border-0">
                             <div class="_details pb-3">
                                 <img src="{{ $slide['image'] }}" alt="ETGA Logo" width="100%"/>
                                 <p class="pt-3 font-2 display-16 color-blue"> {{ $slide['title'] }} </p>
@@ -41,7 +41,7 @@
             $('.unforgettable-slider').slick({
                 dots: false,
                 infinite: true,
-                autoplay: true,
+                autoplay: false,
                 arrows: false,
                 centerMode: false,
                 centerPadding: '0px',

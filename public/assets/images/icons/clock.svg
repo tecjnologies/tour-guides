@@ -1,12 +1,6 @@
-<svg id="clock_1_" data-name="clock (1)" xmlns="http://www.w3.org/2000/svg" width="21.984" height="21.984" viewBox="0 0 21.984 21.984">
-  <g id="Group_23790" data-name="Group 23790" transform="translate(10.141 5.1)">
-    <g id="Group_23789" data-name="Group 23789">
-      <path id="Path_130648" data-name="Path 130648" d="M240.937,126.612l-3.065-2.3V119.63a.851.851,0,1,0-1.7,0v5.109a.85.85,0,0,0,.341.681l3.406,2.554a.852.852,0,0,0,1.022-1.362Z" transform="translate(-236.169 -118.779)" fill="#11004a"/>
-    </g>
-  </g>
-  <g id="Group_23792" data-name="Group 23792">
-    <g id="Group_23791" data-name="Group 23791">
-      <path id="Path_130649" data-name="Path 130649" d="M10.992,0A10.992,10.992,0,1,0,21.984,10.992,11,11,0,0,0,10.992,0Zm0,20.281a9.289,9.289,0,1,1,9.289-9.289A9.3,9.3,0,0,1,10.992,20.281Z" fill="#11004a"/>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <g id="clock_2_" data-name="clock (2)" transform="translate(-1 -1)">
+    <path id="Path_130660" data-name="Path 130660" d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,20a9,9,0,1,1,9-9A9,9,0,0,1,12,21Z" fill="#11004a"/>
+    <path id="Path_130661" data-name="Path 130661" d="M13,11.586V6a1,1,0,0,0-2,0v6a1,1,0,0,0,.293.707l3,3a1,1,0,1,0,1.414-1.414Z" fill="#11004a"/>
   </g>
 </svg>

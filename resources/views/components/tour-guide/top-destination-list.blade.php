@@ -1,16 +1,25 @@
+<style>
+    .slide._top_destinations {
+        width: 91%;
+    }
+
+    ._top_destinations .image {
+        aspect-ratio: 3 / 2;
+    }
+
+    ._top_destinations .image img{
+        width: 100%;
+        height: 100%;
+    }
+
+</style>
+
+
 <div class="_wrapper py-5 _dotted_nav_slider _top_destinations">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
             <h2 class="font-2 display-20 color-blue"> {{ __('website.LABELS.TOP_DESTINATIONS') }}</h2>
         </div>
-        {{-- <div class="_slide_buttons">
-            <button class="slick-prev-custom" data-slider="slider-4">
-                <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" alt="Arrow left" />
-            </button>
-            <button class="slick-next-custom ml-4" data-slider="slider-4">
-                <img src="{{ asset('assets/images/icons/arrow-right.svg') }}" alt="Arrow right" />
-            </button>
-        </div> --}}
     </div>
     <hr />
 
@@ -54,19 +63,19 @@
                 centerMode: false,
                 centerPadding: '0px',
                 autoplaySpeed: 3000,
-                slidesToShow: 3,
+                slidesToShow: 4,
                 slidesToScroll: 1,
                 responsive: [{
                         breakpoint: 1290,
                         settings: {
-                            slidesToShow: 2,
+                            slidesToShow: 3,
                             slidesToScroll: 1
                         }
                     },
                     {
                         breakpoint: 768,
                         settings: {
-                            slidesToShow: 1,
+                            slidesToShow: 2,
                             slidesToScroll: 1
                         }
                     },

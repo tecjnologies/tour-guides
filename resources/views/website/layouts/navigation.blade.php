@@ -7,64 +7,36 @@
                 </a>
             </div>
             <div class="hidden md:flex space-x-4">
-                <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="me-3 font-4 display-14 color-blue">
-                    @if(request()->routeIs('home'))
-                        <img src="{{ asset('assets/images/menu/home-active.svg') }}" alt="Home Active" class="mx-2"/>
-                    @else
-                        <img src="{{ asset('assets/images/menu/home.svg') }}" alt="Home" class="mx-2"/>
-                    @endif
+                <x-nav-link :href="route('home')" :active="request()->routeIs('home') || request()->routeIs('/')" class="me-3 font-4 display-14 color-blue">
+                    <img src="{{ asset('assets/images/menu/home.svg') }}" alt="Home" class="mx-2"/>
                     {{ __('website.MENU.HOME') }}
                 </x-nav-link>
 
                 <x-nav-link :href="route('about-us')" :active="request()->routeIs('about-us')" class="font-4 display-14 color-blue">
-                    @if(request()->routeIs('about-us'))
-                        <img src="{{ asset('assets/images/menu/about-active.svg') }}" alt="about-us Active" class="mx-2"/>
-                    @else
-                        <img src="{{ asset('assets/images/menu/about.svg') }}" alt="about-us" class="mx-2"/>
-                    @endif
+                    <img src="{{ asset('assets/images/menu/about.svg') }}" alt="about-us" class="mx-2"/>
                     {{ __('website.MENU.ABOUT_US') }}
                 </x-nav-link>
                  <x-nav-link :href="route('tour-guides-profile')" :active="request()->routeIs('tour-guides-profile')" class="font-4 display-14 color-blue">
-                    @if(request()->routeIs('tour-guides-profile'))
-                        <img src="{{ asset('assets/images/menu/tour-guide-active.svg') }}" alt="Tour Guide Profile Active" class="mx-2"/>
-                    @else
-                        <img src="{{ asset('assets/images/menu/tour-guide.svg') }}" alt="Tour Guide Profile" class="mx-2"/>
-                    @endif
+                    <img src="{{ asset('assets/images/menu/tour-guide.svg') }}" alt="Tour Guide Profile" class="mx-2"/>
                     {{ __('website.MENU.TOURGUIDE_PROFILE') }}
                 </x-nav-link>
                 
                 
                 <x-nav-link :href="route('destinations')" :active="request()->routeIs('destinations')" class="font-4 display-14 color-blue">
-                    @if(request()->routeIs('destinations'))
-                        <img src="{{ asset('assets/images/menu/destinations-active.svg') }}" alt="Destinations Active" class="mx-2"/>
-                    @else
-                        <img src="{{ asset('assets/images/menu/destinations.svg') }}" alt="Destinations" class="mx-2"/>
-                    @endif
+                    <img src="{{ asset('assets/images/menu/destinations.svg') }}" alt="Destinations" class="mx-2"/>
                     {{ __('website.MENU.DESTINATIONS') }}
                 </x-nav-link>
                 
                 <x-nav-link :href="route('favourites')" :active="request()->routeIs('favourites')" class="font-4 display-14 color-blue">
-                    @if(request()->routeIs('favourites'))
-                        <img src="{{ asset('assets/images/menu/favourites-active.svg') }}" alt="favourites Active" class="mx-2"/>
-                    @else
-                        <img src="{{ asset('assets/images/menu/favourites.svg') }}" alt="favourites" class="mx-2"/>
-                    @endif
+                    <img src="{{ asset('assets/images/menu/favourites.svg') }}" alt="favourites" class="mx-2"/>
                     {{ __('website.MENU.FAVOURITES') }}
                 </x-nav-link>
                 <x-nav-link :href="route('join-us')" :active="request()->routeIs('join-us')" class="font-4 display-14 color-blue">
-                    @if(request()->routeIs('join-us'))
-                        <img src="{{ asset('assets/images/menu/join-us-active.svg') }}" alt="Join us Active" class="mx-2"/>
-                    @else
-                        <img src="{{ asset('assets/images/menu/join-us.svg') }}" alt="Join us" class="mx-2"/>
-                    @endif
+                    <img src="{{ asset('assets/images/menu/join-us.svg') }}" alt="Join us" class="mx-2"/>
                     {{ __('website.MENU.JOIN_US') }}
                 </x-nav-link>
                 <x-nav-link :href="route('get-help')" :active="request()->routeIs('get-help')" class="font-4 display-14 color-blue">
-                    @if(request()->routeIs('get-help'))
-                        <img src="{{ asset('assets/images/menu/get-help-active.svg') }}" alt="Get Help Active" class="mx-2"/>
-                    @else
-                        <img src="{{ asset('assets/images/menu/get-help.svg') }}" alt="Get Help" class="mx-2"/>
-                    @endif
+                    <img src="{{ asset('assets/images/menu/get-help.svg') }}" alt="Get Help" class="mx-2"/>
                     {{ __('website.MENU.GET_HELP') }}
                 </x-nav-link>
                 @if(auth()->check())
@@ -92,19 +64,18 @@
                                 <x-dropdown-link :href="route('user.pending.booking')">
                                     Booking and Trips
                                 </x-dropdown-link>
-                                <x-dropdown-link :href="route('logout')">
-                                    {{ __('Log Out') }}
-                                </x-dropdown-link>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
                             </x-slot>
                         </x-dropdown>
                     </div>
                 @else
                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')" class="font-4 display-14 color-blue"> 
-                        @if(request()->routeIs('login'))
-                            <img src="{{ asset('assets/images/menu/login-active.svg') }}" alt="Login Active" class="mx-2"/>
-                        @else
-                            <img src="{{ asset('assets/images/menu/login.svg') }}" alt="Login" class="mx-2"/>
-                        @endif
+                        <img src="{{ asset('assets/images/menu/login.svg') }}" alt="Login" class="mx-2"/>
                         {{ __('website.MENU.LOGIN') }}
                     </x-nav-link>
                 @endif

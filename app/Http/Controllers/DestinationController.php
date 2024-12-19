@@ -32,7 +32,8 @@ class DestinationController extends Controller
     {
         $destination = Place::with('district','gallery')->findOrFail($id);
         $places = Place::whereNot('id', $id)->get();
-        return view('website.tour-destination-details', compact('destination', 'places'));
+        $tourGuide = Guide::first() ?? [];
+        return view('website.tour-destination-details', compact('destination', 'places','tourGuide'));
 
     }
 

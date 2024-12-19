@@ -55,9 +55,9 @@
     <hr/>
     <div class="col-md-4">
         
-        <div class="_sidebar py-5">
+        <div class="_card py-5">
             <div class="_booking_request  px-4">
-                <div class="guide_info d-flex position-relative">
+                <div class="d-flex position-relative">
                     <div class="_profile_rounded me-md-5">
                         <img src="{{ asset('assets/images/tour-guide/mohammad.png')   }}" alt="Mohammad" class="h-100" />
                     </div>
