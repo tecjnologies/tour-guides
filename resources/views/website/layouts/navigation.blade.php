@@ -51,9 +51,6 @@
                     @endif
                     {{ __('website.MENU.FAVOURITES') }}
                 </x-nav-link>
-
-
-                
                 <x-nav-link :href="route('join-us')" :active="request()->routeIs('join-us')" class="font-4 display-14 color-blue">
                     @if(request()->routeIs('join-us'))
                         <img src="{{ asset('assets/images/menu/join-us-active.svg') }}" alt="Join us Active" class="mx-2"/>
@@ -71,15 +68,36 @@
                     {{ __('website.MENU.GET_HELP') }}
                 </x-nav-link>
                 @if(auth()->check())
-                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('login')" class="font-4 display-14 color-blue">
-                        <div class="d-flex align-items-center">
-                            <img src="{{ asset('storage/profile_photo/' . auth()->user()->image) }}" 
-                                alt="{{ auth()->user()->name }}" 
-                                class="mx-2 rounded-circle" 
-                                style="width: 32px; height: 32px;">
-                            <span class="mx-2">{{ auth()->user()->name }}</span>
-                        </div>
-                    </x-nav-link>
+                    <div class="hidden sm:flex sm:items-center sm:ms-6">
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button class="inline-flex items-center px-3 py-2  border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                    <div class="ms-1 d-flex justify-content-start align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ asset('storage/profile_photo/' . auth()->user()->image) }}" 
+                                                alt="{{ auth()->user()->name }}" 
+                                                class="mx-1 rounded-circle" @if(auth()->user()->image === 'default.png')  @else width="32px" height="32px" @endif>
+                                            <span class="mx-1">{{ auth()->user()->name }}</span>
+                                        </div>
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </x-slot>
+                            <x-slot name="content">
+                                <x-dropdown-link :href="route('user.dashboard')">
+                                    My Account
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('user.pending.booking')">
+                                    Booking and Trips
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('logout')">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
                 @else
                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')" class="font-4 display-14 color-blue"> 
                         @if(request()->routeIs('login'))

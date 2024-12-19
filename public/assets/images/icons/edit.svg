@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+  <g id="Layer_2" data-name="Layer 2" transform="translate(0.001)">
+    <g id="pen" transform="translate(0 0)">
+      <circle id="background" cx="10.5" cy="10.5" r="10.5" transform="translate(-0.001 0)" fill="#26a1f4"/>
+      <g id="Group_24007" data-name="Group 24007" transform="translate(4.762 4.891)">
+        <path id="Path_131919" data-name="Path 131919" d="M125.149,169.616l-.006-.006-2.818-2.82s-3.435,3.435-5.09,5.124a2.065,2.065,0,0,0-.455.785c-.272.83-.5,1.677-.746,2.516a.533.533,0,0,0,.123.591.527.527,0,0,0,.569.1c.8-.24,1.6-.468,2.405-.7a2.456,2.456,0,0,0,1.085-.655C121.792,172.969,125.149,169.616,125.149,169.616Z" transform="translate(-115.996 -164.762)" fill="#fff"/>
+        <path id="Path_131920" data-name="Path 131920" d="M292.129,117.373l-.964-.964a1.318,1.318,0,0,0-1.863,0L288.21,117.5l2.827,2.828,1.092-1.092a1.318,1.318,0,0,0,0-1.863Z" transform="translate(-281.332 -116.024)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

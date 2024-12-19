@@ -73,11 +73,11 @@ a {
 }
 
 .color-blue {
-  color : var(--color-blue);
+  color : var(--color-blue) !important;
 }
 
 .color-red {
-  color: var(--color-red);
+  color: var(--color-red) !important;
 }
 
 
@@ -720,18 +720,17 @@ hr {
 }
 
 .nav-tabs .nav-link{
-  color : var(--color-blue);
-  opacity: 0.4;
-}
-.nav-tabs .nav-link.active{
-  color : var(--color-blue);
   background-color: unset;
   border: unset;
-  opacity: 1;
+  color : var(--color-primary);
+  font-family: var(--font-5-font-family);
+  font-weight: 400;
+  font-size: 16px;
 }
-
-.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
-  border: unset;
+.nav-tabs .nav-link.active{
+  font-family: var(--font-2-font-family);
+  font-weight: 600;
+  border-bottom: 2px solid;
 }
 
 ._banner_tabs li {
