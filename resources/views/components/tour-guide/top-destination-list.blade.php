@@ -1,20 +1,3 @@
-<style>
-    .slide._top_destinations {
-        width: 91%;
-    }
-
-    ._top_destinations .image {
-        aspect-ratio: 3 / 2;
-    }
-
-    ._top_destinations .image img{
-        width: 100%;
-        height: 100%;
-    }
-
-</style>
-
-
 <div class="_wrapper py-5 _dotted_nav_slider _top_destinations">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
@@ -24,7 +7,7 @@
     <hr />
 
     <div class="slider-container">
-        <div class="slick-slider mt-3" id="slider-4">
+        <div class="top-destinations-slider mt-3" id="slider-4">
             @forelse($data as $destination)
                 <a href="{{ route('show.tourdestination', $destination->id) }}">
                     <div class="slide _top_destinations">
@@ -50,54 +33,3 @@
         </div>
     </div>
 </div>
-
-@push('scripts')
-    <script>
-        $(document).ready(function() {
-            
-            $('.slick-slider').slick({
-                dots: false,
-                infinite: true,
-                autoplay: true,
-                arrows: false,
-                centerMode: false,
-                centerPadding: '0px',
-                autoplaySpeed: 3000,
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                responsive: [{
-                        breakpoint: 1290,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            });
-
-            $('.slick-prev-custom').on('click', function() {
-                const sliderId = $(this).data('slider');
-                $('#' + sliderId).slick('slickPrev');
-            });
-
-            $('.slick-next-custom').on('click', function() {
-                const sliderId = $(this).data('slider');
-                $('#' + sliderId).slick('slickNext');
-            });
-        });
-    </script>
-@endpush

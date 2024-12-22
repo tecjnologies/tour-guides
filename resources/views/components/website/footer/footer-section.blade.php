@@ -1,6 +1,6 @@
-<footer class="_footer px-5" style="background-image: url({{ asset('assets/images/footer/background.png') }})">
+<div class="_footer px-5" style="background-image: url({{ asset('assets/images/footer/background.png') }})">
     <div class="spacer py-4"></div>
-    <x-home.discovering-regions /> 
+    {!! $slot !!}
     <div class="spacer py-5"></div>
     <div class="row">
         <div class="col-md-4">
@@ -67,5 +67,4 @@
         </div>
     </div>
     <div class="spacer py-1"></div>
-
-</footer>
+</div>

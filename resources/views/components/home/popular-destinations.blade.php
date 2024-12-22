@@ -1,3 +1,6 @@
+
+
+
 <div class="_wrapper py-5 px-5 _popular_destinations _dotted_nav_slider">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">

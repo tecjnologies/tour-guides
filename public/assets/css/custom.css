@@ -294,7 +294,7 @@ span {
   background-repeat: no-repeat;
 }
 
-.footer .nav-item a {
+._footer .nav-item a {
   padding-left: 0px;
 }
 
@@ -314,7 +314,7 @@ span {
   padding-right: 50px !important;
 }
 
-._main_menu a, footer a {
+._main_menu a, ._footer a {
   text-decoration: none;
   border: unset;
   position: relative;
@@ -381,7 +381,7 @@ form input::placeholder {
   margin: 0 auto;
 }
 
-._popular_destinations ._like_dislike {
+/* ._popular_destinations ._like_dislike {
   position: absolute;
   top: 0;
   right: 11px;
@@ -390,7 +390,7 @@ form input::placeholder {
   border-radius: 30px;
   width: 35px;
   height: 35px;
-}
+} */
 
 ._tag li {
   background-color: white;
@@ -411,7 +411,7 @@ form input::placeholder {
   background-color: white;
   border-radius: 0px 0px 13px 13px;
   padding: 15px;
-  border: 1px solid #9c999994;
+  border: 1px solid #e8e8e894;
   margin: 0px 7px;
   margin-top: -6px;
 }
@@ -757,6 +757,18 @@ hr {
 }
 
 
+._destinations .toggle-favorite , 
+._popular_destinations .toggle-favorite{
+  display: block;
+  position: absolute;
+  right: 7px;
+  top: 13px;
+  z-index: 999;
+  width: 44px;
+}
+
+
+
 ._text_image_wrapper {
   background-position: left top;
   background-repeat: no-repeat;
@@ -813,6 +825,149 @@ hr {
   border-radius: 4px;
 }
 
+._footer {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+._footer ._footer_menu a{
+  position: relative;
+}
+
+._footer ._footer_menu a+a:before {
+  content: '|';
+  position: absolute;
+  left: -14%;
+}
+
+.slide._top_destinations {
+  width: 91%;
+}
+
+._top_destinations .image {
+  aspect-ratio: 3 / 2;
+}
+
+._top_destinations .image img{
+  width: 100%;
+  height: 100%;
+}
+
+textarea:focus, select:focus {
+  outline: unset !important;  
+  --tw-ring-color: unset !important;
+  --tw-ring-shadow: unset !important;
+}
+
+.place img.place-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+}
+
+
+.tab-content>.active{
+ 
+  flex-wrap: wrap;
+  row-gap: 112px;
+}
+
+._destinations .tab-content>.active{
+ display: flex !important;
+}
+
+.destination-guides .guide-image {
+  aspect-ratio: 1 / 1;
+  border-radius: 71px;
+  margin: 3px;
+  object-fit: contain;
+  width: 55px;
+  height: 55px;
+}
+
+
+.table{
+  background-color: unset !important;
+}
+
+.custom-row-spacing td,
+.custom-row-spacing th {
+    margin-bottom: 20px;
+    padding: 20px 10px !important;
+}
+
+._books_and_trips ul li {
+  width: 34%;
+  border-bottom: 3px solid;
+  text-align: center;
+}
+
+._books_and_trips ul li._upcoming{
+  border-color: blue;
+}
+
+._books_and_trips ul li._cancelled{
+  border-color: red;
+}
+
+._books_and_trips ul li._completed{
+  border-color: green;
+}
+
+._booking_request .button {
+  position: absolute;
+  top: -26px;
+  right: -4px;
+}
+
+.no-content {
+  height: 73vh;
+}
+
+ ._recent_reviews ._title_content {
+  border-radius: 15px;
+  width: 90%;
+  aspect-ratio: 3/1;
+  margin: 14px 14px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 46px;
+  background-color: var(--color-white);
+
+}
+
+label {
+  color: #dee2e6;
+  color: var(--color-primary);
+  font-family: 'Lexend-Light';
+}
+
+form input {
+  border: 1px solid #dee2e6 !important;
+}
+
+._subject input {
+  height: 88%;
+}
+
+._booking_form {
+  width: 90%;
+  max-width: 90%;
+}
+
+._booking_form .modal-content {
+  background: transparent;
+}
+
+.wrapper select {
+  font-size: 14px;
+  font-family: 'Lexend-Light';
+  color: var(--color-primary);
+}
+
 @media only screen and (max-width: 1800px) {
 
 }
@@ -851,7 +1006,7 @@ hr {
     margin: 3px !important;
   }
   
-  footer ._footer_wrapper {
+  ._footer_wrapper {
     display: block;
   }
   ._social_links {
@@ -925,7 +1080,7 @@ hr {
     margin: 20px 0px !important;
   }
 
-  ._logo_menu,  footer ._footer_wrapper {
+  ._logo_menu,  ._footer_wrapper {
     display: block;
   }
 

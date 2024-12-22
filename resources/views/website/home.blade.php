@@ -172,14 +172,12 @@
                     text="{{ __('website.TRUSTED_SECTION.TEXT_1') }}"  
                     imageUrl="{{ asset('assets/images/homepage/trust-booking.svg') }}" />
             </div>
-
             <div class="col-md-4">
                 <x-home.text-with-image 
                     heading="{{ __('website.TRUSTED_SECTION.HEADING_2') }}" 
                     text="{{ __('website.TRUSTED_SECTION.TEXT_2') }}"  
                     imageUrl="{{ asset('assets/images/homepage/customer-service.svg') }}" />
             </div>
-
             <div class="col-md-4">
                 <x-home.text-with-image 
                     heading="{{ __('website.TRUSTED_SECTION.HEADING_3') }}" 
@@ -187,18 +185,16 @@
                     imageUrl="{{ asset('assets/images/homepage/payments.svg') }}" />
             </div>
         </div>
-        
-        <x-home.tour-guide :data="$tourGuides" :options="$sliderOptions" class="h-12 w-auto"/>
-        
+        <x-home.tour-guide :data="$tourGuides" :options="$sliderOptions" class="h-12 w-auto"/>    
         <div class="spacer py-5"></div>
-    <x-home.popular-destinations :data="$destinations" :options="$sliderOptions" class="h-12 w-auto" />
-        
+        <x-home.popular-destinations :data="$destinations" :options="$sliderOptions" class="h-12 w-auto" />
         <div class="spacer py-5"></div>
         <x-home.vip-service :data="$vipServices" :options="$sliderOptions" class="h-12 w-auto" />
-        
         <div class="spacer py-5"></div>
         <x-home.unforgettable-nature :data="$unForgettableNature" :options="$sliderOptions"  class="h-12 w-auto " />
-      
     </div>
+    <x-website.footer.footer-section>
+        <x-home.discovering-regions />
+    </x-website.footer.footer-section>
 
 </x-website-layout> 

@@ -1,10 +1,3 @@
-<style>
-    .custom-row-spacing td,
-    .custom-row-spacing th {
-        margin-bottom: 20px;
-        padding: 20px 0px;
-    }
-</style>
 <div class="row">
     <div class="col-md-12">
         <div class="spacer mt-4"></div>

@@ -130,7 +130,6 @@
                         <h3 class="font-2 display-16 color-blue"> What you can expect </h3>
                         <p class="font-4 display-16 color-black">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            {{-- {!! $tourGuide->description?->description !!} --}}
                         </p>
                     </div>
 
@@ -201,144 +200,9 @@
                         </li>
                     </ul>
                 </div>
-
-                {{-- <div class="_about_me_text">
-                    <h3 class="font-2 display-20 color-blue py-2"> {{ $destination->name }} </h3>
-                    <p class="font-4 display-16 color-black">
-                        {{ $destination->district?->name }}
-                    </p>
-                </div> --}}
-              
-                {{-- <div class="_about_me_text">
-                    <div class="row my-4 _gallery">
-                        @isset($destination->gallery)
-                            @forelse ($destination->gallery as $index => $gallery)
-                                <div class="{{ $loop->first ? 'col-lg-6 col-md-12 my-md-3 _item' : 'col-lg-3 col-md-12 my-md-3 _item' }}">
-                                    <img src="{{ $gallery->image }}" alt="check-mark" class="w-100 h-100 " />
-                                </div>
-                            @empty
-                                <p class="font-4 display-16 color-red">
-                                    No gallery found.
-                                </p>
-                            @endforelse
-                        @endisset
-                    </div>
-                </div> --}}
-
-                
-                {{-- {!! $destination->description !!} --}}
-
-                {{-- <div class="highlights py-3">
-                    <h3 class="font-2 display-20 color-blue py-2"> Highlights </h3>
-                    <p class="font-4 display-16 color-black">
-                        <ul class="icon-list">
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3" />
-                                Lorem Ipsum is simply dummy text of the  </li>
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                                Lorem Ipsum is simply dummy text of the  </li>
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark"  class="me-3"/>
-                                Lorem Ipsum is simply dummy text of the  </li>
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                                Lorem Ipsum is simply dummy text of the  </li>
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                                Lorem Ipsum is simply dummy text of the  </li>
-                            <li class="py-2">  
-                                <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                                Lorem Ipsum is simply dummy text of the  </li>
-                        </ul>
-                    </p>
-                </div>
-
-                <div class="_about_me_text py-3">
-                    <h3 class="font-2 display-20 color-blue py-2"> Descriptions </h3>
-                    <p class="font-4 display-16 color-black">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry,  
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    </p>
-                </div>
-
-                <div class="_about_me_text py-3">
-                    <h3 class="font-2 display-20 color-blue py-2"> What's Included </h3>
-                    <ul class="icon-list">
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3" />
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark"  class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/check-mark.svg') }}" alt="check-mark" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                    </ul>
-
-                </div>
-
-                <div class="_about_me_text py-3">
-                    <h3 class="font-2 display-20 color-blue py-2"> What's Excluded </h3>
-                   <ul  class="icon-list">
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error" class="me-3" />
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error" class="me-3"/>
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error"  class="me-3"/>
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error" class="me-3"/>
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error" class="me-3"/>
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    <li class="py-2">  
-                        <img src="{{ asset('assets/images/icons/error.svg') }}" alt="error" class="me-3"/>
-                        Lorem Ipsum is simply dummy text of the  </li>
-                    </ul>
-                </div>
-
-                <div class="_about_me_text py-3">
-                    <h3 class="font-2 display-20 color-blue py-2"> Know before you go. </h3>
-                    <ul  class="icon-list">
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation" class="me-3" />
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation"  class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="exclamation" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                        <li class="py-2">  
-                            <img src="{{ asset('assets/images/icons/exclamation.svg') }}" alt="cexclamation" class="me-3"/>
-                            Lorem Ipsum is simply dummy text of the  </li>
-                    </ul>
-                </div> --}}
-            
                 <div class="row pt-3">
                     <x-tour-guide.top-destination-list :data="$places" :options="$sliderOptions" class="w-auto" />
-                </div>
-          
+                </div> 
             </div>
             <div class="col-md-3">
                 @if($tourGuide)
@@ -585,5 +449,13 @@
                 @endif 
             </div>
         </div> 
-    </div>
+    </div>  
+
+    <x-website.footer.footer-section>
+        <div class="spacer py-5"></div>
+        <x-website.recent-reviews-slider />
+        <div class="spacer py-5"></div>
+        <div class="spacer py-5"></div>
+    </x-website.footer.footer-section>
+
 </x-website-layout>

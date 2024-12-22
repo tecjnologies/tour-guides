@@ -23,4 +23,8 @@
             </div>
         </div>
     </div>
+
+    <x-website.footer.footer-section>
+        <x-home.discovering-regions />
+    </x-website.footer.footer-section>
 </x-website-layout>

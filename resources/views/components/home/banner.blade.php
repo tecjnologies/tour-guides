@@ -228,27 +228,3 @@
         </div>
     </div>
 </section>
-
-
-@push('scripts')
-    <script>
-        $(function() {
-            $(".date").datepicker({
-                dateFormat: "dd-mm-yy",
-                duration: "fast"
-            });
-        });
-
-        const toggleButtons = document.querySelectorAll('.toggle-btn');
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                if (button.classList.contains('active')) {} else {
-                    toggleButtons.forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    button.classList.add('active');
-                }
-            });
-        });
-    </script>
-@endpush

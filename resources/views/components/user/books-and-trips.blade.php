@@ -1,35 +1,3 @@
-<style>
-    .custom-row-spacing td,
-    .custom-row-spacing th {
-        margin-bottom: 20px;
-        padding: 20px 0px;
-    }
-
-    ._books_and_trips ul li {
-        width: 34%;
-        border-bottom: 3px solid;
-        text-align: center;
-    }
-
-    ._books_and_trips ul li._upcoming{
-        border-color: blue;
-    }
-
-    ._books_and_trips ul li._cancelled{
-        border-color: red;
-    }
-   
-    ._books_and_trips ul li._completed{
-        border-color: green;
-    }
-
-    ._booking_request .button {
-        position: absolute;
-        top: -26px;
-        right: -4px;
-    }
-
-</style>
 <div class="row _books_and_trips">
     <div class="col-md-3">
         <div class="spacer mt-4"></div>

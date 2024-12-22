@@ -1,13 +1,6 @@
 <style>
 
-.destination-guides .guide-image {
-    aspect-ratio: 1 / 1;
-    border-radius: 71px;
-    margin: 3px;
-    object-fit: contain;
-    width: 55px;
-    height: 55px;
-}
+
 
 </style>
 
@@ -40,8 +33,8 @@
                     <p class="font-4 display-16 color-black mb-3"> This incredible place is one of the UAE’s most charming places. It offers a beautiful and artistic experience that you would admire at a glance. If that’s what you’re seeking, this place is remarkable for you to have some quality time and relaxation with your family and friends. </p>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="_sidebar mt-5">
+            <div class="col-md-3 _sidebar">
+                <div class=" _card mt-5">
                     <div class="wrapper d-flex justify-content-start align-items-center pt-4 px-4">
                         <div class="title">
                             <h4 class=" font-2 display-16"> Louvre Abu Dhabi Museum </h4>
@@ -107,7 +100,7 @@
                 </div>
 
 
-                <div class="_sidebar mt-4 p-4">
+                <div class="_card mt-4 p-4">
                     <div class="wrapper d-flex justify-content-start align-items-center py-2 p-4">
                         <div class="title">
                             <h4 class=" font-2 display-16"> Discover a tour guides in this destination </h4>
@@ -127,4 +120,8 @@
             </div>
         </div>
     </div>
+
+    <x-website.footer.footer-section>
+        <x-home.discovering-regions />
+    </x-website.footer.footer-section>
 </x-website-layout>

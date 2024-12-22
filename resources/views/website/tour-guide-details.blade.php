@@ -199,7 +199,6 @@
                     <x-tour-guide.top-destination-list :data="$tourGuide->privateDestinations" :options="$sliderOptions" class="w-auto" />
                 </div>
                 <div class="row">
-                    {{-- <x-tour-guide.recent-reviews :data="$topDestinations" :options="$sliderOptions" class="w-auto" /> --}}
                 </div>
             </div>
             <div class="col-xl-3">
@@ -446,74 +445,16 @@
         </div>
     </div>
 
+    <x-website.footer.footer-section>
+        <div class="spacer py-5"></div>
+        <div class="spacer py-5"></div>
+        <x-website.recent-reviews-slider />
+        <div class="spacer py-5"></div>
+        <div class="spacer py-5"></div>
+    </x-website.footer.footer-section>
+
     @push('scripts')
         <script src="{{ asset('js/flatpickr.js') }}"></script>
-        <script>
-            flatpickr('#date', {
-                minDate: "today",
-                dateFormat: "F d, Y",
-            });
-
-
-
-            // document.getElementById('shareButton').addEventListener('click', function() {
-            //     // Get the current profile URL
-            //     const profileUrl = window.location.href;
-
-            //     // Check if the browser supports the Web Share API (useful for mobile devices)
-            //     if (navigator.share) {
-            //         navigator.share({
-            //             title: 'Check out this Tour Guide Profile!',
-            //             text: 'Check out this amazing tour guide profile:',
-            //             url: profileUrl,
-            //         })
-            //         .then(() => console.log('Profile shared successfully!'))
-            //         .catch((error) => console.error('Error sharing profile:', error));
-            //     } else {
-            //         // Fallback for browsers that don't support the Web Share API
-            //         copyToClipboard(profileUrl);
-            //         alert('Profile URL copied to clipboard: ' + profileUrl);
-            //     }
-            // });
-
-            document.querySelectorAll('.share-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    // Get the current profile URL
-                    const profileUrl = window.location.href;
-
-                    // Check if the browser supports the Web Share API
-                    if (navigator.share) {
-                        navigator.share({
-                            title: 'Check out this Tour Guide Profile!',
-                            text: 'Check out this amazing tour guide profile:',
-                            url: profileUrl,
-                        })
-                        .then(() => console.log('Profile shared successfully!'))
-                        .catch((error) => console.error('Error sharing profile:', error));
-                    } else {
-                        // Fallback for browsers that don't support the Web Share API
-                        copyToClipboard(profileUrl);
-                        alert('Profile URL copied to clipboard: ' + profileUrl);
-                    }
-                });
-            });
-
-            // Function to copy text to the clipboard
-            function copyToClipboard(text) {
-                const tempInput = document.createElement('input');
-                tempInput.style.position = 'absolute';
-                tempInput.style.left = '-9999px';
-                tempInput.value = text;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempInput);
-            }
-
-
-        </script>
-
-        
     @endpush
-
+    
 </x-website-layout>
