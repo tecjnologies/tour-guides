@@ -3,15 +3,16 @@
     <link rel="stylesheet" href="{{ asset('assets/css/banner.css') }}">
 @endpush
 <div class="container-fluid">
+    <div class="spacer py-5 "></div>
     <div class="row mx-4 _tour_guide">
-        <div class="col-md-9">
+        <div class="col-xl-9  col-lg-8">
             <div class="row slick-slide">
                 @forelse($tourGuides as $guide)
                     @php
                         $currentCurrency = session('currency', config('currency.default'));
                         $priceInCurrency = \App\Helpers\CurrencyHelper::convert($guide->price, $currentCurrency);
                     @endphp
-                    <div class="col-xl-3 col-lg-3 col-md-4 mb-5 tourguide-grid">
+                    <div class="col-xl-3 col-lg-6 mb-5 tourguide-grid">
                             <div class="_wrapper position-relative">
                                 <div class="image">
                                     <img src="{{ $guide->image }}" alt="tour guide" width="100%" />
@@ -62,10 +63,6 @@
 
                                     <div class="buttons">
                                         <div class="_button">
-                                            {{-- <button type="button" class="btn color-white" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalCenter">
-                                                Start the Adventure
-                                            </button> --}}
                                             <a class="w-100 btn color-white" href="{{ route('show.tourguide', $guide->id) }}">
                                                 Start the Adventure
                                             </a>
@@ -80,7 +77,7 @@
                 @endforelse
             </div>
         </div>
-        <div class="col-md-3 _tour_guide_profile border rounded">
+        <div class="col-xl-3 col-lg-4 _tour_guide_profile border rounded">
             @include('partial.errors')
             @include('partial.successMessage')
             <form id="tour-guide-form" action="{{ route('search.tour-guide') }}" method="post">

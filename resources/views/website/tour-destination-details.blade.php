@@ -49,8 +49,9 @@
 <x-website-layout>
     @section('title', 'Tour Guide - Destination Detail')
     <div class="mx-auto">
+        <div class="spacer py-5"></div>
         <div class="row px-5 ">
-            <div class="col-md-9 _about_destination pe-4">
+            <div class="col-xl-9 _about_destination pe-4">
                 
                 <div class="row d-flex justify-content-between align-items-center">
                     <div class="col-md-10 breadcrums border-bottom pb-3">
@@ -204,7 +205,7 @@
                     <x-tour-guide.top-destination-list :data="$places" :options="$sliderOptions" class="w-auto" />
                 </div> 
             </div>
-            <div class="col-md-3">
+            <div class="col-xl-3">
                 @if($tourGuide)
                 <div class="_sidebar">
                     <div class="_card">

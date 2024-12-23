@@ -55,8 +55,8 @@
 <x-website-layout>
     @section('title', 'Tour Guide - Mohammad')
     <div class="mx-auto">
-        <div class="row px-5">
-            <div class="col-xl-9 _about_me pe-4">
+        <div class="row px-md-3 px-lg-5">
+            <div class="col-xl-8 _about_me pe-4">
                 <div class="row d-flex justify-content-between align-items-center">
                     <div class="col-md-10 breadcrums border-bottom pb-3">
                         <p class="font-4 display-12 color-primary" >
@@ -65,7 +65,7 @@
                     </div>
                     <div class="col-md-2 actions d-flex  justify-content-end align-items-center">
                         <button class="share-button" data-id="1"> 
-                            <img src="{{ asset('assets/images/icons/share.svg') }}" alt="share" />
+                            <img src="{{ asset('assets/images/icons/share.svg') }}" alt="share" class="w-100" />
                         </button>
                         <img src="{{ asset('assets/images/icons/like-button.svg') }}" alt="like" class="ms-2"/>
                     </div>
@@ -201,7 +201,7 @@
                 <div class="row">
                 </div>
             </div>
-            <div class="col-xl-3">
+            <div class="col-xl-4">
                 <div class="_sidebar">
                     <div class="_card">
                         <div class="_profile_details position-relative">
@@ -234,22 +234,23 @@
                         <div class="contact-buttons px-4">
                             <div class="buttons d-flex justify-content-start align-items-center flex-wrap">
                                 <button id="shareButton" data-id="2"
-                                    class="share-button font-5 display-14  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
-                                    text-decoration-none  px-3  me-2  py-2 rounded">
+                                    class="share-button font-5 display-14  bg-light-blue color-blue color-primary 
+                                        d-flex justify-content-start align-items-center 
+                                        text-decoration-none  px-lg-3 px-md-2 me-2  py-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/share.svg') }}" alt="mohammad"
                                         class="me-1" />
                                         {{ __('website.LABELS.SHARE_PROFILE') }}
                                 </button>
                                 <a href="tel:{{ $tourGuide->contact }}"
                                     class="font-5 display-14  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
-                                text-decoration-none  px-3 py-2 me-2 rounded">
+                                text-decoration-none  px-lg-3 px-md-2 py-2 me-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/call.svg') }}" alt="mohammad"
                                         class="me-1" />
                                         {{ __('website.LABELS.CALL') }}
                                 </a>
                                 <a href="mailto:{{ $tourGuide->email }}"
                                     class="font-5 display-14  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
-                                text-decoration-none my-md-4 px-3  my-lg-0  py-2 rounded">
+                                text-decoration-none my-md-4 px-lg-3 px-md-2  my-lg-0  py-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/email.svg') }}" alt="mohammad"
                                         class="me-1" />
                                         {{ __('website.LABELS.EMAIL') }}

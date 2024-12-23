@@ -1,5 +1,49 @@
 $(document).ready(function() {
 
+    $('.popular-destinations').slick({
+        dots: false,
+        infinite: true,
+        autoplay: true,
+        arrows: false,
+        centerMode: false,
+        centerPadding: '0px',
+        autoplaySpeed: 3000,
+        slidesToShow: 6,
+        slidesToScroll: 6,
+        responsive: [
+            {
+                breakpoint: 1455,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 1
+                }
+            },
+            
+            {
+                breakpoint: 1040,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+           
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
     $('.top-destinations-slider').slick({
         dots: false,
         infinite: true,
@@ -10,24 +54,34 @@ $(document).ready(function() {
         autoplaySpeed: 3000,
         slidesToShow: 4,
         slidesToScroll: 1,
-        responsive: [{
-                breakpoint: 1290,
+        responsive: [
+            {
+                breakpoint: 1455,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1
                 }
             },
+            
+            {
+                breakpoint: 1040,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+           
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 4,
                     slidesToScroll: 1
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                     slidesToScroll: 1
                 }
             }
@@ -109,13 +163,23 @@ $(document).ready(function() {
         autoplaySpeed: 3000,
         slidesToShow: 6,
         slidesToScroll: 1,
-        responsive: [{
-                breakpoint: 1290,
+        responsive: [
+            {
+                breakpoint: 1455,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 5,
                     slidesToScroll: 1
                 }
             },
+            
+            {
+                breakpoint: 1040,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+           
             {
                 breakpoint: 768,
                 settings: {
@@ -159,10 +223,13 @@ window.addEventListener('scroll', () => {
     }
 });
 
-document.getElementById('resetBtn').addEventListener('click', function() {
-    var form = document.getElementById('tour-guide-form');
-    form.reset();
-});
+const resetBtn = document.getElementById('resetBtn');
+if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+        var form = document.getElementById('tour-guide-form');
+        form.reset();
+    });
+}
 
 $(document).on('click', '.toggle-favorite', function (e) {
     e.preventDefault();

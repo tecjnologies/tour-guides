@@ -65,7 +65,7 @@
                                 $currentCurrency = session('currency', config('currency.default'));
                                 $priceInCurrency = \App\Helpers\CurrencyHelper::convert($favouriteGuides->guide->price, $currentCurrency);
                             @endphp
-                            <div class="col-xl-2 col-lg-2 col-md-3 mb-5 tourguide-slider">
+                            <div class="col-xl-3 col-lg-4 mb-5 tourguide-grid">
                                     <div class="_wrapper position-relative">
                                         <div class="image">
                                             <img src="{{ $favouriteGuides->guide->image }}" alt="tour guide" width="100%" />
@@ -111,15 +111,8 @@
         
                                             <div class="buttons">
                                                 <div class="_button">
-                                                    <button type="button" class="btn color-white" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModalCenter">
-                                                        Start the Adventure
-                                                    </button>
-                                                </div>
-                                                <div class="spacer my-3"></div>
-                                                <div class="_button">
                                                     <a class="w-100 btn color-white" href="{{ route('show.tourguide', $favouriteGuides->guide->id) }}">
-                                                        Details
+                                                        Start the Adventure
                                                     </a>
                                                 </div>
                                             </div>

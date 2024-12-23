@@ -106,7 +106,7 @@
                             <h4 class=" font-2 display-16"> Discover a tour guides in this destination </h4>
                         </div>
                     </div>
-                    <div class="wrapper destination-guides d-flex justify-content-start align-items-center py-2 p-4">
+                    <div class="wrapper destination-guides d-flex justify-content-start align-items-center flex-wrap py-2 p-4">
                         @forelse ($guides as $guide)
                             <img src="{{$guide->image}}" alt="{{$guide}}" class="guide-image">
                         @empty

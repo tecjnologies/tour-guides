@@ -3,9 +3,9 @@
     {!! $slot !!}
     <div class="spacer py-5"></div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-lg-3">
         </div>
-        <div class="col-md-4 d-flex justify-content-end align-items-center flex-column">
+        <div class="col-md-4 col-lg-6 d-flex justify-content-end align-items-center flex-column">
             
             <div class="flex justify-center">
                 <x-website.application-light-logo class="h-12 w-auto" />
@@ -56,7 +56,7 @@
             </div>
 
         </div>
-        <div class="col-md-4 d-flex align-items-end flex-column">
+        <div class="col-md-4 col-lg-3 d-flex align-items-end flex-column">
             <div class="scrolltop d-flex justify-between align-items-center px-5">
                 <p class="font-4 display-18 color-white me-4"> Top </p>
                 <a id="scrollToTopButton" href="#" onClick="scrollToTop(); return false;" role="button" aria-label="Scroll to top" style="display: none;">

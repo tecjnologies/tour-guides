@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="row  d-flex justify-content-center align-items-center flex-column">
-                                <div class="col-md-8 d-flex justify-content-center align-items-center flex-column">
+                                <div class="col-md-8 col-lg-10 d-flex justify-content-center align-items-center flex-column">
                                     <div class="spacer my-4"></div>
                                     <p class="font-3 display-20 color-primary"> Common Questions </p>
                                     <div class="spacer my-3"></div>
