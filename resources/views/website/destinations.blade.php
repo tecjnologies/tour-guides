@@ -2,7 +2,7 @@
 
     @section('title', 'Tour Guide - Destinations')
   
-    <x-website.footer.footer-section>
+    <x-website.footer.footer-section :image="'destinations.svg'">
         <div class="row px-5 _popular_destinations _destinations">
             <div class="col-md-12 d-flex justify-content-between align-items-center">
                 <div class="tabs">

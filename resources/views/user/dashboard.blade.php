@@ -1,6 +1,6 @@
  <x-website-layout>
     @section('title', 'Tourist Guide - Dashboard')
-    <x-website.footer.footer-section>
+    <x-website.footer.footer-section :image="'favourties.svg'">
         <div class="container-fluid">
             <div class="row m-4">
                 <h2 class="m-auto" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">

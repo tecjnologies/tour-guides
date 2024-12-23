@@ -33,7 +33,7 @@
     <div class="mx-auto">
         <x-tour-guide.tour-guide-grid :tourGuides="$tourGuides" :places="$places" :languages="$languages" :placeTypes="$placeTypes" class="h-12 w-auto"/>
     </div>
-    <x-website.footer.footer-section>
+    <x-website.footer.footer-section :image="'tour-guides.svg'">
         <x-home.discovering-regions />
     </x-website.footer.footer-section>
 </x-website-layout>

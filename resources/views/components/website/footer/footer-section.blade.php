@@ -1,4 +1,4 @@
-<div class="_footer px-5" style="background-image: url({{ asset('assets/images/footer/background.png') }})">
+<div class="_footer px-5" style="background-image: url('{{ asset('assets/images/footer/' . ($image ?? 'background.png')) }}')">
     <div class="spacer py-4"></div>
     {!! $slot !!}
     <div class="spacer py-5"></div>

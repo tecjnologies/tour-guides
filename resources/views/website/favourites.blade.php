@@ -6,7 +6,7 @@
 
 <x-website-layout>
     @section('title', 'Tour Guide - Favourites')
-    <x-website.footer.footer-section>
+    <x-website.footer.footer-section :image="'favourties.svg'">
         <div class="row px-5 _popular_destinations">
             <div class="col-md-12"> 
                 <nav>
