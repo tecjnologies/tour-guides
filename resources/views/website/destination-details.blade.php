@@ -121,7 +121,7 @@
         </div>
     </div>
 
-    <x-website.footer.footer-section>
+    <x-website.footer.footer-section :image="'destinations.svg'">
         <x-home.discovering-regions />
     </x-website.footer.footer-section>
 </x-website-layout>

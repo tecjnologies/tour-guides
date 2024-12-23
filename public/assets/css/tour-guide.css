@@ -1,8 +1,8 @@
-.tourguide-slider .overlay {
+.tourguide-grid .overlay {
 	display: none;
 }
 
-.tourguide-slider .title {
+.tourguide-grid .title {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -17,7 +17,7 @@
 
 }
 
-.tourguide-slider .toggle-favorite {
+.tourguide-grid .toggle-favorite {
 	position: absolute;
 	top: 12px;
 	right: 24px;
@@ -39,7 +39,7 @@
 	margin: 0px;
 }
 
-.slick-slide ._wrapper:hover .overlay {
+.tourguide-grid ._wrapper:hover .overlay {
 	position: absolute;
 	top: 0;
 	bottom: 00;
@@ -55,7 +55,7 @@
 	margin: 0px 10px;
 }
 
-.slick-slide ._wrapper:hover .image{
+.tourguide-grid ._wrapper:hover .image{
 	margin: 0px 10px;
 }
 

@@ -19,12 +19,16 @@
     <div class="spacer mt-3"></div>
     <div class="vipservices-slider" id="slider-3">
         @forelse($data as $index => $slide)
+        <button type="button" class="btn color-white" 
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModalCenter">
             <div class="image-with-text-{{$index}}">
                 <x-home.text-with-image
                     heading="{{ $slide['title'] }}" 
                     text="{{ $slide['content'] }}"  
                     imageUrl="{{ $slide['image'] }}" />
             </div>
+        </button>
         @empty
             <p>No Data Found!</p>
         @endforelse

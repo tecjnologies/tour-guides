@@ -11,7 +11,7 @@
                         $currentCurrency = session('currency', config('currency.default'));
                         $priceInCurrency = \App\Helpers\CurrencyHelper::convert($guide->price, $currentCurrency);
                     @endphp
-                    <div class="col-xl-3 col-lg-3 col-md-4 mb-5 tourguide-slider">
+                    <div class="col-xl-3 col-lg-3 col-md-4 mb-5 tourguide-grid">
                             <div class="_wrapper position-relative">
                                 <div class="image">
                                     <img src="{{ $guide->image }}" alt="tour guide" width="100%" />
@@ -62,15 +62,12 @@
 
                                     <div class="buttons">
                                         <div class="_button">
-                                            <button type="button" class="btn color-white" data-bs-toggle="modal"
+                                            {{-- <button type="button" class="btn color-white" data-bs-toggle="modal"
                                             data-bs-target="#exampleModalCenter">
                                                 Start the Adventure
-                                            </button>
-                                        </div>
-                                        <div class="spacer my-3"></div>
-                                        <div class="_button">
+                                            </button> --}}
                                             <a class="w-100 btn color-white" href="{{ route('show.tourguide', $guide->id) }}">
-                                                Details
+                                                Start the Adventure
                                             </a>
                                         </div>
                                     </div>
@@ -179,133 +176,4 @@
         </div>
     </div>
 </div>
-
 <x-website.book-guide />
-
-@push('scripts')
-    <script>
-
-        // document.addEventListener('DOMContentLoaded', () => {
-
-        //     const COLOR_TRACK = "#CBD5E1";
-        //     const COLOR_RANGE = "#11004A";
-
-        //     const fromSlider = document.querySelector('#fromSlider');
-        //     const toSlider = document.querySelector('#toSlider');
-        //     const minValueInput = document.querySelector('#min-value');
-        //     const maxValueInput = document.querySelector('#max-value');
-        //     const scale = document.getElementById('scale');
-
-        //     const MIN = parseInt(fromSlider.getAttribute('min'));
-        //     const MAX = parseInt(fromSlider.getAttribute('max'));
-        //     const STEPS = parseInt(scale.dataset.steps);
-
-        //     function controlFromSlider(fromSlider, toSlider) {
-        //         const [from, to] = getParsed(fromSlider, toSlider);
-        //         fillSlider(fromSlider, toSlider, COLOR_TRACK, COLOR_RANGE, toSlider);
-        //         if (from > to) {
-        //             fromSlider.value = to;
-        //         }
-        //         minValueInput.placeholder = `${from} AED`;
-        //         minValueInput.value = from;
-        //     }
-
-        //     function controlToSlider(fromSlider, toSlider) {
-        //         const [from, to] = getParsed(fromSlider, toSlider);
-        //         fillSlider(fromSlider, toSlider, COLOR_TRACK, COLOR_RANGE, toSlider);
-        //         if (from <= to) {
-        //             toSlider.value = to;
-        //         } else {
-        //             toSlider.value = from;
-        //         }
-        //         maxValueInput.placeholder = `${to} AED`;
-        //         maxValueInput.value = to;
-        //     }
-
-        //     function getParsed(currentFrom, currentTo) {
-        //         const from = parseInt(currentFrom.value, 10);
-        //         const to = parseInt(currentTo.value, 10);
-        //         return [from, to];
-        //     }
-
-        //     function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
-        //         const rangeDistance = to.max - to.min;
-        //         const fromPosition = from.value - to.min;
-        //         const toPosition = to.value - to.min;
-        //         controlSlider.style.background = `linear-gradient(
-        //         to right,
-        //         ${sliderColor} 0%,
-        //         ${sliderColor} ${(fromPosition) / (rangeDistance) * 100}%,
-        //         ${rangeColor} ${((fromPosition) / (rangeDistance)) * 100}%,
-        //         ${rangeColor} ${(toPosition) / (rangeDistance) * 100}%, 
-        //         ${sliderColor} ${(toPosition) / (rangeDistance) * 100}%, 
-        //         ${sliderColor} 100%)`;
-        //     }
-
-        //     function createScale(min, max, step) {
-        //         const range = max - min;
-        //         const steps = range / step;
-        //         for (let i = 0; i <= steps; i++) {
-        //             const value = min + (i * step);
-        //             const percent = (value - min) / range * 100;
-        //             const marker = document.createElement('div');
-        //             marker.style.left = `${percent}%`;
-        //             marker.textContent = `${value}`;
-        //             scale.appendChild(marker);
-        //         }
-        //     }
-
-        //     fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider);
-        //     toSlider.oninput = () => controlToSlider(fromSlider, toSlider);
-
-        //     fillSlider(fromSlider, toSlider, COLOR_TRACK, COLOR_RANGE, toSlider);
-
-        //     minValueInput.placeholder = `${fromSlider.value} AED`;
-        //     minValueInput.value = fromSlider.value;
-        //     maxValueInput.placeholder = `${toSlider.value} AED`;
-        //     maxValueInput.value = toSlider.value;
-        // });
-
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     const buttons = document.querySelectorAll('.no_people');
-        //     const hiddenInput = document.getElementById('selectedNoofPeople');
-        //     buttons.forEach(button => {
-        //         button.addEventListener('click', () => {
-        //             buttons.forEach(btn => btn.classList.remove('selected'));
-        //             button.classList.add('selected');
-        //             hiddenInput.value = button.getAttribute('data-value');
-        //         });
-        //     });
-        // });
-
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     const buttons = document.querySelectorAll('.place_type');
-        //     const hiddenInput = document.getElementById('selectedPlaceType');
-        //     buttons.forEach(button => {
-        //         button.addEventListener('click', () => {
-        //             buttons.forEach(btn => btn.classList.remove('selected'));
-        //             button.classList.add('selected');
-        //             hiddenInput.value = button.getAttribute('data-value');
-        //         });
-        //     });
-        // });
-
-        const toggleButtons = document.querySelectorAll('.toggle-btn');
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                if (button.classList.contains('active')) {} else {
-                    toggleButtons.forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    button.classList.add('active');
-                }
-            });
-        });
-
-        document.getElementById('resetBtn').addEventListener('click', function() {
-            var form = document.getElementById('tour-guide-form');
-            form.reset();
-        });
-
-    </script>
-@endpush

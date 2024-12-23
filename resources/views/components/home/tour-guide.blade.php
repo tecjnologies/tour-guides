@@ -17,25 +17,21 @@
             </button>
         </div>
     </div>
-    @php
-        $sliderWithDotsOptions = array_merge($options, ['dots' => true]);
-    @endphp
-
     <div class="slider-container">
-        <div class="tourguide-slider mt-5" id="slider-1">
-            @forelse($data as $slide)
+        <div class="tourguide-slider mt-5 tourguide-grid" id="slider-1">
+            @forelse($data as $guide)
 
                 @php
                     $currentCurrency = session('currency', config('currency.default'));
-                    $priceInCurrency = \App\Helpers\CurrencyHelper::convert($slide->price, $currentCurrency);
+                    $priceInCurrency = \App\Helpers\CurrencyHelper::convert($guide->price, $currentCurrency);
                 @endphp
 
                 <div class="_wrapper position-relative">
                     <div class="image">
-                        <img src="{{ $slide->image }}" alt="tour guide" width="100%" />
+                        <img src="{{ $guide->image }}" alt="tour guide" width="100%" />
                     </div>
-                    <button href="javascript:void(0);" class="toggle-favorite" data-guide-id="{{ $slide->id }}">
-                        @if ($slide->is_favoriteGuide)
+                    <button href="javascript:void(0);" class="toggle-favorite" data-guide-id="{{ $guide->id }}">
+                        @if ($guide->is_favoriteGuide)
                             <img src="{{ asset('assets/images/icons/favourites.svg') }}" alt="like-dislike"
                                 class="_like_dislike" />
                         @else
@@ -45,7 +41,7 @@
                     </button>
                     <div class="title">
                         <h3 class="">
-                            {{ substr($slide->name, 0, 15) }}
+                            {{ substr($guide->name, 0, 15) }}
                         </h3>
                     </div>
 
@@ -53,16 +49,16 @@
 
                         <div class="_content">
                             <h3 class="color-white">
-                                {{ substr($slide->name, 0, 15) }}
+                                {{ substr($guide->name, 0, 15) }}
                             </h3>
                             <p class="font-4 display-14 color-white">
-                                {{ trans_choice('website.LABELS.EMIRATE', 1) }} : {{ $slide->address }}
+                                {{ trans_choice('website.LABELS.EMIRATE', 1) }} : {{ $guide->address }}
                             </p>
                             <p class="font-4 display-14 color-white">
                                 {{ trans_choice('website.LABELS.LANGUAGE', 2) }}:
-                                @if ($slide->guideLanguages)
+                                @if ($guide->guideLanguages)
                                     @php
-                                        $languages = $slide->guideLanguages;
+                                        $languages = $guide->guideLanguages;
                                         $extraLanguagesCount = $languages->count() - 1;
                                     @endphp
                                     @foreach ($languages->take(1) as $language)
@@ -79,10 +75,9 @@
                                 class="text-cetner mx-auto pt-2" />
                         </div>
                         <div class="_button">
-                            <button type="button" class="btn color-white" data-bs-toggle="modal"
-                                data-bs-target="#exampleModalCenter">
+                            <a class="w-100 btn color-white" href="{{ route('show.tourguide', $guide->id) }}">
                                 Start the Adventure
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -92,54 +87,4 @@
         </div>
     </div>
 </div>
-
 <x-website.book-guide />
-
-@push('scripts')
-    <script>
-        $(document).ready(function() {
-
-            $('.tourguide-slider').slick({
-                dots: false,
-                infinite: true,
-                autoplay: false,
-                arrows: false,
-                autoplaySpeed: 3000,
-                slidesToShow: 6,
-                slidesToScroll: 1,
-                responsive: [{
-                        breakpoint: 1290,
-                        settings: {
-                            slidesToShow: 4,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 4,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            });
-
-            $('.slick-prev-custom').on('click', function() {
-                const sliderId = $(this).data('slider');
-                $('#' + sliderId).slick('slickPrev');
-            });
-
-            $('.slick-next-custom').on('click', function() {
-                const sliderId = $(this).data('slider');
-                $('#' + sliderId).slick('slickNext');
-            });
-        });
-    </script>
-@endpush

@@ -451,7 +451,7 @@
         </div> 
     </div>  
 
-    <x-website.footer.footer-section>
+    <x-website.footer.footer-section :image="'tour-guides.svg'">
         <div class="spacer py-5"></div>
         <x-website.recent-reviews-slider />
         <div class="spacer py-5"></div>

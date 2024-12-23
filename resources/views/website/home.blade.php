@@ -193,7 +193,7 @@
         <div class="spacer py-5"></div>
         <x-home.unforgettable-nature :data="$unForgettableNature" :options="$sliderOptions"  class="h-12 w-auto " />
     </div>
-    <x-website.footer.footer-section :image="'home.svg'">
+    <x-website.footer.footer-section>
         <x-home.discovering-regions />
     </x-website.footer.footer-section>
 
