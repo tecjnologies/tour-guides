@@ -5,9 +5,9 @@
     <div class="row">
         <div class="col-md-4 col-lg-3">
         </div>
-        <div class="col-md-4 col-lg-6 d-flex justify-content-end align-items-center flex-column">
+        <div class="col-md-4 col-lg-6 d-md-flex justify-content-end align-items-center flex-column">
             
-            <div class="flex justify-center">
+            <div class="flex-md justify-center">
                 <x-website.application-light-logo class="h-12 w-auto" />
             </div>
             <div class="flex space-x-6 _footer_menu py-3">
@@ -30,26 +30,26 @@
 
             </div>
 
-            <div class="social-links d-flex justify-content-center align-items-center py-2">
+            <div class="social-links d-md-flex justify-content-center align-items-center py-2">
                 <h3 class="font-4 display-14 color-white me-3">  {{ __('website.LABELS.LETSCONNECT') }}: </h3>
-                <a href="https://www.facebook.com/YourPage" target="_blank" rel="noopener" title="Follow us on Facebook" class="me-3">
+                <a href="https://www.facebook.com/YourPage" target="_blank" rel="noopener" title="Follow us on Facebook" class="float-start me-3">
                     <img src="{{ asset('assets/images/icons/facebook.svg') }}" alt="Facebook" width="24" height="24" />
                 </a>
-                <a href="https://www.twitter.com/YourProfile" target="_blank" rel="noopener" title="Follow us on Twitter" class="me-3">
+                <a href="https://www.twitter.com/YourProfile" target="_blank" rel="noopener" title="Follow us on Twitter" class="float-start me-3">
                     <img src="{{ asset('assets/images/icons/twitter.svg') }}" alt="Twitter" width="24" height="24" />
                 </a>
-                <a href="https://www.instagram.com/YourProfile" target="_blank" rel="noopener" title="Follow us on Instagram" class="me-3">
+                <a href="https://www.instagram.com/YourProfile" target="_blank" rel="noopener" title="Follow us on Instagram" class="float-start me-3">
                     <img src="{{ asset('assets/images/icons/instagram.svg') }}" alt="Instagram" width="24" height="24" />
                 </a>
-                <a href="https://www.linkedin.com/company/YourCompany" target="_blank" rel="noopener" title="Connect with us on LinkedIn" class="me-3">
+                <a href="https://www.linkedin.com/company/YourCompany" target="_blank" rel="noopener" title="Connect with us on LinkedIn" class="float-start me-3">
                     <img src="{{ asset('assets/images/icons/linkedin.svg') }}" alt="LinkedIn" width="24" height="24" />
                 </a>
-                <a href="https://www.linkedin.com/company/YourCompany" target="_blank" rel="noopener" title="Connect with us on LinkedIn" class="me-3">
+                <a href="https://www.linkedin.com/company/YourCompany" target="_blank" rel="noopener" title="Connect with us on LinkedIn" class="float-start me-3">
                     <img src="{{ asset('assets/images/icons/whatsapp.svg') }}" alt="LinkedIn" width="24" height="24" />
                 </a>
             </div>
-
-            <div class="flex justify-center py-2">
+            <div class="spacer py-6 py-md-0"></div>
+            <div class="flex-md justify-center py-2">
                 <a href="https://technologies.ae" target="_blank">
                     <img src="{{ asset('assets/images/footer/powered-by.png') }}" alt="Technologies" />
                 </a>
@@ -57,7 +57,7 @@
 
         </div>
         <div class="col-md-4 col-lg-3 d-flex align-items-end flex-column">
-            <div class="scrolltop d-flex justify-between align-items-center px-5">
+            <div class="scrolltop d-flex justify-between align-items-center px-md-5">
                 <p class="font-4 display-18 color-white me-4"> Top </p>
                 <a id="scrollToTopButton" href="#" onClick="scrollToTop(); return false;" role="button" aria-label="Scroll to top" style="display: none;">
                     <img src="{{ asset('assets/images/icons/scrolltop.svg') }}" alt="Scroll to top" class="mx-auto" />

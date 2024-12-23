@@ -31,7 +31,7 @@
                     <th scope="row" class="font-4 display-14 color-black">Email Address</th>
                     <td class="font-4 display-12 color-black">
                         {{ Auth::user()->email }} @if (Auth::user()->email_verified_at)
-                            <span class="bg-success color-white px-3 py-1 rounded"> Verified </span>
+                            <span class="bg-success color-white px-3 mt-3 mt-md-0 py-md-1 rounded"> Verified </span>
                         @endif
                         <br>
                         <br>

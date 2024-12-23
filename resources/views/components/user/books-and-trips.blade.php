@@ -25,7 +25,7 @@
         
         <div class="_card py-5">
             <div class="_booking_request  px-4">
-                <div class="d-flex position-relative">
+                <div class="d-md-flex position-relative">
                     <div class="_profile_rounded me-md-5">
                         <img src="{{ asset('assets/images/tour-guide/mohammad.png')   }}" alt="Mohammad" class="h-100" />
                     </div>
@@ -50,7 +50,7 @@
             <div class="spacer py-3"></div>
 
             <div class="contact-buttons px-4">
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-md-flex justify-content-between align-items-center">
                     <button id="shareButton"
                         class="font-5 display-14  bg-light-blue color-blue color-primary d-flex justify-content-center align-items-center 
                         text-decoration-none    me-2  py-2 rounded w-100">

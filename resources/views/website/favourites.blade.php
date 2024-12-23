@@ -7,7 +7,7 @@
 <x-website-layout>
     @section('title', 'Tour Guide - Favourites')
     <x-website.footer.footer-section :image="'favourties.svg'">
-        <div class="row px-5 _popular_destinations">
+        <div class="row px-md-5 _popular_destinations">
             <div class="col-md-12"> 
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -39,8 +39,8 @@
                                                 @endif
                                         </a> 
                                         <div class="spacer my-3"></div>
-                                        <h3 class="font-2 display-20 {{ $loop->first ? '' :  'ps-4'}}"> {{ $favouritePlace->place->name }} </h3>
-                                        <p class="{{ $loop->first ? '' :  'ps-4'}}"> {{ $favouritePlace->place?->district?->name }} </p>
+                                        <h3 class="font-2 display-20 {{ $loop->first ? '' :  'ps-md-4'}}"> {{ $favouritePlace->place->name }} </h3>
+                                        <p class="{{ $loop->first ? '' :  'ps-md-4'}}"> {{ $favouritePlace->place?->district?->name }} </p>
                                     </div>
                                 </a>
                             </div>
@@ -152,8 +152,8 @@
                                                 @endif
                                         </a> 
                                         <div class="spacer my-3"></div>
-                                        <h3 class="font-2 display-20 {{ $loop->first ? '' :  'ps-4'}}"> {{ $favouritePlace->place->name }} </h3>
-                                        <p class="{{ $loop->first ? '' :  'ps-4'}}"> {{ $favouritePlace->place?->district?->name }} </p>
+                                        <h3 class="font-2 display-20 {{ $loop->first ? '' :  'ps-md-4'}}"> {{ $favouritePlace->place->name }} </h3>
+                                        <p class="{{ $loop->first ? '' :  'ps-md-4'}}"> {{ $favouritePlace->place?->district?->name }} </p>
                                     </div>
                                 </a>
                             </div>

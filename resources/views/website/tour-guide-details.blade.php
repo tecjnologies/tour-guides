@@ -54,16 +54,16 @@
 
 <x-website-layout>
     @section('title', 'Tour Guide - Mohammad')
-    <div class="mx-auto">
+    <div class="container-fluid">
         <div class="row px-md-3 px-lg-5">
             <div class="col-xl-8 _about_me pe-4">
-                <div class="row d-flex justify-content-between align-items-center">
+                <div class="row d-block d-md-flex justify-content-between align-items-center">
                     <div class="col-md-10 breadcrums border-bottom pb-3">
                         <p class="font-4 display-12 color-primary" >
                            <span class="_breadcrum border-bottom-2"> Tour guide profile </span>  > {{ $tourGuide->name ?? 'N/A'  }}
                         </p> 
                     </div>
-                    <div class="col-md-2 actions d-flex  justify-content-end align-items-center">
+                    <div class="col-md-2 actions mt-3 md-md-0 flex  justify-content-end align-items-center">
                         <button class="share-button" data-id="1"> 
                             <img src="{{ asset('assets/images/icons/share.svg') }}" alt="share" class="w-100" />
                         </button>
@@ -81,9 +81,9 @@
 
                 <div class="spacer m-4"></div>
                 <div class="row">
-                    <div class="col-md-12 d-flex justify-content-between align-items-cetner">
+                    <div class="col-md-12 d-block d-md-flex justify-content-between align-items-cetner">
                         <p class="font-2 display-16 color-blue"> Hi there! Nice to meet you, I’m {{ $tourGuide->name }} </p>
-                        <p class="d-flex justify-content-start align-items-center font-2 display-16 color-blue">                             
+                        <p class="d-flex justify-content-start align-items-center font-2 display-16 color-blue mt-2 mt-md-0">                             
                             <img src="{{ asset('assets/images/icons/money.svg') }}" alt="like" class="ms-2"/>
                             50AED <span class="font-5 display-12 ps-2"> per hour </span> 
                         </p>
@@ -231,26 +231,26 @@
                             </div>
                         </div>
                         <div class="spacer py-1 my-5"></div>
-                        <div class="contact-buttons px-4">
+                        <div class="contact-buttons px-4 mx-4 mx-md-0">
                             <div class="buttons d-flex justify-content-start align-items-center flex-wrap">
                                 <button id="shareButton" data-id="2"
                                     class="share-button font-5 display-14  bg-light-blue color-blue color-primary 
                                         d-flex justify-content-start align-items-center 
-                                        text-decoration-none  px-lg-3 px-md-2 me-2  py-2 rounded">
+                                        text-decoration-none  px-lg-3 px-3 me-2  py-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/share.svg') }}" alt="mohammad"
                                         class="me-1" />
                                         {{ __('website.LABELS.SHARE_PROFILE') }}
                                 </button>
                                 <a href="tel:{{ $tourGuide->contact }}"
                                     class="font-5 display-14  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
-                                text-decoration-none  px-lg-3 px-md-2 py-2 me-2 rounded">
+                                text-decoration-none  px-lg-3 px-2 py-2 me-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/call.svg') }}" alt="mohammad"
                                         class="me-1" />
                                         {{ __('website.LABELS.CALL') }}
                                 </a>
                                 <a href="mailto:{{ $tourGuide->email }}"
                                     class="font-5 display-14  bg-light-blue color-blue color-primary d-flex justify-content-start align-items-center 
-                                text-decoration-none my-md-4 px-lg-3 px-md-2  my-lg-0  py-2 rounded">
+                                text-decoration-none my-md-4 px-lg-3 px-2  my-lg-0  py-2 rounded">
                                     <img src="{{ asset('assets/images/tour-guide/email.svg') }}" alt="mohammad"
                                         class="me-1" />
                                         {{ __('website.LABELS.EMAIL') }}

@@ -17,7 +17,7 @@
 
     <x-website.footer.footer-section>
         <div class="conttainer-lg">
-            <div class="row _get_help px-5">
+            <div class="row _get_help px-md-5">
                 <div class="col-md-12 d-flex justify-contnet-center align-items-center flex-column">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -56,6 +56,7 @@
                                                 <p class="font-4 display-16 color-primary"> Tour guides.me  </p>
                                             </div>
                                         </div>
+                                        <div class="spacer my-3 my-md-0"></div>
                                         <div class="col-md-6">
                                             <div class="_card d-flex justify-content-start align-items-center">
                                                 <img src="{{ asset('assets/images/icons/help-icon.svg') }}" alt="help icon"  class="help icon me-3"  width="30px"/>
@@ -71,6 +72,7 @@
                                                 <p class="font-4 display-16 color-primary"> Tour guides.me  </p>
                                             </div>
                                         </div>
+                                        <div class="spacer my-3 my-md-0"></div>
                                         <div class="col-md-6">
                                             <div class="_card d-flex justify-content-start align-items-cetner">
                                                 <img src="{{ asset('assets/images/icons/help-icon.svg') }}" alt="help icon"  class="help icon me-3" width="30px" />

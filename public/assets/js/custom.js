@@ -37,7 +37,7 @@ $(document).ready(function() {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 }
             }
@@ -45,13 +45,8 @@ $(document).ready(function() {
     });
 
     $('.top-destinations-slider').slick({
-        dots: false,
         infinite: true,
-        autoplay: true,
-        arrows: false,
-        centerMode: false,
-        centerPadding: '0px',
-        autoplaySpeed: 3000,
+        autoplay: false,
         slidesToShow: 4,
         slidesToScroll: 1,
         responsive: [
@@ -81,7 +76,7 @@ $(document).ready(function() {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 }
             }
@@ -190,7 +185,7 @@ $(document).ready(function() {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 }
             }

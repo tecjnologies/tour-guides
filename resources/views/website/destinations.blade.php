@@ -3,8 +3,8 @@
     @section('title', 'Tour Guide - Destinations')
   
     <x-website.footer.footer-section :image="'destinations.svg'">
-        <div class="row px-5 _popular_destinations _destinations">
-            <div class="col-md-12 d-flex justify-content-between align-items-center">
+        <div class="row px-md-5 _popular_destinations _destinations">
+            <div class="col-md-12 d-md-flex justify-content-between align-items-center">
                 <div class="tabs">
                     <ul class="nav nav-tabs" id="destinationsTab" role="tablist">
                         @php $activeTabSet = false; @endphp
@@ -28,8 +28,8 @@
                     </ul>
                 </div>
     
-                <div class="filters d-flex justify-content-end align-items-center">
-              
+                <div class="filters d-md-flex justify-content-end align-items-center">
+                    <div class="spacer my-4 my-md-0"></div>
                     <div class="emirates d-flex justify-content-between align-items-center rounded-md px-3 py-2 border border-gray-300 me-md-3">
                         <img src="{{ asset('assets/images/icons/sort.svg') }}" alt="sort-icon" class="sort-icon me-2" />
                         <select id="emirates" name="emirates" class="w-full border-0 font-4 display-16 color-black">
@@ -42,7 +42,7 @@
                             <option value="ras_al_khaimah">Ras al Khaimah</option>
                         </select>
                     </div>
-    
+                    <div class="spacer my-4 my-md-0"></div>
                     <div class="sort d-flex justify-content-between align-items-center rounded-md px-3 py-2 border border-gray-300">
                         <img src="{{ asset('assets/images/icons/sort.svg') }}" alt="sort-icon" class="sort-icon me-2" />
                         <select name="sort" class="w-full border-0">
@@ -60,13 +60,12 @@
                     @php $activePaneSet = false; @endphp
                     @foreach ($placeTypes as $type)
                         @if ($type->places->isNotEmpty())
-                            <div class="
-                             tab-pane fade {{ !$activePaneSet ? 'show active' : '' }}" 
+                            <div class="tab-pane fade {{ !$activePaneSet ? 'show active' : '' }}" 
                                  id="type-{{ $type->id }}" 
                                  role="tabpanel" 
                                  aria-labelledby="type-{{ $type->id }}-tab">
                                 @foreach ($type->places as $place)
-                                    <div class="col-md-3 mb-5">
+                                    <div class="col-md-3 mb-md-5">
                                         <a href="{{ route('show.destination', $place->id) }}">
                                             <div class="place image">
                                                 <img src="{{ $place->image }}" alt="{{ $place->name }}" class="_place_image" />

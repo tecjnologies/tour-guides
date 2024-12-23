@@ -15,8 +15,8 @@
            
         </div>
 
-        <div class="row me-3">
-            <div class="col-md-9">
+        <div class="row me-md-3 px-5 px-md-0">
+            <div class="col-md-9 p-0 p-md-auto">
                 <div class="text p-5">
                     <p class="font-4 display-16 color-black mb-3"> As Abu Dhabi is the capital of the UAE, it’s loaded with thousands of incredible-looking scenes, advanced technology features, and thousands of breathtaking activities. It’s one of the most visited and admired places in the country as it boasts the rich culture and history of the UAE. At the same time, it’s home to many artistic and cultural sites. Every single detail about this area is remarkably on point. 
                        <br>  If you’re seeking some quality time with your beloved ones, this site is the perfect spot to visit. Not only does it present the Emirati culture, but it collects artistic features from all around the world in every location. For example, you can take a few hours to explore The Louvre museum there and watch the world’s most creative artworks!
@@ -33,14 +33,14 @@
                     <p class="font-4 display-16 color-black mb-3"> This incredible place is one of the UAE’s most charming places. It offers a beautiful and artistic experience that you would admire at a glance. If that’s what you’re seeking, this place is remarkable for you to have some quality time and relaxation with your family and friends. </p>
                 </div>
             </div>
-            <div class="col-md-3 _sidebar">
+            <div class="col-md-3 _sidebar p-0 p-md-auto">
                 <div class=" _card mt-5">
-                    <div class="wrapper d-flex justify-content-start align-items-center pt-4 px-4">
+                    <div class="wrapper d-flex justify-content-start align-items-center p-4">
                         <div class="title">
                             <h4 class=" font-2 display-16"> Louvre Abu Dhabi Museum </h4>
                         </div>
                     </div>
-                    <hr />
+                    <hr  class="mt-0 m-md-auto"/>
                     <div class="wrapper d-flex justify-content-start align-items-center py-2 p-4">
                         <div class="icon me-2">
                             <img src="{{ asset('assets/images/menu/destinations.svg') }}" alt="destinations"

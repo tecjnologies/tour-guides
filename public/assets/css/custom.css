@@ -1009,9 +1009,6 @@ form input {
     font-size: 12px;
   }
   
-  .display-14 {
-    font-size: 11px;
-  }
   
 }
 
@@ -1133,7 +1130,6 @@ form input {
 
   .col-md-9 , .col-md-3 , .column-me-10, .col-md-2{
     width: 100% !important;
-    padding: 13px 0px !important;
   }
 
   .banner-right-column{
@@ -1241,13 +1237,10 @@ form input {
     margin-bottom: 38px;
   }
 
-  ._footer_menu {
-    display: grid;
-  }
-
   ._footer_menu a{
     margin: 0px !important;
   }
+
   ._footer_wrapper {
     padding-left: 30px !important;
   }
@@ -1387,6 +1380,66 @@ form input {
 
   .item {
     margin: 45px 0px;
+  }
+
+  ._slide_buttons{
+    margin-bottom: 30px;
+  }
+
+  ._popular_destinations .image ._place_image {
+    height: 100%;
+    aspect-ratio: unset;
+  }
+  
+
+  ._vip_services .slick-current .card{
+    margin: 0px  !important;
+  }
+
+  ._footer ._footer_menu{
+    display: grid
+  }
+  
+  ._footer ._footer_menu a+a:before {
+    content: unset;
+  }
+
+  ._descovering_regions .col-md-3{
+    margin: 0px !important;
+    padding: 13px !important;
+  }
+  ._sidebar .profile-rounded img{
+    height: 146px;
+  }
+
+  ._recent_reviews   ._card{
+      box-shadow: unset !important;
+      border: 1px solid var(--color-gray);
+  }
+
+  .tab-content>.active {
+    row-gap: 30px;
+  }
+
+  .display-36 {
+    font-size: 32px;
+  }
+
+  ._books_and_trips ._card {
+    padding: 15px;
+  }
+
+  .contact-buttons button, .contact-buttons a {
+    margin: 22px 0px;
+  }
+
+  ._booking_request .headings {
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  ._booking_request ._profile_rounded img {
+    width: 100%;
   }
 
 }
