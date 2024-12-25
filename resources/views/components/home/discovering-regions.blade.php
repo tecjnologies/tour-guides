@@ -1,4 +1,4 @@
-<div class="_wrapper _descovering_regions pb-4 px-5 _dotted_nav_slider">
+<div class="_wrapper _descovering_regions pb-4 px-md-5 _dotted_nav_slider">
     <div class="heading-buttons d-flex justify-content-between align-items-center">
         <div class="_headings">
             <h2 class="font-2 display-26 color-blue"> {{ __('website.HEADINGS.DISCOVERING_REGIONS') }} </h2>
@@ -25,7 +25,7 @@
                                 {{ __('website.DESTINATIONS.MESUEM_OF_THE_FUTURE') }} </h3>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-3 _small_images">
                             <div class="im position-relative">
                                 <img src="{{ asset('assets/images/homepage/tower-2.png') }}" alt="Downtown"
                                     width="100%" />
@@ -33,7 +33,7 @@
                                     {{ __('website.DESTINATIONS.DOWNTOWN') }} </h3>
                             </div>
 
-                            <div class="im mt-5 position-relative">
+                            <div class="im position-relative">
                                 <img src="{{ asset('assets/images/homepage/burj-arab.png') }}" alt="Burj Al Arab"
                                     width="100%" />
                                 <h3 class="font-2 display-20 color-white _title">
@@ -49,7 +49,7 @@
                                 {{ __('website.DESTINATIONS.ETIHAD_TOWERS') }} </h3>
                         </div>
 
-                        <div class="col-md-3 ">
+                        <div class="col-md-3 _small_images">
                             <div class="im position-relative">
                                 <img src="{{ asset('assets/images/homepage/meseum-1.png') }}" alt="Alseef"
                                     width="100%" />
@@ -57,7 +57,7 @@
                                     {{ __('website.DESTINATIONS.AL_SEEF') }}</h3>
                             </div>
 
-                            <div class="im position-relative mt-5">
+                            <div class="im position-relative ">
                                 <img src="{{ asset('assets/images/homepage/frame.png') }}" alt="Dubai Frame"
                                     width="100%" />
                                 <h3 class="font-2 display-20 color-white _title">

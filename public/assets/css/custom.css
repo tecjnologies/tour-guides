@@ -974,6 +974,12 @@ form input {
   margin: 0 15px;
 }
 
+._discovering_regions ._small_images {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 @media only screen and (max-width: 1800px) {
   
   ._main_menu a {
@@ -1265,9 +1271,8 @@ form input {
   ._topbar {
     padding: 11px 10px !important;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
   }
 
 
@@ -1335,7 +1340,7 @@ form input {
 
   ._slide_buttons{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     margin-top: 30px;
   }
@@ -1519,5 +1524,17 @@ form input {
     margin: 18px 0px;
   }
 
+
+  ._top_destinations ._title_content{
+    margin-top: -12px;
+  }
+
+  ._top_destinations .image {
+    aspect-ratio: 1 / 1;
+  }
+  .slide._top_destinations {
+    width: unset;
+    padding: 15px;
+  }
 }
 
