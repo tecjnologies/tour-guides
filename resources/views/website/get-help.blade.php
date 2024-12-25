@@ -50,38 +50,34 @@
                                     <p class="font-3 display-20 color-primary"> Common Questions </p>
                                     <div class="spacer my-3"></div>
                                     <div class="row w-100">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 my-3">
                                             <div class="_card d-flex justify-content-start align-items-center">
                                                 <img src="{{ asset('assets/images/icons/help-icon.svg') }}" alt="help icon"  class="help icon me-3"   width="30px"/>
                                                 <p class="font-4 display-16 color-primary"> Tour guides.me  </p>
                                             </div>
                                         </div>
-                                        <div class="spacer my-3 my-md-0"></div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 my-3">
                                             <div class="_card d-flex justify-content-start align-items-center">
                                                 <img src="{{ asset('assets/images/icons/help-icon.svg') }}" alt="help icon"  class="help icon me-3"  width="30px"/>
                                                 <p class="font-4 display-16 color-primary"> Payments  </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="spacer my-3"></div>
                                     <div class="row w-100">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 my-3">
                                             <div class="_card d-flex justify-content-start align-items-cetner">
                                                 <img src="{{ asset('assets/images/icons/help-icon.svg') }}" alt="help icon"  class="help icon me-3" width="30px" />
                                                 <p class="font-4 display-16 color-primary"> Tour guides.me  </p>
                                             </div>
                                         </div>
-                                        <div class="spacer my-3 my-md-0"></div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 my-3">
                                             <div class="_card d-flex justify-content-start align-items-cetner">
                                                 <img src="{{ asset('assets/images/icons/help-icon.svg') }}" alt="help icon"  class="help icon me-3" width="30px" />
                                                 <p class="font-4 display-16 color-primary"> Payments  </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="spacer my-3"></div>
-    
+                                    <div class="spacer my-4"></div>
                                     <div class="row w-100">
                                         <div class="col-md-6">
                                             <div class="_card_transparent d-flex justify-content-start align-items-cetner flex-column">

@@ -789,6 +789,8 @@ hr {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
+  width: 95%;
+  margin: 0px 3%;
 }
 
 .background-image img {
@@ -1005,16 +1007,30 @@ form input {
 
 @media only screen and (max-width: 1366px) {
   
-  .display-16 {
+  .display-16, .display-14 {
     font-size: 12px;
   }
-  
-  
+
+  .tourguide-grid .overlay .buttons a {
+    font-size: 14px !important;
+  }
+
+  ._login span {
+    font-size: 10px;
+    color: var(--color-primary);
+  }
+
 }
 
 
+@media only screen and (max-width: 1280px) {
+  
+  nav .display-14 {
+    font-size: 10px;
+  }
 
-
+ 
+}
 
 @media only screen and (max-width: 1024px) {
 
@@ -1059,21 +1075,36 @@ form input {
     height: fit-content;
   }
   ._popular_destinations .image ._place_image{
-    height: 124px;
+    height: unset;
     aspect-ratio: 2 / 2;
-    object-fit: contain;
   }
 
+  .list ._logo {
+    width: 26%;
+    margin: 16px;
+  }
+
+  ._info_boxes .card .display-20 {
+    font-size: 18px;
+  }
+
+  nav{
+    margin: 10px 0px;;
+  }
+  
+  nav .display-14 {
+    font-size: 11px;
+  }
+
+  .banner{
+    width: 100%;
+    margin: 0px 0%;
+  }
 }
 
 @media only screen and (max-width: 991px) {
   .display-16 {
       font-size: 14px;
-  }
-
-  .col-md-6, .col-md-4  {
-    flex: 0 0 auto;
-    width: 100%;
   }
 
   .become-our-partner .col-md-4,  ._info_boxes .col-md-4 {
@@ -1097,12 +1128,27 @@ form input {
     margin-left: 0px;
   }
 
+  nav .display-14 {
+    font-size: 9px;
+  }
+
+  ._popular_destinations .col-md-3 , ._tour_guide  .col-lg-4, 
+  ._tour_guide  .col-lg-6,  form .col-md-6, form .col-md-4, 
+  form .col-md-3 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  ._footer .col-md-4 {
+    width: -webkit-fill-available;
+  }
+
 }
 
 @media only screen and (max-width: 768px) {
   
   nav     .display-14 {
-    font-size: 7px;
+    font-size: 6px;
   }
 
   ._main_menu a{
@@ -1117,6 +1163,10 @@ form input {
     margin: 20px 0px !important;
   }
 
+  ._logo {
+    width: unset;
+  }
+
   ._logo_menu,  ._footer_wrapper {
     display: block;
   }
@@ -1128,7 +1178,7 @@ form input {
     font-size: 12px;
   }
 
-  .col-md-9 , .col-md-3 , .column-me-10, .col-md-2{
+  .col-md-9 , .column-me-10{
     width: 100% !important;
   }
 
@@ -1166,6 +1216,15 @@ form input {
     margin: 4px 0px;
   } 
 
+  ._discovering_regions .col-md-9, ._discovering_regions .col-md-3{
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  ._discovering_regions img{
+    margin-bottom: 30px;
+  }
+
 }
 
 @media only screen and (max-width: 550px) {
@@ -1195,7 +1254,7 @@ form input {
     display: none;
   }
   
-  .p-5,  .px-4, .py-3 {
+  .p-5,  .px-4 {
     padding: 0rem !important;
   }
   
@@ -1440,6 +1499,24 @@ form input {
 
   ._booking_request ._profile_rounded img {
     width: 100%;
+  }
+
+  ._banner_tabs li+li:before{
+    content: unset;
+  }
+
+  ._popular_destinations .col-md-3, 
+  ._tour_guide .col-lg-4, 
+  ._tour_guide .col-lg-6, 
+  form .col-md-6, 
+  form .col-md-4, 
+  form .col-md-3{
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  form ._start_end_date {
+    margin: 18px 0px;
   }
 
 }

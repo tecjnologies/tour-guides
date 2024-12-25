@@ -11,11 +11,11 @@ return [
     'MENU' =>
         [
             'HOME' => 'Home',
-            'ABOUT_US' => 'About us',
+            'ABOUT_US' => 'About Us',
             'TOURGUIDE_PROFILE' => 'Tour Guide Profile',
             'DESTINATIONS' => 'Destinations',
             'FAVOURITES' => 'Favourites',
-            'JOIN_US' => 'Join us',
+            'JOIN_US' => 'Join Us',
             'GET_HELP' => 'Get Help',
             'LOGIN' => 'Login',
             'TERMSANDCONDITIONS' => 'Terms and Conditions',

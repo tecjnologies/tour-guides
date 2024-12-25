@@ -4,14 +4,14 @@
             <h2 class="font-2 display-26 color-blue"> {{ __('website.HEADINGS.DISCOVERING_REGIONS') }} </h2>
             <p class="font-4 display-16 color-blue"> {{ __('website.TEXT.DISCOVERING_REGIONS') }} </p>
         </div>
-        <div class="_slide_buttons">
+        {{-- <div class="_slide_buttons">
             <button class="slick-prev-custom" data-slider="slider-5">
                 <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" alt="Arrow left" />
             </button>
             <button class="slick-next-custom ml-4" data-slider="slider-5">
                 <img src="{{ asset('assets/images/icons/arrow-right.svg') }}" alt="Arrow right" />
             </button>
-        </div>
+        </div> --}}
     </div>
     <div class="slider-container">
         <div class="discovering-slider _discovering_regions mt-5" id="slider-5">

@@ -39,6 +39,11 @@
 	margin: 0px;
 }
 
+.overlay h3 {
+	font-size: 18px;
+	font-weight: 600;
+}
+
 .tourguide-grid ._wrapper:hover .overlay {
 	position: absolute;
 	top: 0;
