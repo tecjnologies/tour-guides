@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class Guide extends Model
 {
     // Declare the fillable property
-    protected $fillable = ["name", 'nid', 'email', 'contact', 'address', 'price', 'experience'];
+    protected $fillable = ["name", 'nid', 'email', 'contact', 'address', 'price', 'image', 'experience'];
 
     protected $appends = ['is_favoriteGuide'];
 

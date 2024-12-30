@@ -6,7 +6,11 @@ use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Guide;
+use App\Models\District;
+use App\Models\GuideDescription;
 use Validator;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 class TourGuideController extends Controller
 {
     public function index()
@@ -16,7 +20,27 @@ class TourGuideController extends Controller
 
     public function store(Request $request)
     {
-        // Custom error messages for validation
+        $rules = [
+            'nid' => 'required|integer',
+            'full_name' => 'required|string|max:255',
+            'date_of_birth' => 'required|date',
+            'gender' => 'required|in:male,female',
+            'nationality' => 'required',
+            'city' => 'required|string|max:255',
+            'email' => [
+                    'required',
+                    'string',
+                    'email',
+                    'max:255',
+                    'unique:users,email',
+                    'regex:/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,24}$/'
+                ],
+            'phone' => ['required', 'regex:/^(009715|\\+9715|5)\d{8}$/'],
+            'qualification' => 'required|string|max:255',
+            'job_title' => 'required|string|max:255',
+            'personal_photo' => 'file|mimes:jpeg,jpg,png,gif,svg|max:5120',
+        ];
+
         $messages = [
             'full_name.required' => 'Full name is required.',
             'email.required' => 'Email address is required.',
@@ -24,80 +48,77 @@ class TourGuideController extends Controller
             'phone.regex' => 'Phone number format is invalid.',
         ];
 
-        // Retrieve the JSON data from the request
-        $data = $request->json()->all(); // Get all data from the JSON body
+        $validator = Validator::make($request->all(), $rules, $messages);
 
-        // Validate the data manually
-        $validator = Validator::make($data, [
-            'nid' => 'required',
-            'full_name' => 'required|string|max:255',
-            'date_of_birth' => 'required|date',
-            'gender' => 'required|in:Male,Female',
-            'nationality' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'regex:/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,24}$/'],
-            'phone' => ['required', 'regex:/^(009715|\\+9715|5)\d{8}$/'],
-            'qualification' => 'required|string|max:255',
-            'job_title' => 'required|string|max:255',
-        ], $messages);
-
-        // If validation fails, return the error response
+        // Return validation errors if any
         if ($validator->fails()) {
             return response()->json([
                 'errors' => $validator->errors()
-            ], 422); // Unprocessable Entity HTTP status
+            ], 422);
         }
 
-        // Retrieve validated data from the request
-        $validatedData = $validator->validated(); // Get validated data
+        $validatedData = $validator->validated();
 
-        // Start database transaction
         \DB::beginTransaction();
+
         try {
-            // Handle file upload (if any)
-            $personalPhoto = $request->file('personal_photo');
-            if ($personalPhoto) {
-                $personalPhotoPath = FileHelper::uploadFile($personalPhoto, 'users/photos');
-                $validatedData['personal_photo'] = $personalPhotoPath;
+            // Handle file upload
+            if ($request->hasFile('personal_photo')) {
+                $image = $request->file('personal_photo');
+                $currentDate = Carbon::now()->toDateString();
+                $validatedData['image'] = $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+                if (!Storage::disk('public')->exists('guide')) {
+                    Storage::disk('public')->makeDirectory('guide');
+                }
+                Storage::disk('public')->putFileAs('guide', $image,  $validatedData['image']);
+            } else {
+                $validatedData['image'] = "default.png";
             }
 
-            // Set the status field
-            $validatedData['name'] = $validatedData['full_name'] ;
-            $validatedData['contact'] = $validatedData['phone'] ;
-            $validatedData['address'] = $validatedData['city'] ;
+            $validatedData['name'] = $validatedData['full_name'];
+            $validatedData['contact'] = $validatedData['phone'];
+            $validatedData['address'] = $validatedData['city'];
             $validatedData['status'] = 1;
 
-            // Create a new Guide instance
+            \Log::info($validatedData);
+            // Create the guide
             $guide = Guide::create($validatedData);
 
-            // Commit the transaction if successful
+            // Handle emirates data
+            $emirates = District::where('name', $validatedData['city'])->first();
+            if ($emirates) {
+                GuideDescription::create([
+                    'guide_id' => $guide->id,
+                    'isCertified' => false,
+                    'highRatings' => false,
+                    'responsiveGuide' => false,
+                    'no_of_slots' => 0,
+                    'response_time' => 0,
+                    'description' => 'Not Provided',
+                    'emirates_id' => $emirates->id
+                ]);
+            }
+
             \DB::commit();
 
-            // Return the success response as JSON
             return response()->json([
                 'message' => 'Your request has been submitted successfully! You will hear from us soon.',
-                'data' => $guide // Return the newly created guide data
-            ], 201); // HTTP status code 201 for resource creation
+                'data' => $guide
+            ], 200);
 
         } catch (\Exception $e) {
-            // Rollback the transaction if an error occurs
             \DB::rollBack();
 
-            // Log the error for debugging
-            \Log::error('Error creating guide: ' . $e->getMessage(), [
+            \Log::error('Error creating guide', [
+                'error' => $e->getMessage(),
                 'stack' => $e->getTraceAsString(),
                 'request_data' => $request->all(),
             ]);
 
-            return $e->getMessage();
-            // Return error response as JSON
             return response()->json([
-                'error' => 'An error occurred while creating the guide. Please try again.'
-            ], 500); // HTTP status code 500 for server error
+                'error' => $e->getMessage()
+            ], 500);
         }
     }
-
-
-    
 
 }
