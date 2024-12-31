@@ -3,7 +3,7 @@
     @section('title', 'Tour Guide - Destinations')
   
     <x-website.footer.footer-section :image="'destinations.svg'">
-        <div class="row px-md-5 _popular_destinations _destinations">
+        <div class="row px-md-2 _popular_destinations _destinations">
             <div class="col-md-12 d-md-flex justify-content-between align-items-center">
                 <div class="tabs">
                     <ul class="nav nav-tabs" id="destinationsTab" role="tablist">

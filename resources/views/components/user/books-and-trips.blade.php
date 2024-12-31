@@ -21,8 +21,8 @@
     </div>
     <div class="col-md-9"></div>
     <hr/>
-    <div class="col-lg-6 col-md-6">
-        <div class="_card py-5">
+    <div class="col-lg-4 col-md-4">
+        <div class="_card bg-white py-5">
             <div class="_booking_request  px-4">
                 <div class="d-md-flex position-relative">
                     <div class="_profile_rounded me-md-5">

@@ -2,7 +2,7 @@
     @section('title', 'Tourist Guide - Dashboard')
     <x-website.footer.footer-section :image="'favourties.svg'">
         <div class="container-fluid">
-            <div class="row m-md-4">
+            <div class="row">
                 <h2 class="m-auto" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
                     @if(Auth::check())
                         <p class="font-4 display-16 color-pink d-flex justify-content-start align-items-center">

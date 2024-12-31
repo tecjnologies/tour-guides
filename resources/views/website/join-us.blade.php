@@ -2,7 +2,7 @@
     @section('title', 'Tour Guide - Join us')
     <x-website.footer.footer-section>
         <div class="container-fluid">
-            <div class="row px-md-5 d-flex justify-content-center align-items-center">
+            <div class="row d-flex justify-content-center align-items-center">
                 <div class="banner flex-column p-5" style="background-image: url({{ asset('assets/images/join-us/banner.png') }})">
                     <h3 class="font-3 display-36 color-white">“Explore More, Discover Deeper
                        <br/>  Your Journey Begins Here!”</h3>
