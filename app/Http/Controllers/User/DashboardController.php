@@ -82,53 +82,40 @@ class DashboardController extends Controller
         return view('user.profile.edit', compact('user'));
     }
 
-
-    public function updateProfile(Request $request){
-        $profile = Auth::id();
-        $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => 'required|email|unique:users,email,'. $profile,
-            'contact' => 'required|numeric|unique:users,contact,'. $profile,
-            'image' => 'mimes:jpeg,png,jpg',
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'field' => 'required|string',
+            'value' => 'required|string|max:255',
         ]);
-
-        $profile = User::findOrFail($profile);
-
-        //handle featured image
-        $image = $request->file('image');
-        if($image)
-        {
-             // Make Unique Name for Image 
-            $currentDate = Carbon::now()->toDateString();
-            $image_name = $currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-  
-  
-          // Check Dir is exists
-  
-              if (!Storage::disk('public')->exists('profile_photo')) {
-                 Storage::disk('public')->makeDirectory('profile_photo');
-              }
-
-
-              if(Storage::disk('public')->exists('profile_photo/'.$profile->image)){
-                Storage::disk('public')->delete('profile_photo/'.$profile->image);
-            }
-   
-            Storage::disk('public')->putFileAs('profile_photo', $image, $image_name);
-
-            $profile->image = $image_name;
-  
+    
+        $user = Auth::user();
+    
+        // Update the specific field
+        $field = $request->input('field');
+        $value = $request->input('value');
+    
+        if (in_array($field, ['name','username', 'email', 'contact', 'date_of_birth','nationality','gender','address'])) {
+            $user->$field = $value;
+            $user->save();
+    
+            return response()->json(['success' => 'Profile updated successfully.']);
         }
-        
-        $profile->name =  $request->name;
-        $profile->email =  $request->email;
-        $profile->contact =  $request->contact;
-        $profile->save();
-
-        session()->flash('success', 'Profile Updated Successfully');
-        return redirect(route('user.profile.show'));
+    
+        return response()->json(['error' => 'Invalid field provided.'], 400);
     }
 
-
+    public function deleteAccount(Request $request)
+    {
+        $user = Auth::user(); 
+        if ($user) {
+            $user->delete();
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect('/')->with('success', 'Your account has been deleted successfully.');
+        }
+        return redirect()->back()->with('error', 'Unable to delete account. Please try again.');
+    }
     
 }

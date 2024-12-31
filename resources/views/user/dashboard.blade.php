@@ -50,8 +50,4 @@
         <div class="spacer py-5"></div>
         <div class="spacer py-5"></div>
     </x-website.footer.footer-section>
-
-  
-
-
 </x-website-layout>

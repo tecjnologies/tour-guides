@@ -49,7 +49,7 @@
                                             <img src="{{ asset('storage/profile_photo/' . auth()->user()->image) }}" 
                                                 alt="{{ auth()->user()->name }}" 
                                                 class="mx-1 rounded-circle" @if(auth()->user()->image === 'default.png')  @else width="32px" height="32px" @endif>
-                                            <span class="mx-1">{{ auth()->user()->name }}</span>
+                                            <span class="mx-1">{{ auth()->user()->username ?? auth()->user()->name }}</span>
                                         </div>
                                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -60,9 +60,6 @@
                             <x-slot name="content">
                                 <x-dropdown-link :href="route('user.dashboard')">
                                     My Account
-                                </x-dropdown-link>
-                                <x-dropdown-link :href="route('user.pending.booking')">
-                                    Booking and Trips
                                 </x-dropdown-link>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

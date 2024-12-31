@@ -303,6 +303,7 @@ span {
   border: unset !important;
   --tw-ring-shadow: unset !important;
   padding-right: 24px;
+  padding-left: 0px;
   appearance: none;
   background-image: url('../images/icons/select-arrow.svg');
   background-position: right 4px center;
@@ -970,7 +971,7 @@ form input {
   color: var(--color-primary);
 }
 
-._main_menu a {
+._main_menu a:not(:first-child){
   margin: 0 15px;
 }
 

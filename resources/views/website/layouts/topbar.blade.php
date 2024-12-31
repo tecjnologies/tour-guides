@@ -1,4 +1,4 @@
-<div class="flex justify-between items-center auto sm:px-6 _topbar py-3">
+<div class="flex justify-between items-center auto sm:px-5 _topbar py-3 px-5">
     <div>
         <select class="border rounded">
             <option value="option1" class="font-5 display-16 color-blue"> {{ __('website.TOPBAR.CUSTOMER_SERVICE') }}

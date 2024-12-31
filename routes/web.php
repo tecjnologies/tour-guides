@@ -120,6 +120,7 @@ Route::group(['as' => 'user.','prefix' => 'user','middleware' => [ 'auth','verif
     Route::get('profile-info', [UserDashboardController::class, 'showProfile'])->name('profile.show');
     Route::get('profile-info/edit/{id}', [UserDashboardController::class, 'editProfile'])->name('profile.edit');
     Route::post('profile-info/update', [UserDashboardController::class, 'updateProfile'])->name('profile.update');
+    Route::delete('profile/delete', [UserDashboardController::class, 'deleteAccount'])->name('profile.delete');
     Route::get('booking-request/list', [UserBookingController::class, 'pendingBookingList'])->name('pending.booking');
     Route::post('booking-request/cancel/{id}', [UserBookingController::class, 'canceLBookingRequest'])->name('booking.cancel');
 });
